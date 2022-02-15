@@ -5,6 +5,7 @@ from cliche import cli, main, Choice
 #     BLUE = 1
 #     RED = 2
 
+
 @cli
 def choices(color: Choice("red", "blue") = "red"):
     print(color)

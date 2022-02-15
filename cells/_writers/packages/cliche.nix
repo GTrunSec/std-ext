@@ -12,13 +12,17 @@ pythonPackages.buildPythonPackage rec {
     fetchSubmodules = false;
     sha256 = "sha256-lr4M/dDM97M6mNpciJC8EVYAavf4Asbzoic/jgSt29c=";
   };
-  patches = [ ./cache_dir.patch ];
-  doCheck = false;
+
+  checkInputs = with pythonPackages; [ pytestCheckHook ];
+
+  patches = [ ./nix-cliche.patch ];
+
+  doCheck = true;
+
   propagatedBuildInputs = with pythonPackages; [ ipdb argcomplete ];
 
   meta =
-    with lib;
-    {
+    with lib; {
       description = "Build a simple command-line interface from your functions 💻";
       homepage = "https://github.com/kootenpv/cliche";
       license = licenses.mit;

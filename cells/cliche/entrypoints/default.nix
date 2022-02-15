@@ -9,8 +9,8 @@ let
 in
 {
   exmaple = writeClicheApplication {
-    name = "exmaple-cliche";
+    name = "exmaple";
     dir = ./example;
-    runtimeInputs = [  ];
+    runtimeInputs = [ ];
   };
 }
