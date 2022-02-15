@@ -248,12 +248,12 @@
         "zeek2nix": "zeek2nix_4"
       },
       "locked": {
-        "narHash": "sha256-y+WIBQAKUXSGUkpUkzf7b2KIfW6Vt+hjJI7JMM9bLro=",
-        "path": "/nix/store/xrairhvfsj7r0h21fyk98hmkq02m58kh-source",
+        "narHash": "sha256-SzQ+OTylekAXwe6npNK4gblXsDtr68i4LCn3s4hBH40=",
+        "path": "/nix/store/9g9v2mf3xqm7idsrcqn6b03aax1sqwrq-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/xrairhvfsj7r0h21fyk98hmkq02m58kh-source",
+        "path": "/nix/store/9g9v2mf3xqm7idsrcqn6b03aax1sqwrq-source",
         "type": "path"
       }
     },
