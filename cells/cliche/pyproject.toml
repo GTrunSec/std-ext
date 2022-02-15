@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "writer-cliche"
+version = "0.1.0"
+description = ""
+authors = ["GTrunSec <gtrunsec@hardenedlinux.org>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+cliche = {git = "https://github.com/kootenpv/cliche"}
+argcomplete = "^2.0.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
