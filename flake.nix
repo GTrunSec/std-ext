@@ -1,6 +1,8 @@
 {
   inputs.std.url = "github:divnix/std";
-  inputs.vast.url = "github:gtrunsec/vast/module-client";
+  inputs.threatbus2nix.url = "github:gtrunsec/threatbus2nix";
+  inputs.vast2nix.url = "github:gtrunsec/vast2nix";
+  inputs.zeek2nix.url = "github:hardenedlinux/zeek2nix";
   outputs = inputs:
       inputs.std.grow {
         inherit inputs;

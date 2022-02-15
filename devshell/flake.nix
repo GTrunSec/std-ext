@@ -15,8 +15,8 @@
       in
         {
           devShells.__default = devshell.mkShell {
-            name = "Vast Cells";
-            imports = [ stdProfiles.std cellsProfiles.vast ];
+            name = "DevSecOps Cells";
+            imports = [ stdProfiles.std cellsProfiles.tenzir  cellsProfiles.zeek];
             commands = [ ];
             packages = [
               nixpkgs.shfmt
