@@ -17,12 +17,10 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
             system-features = nixos-test benchmark big-parallel kvm recursive-nix
-            extra-substituters = https://zeek.cachix.org
-            extra-trusted-public-keys = zeek.cachix.org-1:Jv0hB/P5eF7RQUZgSQiVqzqzgweP29YIwpSiukGlDWQ=
 
       - uses: cachix/cachix-action@v10
         with:
-          name: gtrunsec
+          name: zeek
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Run Flake Show
@@ -31,5 +29,5 @@ jobs:
       - name: Check Cliche Example
         run: nix develop ./devshell\#__default -c example --help
 
-      - name: Check DevSehll Menu
+      - name: Check DevShell Menu
         run: nix develop ./devshell\#__default -c menu
