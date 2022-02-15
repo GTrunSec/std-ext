@@ -16,12 +16,16 @@ let
     , libraries ? [ ]
     , checkPhase ? null
     }:
-    cliche.overridePythonAttrs (oldAttrs: {
+    cliche.overridePythonAttrs (oldAttrs: let
+      python =  inputs.nixpkgs.python3.withPackages ( ps: [
+        cliche
+        ]);
+      in{
       pname = "cliche-" + name;
       propagatedBuildInputs = oldAttrs.propagatedBuildInputs ++ [  ];
       postFixup = ''
       $out/bin/cliche install --module_dir ${dir} ${name}
-      sed -i 's|#! /nix/store/.*.|#!/home/gtrun/ghq/github.com/GTrunSec/DevSecOps-cells/cells/cliche/.venv/bin/python|' $out/bin/${name}
+      sed -i 's|#! /nix/store/.*.|#! ${python}/bin/python|' $out/bin/${name}
       '';
     });
 in
