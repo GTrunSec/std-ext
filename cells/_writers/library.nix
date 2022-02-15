@@ -17,13 +17,11 @@ let
     , checkPhase ? null
     }:
     cliche.overridePythonAttrs (oldAttrs: {
-      pname = "cliche" + name;
+      pname = "cliche-" + name;
       propagatedBuildInputs = oldAttrs.propagatedBuildInputs ++ [  ];
       postFixup = ''
       $out/bin/cliche install --module_dir ${dir} ${name}
       sed -i 's|#! /nix/store/.*.|#!/home/gtrun/ghq/github.com/GTrunSec/DevSecOps-cells/cells/cliche/.venv/bin/python|' $out/bin/${name}
-      # the cache file will be in $HOME/.cache/cliche
-      sed -i 's|/nix/store/.*./bin/exmaple-cliche.json|/.cache/cliche/${name}.json|' $out/bin/${name}
       '';
     });
 in
