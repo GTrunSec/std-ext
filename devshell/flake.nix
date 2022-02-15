@@ -21,7 +21,7 @@
               cellsProfiles.zeek
               cellsProfiles.tenzir
               cellsProfiles.cliche
-             ];
+            ];
             commands = [ ];
             packages = [
               nixpkgs.shfmt

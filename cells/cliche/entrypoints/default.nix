@@ -8,8 +8,8 @@ let
   writeClicheApplication = library._writers-writeClicheApplication;
 in
 {
-  exmaple = writeClicheApplication {
-    name = "exmaple";
+  example = writeClicheApplication {
+    name = "example";
     dir = ./example;
     runtimeInputs = [ ];
   };
