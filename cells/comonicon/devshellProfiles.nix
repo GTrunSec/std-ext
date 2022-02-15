@@ -16,7 +16,8 @@ in
       {
         name = "mycmd";
         command = ''
-        julia -e "import Pkg; Pkg.activate(\"$CELL_ROOT/comonicon\"); Pkg.instantiate()" -L mycmd.jl -- $@
+        cd $CELL_ROOT/comonicon
+        julia -e "import Pkg; Pkg.activate(\".\"); Pkg.instantiate()" -L mycmd.jl -- $@
         '';
         category = "julia";
       }
