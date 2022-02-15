@@ -1,0 +1,21 @@
+#+TITLE: README
+
+*WIP* the writers feature pending.
+
++ Installables:
+  - Packages (packages)
+
++ Runnables:
+  + Entrypoints (entrypoints)
+
+
+* TODO Replacing the script _writer to a standard writer
+
+1. https://github.com/kootenpv/cliche [python]
+2. https://comonicon.org/stable/ [julia]
+you can also see the [[https://github.com/divnix/std/issues/27#issuecomment-1038837756][issue of std]] to getting information.
+* TODO Improving the parallel tests Capability
+
+inspired by [[https://www.youtube.com/watch?v=TtgPIFfLRLM][SuriCon: Improving Python Tools for Suricata: My Outreachy Internship]]
+
+I will implement this feature by [[https://comonicon.org/stable][comonicon]] in julia script.

@@ -248,12 +248,12 @@
         "zeek2nix": "zeek2nix_4"
       },
       "locked": {
-        "narHash": "sha256-XqTazvew5RQY6GXCfdIJKdPNthAWhj3GkPgAK5a3Pok=",
-        "path": "/nix/store/p2mkwy0pxiiyy98fcz9yhg3f50dznifc-source",
+        "narHash": "sha256-GwQsigqKHM7O9mh5w83dSjvpmdu032YC9EtAa1l3noc=",
+        "path": "/nix/store/gr5f84410gn59av0n94lyv42s15pgw5y-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/p2mkwy0pxiiyy98fcz9yhg3f50dznifc-source",
+        "path": "/nix/store/gr5f84410gn59av0n94lyv42s15pgw5y-source",
         "type": "path"
       }
     },
@@ -3876,11 +3876,11 @@
         "utils": "utils_20"
       },
       "locked": {
-        "lastModified": 1644885069,
-        "narHash": "sha256-2PIENWAW4ywYll0owwOlUtYs1haqIiXqgxj67rnr+Rk=",
+        "lastModified": 1644887136,
+        "narHash": "sha256-8Z0aZPC1e6rjF5jEkZT4Kmg48CxFjFqmfMRUt2g82fE=",
         "owner": "hardenedlinux",
         "repo": "nixpkgs-hardenedlinux",
-        "rev": "ea42ca0ef0da975cf87790b423bbbf726c32764c",
+        "rev": "ec276a2c06a4558dfd3e2f485f099e3bb3ec87e3",
         "type": "github"
       },
       "original": {
@@ -7248,11 +7248,11 @@
         "spicy2nix": "spicy2nix_4"
       },
       "locked": {
-        "lastModified": 1644885430,
-        "narHash": "sha256-DAUTaBl4gpEnfn4bwM5iswRdt7ZPkx87MvtfesC9YGw=",
+        "lastModified": 1644887227,
+        "narHash": "sha256-/r64kdrHjLvpE6Jeo3WZ73P4gZDTM68CtjRF3fZHh6I=",
         "owner": "hardenedlinux",
         "repo": "zeek2nix",
-        "rev": "130070fb0650df35c8e3ac587461b87253f3adbe",
+        "rev": "a407237d6d9aca433403c54e82bd07f1db1e63c7",
         "type": "github"
       },
       "original": {

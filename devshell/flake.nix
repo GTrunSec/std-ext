@@ -16,7 +16,7 @@
         {
           devShells.__default = devshell.mkShell {
             name = "DevSecOps Cells";
-            imports = [ stdProfiles.std cellsProfiles.tenzir  cellsProfiles.zeek];
+            imports = [ stdProfiles.std cellsProfiles.tenzir cellsProfiles.zeek ];
             commands = [ ];
             packages = [
               nixpkgs.shfmt
