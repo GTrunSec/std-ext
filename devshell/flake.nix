@@ -21,6 +21,7 @@
               cellsProfiles.zeek
               cellsProfiles.tenzir
               cellsProfiles.cliche
+              cellsProfiles.comonicon
             ];
             commands = [ ];
             packages = [
