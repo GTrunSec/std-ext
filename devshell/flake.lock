@@ -248,12 +248,12 @@
         "zeek2nix": "zeek2nix_4"
       },
       "locked": {
-        "narHash": "sha256-6bZMOEZyfRBXU9jkpw2o3Zpx6GHTKkPLgS0F6PythqI=",
-        "path": "/nix/store/6cj3l4kk86yk0g3gh3mw8ldj8ssr19na-source",
+        "narHash": "sha256-y+WIBQAKUXSGUkpUkzf7b2KIfW6Vt+hjJI7JMM9bLro=",
+        "path": "/nix/store/xrairhvfsj7r0h21fyk98hmkq02m58kh-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/6cj3l4kk86yk0g3gh3mw8ldj8ssr19na-source",
+        "path": "/nix/store/xrairhvfsj7r0h21fyk98hmkq02m58kh-source",
         "type": "path"
       }
     },
@@ -6593,11 +6593,11 @@
         "yants": "yants"
       },
       "locked": {
-        "lastModified": 1644548970,
-        "narHash": "sha256-s6OI8oD4qlhzMBHrGd1CiFknUprFlzCw1aaahrGLods=",
+        "lastModified": 1644888412,
+        "narHash": "sha256-6xAHdNqaq0TaZRPuMQj3Z/BF2CwqkvZY9pcIWGo8cbQ=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "b0828fd7939c49b1cd084b1689c890e6c3736dce",
+        "rev": "3671a9061bfff9087c748544cea46885c7491e29",
         "type": "github"
       },
       "original": {

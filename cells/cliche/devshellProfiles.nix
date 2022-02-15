@@ -9,7 +9,7 @@ in
   "" = _: {
     commands = [
       {
-        package = packages.cliche-exmaple;
+        package = packages.cliche-example;
         category = "cliche";
       }
     ];
