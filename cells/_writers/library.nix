@@ -1,5 +1,6 @@
-{ inputs
-, system
+{
+  inputs,
+  system,
 }:
 let
   nixpkgs = inputs.nixpkgs;
@@ -7,12 +8,13 @@ let
   runtimeShell = inputs.nixpkgs.runtimeShell;
   cliche = inputs.nixpkgs.python3Packages.callPackage ./packages/cliche.nix { };
   writeClicheApplication =
-    { name
-    , dir
-    , env ? { }
-    , runtimeInputs ? [ ]
-    , libraries ? [ ]
-    , checkPhase ? null
+    {
+      name,
+      dir,
+      env ? { },
+      runtimeInputs ? [ ],
+      libraries ? [ ],
+      checkPhase ? null,
     }:
       cliche.overridePythonAttrs (
         oldAttrs: let

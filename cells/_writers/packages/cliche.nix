@@ -1,6 +1,7 @@
-{ lib
-, pythonPackages
-, fetchFromGitHub
+{
+  lib,
+  pythonPackages,
+  fetchFromGitHub,
 }:
 pythonPackages.buildPythonPackage rec {
   pname = "cliche";

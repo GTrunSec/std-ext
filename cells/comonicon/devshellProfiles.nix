@@ -1,5 +1,6 @@
-{ inputs
-, system
+{
+  inputs,
+  system,
 }:
 let
   nixpkgs = inputs.nixpkgs;
@@ -16,8 +17,8 @@ in
       {
         name = "mycmd";
         command = ''
-        cd $CELL_ROOT/comonicon
-        julia -e "import Pkg; Pkg.activate(\".\"); Pkg.instantiate()" -L mycmd.jl -- $@
+          cd $CELL_ROOT/comonicon
+          julia -e "import Pkg; Pkg.activate(\".\"); Pkg.instantiate()" -L mycmd.jl -- $@
         '';
         category = "julia";
       }

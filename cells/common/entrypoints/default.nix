@@ -1,5 +1,6 @@
-{ inputs
-, system
+{
+  inputs,
+  system,
 }:
 let
   packages = inputs.self.packages.${system.build.system};
