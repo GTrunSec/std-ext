@@ -5,7 +5,7 @@
   inputs.vast2nix.url = "github:gtrunsec/vast2nix";
   inputs.zeek2nix.url = "github:hardenedlinux/zeek2nix";
   inputs.nvfetcher.url = "github:berberman/nvfetcher";
-  inputs.nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux/cells";
+  inputs.nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
   outputs = inputs:
     inputs.std.grow {
       inherit inputs;

@@ -33,6 +33,12 @@ in
           nixpkgs.lib.fileContents ./nix-github-update.bash;
         help = "Update nix version on <github-CI>";
       }
+      {
+        name = "run-nvfetcher";
+        category = "Update";
+        command = "nvfetcher-update ./nix/sources.toml";
+        help = "run nvfetcher with local repo's sources.toml";
+      }
     ];
   };
 }
