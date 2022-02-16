@@ -1,5 +1,6 @@
 {
   inputs.std.url = "github:divnix/std";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   inputs.threatbus2nix.url = "github:gtrunsec/threatbus2nix";
   inputs.vast2nix.url = "github:gtrunsec/vast2nix";
   inputs.zeek2nix.url = "github:hardenedlinux/zeek2nix";
