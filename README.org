@@ -19,3 +19,17 @@ you can also see the [[https://github.com/divnix/std/issues/27#issuecomment-1038
 inspired by [[https://www.youtube.com/watch?v=TtgPIFfLRLM][SuriCon: Improving Python Tools for Suricata: My Outreachy Internship]]
 
 I will implement this feature by [[https://comonicon.org/stable][comonicon]] in julia script.
+
+
+* CheckList
+** writers
+
+- [X] [writeClicheApplication]
+- [ ] [writeComoniconApplication]
+
+** Templates
+- [ ] [nickelTemplate]
+
+** builders
+
+- [ ] [dreamBuilder]

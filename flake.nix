@@ -6,6 +6,11 @@
   inputs.zeek2nix.url = "github:hardenedlinux/zeek2nix";
   inputs.nvfetcher.url = "github:berberman/nvfetcher";
   inputs.nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
+  inputs.dream2nix.url = "github:nix-community/dream2nix";
+
+  inputs.nickel.url = "github:tweag/nickel";
+  inputs.nickel.inputs.nixpkgs.follows = "nixpkgs";
+
   outputs = inputs:
     inputs.std.grow {
       inherit inputs;
