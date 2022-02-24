@@ -35,6 +35,9 @@ jobs:
       - name: Check nickel template of the threatbus
         run: nix develop ./devshell\#__default -c std run //nickel//entrypoints:threatbus-nomad-nix
 
+      - name: Check nickel template of the glamour
+        run: nix develop ./devshell\#__default -c std run //glamour//entrypoints:test
+
       - name: Check DevShell Menu
         run: nix develop ./devshell\#__default -c menu
 

@@ -2,10 +2,12 @@
   inputs,
   system,
 }: let
-  nixpkgs = inputs.nixpkgs;
+  nixpkgs = inputs.nixpkgs.appendOverlays [
+    inputs.nixpkgs-hardenedlinux.inputs.gomod2nix.overlay
+  ];
   lib = inputs.nixpkgs.lib;
   runtimeShell = inputs.nixpkgs.runtimeShell;
-  cliche = inputs.nixpkgs.python3Packages.callPackage ./packages/cliche.nix {};
+  cliche = inputs.nixpkgs.python3Packages.callPackage ./_packages/cliche {};
   stdenv = inputs.nixpkgs.stdenv;
   writeTextFile = inputs.nixpkgs.writeTextFile;
   shellcheck = inputs.nixpkgs.shellcheck;
