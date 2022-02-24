@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/charmbracelet/glamour"
+	"
+github.com/charmbracelet/glamour"
 )
 
 func main() {

@@ -24,15 +24,8 @@
       main = nixpkgs.writeText "main.go" (import ./_packages/glamour-custom/main.nix {inherit context;});
     in {
       preConfigure = ''
-       cp ${main} main.go
+        cp ${main} main.go
       '';
-      # installPhase = ''
-      #   runHook preInstall
-      #   mkdir -p $out/bin
-      #   mv main $out/bin/glamour-custom
-      #   cp ${main} $out/bin/
-      #   runHook postInstall
-      # '';
     });
   nickelTemplate = {
     name,
