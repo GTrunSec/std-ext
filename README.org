@@ -34,6 +34,10 @@ I will implement this feature by [[https://comonicon.org/stable][comonicon]] in 
   + [X] [raw_exec]
   + [X] [exec]
   + [ ] [docker]
++ [X] [glamour]
+  + [X] comments
+  + [TODO] CLI
+
 
 
 

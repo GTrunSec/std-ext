@@ -1,14 +1,10 @@
-let default_ = import "nomad/default.ncl" in
+let default_ = import "default.ncl" in
+let resources = import "resources.ncl" in
 {
   job."threatbus" = {
     group."nixpkgs" = {
       task."threatbus" = {
         driver = "nix",
-
-        resources = {
-          memory = 1000,
-          cpu = 3000,
-        },
 
         config = {
           packages = [
@@ -18,7 +14,7 @@ let default_ = import "nomad/default.ncl" in
         ],
           command = ["/bin/threatbus", "-c", "/config.example.yaml"],
         },
-      },
+      } & resources,
     },
   } & default_
 }

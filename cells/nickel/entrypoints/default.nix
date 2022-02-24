@@ -10,6 +10,6 @@ in {
   threatbus-nomad-nix = nickelTemplate {
     name = "threatbus";
     format = "json";
-    file = ./tenzir/threatbus-nomad-nix.ncl;
+    file = ./tenzir/nomad/threatbus-nomad-nix.ncl;
   };
 }
