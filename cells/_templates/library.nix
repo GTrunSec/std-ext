@@ -13,17 +13,17 @@
     format ? "json",
     args ? [],
     file,
+    target ? "nomad",
   }:
     writeShellApplication {
       inherit name;
       runtimeInputs = [nickel];
       text = let
-        checkFile = suffix: lib.hasSuffix suffix (builtins.baseNameOf file);
         command = "nickel -f ${builtins.toPath file} export --format ${format}";
       in ''
         ${command}
         ${
-          lib.optionalString (checkFile "ncl") ''
+          lib.optionalString (target == "nomad") ''
             ${command}| ${nixpkgs.nomad}/bin/nomad job validate -
           ''
         }
