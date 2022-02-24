@@ -1,12 +1,10 @@
 {
   inputs,
   system,
-}:
-let
+}: let
   nixpkgs = inputs.nixpkgs;
   packages = inputs.self.packages.${system.host.system};
-in
-{
+in {
   "" = _: {
     commands = [
       {

@@ -14,19 +14,18 @@ pythonPackages.buildPythonPackage rec {
     sha256 = "sha256-lr4M/dDM97M6mNpciJC8EVYAavf4Asbzoic/jgSt29c=";
   };
 
-  checkInputs = with pythonPackages; [ pytestCheckHook ];
+  checkInputs = with pythonPackages; [pytestCheckHook];
 
-  patches = [ ./nix-cliche.patch ];
+  patches = [./nix-cliche.patch];
 
   doCheck = true;
 
-  propagatedBuildInputs = with pythonPackages; [ ipdb argcomplete ];
+  propagatedBuildInputs = with pythonPackages; [ipdb argcomplete];
 
-  meta =
-    with lib; {
-      description = "Build a simple command-line interface from your functions 💻";
-      homepage = "https://github.com/kootenpv/cliche";
-      license = licenses.mit;
-      platforms = platforms.all;
-    };
+  meta = with lib; {
+    description = "Build a simple command-line interface from your functions 💻";
+    homepage = "https://github.com/kootenpv/cliche";
+    license = licenses.mit;
+    platforms = platforms.all;
+  };
 }

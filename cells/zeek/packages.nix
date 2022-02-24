@@ -1,12 +1,10 @@
 {
   inputs,
   system,
-}:
-let
+}: let
   nixpkgs = inputs.nixpkgs;
   zeek2nix = inputs.zeek2nix.packages.${system.host.system};
-in
-{
+in {
   zeek-release = zeek2nix.zeek-release;
   btest = zeek2nix.btest;
 }

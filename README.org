@@ -21,14 +21,21 @@ inspired by [[https://www.youtube.com/watch?v=TtgPIFfLRLM][SuriCon: Improving Py
 I will implement this feature by [[https://comonicon.org/stable][comonicon]] in julia script.
 
 
-* CheckList
-** writers
+* CheckList [0/2]
+** DOING writers
 
 - [X] [writeClicheApplication]
 - [ ] [writeComoniconApplication]
 
-** Templates
-- [ ] [nickelTemplate]
+** DOING Templates
++ [-] [nickelTemplate]
+  + [ ] [podman]
+  + [X] [nix]
+  + [X] [raw_exec]
+  + [X] [exec]
+  + [ ] [docker]
+
+
 
 ** builders
 

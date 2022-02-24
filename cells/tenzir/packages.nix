@@ -1,13 +1,11 @@
 {
   inputs,
   system,
-}:
-let
+}: let
   nixpkgs = inputs.nixpkgs;
   vast = inputs.vast2nix.packages.${system.host.system};
   threatbus2nix = inputs.threatbus2nix.packages.${system.host.system};
-in
-{
+in {
   vast-release = vast.vast-release;
   threatbus = threatbus2nix.threatbus;
 }

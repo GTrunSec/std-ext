@@ -1,15 +1,13 @@
 {
   inputs,
   system,
-}:
-let
+}: let
   nixpkgs = inputs.nixpkgs.appendOverlays [
     inputs.nixpkgs-hardenedlinux.overlays."nixpkgs/nixpkgs-hardenedlinux-sources"
   ];
   packages = inputs.self.packages.${system.host.system};
   nvfetcher = inputs.nvfetcher.defaultPackage.${system.host.system};
-in
-{
+in {
   "" = _: {
     devshell.startup.variables-setuphook = nixpkgs.lib.stringsWithDeps.noDepEntry ''
     '';
@@ -29,8 +27,7 @@ in
         category = "Update";
         command =
           "export nixVersion=${toString nixpkgs.nixpkgs-hardenedlinux-sources.nix-unstable-installer.src.urls} \n"
-          +
-          nixpkgs.lib.fileContents ./nix-github-update.bash;
+          + nixpkgs.lib.fileContents ./nix-github-update.bash;
         help = "Update nix version on <github-CI>";
       }
       {
