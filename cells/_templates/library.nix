@@ -10,12 +10,10 @@
     (nixpkgs)
     lib
     ;
-
   inherit
-    (inputs.nickel.packages)
-    nickel
+    (inputs)
+    packages
     ;
-
   inherit (inputs.cells._writers.library) writeShellApplication;
 
   glamour-coustom = nixpkgs.callPackage ./_packages/glamour-custom {};
@@ -42,7 +40,7 @@
   }:
     writeShellApplication {
       inherit name;
-      runtimeInputs = [nickel];
+      runtimeInputs = [packages.nickel-nickel];
       text = let
         command = "nickel -f ${builtins.toPath file} export --format ${format}";
       in ''
