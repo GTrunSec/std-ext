@@ -1,4 +1,4 @@
-{buildGoApplication,}:
+{buildGoApplication}:
 buildGoApplication rec {
   name = "glamour-custom";
   src = ./.;

@@ -1,27 +1,32 @@
 {
   description = "Vast Cells development shell";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-  inputs.devshell.url = "github:numtide/devshell?ref=refs/pull/169/head";
+  inputs.devshell.url = "github:numtide/devshell";
   inputs.std.url = "github:divnix/std";
   inputs.flake-utils.url = "github:numtide/flake-utils";
-  inputs.cells.url = "../.";
+  inputs.main.url = "../.";
   outputs = inputs:
     inputs.flake-utils.lib.eachSystem ["x86_64-linux" "x86_64-darwin"] (
       system: let
-        cellsProfiles = inputs.cells.devshellProfiles.${system};
-        stdProfiles = inputs.std.devshellProfiles.${system};
-        devshell = inputs.devshell.legacyPackages.${system};
+        inherit
+          (inputs.main.inputs.std.deSystemize system inputs)
+          main
+          devshell
+          ;
         nixpkgs = inputs.nixpkgs.legacyPackages.${system};
+        profiles = inputs.main.${system};
+        inherit (main.inputs.std.deSystemize system main.inputs) std;
       in {
-        devShells.__default = devshell.mkShell {
+        inherit std;
+        devShells.default = devshell.legacyPackages.mkShell {
           name = "DevSecOps Cells";
           imports = [
-            stdProfiles.std
-            cellsProfiles.zeek
-            cellsProfiles.tenzir
-            cellsProfiles.cliche
-            cellsProfiles.nickel
-            cellsProfiles.comonicon
+            std.std.devshellProfiles.default
+            main.tenzir.devshellProfiles.default
+            main.zeek.devshellProfiles.default
+            main.cliche.devshellProfiles.default
+            main.nickel.devshellProfiles.default
+            main.comonicon.devshellProfiles.default
           ];
           commands = [];
           packages = [

@@ -1,18 +1,18 @@
 {
   inputs,
-  system,
+  cell,
 }: let
-  nixpkgs = inputs.nixpkgs;
-  packages = inputs.self.packages.${system.host.system};
+  inherit (cell) packages;
+  inherit (inputs) nixpkgs;
 in {
-  "" = _: {
+  default = _: {
     commands = [
       {
-        package = packages.tenzir-threatbus;
+        package = packages.threatbus;
         category = "tenzir";
       }
       {
-        package = packages.tenzir-vast-release;
+        package = packages.vast-release;
         category = "tenzir";
       }
     ];

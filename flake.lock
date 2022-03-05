@@ -2590,6 +2590,26 @@
         "type": "indirect"
       }
     },
+    "makes": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1645832410,
+        "narHash": "sha256-p6Tg1s9FPuGLddkh7awX7yZ8GRNT5JpxsaVt+dHrZO4=",
+        "owner": "fluidattacks",
+        "repo": "makes",
+        "rev": "33d4da5878fe18fe8fdd85b5c457c060341c97be",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fluidattacks",
+        "repo": "makes",
+        "type": "github"
+      }
+    },
     "microvm": {
       "inputs": {
         "flake-utils": "flake-utils_52",
@@ -2619,11 +2639,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1645126426,
-        "narHash": "sha256-RfQZZvNjNVc+VwAZybxDrCX9HRmnS3xArlJZ7qlSGbI=",
+        "lastModified": 1646245858,
+        "narHash": "sha256-1AF3vHDo20cQFYzxYxj2NE1/j4bPjFpY+iH0NG3kowE=",
         "owner": "tweag",
         "repo": "nickel",
-        "rev": "b1d7fda335c483621a0f6ae2a099a5735e554fe9",
+        "rev": "19e71d50423b84ed2a53008ef1b978c86f20eca4",
         "type": "github"
       },
       "original": {
@@ -4225,11 +4245,11 @@
     },
     "nixpkgs_8": {
       "locked": {
-        "lastModified": 1645527175,
-        "narHash": "sha256-WeewqaO48sCctiN+iwgZZEJRU29Si7vHHoLCINAvuk8=",
+        "lastModified": 1646331602,
+        "narHash": "sha256-cRuytTfel52z947yKfJcZU7zbQBgM16qqTf+oJkVwtg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "38346f64616c3176f73ad0f20e51557ec0f3d75d",
+        "rev": "ad267cc9cf3d5a6ae63940df31eb31382d6356e6",
         "type": "github"
       },
       "original": {
@@ -4337,11 +4357,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1639823344,
-        "narHash": "sha256-jlsQb2y6A5dB1R0wVPLOfDGM0wLyfYqEJNzMtXuzCXw=",
+        "lastModified": 1645781104,
+        "narHash": "sha256-d5iDimTPC4r1hKFHAguCnkY9gPbieAIkApLUuYA+Xb4=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "ff9c0b459ddc4b79c06e19d44251daa8e9cd1746",
+        "rev": "6799201bec19b753a4ac305a53d34371e497941e",
         "type": "github"
       },
       "original": {
@@ -4560,6 +4580,7 @@
     "root": {
       "inputs": {
         "dream2nix": "dream2nix",
+        "makes": "makes",
         "nickel": "nickel",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux",
@@ -4582,11 +4603,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1644633594,
-        "narHash": "sha256-Te6mBYYirUwsoqENvVx1K1EEoRq2CKrTnNkWF42jNgE=",
+        "lastModified": 1645841894,
+        "narHash": "sha256-xNeqVlZEmg/QlhQLY5SfVa73x6IUfET+tHCJP3w067U=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "14c48021a9a5fe6ea8ae6b21c15caa106afa9d19",
+        "rev": "7f273929e83a196f96a0dbee9ea565952e340bd6",
         "type": "github"
       },
       "original": {
@@ -4682,15 +4703,16 @@
         "yants": "yants"
       },
       "locked": {
-        "lastModified": 1645658067,
-        "narHash": "sha256-LX0aQrTJnuTPy/rSmi5IqBkgvXT5z9AYFm7yb60UBBQ=",
-        "owner": "divnix",
+        "lastModified": 1646450585,
+        "narHash": "sha256-lcAEYvqp+gCNy94uKj0WMSbNzcyirACDDzc9eiYFzjI=",
+        "owner": "gtrunsec",
         "repo": "std",
-        "rev": "2b8b29387a223318a60ae2b74f0afb9a4c8603d3",
+        "rev": "d9cc190d70b11110c332ad6c60eae9267792e750",
         "type": "github"
       },
       "original": {
-        "owner": "divnix",
+        "owner": "gtrunsec",
+        "ref": "self.packages",
         "repo": "std",
         "type": "github"
       }

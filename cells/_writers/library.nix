@@ -1,17 +1,21 @@
 {
   inputs,
-  system,
+  cell,
 }: let
   nixpkgs = inputs.nixpkgs.appendOverlays [
     inputs.nixpkgs-hardenedlinux.inputs.gomod2nix.overlay
   ];
-  lib = inputs.nixpkgs.lib;
-  runtimeShell = inputs.nixpkgs.runtimeShell;
-  cliche = inputs.nixpkgs.python3Packages.callPackage ./_packages/cliche {};
-  stdenv = inputs.nixpkgs.stdenv;
-  writeTextFile = inputs.nixpkgs.writeTextFile;
-  shellcheck = inputs.nixpkgs.shellcheck;
-  glibcLocales = inputs.nixpkgs.glibcLocales;
+  inherit
+    (nixpkgs)
+    lib
+    stdenv
+    writeTextFile
+    runtimeShell
+    shellcheck
+    glibcLocales
+    python3Packages
+    ;
+  cliche = python3Packages.callPackage ./_packages/cliche {};
 
   writeClicheApplication = {
     name,
@@ -40,17 +44,16 @@
         '';
         checkPhase =
           if checkPhase == null
-          then
-            ''
-              runHook preCheck
-              for path in $(find "${dir}" -name '*.py')
-              do
-                 ${nixpkgs.python3Packages.black}/bin/black --check $path
-              done
-              export HOME=$(mktemp -d)
-              $out/bin/${name} --help
-              runHook postCheck
-            ''
+          then ''
+            runHook preCheck
+            for path in $(find "${dir}" -name '*.py')
+            do
+               ${nixpkgs.python3Packages.black}/bin/black --check $path
+            done
+            export HOME=$(mktemp -d)
+            $out/bin/${name} --help
+            runHook postCheck
+          ''
           else checkPhase;
 
         meta.mainProgram = name;
@@ -84,13 +87,12 @@
       '';
       checkPhase =
         if checkPhase == null
-        then
-          ''
-            runHook preCheck
-            ${stdenv.shell} -n $out/bin/${name}
-            ${shellcheck}/bin/shellcheck $out/bin/${name}
-            runHook postCheck
-          ''
+        then ''
+          runHook preCheck
+          ${stdenv.shell} -n $out/bin/${name}
+          ${shellcheck}/bin/shellcheck $out/bin/${name}
+          runHook postCheck
+        ''
         else checkPhase;
       meta.mainProgram = name;
     };

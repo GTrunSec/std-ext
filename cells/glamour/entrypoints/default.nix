@@ -1,12 +1,12 @@
 {
   inputs,
-  system,
+  cell,
 }: let
-  packages = inputs.self.packages.${system.build.system};
-  library = inputs.self.library.${system.build.system};
-  nixpkgs = inputs.nixpkgs;
-  glamourTemplate = library._templates-glamourTemplate;
-  writeShellApplication = library._writers-writeShellApplication;
+  inherit (cell) packages library;
+  inherit (inputs) nixpkgs;
+  inherit (inputs.cells._writers.library) writeShellApplication;
+  inherit (inputs.cells._templates.library) glamourTemplate;
+
   test = glamourTemplate {
     hello = ''
       # Hello World

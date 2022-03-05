@@ -1,16 +1,17 @@
 {
   inputs,
-  system,
+  cell,
 }: let
   nixpkgs = inputs.nixpkgs.appendOverlays [
     inputs.nixpkgs-hardenedlinux.overlays."nixpkgs/nixpkgs-hardenedlinux-sources"
   ];
-  packages = inputs.self.packages.${system.host.system};
-  nvfetcher = inputs.nvfetcher.defaultPackage.${system.host.system};
+  inherit (cell) packages;
+  nvfetcher = inputs.nvfetcher.defaultPackage;
 in {
-  "" = _: {
-    devshell.startup.variables-setuphook = nixpkgs.lib.stringsWithDeps.noDepEntry ''
-    '';
+  default = _: {
+    devshell.startup.variables-setuphook =
+      nixpkgs.lib.stringsWithDeps.noDepEntry ''
+      '';
     commands = [
       {
         package = nvfetcher;

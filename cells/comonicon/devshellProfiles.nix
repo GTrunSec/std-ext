@@ -1,11 +1,11 @@
 {
   inputs,
-  system,
+  cell,
 }: let
   nixpkgs = inputs.nixpkgs;
-  packages = inputs.self.packages.${system.host.system};
+  inherit (cell) packages;
 in {
-  "" = _: {
+  default = _: {
     commands = [
       {
         name = "julia";

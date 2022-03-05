@@ -1,18 +1,18 @@
 {
   inputs,
-  system,
+  cell,
 }: let
-  nixpkgs = inputs.nixpkgs;
-  packages = inputs.self.packages.${system.host.system};
+  inherit (cell) packages devshellProfiles;
+  inherit (inputs) nixpkgs;
 in {
-  "" = _: {
+  default = _: {
     commands = [
       {
-        package = packages.zeek-zeek-release;
+        package = packages.zeek-release;
         category = "zeek";
       }
       {
-        package = packages.zeek-btest;
+        package = packages.btest;
         category = "zeek";
       }
     ];

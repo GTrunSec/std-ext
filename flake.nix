@@ -1,31 +1,34 @@
 {
-  inputs.std.url = "github:divnix/std";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-  inputs.threatbus2nix.url = "github:gtrunsec/threatbus2nix";
-  inputs.vast2nix.url = "github:gtrunsec/vast2nix";
-  inputs.zeek2nix.url = "github:hardenedlinux/zeek2nix";
-  inputs.nvfetcher.url = "github:berberman/nvfetcher";
-  inputs.nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
-  inputs.dream2nix.url = "github:nix-community/dream2nix";
+  inputs = {
+    std.url = "github:gtrunsec/std/self.packages";
 
-  inputs.nickel.url = "github:tweag/nickel";
-  inputs.nickel.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    threatbus2nix.url = "github:gtrunsec/threatbus2nix";
+
+    vast2nix.url = "github:gtrunsec/vast2nix";
+
+    zeek2nix.url = "github:hardenedlinux/zeek2nix";
+
+    nvfetcher.url = "github:berberman/nvfetcher";
+
+    nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
+
+    dream2nix.url = "github:nix-community/dream2nix";
+
+    makes.url = "github:fluidattacks/makes";
+    makes.inputs.nixpkgs.follows = "nixpkgs";
+
+    nickel.url = "github:tweag/nickel";
+    nickel.inputs.nixpkgs.follows = "nixpkgs";
+  };
 
   outputs = inputs:
     inputs.std.grow {
       inherit inputs;
-      # as-nix-cli-epiphyte = false;
+      #as-nix-cli-epiphyte = false;
       cellsFrom = ./cells;
-      systems = [
-        {
-          build = "x86_64-unknown-linux-gnu";
-          host = "x86_64-unknown-linux-gnu";
-        }
-        {
-          build = "x86_64-unknown-linux-gnu";
-          host = "aarch64-unknown-linux-gnu";
-        }
-      ];
+      systems = ["x86_64-linux" "x86_64-darwin"];
       organelles = [
         (inputs.std.installables "packages")
         (inputs.std.runnables "entrypoints")

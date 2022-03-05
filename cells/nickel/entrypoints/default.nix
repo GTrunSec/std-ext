@@ -1,11 +1,10 @@
 {
   inputs,
-  system,
+  cell,
 }: let
-  packages = inputs.self.packages.${system.build.system};
-  library = inputs.self.library.${system.build.system};
-  nixpkgs = inputs.nixpkgs;
-  nickelTemplate = library._templates-nickelTemplate;
+  inherit (cell) packages library;
+  inherit (inputs) nixpkgs;
+  inherit (inputs.cells._templates.library) nickelTemplate;
 in {
   threatbus-nomad-nix = nickelTemplate {
     name = "threatbus";

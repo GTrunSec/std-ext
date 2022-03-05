@@ -1,19 +1,16 @@
 {
   inputs,
-  system,
+  cell,
 }: let
-  nixpkgs = inputs.nixpkgs;
-  nickel = inputs.nickel.defaultPackage.${system.host.system};
+  inherit (cell) packages;
+  inherit (inputs) nixpkgs;
 in {
-  "" = _: {
+  default = _: {
     commands = [
       {
-        package = nickel;
+        package = packages.nickel;
         category = "nickel";
         help = "Better configuration for less";
-      }
-      {
-        package = nixpkgs.nomad;
       }
     ];
   };
