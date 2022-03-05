@@ -27,17 +27,16 @@ jobs:
         run: nix -Lv flake show
 
       - name: Check Cliche Example
-        run: nix develop ./devshell\#__default -c example --help
+        run: nix develop ./devshell\#default -c example --help
 
       - name: Check Comonicon Example
-        run: nix develop ./devshell\#__default -c mycmd --help
+        run: nix develop ./devshell\#default -c mycmd --help
 
       - name: Check nickel template of the threatbus
-        run: nix develop ./devshell\#__default -c std run //nickel//entrypoints:threatbus-nomad-nix
+        run: nix develop ./devshell\#default -c std run //nickel//entrypoints:threatbus-nomad-nix
 
       - name: Check glamour template of the test
-        run: nix develop ./devshell\#__default -c std run //glamour//entrypoints:test
+        run: nix develop ./devshell\#default -c std run //glamour//entrypoints:test
 
       - name: Check DevShell Menu
-        run: nix develop ./devshell\#__default -c menu
-
+        run: nix develop ./devshell\#default -c menu
