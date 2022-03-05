@@ -27,6 +27,7 @@
             main.cliche.devshellProfiles.default
             main.nickel.devshellProfiles.default
             main.comonicon.devshellProfiles.default
+            main.common.devshellProfiles.default
           ];
           commands = [];
           packages = [

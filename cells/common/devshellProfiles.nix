@@ -5,7 +5,6 @@
   nixpkgs = inputs.nixpkgs.appendOverlays [
     inputs.nixpkgs-hardenedlinux.overlays."nixpkgs/nixpkgs-hardenedlinux-sources"
   ];
-  inherit (cell) packages;
   nvfetcher = inputs.nvfetcher.defaultPackage;
 in {
   default = _: {
