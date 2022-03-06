@@ -2,12 +2,12 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs packages;
+  inherit (inputs) nixpkgs self;
 in {
   default = _: {
     commands = [
       {
-        package = packages.cliche-example;
+        package = self.packages.cliche-example;
         category = "cliche";
       }
     ];

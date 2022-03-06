@@ -21,6 +21,9 @@
 
     nickel.url = "github:tweag/nickel";
     nickel.inputs.nixpkgs.follows = "nixpkgs";
+
+    terranix.url = "github:terranix/terranix";
+    terranix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:

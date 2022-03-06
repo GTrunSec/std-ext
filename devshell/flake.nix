@@ -25,7 +25,7 @@
             main.tenzir.devshellProfiles.default
             main.zeek.devshellProfiles.default
             main.cliche.devshellProfiles.default
-            main.nickel.devshellProfiles.default
+            main.templates.devshellProfiles.default
             main.comonicon.devshellProfiles.default
             main.common.devshellProfiles.default
           ];
