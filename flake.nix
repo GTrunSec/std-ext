@@ -24,6 +24,19 @@
 
     terranix.url = "github:terranix/terranix";
     terranix.inputs.nixpkgs.follows = "nixpkgs";
+
+    nomad-driver-nix = {
+      url = "github:input-output-hk/nomad-driver-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nomad = {
+      url = "github:input-output-hk/nomad/release-1.2.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    spongix = {
+      url = "github:input-output-hk/spongix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
