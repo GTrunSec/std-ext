@@ -2739,12 +2739,12 @@
         "zeek2nix": "zeek2nix_4"
       },
       "locked": {
-        "narHash": "sha256-/7ZnVGhgIqqRIpUDlJhoQfzkLUs5Ve+zp8MNrRp7dck=",
-        "path": "/nix/store/84p536pqxvw86isdzvmjf8hxd19lil4v-source",
+        "narHash": "sha256-lHU1FD3U4MOuKsVxdtC6P+FGz/Sgb2OEKKIhoOi/TiE=",
+        "path": "/nix/store/6d23m5qg32apypqbph6m3pcyp3fj526n-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/84p536pqxvw86isdzvmjf8hxd19lil4v-source",
+        "path": "/nix/store/6d23m5qg32apypqbph6m3pcyp3fj526n-source",
         "type": "path"
       }
     },
