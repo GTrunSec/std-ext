@@ -9,7 +9,7 @@ devshell.legacyPackages.mkShell {
   imports = [
     std.std.devshellProfiles.default
 
-    cells.common.devshellProfiles.default
+    cells.update.devshellProfiles.default
 
     cells.makeConfiguration.devshellProfiles.default
     cells.cliche.devshellProfiles.default

@@ -4,8 +4,8 @@
   cells,
 }:
 devshell.legacyPackages.mkShell {
-  name = "Cells: Action Shell";
+  name = "Cells: Update Shell";
   imports = [
-    cells.soc-action.devshellProfiles.default
+    cells.update.devshellProfiles.default
   ];
 }

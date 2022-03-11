@@ -1,8 +1,8 @@
 {
-  description = "DevSecOps Cells development shell";
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+  description = "DevSecOps Cells Development Shells";
   inputs.devshell.url = "github:numtide/devshell";
   inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs.nixpkgs.follows = "cells/nixpkgs";
   inputs.std.follows = "cells/std";
   inputs.cells.url = "../.";
   outputs = inputs:
@@ -16,8 +16,9 @@
           ;
         nixpkgs = inputs.nixpkgs.legacyPackages.${system};
       in {
-        devShells.github-soc-action = import ./github-soc-action.nix {inherit devshell nixpkgs cells;};
         devShells.default = import ./. {inherit devshell nixpkgs cells std;};
+        devShells.github-soc-action = import ./github-soc-action.nix {inherit devshell nixpkgs cells;};
+        devShells.update = import ./update.nix {inherit devshell nixpkgs cells;};
       }
     );
 }
