@@ -3,7 +3,7 @@ nixpkgs: {
   lib ? nixpkgs.lib,
   extraSpecialArgs ? {},
 }: let
-  socCellsModules = import ./modules.nix {
+  devSecOpsModules = import ./modules.nix {
     pkgs = nixpkgs;
     inherit lib;
   };
@@ -13,13 +13,11 @@ nixpkgs: {
       [
         configuration
       ]
-      ++ socCellsModules;
+      ++ devSecOpsModules;
     specialArgs =
       {modulesPath = builtins.toString ./.;}
       // extraSpecialArgs;
   };
 in {
   inherit (module) config;
-
-  shell = module.config.devshell.shell;
 }

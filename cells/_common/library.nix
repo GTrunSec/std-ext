@@ -11,5 +11,7 @@ in {
       configuration = {inherit devshell;};
       extraSpecialArgs = {inherit inputs cell writeShellApplication;};
     })
+    .config
+    .devshell
     .shell;
 }
