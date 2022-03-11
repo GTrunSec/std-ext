@@ -1,6 +1,6 @@
 {
   inputs = {
-    std.url = "github:gtrunsec/std/self.packages";
+    std.url = "github:gtrunsec/std/lab";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
@@ -11,6 +11,7 @@
     zeek2nix.url = "github:hardenedlinux/zeek2nix";
 
     nvfetcher.url = "github:berberman/nvfetcher";
+    nvfetcher.inputs.nixpkgs.follows = "nixpkgs";
 
     nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
 
@@ -36,6 +37,11 @@
     spongix = {
       url = "github:input-output-hk/spongix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix2container = {
+      url = "github:nlewo/nix2container/podman-tests";
+      # inputs.nixpkgs.follows = "nixpkgs"; # skopeo-nix2container override was locked by patch
     };
   };
 

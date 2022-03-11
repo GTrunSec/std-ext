@@ -14,13 +14,18 @@ in {
           nixpkgs.buildEnv
           {
             name = "nomad-plugins";
-            paths = [nomad-driver-nix.defaultPackage];
+            paths = [nomad-driver-nix.defaultPackage nixpkgs.nomad-driver-podman];
           };
       in
         path;
       nomadConfig = "${nixpkgs.writeText "nomad.hcl" (builtins.toJSON {
         log_level = "TRACE";
         plugin.nix_driver = {};
+        plugin.podman = {
+          config = {
+            enabled = true;
+          };
+        };
         client.cni_path = "${nixpkgs.cni-plugins}/bin";
         vault = {
           enabled = true;

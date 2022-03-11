@@ -2,11 +2,10 @@
   inputs,
   cell,
 }: let
-  inherit (cell) packages library;
   inherit (inputs) nixpkgs;
-  inherit (inputs.cells._templates.library) makeTemplate;
+  inherit (inputs.cells._templates.library) makeConfiguration;
 in {
-  threatbus-nomad-nixpkgs-nickel = makeTemplate {
+  threatbus-nomad-nixpkgs-nickel = makeConfiguration {
     name = "nomad-threatbus";
     target = "nomad";
     language = "nickel";
@@ -15,7 +14,7 @@ in {
     path = ./tenzir/nomad;
   };
 
-  threatbus-nomad-nixpkgs-cue = makeTemplate {
+  threatbus-nomad-nixpkgs-cue = makeConfiguration {
     name = "cue-threatbus";
     language = "cue";
     target = "nomad";
@@ -23,7 +22,7 @@ in {
     args = ["jobs.dev"];
     path = ./tenzir/nomad;
   };
-  threatbus-terranix-nixpkgs-terranix = makeTemplate {
+  threatbus-terranix-nixpkgs-terranix = makeConfiguration {
     name = "terranix-threatbus";
     target = "terranix";
     # terranix

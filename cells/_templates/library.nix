@@ -30,7 +30,7 @@
         cp ${main} main.go
       '';
     });
-  makeTemplate = {
+  makeConfiguration = {
     name,
     # enum [ "json" "yaml" "toml" "raw"]
     language ? "nickel",
@@ -55,7 +55,7 @@
     writeShellApplication {
       inherit name;
       runtimeInputs =
-        lib.optionals isNickel [packages.templates-nickel]
+        lib.optionals isNickel [packages.makeConfiguration-nickel]
         ++ lib.optionals isCue [nixpkgs.cue]
         ++ lib.optionals isTerranix [];
       text = let
@@ -80,5 +80,5 @@
       '';
     };
 in {
-  inherit makeTemplate glamourTemplate;
+  inherit makeConfiguration glamourTemplate;
 }

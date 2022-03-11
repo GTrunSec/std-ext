@@ -19,7 +19,7 @@
 
   writeClicheApplication = {
     name,
-    dir,
+    path,
     env ? {},
     runtimeInputs ? [],
     libraries ? [],
@@ -37,7 +37,7 @@
         pname = name;
         propagatedBuildInputs = oldAttrs.propagatedBuildInputs ++ runtimeInputs;
         postFixup = ''
-          $out/bin/cliche install --module_dir ${dir} ${name}
+          $out/bin/cliche install --module_dir ${path} ${name}
           sed -i 's|#! /nix/store/.*.|#! ${python}/bin/python|' $out/bin/${name}
           sed -i 's|{{runtimeInputs}}|${lib.makeBinPath runtimeInputs}|' $out/bin/${name}
           rm -rf $out/bin/cliche
@@ -46,7 +46,7 @@
           if checkPhase == null
           then ''
             runHook preCheck
-            for path in $(find "${dir}" -name '*.py')
+            for path in $(find "${path}" -name '*.py')
             do
                ${nixpkgs.python3Packages.black}/bin/black --check $path
             done

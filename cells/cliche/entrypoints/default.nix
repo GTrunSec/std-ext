@@ -7,7 +7,7 @@
 in {
   example = writeClicheApplication {
     name = "example";
-    dir = ./example;
+    path = ./example;
     runtimeInputs = [];
   };
 }

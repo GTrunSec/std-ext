@@ -31,7 +31,7 @@ vault server -dev |& log 0 vault &
 
 sudo --preserve-env=PATH,VAULT_TOKEN \
 nomad agent -dev \
-    -plugin-dir "$nomadPlugins" \
+    -plugin-dir "$nomadPlugins/bin" \
     -config "$nomadConfig"
 
 nix-cache-proxy \
