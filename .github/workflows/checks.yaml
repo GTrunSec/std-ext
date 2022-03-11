@@ -33,7 +33,8 @@ jobs:
         run: nix develop ./devshell\#default -c mycmd --help
 
       - name: Check nickel template of the threatbus
-        run: nix develop ./devshell\#default -c std run //templates//entrypoints:threatbus-nomad-nixpkgs-nickel
+        run: |
+          nix develop ./devshell\#default -c std run //makeConfiguration//entrypoints:threatbus-nomad-nixpkgs-nickel
 
       - name: Check glamour template of the test
         run: nix develop ./devshell\#default -c std run //glamour//entrypoints:test

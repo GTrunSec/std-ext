@@ -9,8 +9,13 @@ in {
     commands = [
       {
         package = packages.nickel;
-        category = "nickel";
+        category = "Configuration";
         help = "Better configuration for less";
+      }
+      {
+        package = nixpkgs.cue;
+        category = "Configuration";
+        help = "Validate, define, and use dynamic and text-based data";
       }
     ];
   };
