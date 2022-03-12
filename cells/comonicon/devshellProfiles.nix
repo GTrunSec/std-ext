@@ -13,11 +13,7 @@ in {
         category = "julia";
       }
       {
-        name = "mycmd";
-        command = ''
-          cd $CELL_ROOT/comonicon
-          julia -e "import Pkg; Pkg.activate(\".\"); Pkg.instantiate()" -L mycmd.jl -- $@
-        '';
+        package = packages.mycmd;
         category = "julia";
       }
     ];

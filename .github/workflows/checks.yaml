@@ -27,10 +27,10 @@ jobs:
         run: nix -Lv flake show
 
       - name: Check Cliche Example
-        run: nix develop ./devshell\#default -c example --help
+        run: nix develop ./devshell\#default -c std run //cliche//entrypoints:example
 
       - name: Check Comonicon Example
-        run: nix develop ./devshell\#default -c mycmd --help
+        run: nix develop ./devshell\#default -c std run //comonicon//entrypoints:mycmd --help
 
       - name: Check nickel template of the threatbus
         run: |

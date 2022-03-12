@@ -3,7 +3,7 @@
   lib,
 }: let
   modules = [
-    ./makeConfiguration.nix
+    ./templates.nix
   ];
 
   pkgsModule = {config, ...}: {
