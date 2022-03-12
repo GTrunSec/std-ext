@@ -1,7 +1,8 @@
-{ inputs, cell }:
-let
-  nvfetcher = inputs.nvfetcher.defaultPackage;
-in
 {
+  inputs,
+  cell,
+}: let
+  nvfetcher = inputs.nvfetcher.defaultPackage;
+in {
   inherit nvfetcher;
 }

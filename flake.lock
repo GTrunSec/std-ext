@@ -2870,11 +2870,11 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1646441484,
-        "narHash": "sha256-cKa5/F7+fvVFv3OU0H7DrRyeZB7U3/HZBq1krLzNdkQ=",
+        "lastModified": 1647042234,
+        "narHash": "sha256-SNtTR515CllBAeTfrJPhkItSlHKkA+0ysX1VL8rAolA=",
         "owner": "hardenedlinux",
         "repo": "nixpkgs-hardenedlinux",
-        "rev": "0ad8fe37f5dd1b914f245cbb3074e9201e263e0e",
+        "rev": "1f0256625a81b75bcb101a77f666948e49faec8f",
         "type": "github"
       },
       "original": {

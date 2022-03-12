@@ -30,55 +30,6 @@
         cp ${main} main.go
       '';
     });
-  makeConfiguration = {
-    name,
-    # enum [ "json" "yaml" "toml" "raw"]
-    language ? "nickel",
-    format ? "json",
-    args ? [],
-    path,
-    target ? "nomad",
-  }: let
-    isNickel =
-      if language == "nickel"
-      then true
-      else false;
-    isCue =
-      if language == "cue"
-      then true
-      else false;
-    isTerranix =
-      if language == "terranix"
-      then true
-      else false;
-  in
-    writeShellApplication {
-      inherit name;
-      runtimeInputs =
-        lib.optionals isNickel [packages.makeConfiguration-nickel]
-        ++ lib.optionals isCue [nixpkgs.cue]
-        ++ lib.optionals isTerranix [];
-      text = let
-        command = lib.removeSuffix "\n\n\n\n" ''
-          ${lib.optionalString isNickel ''
-            nickel -f ${path}/${builtins.concatStringsSep " " args} export --format ${format}
-          ''}
-          ${lib.optionalString isCue "
-            cue export ./${path} -e ${builtins.concatStringsSep " " args} --out=${format}
-          "}
-          ${lib.optionalString isTerranix "
-            cue export ./${path} -e ${builtins.concatStringsSep " " args} --out=${format}
-          "}
-        '';
-      in ''
-        ${command}
-        ${
-          lib.optionalString (target == "nomad") ''
-            ${command} | ${nixpkgs.nomad}/bin/nomad job validate -
-          ''
-        }
-      '';
-    };
 in {
-  inherit makeConfiguration glamourTemplate;
+  inherit glamourTemplate;
 }

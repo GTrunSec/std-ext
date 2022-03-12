@@ -11,15 +11,15 @@ devshell.legacyPackages.mkShell {
 
     cells.update.devshellProfiles.default
 
-    cells.makeConfiguration.devshellProfiles.default
-    cells.cliche.devshellProfiles.default
-    cells.comonicon.devshellProfiles.default
+    # cells.makeConfiguration.devshellProfiles.default
+    # cells.cliche.devshellProfiles.default
+    # cells.comonicon.devshellProfiles.default
 
-    cells.continuous-integration.devshellProfiles.default
-    cells.hashicorp.devshellProfiles.default
-    cells.secrets.devshellProfiles.default
+    # cells.continuous-integration.devshellProfiles.default
+    # cells.hashicorp.devshellProfiles.default
+    # cells.secrets.devshellProfiles.default
 
-    cells.soc-action.devshellProfiles.default
+    # cells.soc-action.devshellProfiles.default
   ];
   commands = [];
   packages = [

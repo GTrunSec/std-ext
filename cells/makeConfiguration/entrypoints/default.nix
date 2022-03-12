@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
-  inherit (inputs.cells._templates.library) makeConfiguration;
+  inherit (inputs.cells._modules.library) makeConfiguration;
 in {
   threatbus-nomad-nixpkgs-nickel = makeConfiguration {
     name = "nomad-threatbus";

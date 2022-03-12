@@ -3,7 +3,7 @@
   lib,
 }: let
   modules = [
-    ./devshell.nix
+    ./makeConfiguration.nix
   ];
 
   pkgsModule = {config, ...}: {
