@@ -22,27 +22,24 @@
 
     nickel.url = "github:tweag/nickel";
     nickel.inputs.nixpkgs.follows = "nixpkgs";
+    nickel-nix.url = "github:nickel-lang/nickel-nix";
+    nickel-nix.inputs.nixpkgs.follows = "nixpkgs";
+    nickel-nix.inputs.nickel.follows = "nickel";
 
     terranix.url = "github:terranix/terranix";
     terranix.inputs.nixpkgs.follows = "nixpkgs";
 
-    nomad-driver-nix = {
-      url = "github:input-output-hk/nomad-driver-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nomad = {
-      url = "github:input-output-hk/nomad/release-1.2.2";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    spongix = {
-      url = "github:input-output-hk/spongix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nomad-driver-nix.url = "github:input-output-hk/nomad-driver-nix";
+    nomad-driver-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix2container = {
-      url = "github:nlewo/nix2container/podman-tests";
-      # inputs.nixpkgs.follows = "nixpkgs"; # skopeo-nix2container override was locked by patch
-    };
+    nomad.url = "github:input-output-hk/nomad/release-1.2.2";
+    nomad.inputs.nixpkgs.follows = "nixpkgs";
+
+    spongix.url = "github:input-output-hk/spongix";
+    spongix.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix2container.url = "github:nlewo/nix2container/podman-tests";
+    nix2container.inputs.nixpkgs.follows = "nixpkgs"; # skopeo-nix2container override was locked by patch
   };
 
   outputs = inputs:

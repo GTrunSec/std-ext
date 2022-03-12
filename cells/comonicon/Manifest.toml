@@ -1,5 +1,4 @@
 # This file is machine-generated - editing it directly is not advised
-
 julia_version = "1.7.2"
 manifest_format = "2.0"
 
@@ -13,7 +12,18 @@ uuid = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 
 [[deps.Comonicon]]
-deps = ["Configurations", "ExproniconLite", "Libdl", "Logging", "Markdown", "PackageCompiler", "Pkg", "Scratch", "TOML", "UUIDs"]
+deps = [
+  "Configurations",
+  "ExproniconLite",
+  "Libdl",
+  "Logging",
+  "Markdown",
+  "PackageCompiler",
+  "Pkg",
+  "Scratch",
+  "TOML",
+  "UUIDs"
+]
 git-tree-sha1 = "a03c046ed63be875de11b027e505aab2839dd82f"
 repo-rev = "master"
 repo-url = "https://github.com/comonicon/Comonicon.jl.git"
@@ -52,7 +62,14 @@ deps = ["LibCURL_jll", "MozillaCACerts_jll"]
 uuid = "b27032c2-a3e7-50c8-80cd-2d36dbcbfd21"
 
 [[deps.LibCURL_jll]]
-deps = ["Artifacts", "LibSSH2_jll", "Libdl", "MbedTLS_jll", "Zlib_jll", "nghttp2_jll"]
+deps = [
+  "Artifacts",
+  "LibSSH2_jll",
+  "Libdl",
+  "MbedTLS_jll",
+  "Zlib_jll",
+  "nghttp2_jll"
+]
 uuid = "deac9b47-8bc7-5906-a0fe-35ac56dc84c0"
 
 [[deps.LibGit2]]
@@ -89,13 +106,38 @@ uuid = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
 version = "1.4.1"
 
 [[deps.PackageCompiler]]
-deps = ["Artifacts", "LazyArtifacts", "Libdl", "Pkg", "Printf", "RelocatableFolders", "UUIDs"]
+deps = [
+  "Artifacts",
+  "LazyArtifacts",
+  "Libdl",
+  "Pkg",
+  "Printf",
+  "RelocatableFolders",
+  "UUIDs"
+]
 git-tree-sha1 = "9d979ef195d8a2dc0e3ba409d6f624439edc4d26"
 uuid = "9b87118b-4619-50d2-8e1e-99f35a4d4d9d"
 version = "2.0.4"
 
 [[deps.Pkg]]
-deps = ["Artifacts", "Dates", "Downloads", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "Serialization", "TOML", "Tar", "UUIDs", "p7zip_jll"]
+deps = [
+  "Artifacts",
+  "Dates",
+  "Downloads",
+  "LibGit2",
+  "Libdl",
+  "Logging",
+  "Markdown",
+  "Printf",
+  "REPL",
+  "Random",
+  "SHA",
+  "Serialization",
+  "TOML",
+  "Tar",
+  "UUIDs",
+  "p7zip_jll"
+]
 uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 
 [[deps.Printf]]

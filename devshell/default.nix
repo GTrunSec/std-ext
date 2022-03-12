@@ -23,6 +23,7 @@ devshell.legacyPackages.mkShell {
   ];
   commands = [];
   packages = [
+    nixpkgs.treefmt
     nixpkgs.shfmt
     nixpkgs.nodePackages.prettier
     nixpkgs.nodePackages.prettier-plugin-toml
