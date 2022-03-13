@@ -4,13 +4,13 @@
 }: let
   inherit (inputs) nixpkgs;
   inherit (inputs.cells._writers.library) writeShellApplication;
-  makes = inputs.std."x86_64-linux".std.lib.fromMakesWith inputs;
+  inherit (cell.library) makeSopsEnv makeEnvVars makeScript __output__ makes;
 in {
-  secrets-for-gpg-from-env = makes ./tests/secrets-for-gpg-from-env.nix {};
-  shell = writeShellApplication {
-    name = "shell";
-    runtimeInputs = [];
-    text = ''
-    '';
+  secrets-for-gpg-from-env = makeSopsEnv __output__.secretsForEnvFromSops.example;
+  a = makeScript {
+    name = "a";
+    __output__ = __output__.envVars.example;
+    searchPaths.bin = [ nixpkgs.hello ];
+    text = "hello --help echo $a";
   };
 }

@@ -2706,11 +2706,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1646848336,
-        "narHash": "sha256-TWNPLboki14IJ5ZLMELEJv/0Ov6HbsHq3ukFb+k7SVM=",
+        "lastModified": 1647013342,
+        "narHash": "sha256-m+q2JhvM0Tbq0NntYu9eTib0lOq1dncr+N0oaB24I54=",
         "owner": "tweag",
         "repo": "nickel",
-        "rev": "43e17777ccf302ebca10fd73aab01044e36279b5",
+        "rev": "d7e5a4ad1ad10171afd3c7c9a814d624f142064f",
         "type": "github"
       },
       "original": {

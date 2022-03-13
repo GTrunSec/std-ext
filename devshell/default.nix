@@ -11,7 +11,7 @@ devshell.legacyPackages.mkShell {
 
     cells.update.devshellProfiles.default
 
-    # cells.makeConfiguration.devshellProfiles.default
+    cells.makeConfiguration.devshellProfiles.default
     # cells.cliche.devshellProfiles.default
     # cells.comonicon.devshellProfiles.default
 
