@@ -52,12 +52,12 @@
         "zeek2nix": "zeek2nix_4"
       },
       "locked": {
-        "narHash": "sha256-NIqbfQDp8wynpqsDhxHYMO6NHJd0hBgIiG2to3nH2tE=",
-        "path": "/nix/store/96fq9dkkb9cqxggmssb9skwvpwlydchb-source",
+        "narHash": "sha256-5NuHcFQnB9p5G4M21wRCWH/471yrpBqgWOqxaY4GQdU=",
+        "path": "/nix/store/1mnya2bkmyc1j1r2s6ygsvz97cwi6r27-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/96fq9dkkb9cqxggmssb9skwvpwlydchb-source",
+        "path": "/nix/store/1mnya2bkmyc1j1r2s6ygsvz97cwi6r27-source",
         "type": "path"
       }
     },
@@ -4958,11 +4958,11 @@
         "yants": "yants"
       },
       "locked": {
-        "lastModified": 1646894548,
-        "narHash": "sha256-qrJv7X9I8MfWsGPK11lV4Gs6SXmH4iGkwjDnQrHXm30=",
+        "lastModified": 1647164267,
+        "narHash": "sha256-X7UHFDNm/oU37PGjnKt+YcSLCxr0w6eRNKaj2lcXF/I=",
         "owner": "gtrunsec",
         "repo": "std",
-        "rev": "fe52807052bce897706613c84820eff669250984",
+        "rev": "a1cfc283c14c69bcccff08969383b3d464b77039",
         "type": "github"
       },
       "original": {

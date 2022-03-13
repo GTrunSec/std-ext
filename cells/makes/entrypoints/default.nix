@@ -14,13 +14,13 @@ in {
     text = "hello --help echo $a";
   };
   doc = let
-    nickelDoc = makes ./doc-makeSubstitution.nix { inherit __output__; };
-    in
-      writeShellApplication {
-    name = "doc";
-    runtimeInputs = [ self.packages.makeConfiguration-nickel ];
-    text = ''
-    nickel query -f ${nickelDoc}/template "$@"
-    '';
-  };
+    nickelDoc = makes ./doc-makeSubstitution.nix {inherit __output__;};
+  in
+    writeShellApplication {
+      name = "doc";
+      runtimeInputs = [self.packages.makeConfiguration-nickel];
+      text = ''
+        nickel query -f ${nickelDoc}/template "$@"
+      '';
+    };
 }

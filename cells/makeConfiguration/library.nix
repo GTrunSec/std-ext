@@ -1,7 +1,8 @@
-{ inputs, cell }:
-let
-  inherit (inputs.nickel-nix.packages) importNcl;
-in
 {
+  inputs,
+  cell,
+}: let
+  inherit (inputs.nickel-nix.packages) importNcl;
+in {
   inherit importNcl;
 }

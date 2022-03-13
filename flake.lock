@@ -4845,11 +4845,11 @@
         "yants": "yants"
       },
       "locked": {
-        "lastModified": 1647163594,
-        "narHash": "sha256-nwO9bQWq9pZ01geUqZPNbezaHNNV5PJZQK2LBoy2o0E=",
+        "lastModified": 1647164267,
+        "narHash": "sha256-X7UHFDNm/oU37PGjnKt+YcSLCxr0w6eRNKaj2lcXF/I=",
         "owner": "gtrunsec",
         "repo": "std",
-        "rev": "6570e772cb321ada6ce549a6a98285b963a1e9a3",
+        "rev": "a1cfc283c14c69bcccff08969383b3d464b77039",
         "type": "github"
       },
       "original": {

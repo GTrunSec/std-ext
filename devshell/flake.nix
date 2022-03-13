@@ -18,6 +18,7 @@
       in {
         devShells.default = import ./. {inherit devshell nixpkgs cells std;};
         devShells.github-soc-action = import ./github-soc-action.nix {inherit devshell nixpkgs cells;};
+        devShells.withNickel = cells.makeConfiguration.devshellProfiles.nickel;
         devShells.update = import ./update.nix {inherit devshell nixpkgs cells;};
       }
     );

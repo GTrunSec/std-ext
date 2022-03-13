@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs inputs';
+  inherit (inputs) nixpkgs;
   inherit (cell) library;
   inherit (inputs.cells._modules.library) makeConfiguration;
 in {
@@ -31,5 +31,4 @@ in {
     args = ["config.nix"];
     path = ./tenzir/nomad;
   };
-  nickel-test = (library.importNcl ./shell.ncl) inputs';
 }
