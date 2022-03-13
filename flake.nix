@@ -22,7 +22,7 @@
 
     nickel.url = "github:tweag/nickel";
     nickel.inputs.nixpkgs.follows = "nixpkgs";
-    nickel-nix.url = "github:gtrunsec/nickel-nix/deSystemize";
+    nickel-nix.url = "github:nickel-lang/nickel-nix";
     nickel-nix.inputs.nixpkgs.follows = "nixpkgs";
     nickel-nix.inputs.nickel.follows = "nickel";
 
