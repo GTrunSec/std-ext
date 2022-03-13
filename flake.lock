@@ -2682,11 +2682,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1646344796,
-        "narHash": "sha256-wGK8KpCKbWw0PK1O7G8u5wyrS6E3hgW5fRgAF3bvCWM=",
+        "lastModified": 1646948749,
+        "narHash": "sha256-i44p3LvzFnLjkp+nmWhzgDljj3QGtKS8pp2s0vFqPMA=",
         "owner": "fluidattacks",
         "repo": "makes",
-        "rev": "501d39e449c7d84eefaca53c7f812410f48e84ba",
+        "rev": "53e5158b065e0e8dedd5f65ca755c56f23846f0d",
         "type": "github"
       },
       "original": {
@@ -2730,15 +2730,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1647076370,
-        "narHash": "sha256-XE9yKXNrUYEbyYe9chguVS0o6Nwg+7wpW2nEj0CVH5M=",
-        "owner": "nickel-lang",
+        "lastModified": 1647163364,
+        "narHash": "sha256-lpAboMtBJSpUN1ijcsuZccssRZJ56rR2dNwCzNOc8aE=",
+        "owner": "gtrunsec",
         "repo": "nickel-nix",
-        "rev": "43c3973200febd6835b3303749ef46216334f5e9",
+        "rev": "0a183dcd4320de12a10d23b84d8bc54fb0cfa883",
         "type": "github"
       },
       "original": {
-        "owner": "nickel-lang",
+        "owner": "gtrunsec",
+        "ref": "deSystemize",
         "repo": "nickel-nix",
         "type": "github"
       }

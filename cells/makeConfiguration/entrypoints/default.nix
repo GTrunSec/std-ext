@@ -3,6 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
+  inherit (cell) library;
   inherit (inputs.cells._modules.library) makeConfiguration;
 in {
   threatbus-nomad-nixpkgs-nickel = makeConfiguration {
@@ -30,4 +31,5 @@ in {
     args = ["config.nix"];
     path = ./tenzir/nomad;
   };
+  nickel-test = (library.importNcl ./shell.ncl) inputs;
 }

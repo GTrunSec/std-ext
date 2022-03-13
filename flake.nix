@@ -22,7 +22,7 @@
 
     nickel.url = "github:tweag/nickel";
     nickel.inputs.nixpkgs.follows = "nixpkgs";
-    nickel-nix.url = "github:nickel-lang/nickel-nix";
+    nickel-nix.url = "github:gtrunsec/nickel-nix/deSystemize";
     nickel-nix.inputs.nixpkgs.follows = "nixpkgs";
     nickel-nix.inputs.nickel.follows = "nickel";
 
@@ -52,6 +52,8 @@
         (inputs.std.installables "packages")
         (inputs.std.runnables "entrypoints")
         (inputs.std.functions "library")
+        (inputs.std.functions "nomadJobs")
+        (inputs.std.functions "dockerJobs")
         (inputs.std.functions "devshellProfiles")
       ];
     };

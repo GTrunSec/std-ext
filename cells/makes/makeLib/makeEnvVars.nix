@@ -8,6 +8,6 @@
       name = "makeEnvVars";
       inherit mapping;
     })
-    __output__;
+  __output__;
 in
   makeEnvVarsOutput

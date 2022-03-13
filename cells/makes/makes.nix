@@ -6,11 +6,13 @@
       VAR_NAME = "test";
     };
   };
+  documents = {
+    makes = {
+      __argPath__ = builtins.readFile ../doc/test.md;
+    };
+  };
   secretsForEnvFromSops = {
     cloudflare = {
-      # Manifest contains inside:
-      #   CLOUDFLARE_ACCOUNT_ID: ... ciphertext ...
-      #   CLOUDFLARE_API_TOKEN: ... ciphertext ...
       manifest = "/secrets/secrets.yaml";
       vars = ["CLOUDFLARE_ACCOUNT_ID" "CLOUDFLARE_API_TOKEN"];
     };
