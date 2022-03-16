@@ -49,6 +49,7 @@
       organelles = [
         (inputs.std.installables "packages")
         (inputs.std.runnables "entrypoints")
+        (inputs.std.runnables "generator")
         (inputs.std.functions "library")
         (inputs.std.functions "nomadJobs")
         (inputs.std.functions "dockerJobs")

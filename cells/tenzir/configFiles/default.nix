@@ -4,7 +4,10 @@
 }: let
   inherit (inputs) data-merge;
 in {
-  vast = {db-directory ? "vast.db"} @ args: {
+  vast = {
+    db-directory ? "vast.db",
+    file-verbosity ? ["quiet" "error" "warning" "info" "verbose" "debug" "trace"],
+  } @ args: {
     vast =
       (
         data-merge.merge
@@ -27,7 +30,7 @@ in {
         # File logging is only available for commands that start a node (e.g., vast
         # start). The levels above 'verbose' are usually not available in release
         # builds.
-        file-verbosity = "debug";
+        file-verbosity = "${file-verbosity}";
 
         # Whether to enable automatic log rotation. If set to false, a new log file
         # will be created when the size of the current log file exceeds 10 MiB.
