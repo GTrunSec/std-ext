@@ -92,7 +92,7 @@ in {
           ${command}
           ${
             lib.optionalString (cfg.target == "nomad") ''
-              ${command} | ${packages.hashicorp-nomad}/bin/nomad job validate -
+              ${command} | ${pkgs.nomad}/bin/nomad job validate -
             ''
           }
           ${cfg.text}
