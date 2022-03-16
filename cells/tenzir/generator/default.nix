@@ -1,8 +1,11 @@
-{ inputs, cell }:
-let
+{
+  inputs,
+  cell,
+}: let
   inherit (inputs) nixpkgs self data-merge;
   inherit (cell) nomadJobs configFiles library;
   inherit (inputs.cells._writers.library) writeShellApplication;
+  inherit (inputs.cells._templates.library) attrConvertTemplate;
   inherit (inputs.cells.makes.library) __output__ makeSubstitution;
   # default
   vast-settings = {
@@ -16,12 +19,12 @@ let
     };
   in
     data-merge.merge (configFiles.vast (vast-settings // {file-verbosity = "info";})) {
-                                                            vast.print-endpoint = true;
-                                                          };
+      vast.print-endpoint = true;
+    };
+in {
+  inherit prod;
 
-in
-{
-  vast-config-prod = library.vast-generator {
-    target = prod;
+  settings = data-merge.merge prod {
+    vast.endpoint = "192.168.1.1:4000";
   };
 }
