@@ -1,6 +1,7 @@
 {
   inputs = {
     std.url = "github:gtrunsec/std/lab";
+    data-merge.url = "github:divnix/data-merge";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
@@ -32,9 +33,6 @@
     nomad-driver-nix.url = "github:input-output-hk/nomad-driver-nix";
     nomad-driver-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    nomad.url = "github:input-output-hk/nomad/release-1.2.2";
-    nomad.inputs.nixpkgs.follows = "nixpkgs";
-
     spongix.url = "github:input-output-hk/spongix";
     spongix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -54,6 +52,7 @@
         (inputs.std.functions "library")
         (inputs.std.functions "nomadJobs")
         (inputs.std.functions "dockerJobs")
+        (inputs.std.functions "configFiles")
         (inputs.std.functions "devshellProfiles")
       ];
     };

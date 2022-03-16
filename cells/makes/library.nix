@@ -3,22 +3,20 @@
   cell,
 }: let
   makes = inputs.std."x86_64-linux".std.lib.fromMakesWith inputs;
-  makeScript = {
-    __output__,
-    name ? "makeScript",
-    text,
-    searchPaths ? {},
-  }:
-    makes ./makeLib/makeScript.nix {} {inherit __output__ text name searchPaths;};
-  makeEnvVars = __output__: makes ./makeLib/makeEnvVars.nix {inherit __output__;};
-  makeSopsEnv = env: makes ./makeLib/secrets-for-gpg-from-env.nix {inherit env;};
-  __output__ = import ./makes.nix {};
+
+  makeScript = args: makes ./makeLib/makeScript.nix {} args;
+
+  makeSubstitution = args: makes ./makeLib/makeSubstitution.nix {} args;
+
+  makeSopsScript = args: makes ./makeLib/secrets-for-gpg-from-env.nix {} args;
+
+  __output__ = import ./makes.nix {inherit inputs;};
 in {
   inherit
     __output__
     makes
-    makeEnvVars
     makeScript
-    makeSopsEnv
+    makeSopsScript
+    makeSubstitution
     ;
 }

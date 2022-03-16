@@ -3,17 +3,17 @@
   makeScript,
   __nixpkgs__,
 }: {
-  name,
+  name ? "makeScript",
   text,
   searchPaths,
-  __output__,
+  env,
 }: let
   makeEnvVarsOutput = (mapping:
     makeEnvVars {
       name = "makeEnvVarsOutput";
       inherit mapping;
     })
-  __output__;
+  env;
 in
   makeScript (__nixpkgs__.lib.recursiveUpdate {
       entrypoint = text;

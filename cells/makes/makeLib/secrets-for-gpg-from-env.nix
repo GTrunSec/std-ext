@@ -1,17 +1,23 @@
 {
   makeSecretForEnvFromSops,
   makeScript,
-  env,
   __nixpkgs__,
+}: {
+  text,
+  name ? "secrets-for-gpg-from-env",
+  env,
+  searchPaths,
 }: let
   secretsEnv = makeSecretForEnvFromSops {
     name = "makeSecretForEnvFromSops";
     inherit (env) vars manifest;
   };
 in
-  makeScript {
-    entrypoint = "echo $hello";
-    name = "secrets-for-gpg-from-env";
-    searchPaths.bin = [__nixpkgs__.gnupg];
-    searchPaths.source = [secretsEnv];
-  }
+  makeScript (__nixpkgs__.lib.recursiveUpdate {
+      entrypoint = text;
+      inherit name;
+      inherit searchPaths;
+    } {
+      searchPaths.bin = [__nixpkgs__.gnupg];
+      searchPaths.source = [secretsEnv];
+    })

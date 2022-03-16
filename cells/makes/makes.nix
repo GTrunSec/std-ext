@@ -1,4 +1,6 @@
-{...}: {
+{inputs}: let
+  inputs' = import ./.;
+in {
   envVars = {
     example = {
       a = "1";
@@ -9,6 +11,9 @@
   documents = {
     makes = {
       __argPath__ = builtins.readFile ../doc/test.md;
+    };
+    vast = {
+      __argAggregate__ = builtins.readFile "${inputs'.inputs.vast}/plugins/aggregate/README.md";
     };
   };
   secretsForEnvFromSops = {

@@ -20,8 +20,11 @@
 
   glamourTemplate = {...} @ attrs:
     glamour-coustom.overrideAttrs (old: let
-      context = builtins.concatStringsSep "\n" (
-        lib.attrsets.mapAttrsToList (n: v: "${n} := `${toString v}`")
+      context = builtins.concatStringsSep " " (
+        lib.attrsets.mapAttrsToList (n: v: ''
+          ${n} := `${toString v}`
+          fmt.Print(glamour.Render(${n}, "dark"))
+        '')
         attrs
       );
       main = nixpkgs.writeText "main.go" (import ./_packages/glamour-custom/main.nix {inherit context;});

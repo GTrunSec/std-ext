@@ -9,7 +9,7 @@ in {
     imports = [];
     commands = [
       {
-        package = packages.nomad;
+        package = nixpkgs.nomad;
         category = "hashicorp";
       }
       {

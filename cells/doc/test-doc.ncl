@@ -1,6 +1,6 @@
 let MyConfig = {
   path | doc m%%"
-	__argPath__
+	__argAggregate__
 	"%%m
        | Str,
 

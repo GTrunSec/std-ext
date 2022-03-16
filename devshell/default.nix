@@ -19,7 +19,7 @@ devshell.legacyPackages.mkShell {
     # cells.hashicorp.devshellProfiles.default
     # cells.secrets.devshellProfiles.default
 
-    # cells.soc-action.devshellProfiles.default
+    cells.soc-action.devshellProfiles.default
   ];
   commands = [];
   packages = [

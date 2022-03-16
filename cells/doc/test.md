@@ -7,9 +7,9 @@
 ##nix
 
 ```nix
-shellHook = nickel_string_hack [ 
+shellHook = nickel_string_hack [
   m%"echo "Development shell""%m,
-  pkgs.hello,                    
-  "/bin/hello"                   
-]      
+  pkgs.hello,
+  "/bin/hello"
+]
 ```
