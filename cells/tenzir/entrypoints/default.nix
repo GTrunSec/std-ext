@@ -8,17 +8,19 @@
   inherit (inputs.cells.makes.library) __output__ makeSubstitution;
 in {
   vast-config = let
-    nickelDoc = makeSubstitution {
-      __output__ = __output__.documents.vast;
+    vast-yaml = {
+      vast = configFiles.vast {
+        db-directory = "vast.db";
+      };
     };
   in
     writeShellApplication {
       name = "vast.yaml";
       runtimeInputs = [nixpkgs.remarshal];
       text = let
-        json = nixpkgs.writeText "JSON" (builtins.toJSON configFiles.vast);
+        json = nixpkgs.writeText "JSON" (builtins.toJSON vast-yaml);
       in ''
-        yaml2json  -i ${json} -o "$@"
+        json2yaml  -i ${json} -o "$@"
       '';
     };
 }
