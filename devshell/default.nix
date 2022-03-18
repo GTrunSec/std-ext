@@ -16,9 +16,10 @@ devshell.legacyPackages.mkShell {
     # cells.comonicon.devshellProfiles.default
 
     # cells.continuous-integration.devshellProfiles.default
-    # cells.hashicorp.devshellProfiles.default
+    cells.hashicorp.devshellProfiles.default
     # cells.secrets.devshellProfiles.default
 
+    # cells.zeek.devshellProfiles.default
     cells.soc-action.devshellProfiles.default
   ];
   commands = [];

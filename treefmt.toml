@@ -6,7 +6,7 @@ excludes = [""]
 [formatter.prettier]
 command = "prettier"
 options = ["--plugin", "prettier-plugin-toml", "--write"]
-includes = ["*.md", "*.yaml", "*.toml"]
+includes = ["*.md", "*.yaml", "*.toml", "*.json"]
 excludes = ["./cells/_templates/_packages/*"]
 
 [formatter.black]

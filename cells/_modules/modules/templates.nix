@@ -3,11 +3,9 @@
   lib,
   pkgs,
   inputs,
-  writeShellApplication,
   ...
 }: let
   cfg = config.templates;
-  inherit (inputs.self) packages;
 in {
   options.templates = with lib; {
     name = mkOption {
@@ -32,7 +30,7 @@ in {
       '';
     };
     target = mkOption {
-      type = types.enum ["nomad" "terraform" "podman" "docker"];
+      type = types.enum ["nomad" "terraform" "podman" "docker" "k8s"];
       default = "echo Template";
       description = ''
         Which platform do you want to deploy it by template
@@ -47,15 +45,39 @@ in {
     };
     format = mkOption {
       type = types.enum ["yaml" "toml" "json" "json"];
-      default = "echo Template";
+      default = [];
       description = ''
         Which format do you want to generate in.
       '';
+    };
+    branch = mkOption {
+      type = types.enum ["prod" "dev" "backport" "staging" "CI"];
+      default = [];
+      description = ''
+        Which branch do you want to import in.
+      '';
+    };
+    features = mkOption {
+      description = "The feature list which can we support";
+      default = [];
+      type = with types;
+        listOf (submodule {
+          options = {
+            zeek = mkEnableOption "add zeek support";
+            openCTI = mkEnableOption "add zeek support";
+            suricata = mkEnableOption "add suricata";
+          };
+        });
+    };
+    searchPaths = mkOption {
+      type = types.attrs;
+      default = {};
     };
     runtimeInputs = mkOption {
       type = types.listOf types.str;
       default = [];
     };
+
     args = mkOption {
       type = types.listOf types.str;
       default = [];
@@ -63,40 +85,10 @@ in {
     makeConfiguration = mkOption {
       type = types.package;
     };
+    makeSocProfile = mkOption {
+      type = types.package;
+    };
   };
 
-  config.templates = {
-    makeConfiguration = let
-      target = cfg.target;
-    in
-      writeShellApplication {
-        name = cfg.name;
-        runtimeInputs =
-          lib.optionals (cfg.language == "nickel") [packages.makeConfiguration-nickel]
-          ++ lib.optionals (cfg.language == "cue") [pkgs.cue]
-          ++ lib.optionals (cfg.language == "nix") []
-          ++ cfg.runtimeInputs;
-        text = let
-          command = lib.removeSuffix "\n\n\n\n" ''
-            ${lib.optionalString (cfg.language == "nickel") ''
-              nickel -f ${cfg.path}/${builtins.concatStringsSep " " cfg.args} export --format ${cfg.format}
-            ''}
-            ${lib.optionalString (cfg.language == "cue") "
-              cue export ./${cfg.path} -e ${builtins.concatStringsSep " " cfg.args} --out=${cfg.format}
-              "}
-            ${lib.optionalString (cfg.language == "nix") "
-              cue export ./${cfg.path} -e ${builtins.concatStringsSep " " cfg.args} --out=${cfg.format}
-              "}
-          '';
-        in ''
-          ${command}
-          ${
-            lib.optionalString (cfg.target == "nomad") ''
-              ${command} | ${pkgs.nomad}/bin/nomad job validate -
-            ''
-          }
-          ${cfg.text}
-        '';
-      };
-  };
+  imports = [./makeConfiguration.nix ./makeSocProfile.nix];
 }

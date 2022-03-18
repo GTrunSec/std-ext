@@ -23,8 +23,19 @@
     };
 in {
   inherit prod;
-
-  settings = data-merge.merge prod {
-    vast.endpoint = "192.168.1.1:4000";
+  mkSocProfile-custom-1 = library.makeConfiguration {
+    searchPaths.path = [
+      inputs.cells.openCTI.generator.k8s.vast
+      inputs.cells.zeek.generator.k8s.vast
+    ];
   };
+  socProfile = {
+    openCTI ? false,
+    MISP ? false,
+    zeek ? false,
+    suricata ? false,
+    branch ? ["prod" "develop" "CI"],
+    target ? ["k8s" "nomad"],
+  }:
+    prod;
 }

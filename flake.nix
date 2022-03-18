@@ -15,6 +15,7 @@
     nvfetcher.inputs.nixpkgs.follows = "nixpkgs";
 
     nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
+    nixpkgs-hardenedlinux.inputs.nixpkgs.follows = "nixpkgs";
 
     dream2nix.url = "github:nix-community/dream2nix";
 
@@ -29,6 +30,8 @@
 
     terranix.url = "github:terranix/terranix";
     terranix.inputs.nixpkgs.follows = "nixpkgs";
+    terraform-providers.url = "github:numtide/nixpkgs-terraform-providers-bin";
+    terraform-providers.inputs.nixpkgs.follows = "nixpkgs";
 
     nomad-driver-nix.url = "github:input-output-hk/nomad-driver-nix";
     nomad-driver-nix.inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +39,7 @@
     spongix.url = "github:input-output-hk/spongix";
     spongix.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix2container.url = "github:nlewo/nix2container/podman-tests";
+    nix2container.url = "github:nlewo/nix2container";
     nix2container.inputs.nixpkgs.follows = "nixpkgs"; # skopeo-nix2container override was locked by patch
   };
 
@@ -45,6 +48,7 @@
       inherit inputs;
       #as-nix-cli-epiphyte = false;
       cellsFrom = ./cells;
+      # debug = ["tenzir"];
       systems = ["x86_64-linux" "x86_64-darwin"];
       organelles = [
         (inputs.std.installables "packages")
@@ -52,6 +56,7 @@
         (inputs.std.functions "generator")
         (inputs.std.functions "library")
         (inputs.std.functions "nomadJobs")
+        (inputs.std.functions "nixosProfiles")
         (inputs.std.functions "dockerJobs")
         (inputs.std.functions "configFiles")
         (inputs.std.functions "devshellProfiles")

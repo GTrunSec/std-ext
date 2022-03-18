@@ -6,6 +6,7 @@
   inherit (inputs) nixpkgs;
 in {
   default = _: {
+    imports = [inputs.cells.zeek.devshellProfiles.default];
     commands = [
       {
         name = "zeek-lint";

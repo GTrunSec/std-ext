@@ -14,4 +14,13 @@ in {
     .config
     .templates
     .makeConfiguration;
+
+  makeSocProfile = templates:
+    (eval {
+      configuration = {inherit templates;};
+      extraSpecialArgs = {inherit inputs cell writeShellApplication;};
+    })
+    .config
+    .templates
+    .makeSocProfile;
 }

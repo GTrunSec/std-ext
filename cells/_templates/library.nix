@@ -33,20 +33,29 @@
         cp ${main} main.go
       '';
     });
-  attrConvertTemplate = args:
+
+  attrConvertTemplate = {
+    name ? "attrConvertTemplate",
+    source,
+    text ? "",
+    format,
+    runtimeInputs ? [],
+  }:
     writeShellApplication {
       name = "attrConvert";
-      runtimeInputs = [nixpkgs.remarshal nixpkgs.json2hcl];
+      runtimeInputs = [nixpkgs.remarshal nixpkgs.yj] ++ runtimeInputs;
       text = let
-        json = nixpkgs.writeText "JSON" (builtins.toJSON args.source);
-      in ''
-        ${nixpkgs.lib.optionalString (args.format == "yaml") ''
-          json2yaml  -i ${json} -o "$@"
-        ''}
-         ${nixpkgs.lib.optionalString (args.format == "hcl") ''
-          json2hcl < ${json} > "$@"
-        ''}
-      '';
+        json = nixpkgs.writeText "JSON" (builtins.toJSON source);
+      in
+        ''
+           ${nixpkgs.lib.optionalString (format == "yaml") ''
+            json2yaml  -i ${json} -o ${name}.yaml
+          ''}
+          ${nixpkgs.lib.optionalString (format == "json") ''
+            json2json -i ${json} -o ${name}.json
+          ''}
+        ''
+        + text;
     };
 in {
   inherit glamourTemplate attrConvertTemplate;

@@ -4,5 +4,14 @@
 }: let
   inherit (inputs) nixpkgs;
   inherit (inputs.cells._writers.library) writeShellApplication;
-  inherit (inputs.cells.makes.library) __output__ makeSubstitution;
-in {}
+in {
+  socProfiles = {
+    openCTI ? false,
+    MISP ? false,
+    zeek ? false,
+    suricata ? false,
+    branch ? ["prod" "develop" "CI"],
+    target ? ["k8s" "nomad" "docker"],
+  }: {
+  };
+}
