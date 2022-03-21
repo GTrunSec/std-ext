@@ -43,23 +43,28 @@
     nix2container.inputs.nixpkgs.follows = "nixpkgs"; # skopeo-nix2container override was locked by patch
   };
 
-  outputs = inputs:
-    inputs.std.grow {
+  outputs = {
+    std,
+    nixpkgs,
+    ...
+  } @ inputs:
+    std.grow {
       inherit inputs;
       #as-nix-cli-epiphyte = false;
       cellsFrom = ./cells;
       # debug = ["tenzir"];
       systems = ["x86_64-linux" "x86_64-darwin"];
       organelles = [
-        (inputs.std.installables "packages")
-        (inputs.std.runnables "entrypoints")
-        (inputs.std.functions "generator")
-        (inputs.std.functions "library")
-        (inputs.std.functions "nomadJobs")
-        (inputs.std.functions "nixosProfiles")
-        (inputs.std.functions "dockerJobs")
-        (inputs.std.functions "configFiles")
-        (inputs.std.functions "devshellProfiles")
+        (std.installables "packages")
+        (std.runnables "entrypoints")
+        (std.functions "generator")
+        (std.functions "library")
+        (std.functions "nomadJobs")
+        (std.functions "nixosProfiles")
+        (std.functions "dockerJobs")
+        (std.functions "configFiles")
+        (std.functions "devshellProfiles")
+        (std.functions "consulProfiles")
       ];
     };
 }

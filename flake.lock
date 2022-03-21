@@ -2940,14 +2940,17 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1647640936,
-        "narHash": "sha256-Fp39b+Fy4cdg2uVt91z98rcezq5X0nRy129gLbaOqQI=",
-        "type": "git",
-        "url": "file:///home/gtrun/ghq/github.com/hardenedlinux/nixpkgs-hardenedlinux"
+        "lastModified": 1647650114,
+        "narHash": "sha256-LOCGVLpCzSqSaC4MLA2BAq+XgYXURDvXe2zbCSQnIHI=",
+        "owner": "hardenedlinux",
+        "repo": "nixpkgs-hardenedlinux",
+        "rev": "33b5906deeebfb822b7057b79d3d7e4400844641",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/gtrun/ghq/github.com/hardenedlinux/nixpkgs-hardenedlinux"
+        "owner": "hardenedlinux",
+        "repo": "nixpkgs-hardenedlinux",
+        "type": "github"
       }
     },
     "nixpkgs-hardenedlinux_10": {
@@ -4888,11 +4891,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1647562211,
-        "narHash": "sha256-APlAm0d47CaCT9nxFeX5zk7gV3Zfn7RMNAw0j2x34r8=",
+        "lastModified": 1647735082,
+        "narHash": "sha256-RPnpbY715tn6PwSEZB9eY+CVo+5CzEmjRruNEkGJDC8=",
         "owner": "numtide",
         "repo": "nixpkgs-terraform-providers-bin",
-        "rev": "b7188a1e8fe798075f52db67291ca1cb592b2743",
+        "rev": "89ed0db7254d9fcd8d59477a870cdbe976e426ba",
         "type": "github"
       },
       "original": {

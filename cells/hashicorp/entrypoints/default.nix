@@ -26,6 +26,16 @@ in {
             enabled = true;
           };
         };
+        client.host_volume = {
+          mysql = {
+            path = "/opt/mysql/data";
+            read_only = false;
+          };
+          vast = {
+            path = "/opt/vast/data";
+            read_only = false;
+          };
+        };
         client.cni_path = "${nixpkgs.cni-plugins}/bin";
         vault = {
           enabled = true;
@@ -34,6 +44,6 @@ in {
       })}";
     };
     text = nixpkgs.lib.fileContents ./dev-cluster.bash;
-    runtimeInputs = [nixpkgs.vault-bin nixpkgs.bash nixpkgs.netcat nixpkgs.nomad spongix.defaultPackage];
+    runtimeInputs = [nixpkgs.vault-bin nixpkgs.bash nixpkgs.netcat nixpkgs.nomad spongix.defaultPackage nixpkgs.consul];
   };
 }

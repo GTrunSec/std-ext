@@ -2,6 +2,12 @@ export VAULT_DEV_ROOT_TOKEN_ID=root
 export VAULT_ADDR=http://127.0.0.1:8200
 export VAULT_TOKEN=$VAULT_DEV_ROOT_TOKEN_ID
 
+if [[ -d "/opt/nomad" ]];then
+    echo "creat volumes for the host"
+    sudo mkdir -p /opt/nomad
+    sudo mkdir -p /opt/nomad/{mysql,vast}
+fi
+
 function log {
     local index="$1"
     local name="$2"
@@ -28,6 +34,8 @@ trap cleanup EXIT
 
 
 vault server -dev |& log 0 vault &
+
+consul agent -dev |& log 0 consul &
 
 sudo --preserve-env=PATH,VAULT_TOKEN \
 nomad agent -dev \

@@ -13,9 +13,11 @@
     vast.endpoint = "192.168.1.1:4000";
   };
 in {
-  vast-nomad-default = attrConvertTemplate {
+  vast-nomad-node = attrConvertTemplate {
     name = "vast-nomad-default";
-    source = nomadJobs.default;
+    source = nomadJobs.vast-nixos-node {
+      flake = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab#nixosConfigurations.nomad-nixos-1";
+    };
     # the attrConvertTemplate does not work with hcl to nomad
     format = "json";
   };

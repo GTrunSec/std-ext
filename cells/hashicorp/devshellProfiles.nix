@@ -17,6 +17,10 @@ in {
         category = "hashicorp";
       }
       {
+        package = nixpkgs.consul;
+        category = "hashicorp";
+      }
+      {
         package = nixpkgs.vault;
         category = "hashicorp";
       }

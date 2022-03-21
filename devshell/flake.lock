@@ -53,12 +53,12 @@
         "zeek2nix": "zeek2nix_4"
       },
       "locked": {
-        "narHash": "sha256-il+37V6xY0iYYUttcBIj5LY7MO4qsioPfEp10R32vdo=",
-        "path": "/nix/store/1fl7yz1q83sj0cjw7n9jff1q3ppv6f07-source",
+        "narHash": "sha256-9sMwmIzMJq5KKqLaN6DoI5MhM0MSVYBjSBE5VkBY0Gw=",
+        "path": "/nix/store/hm67bx10axp0sssdjsw3rjlzgs325x5l-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/1fl7yz1q83sj0cjw7n9jff1q3ppv6f07-source",
+        "path": "/nix/store/hm67bx10axp0sssdjsw3rjlzgs325x5l-source",
         "type": "path"
       }
     },
@@ -4990,11 +4990,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1647562211,
-        "narHash": "sha256-APlAm0d47CaCT9nxFeX5zk7gV3Zfn7RMNAw0j2x34r8=",
+        "lastModified": 1647735082,
+        "narHash": "sha256-RPnpbY715tn6PwSEZB9eY+CVo+5CzEmjRruNEkGJDC8=",
         "owner": "numtide",
         "repo": "nixpkgs-terraform-providers-bin",
-        "rev": "b7188a1e8fe798075f52db67291ca1cb592b2743",
+        "rev": "89ed0db7254d9fcd8d59477a870cdbe976e426ba",
         "type": "github"
       },
       "original": {
