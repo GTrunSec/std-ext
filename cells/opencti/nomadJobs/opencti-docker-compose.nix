@@ -5,21 +5,22 @@
   driver ? ["podman" "docker"],
   namespace ? "default",
 }: {
-  job.vast = {
+  # based on https://github.com/OpenCTI-Platform/docker/blob/master/docker-compose.yml
+  job.opencti = {
     inherit datacenters type namespace;
-    group.nixos = {
+    group.container = {
       count = 1;
-      # volume.vast = {
-      #   type = "host";
-      #   read_only = false;
-      #   source = "vast";
-      # };
-      task.vast = {
+      volume.opencti = {
+        type = "host";
+        read_only = false;
+        source = "opencti";
+      };
+      task.opencti = {
         inherit driver;
 
         volume_mount = {
-          volume = "vast";
-          destination = "/var/lib/private/vast";
+          volume = "opencti";
+          destination = "/var/lib/private/opencti";
           read_only = false;
         };
 
@@ -28,9 +29,7 @@
           cpu = 3000;
         };
 
-        config = {
-          nixos = flake;
-        };
+        config = {};
       };
     };
   };
