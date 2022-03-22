@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs self data-merge;
-  inherit (cell) nomadJobs generator library;
+  inherit (cell) nomadJobs generator library nixosProfiles;
   inherit (inputs.cells._modules.library) makeSocProfile;
   inherit (inputs.cells._writers.library) writeShellApplication;
   inherit (inputs.cells._templates.library) attrConvertTemplate;
@@ -16,7 +16,7 @@ in {
   vast-nomad-node = attrConvertTemplate {
     name = "vast-nomad-default";
     source = nomadJobs.vast-nixos-node {
-      flake = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab#nixosConfigurations.nomad-nixos-1";
+      flake = "${self.sourceInfo.outPath}#${nixpkgs.system}.tenzir.nixosProfiles.nomad-nixos-1";
     };
     # the attrConvertTemplate does not work with hcl to nomad
     format = "json";

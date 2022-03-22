@@ -5,6 +5,10 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    lambda-microvm-hunting-lab.url = "github:GTrunSec/lambda-microvm-hunting-lab";
+    lambda-microvm-hunting-lab.inputs.zeek2nix.follows = "zeek2nix";
+    lambda-microvm-hunting-lab.inputs.vast2nix.follows = "vast2nix";
+
     threatbus2nix.url = "github:gtrunsec/threatbus2nix";
 
     vast2nix.url = "github:gtrunsec/vast2nix";

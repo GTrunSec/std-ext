@@ -1,5 +1,4 @@
 {
-  flake ? "",
   datacenters ? ["dc1"],
   type ? "batch",
   driver ? ["podman" "docker"],

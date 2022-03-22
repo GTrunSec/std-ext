@@ -49,10 +49,10 @@
       in
         ''
            ${nixpkgs.lib.optionalString (format == "yaml") ''
-            json2yaml  -i ${json} -o ${name}.yaml
+            json2yaml  -i ${json} -o "$PRJ_ROOT/cells-infra/${name}.json"
           ''}
           ${nixpkgs.lib.optionalString (format == "json") ''
-            json2json -i ${json} -o ${name}.json
+            json2json -i ${json} -o "$PRJ_ROOT/cells-infra/${name}.json"
           ''}
         ''
         + text;
