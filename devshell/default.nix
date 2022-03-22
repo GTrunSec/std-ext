@@ -29,6 +29,7 @@ devshell.legacyPackages.mkShell {
     nixpkgs.nodePackages.prettier
     nixpkgs.nodePackages.prettier-plugin-toml
     nixpkgs.python3Packages.black
+    nixpkgs.julia_17-bin
   ];
   devshell.startup.nodejs-setuphook = nixpkgs.lib.stringsWithDeps.noDepEntry ''
     export NODE_PATH=${nixpkgs.nodePackages.prettier-plugin-toml}/lib/node_modules:$NODE_PATH

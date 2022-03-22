@@ -6,3 +6,4 @@ tmp/
 .cache
 .terraform
 vast.yaml
+.*

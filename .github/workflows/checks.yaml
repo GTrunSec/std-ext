@@ -30,7 +30,7 @@ jobs:
         run: nix develop ./devshell\#default -c std run //cliche//entrypoints:example
 
       - name: Check Comonicon Example
-        run: nix develop ./devshell\#default -c std run //comonicon//entrypoints:mycmd --help
+        run: nix develop ./devshell\#default -c std run //comonicon//entrypoints:mycmd
 
       - name: Check nickel template of the threatbus
         run: |

@@ -1,0 +1,3 @@
+[submodule "cells-infra"]
+	path = cells-infra
+	url = https://github.com/GTrunSec/cells-infra.git

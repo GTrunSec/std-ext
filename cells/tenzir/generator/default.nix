@@ -25,17 +25,8 @@ in {
   inherit prod;
   mkSocProfile-custom-1 = library.makeConfiguration {
     searchPaths.path = [
-      inputs.cells.openCTI.generator.k8s.vast
-      inputs.cells.zeek.generator.k8s.vast
+      inputs.cells.openCTI.generator.nomad.vast
+      inputs.cells.zeek.generator.nomad.vast
     ];
   };
-  socProfile = {
-    openCTI ? false,
-    MISP ? false,
-    zeek ? false,
-    suricata ? false,
-    branch ? ["prod" "develop" "CI"],
-    target ? ["k8s" "nomad"],
-  }:
-    prod;
 }

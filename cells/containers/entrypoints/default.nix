@@ -7,13 +7,13 @@
   inherit (inputs.cells._writers.library) writeShellApplication;
   inherit (cell) packages;
 in {
-  podman-alpine = writeShellApplication {
-    name = "podman-alpine";
+  opencti-platform-podman = writeShellApplication {
+    name = "alpine-podman";
     runtimeInputs = [nixpkgs.podman];
     text = ''
-      ${packages.images-alpine.copyToPodman}/bin/copy-to-podman
-      # podman run ${packages.images-alpine.imageName}:${packages.alpine-images.imageTag} | grep /etc/alpine-release
-      # podman rmi docker.io/library/${packages.images-alpine.imageName}:${packages.images-alpine.imageTag}
+      ${packages.opencti-platform.copyToPodman}/bin/copy-to-podman
+      podman run ${packages.opencti-platform.imageName}:${packages.opencti-platform.imageTag} | grep /opt/opencti
+      #podman rmi docker.io/library/${packages.opencti-platform.imageName}:${packages.opencti-platform.imageTag}
     '';
   };
 }

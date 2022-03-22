@@ -40,7 +40,7 @@
     spongix.inputs.nixpkgs.follows = "nixpkgs";
 
     nix2container.url = "github:nlewo/nix2container";
-    nix2container.inputs.nixpkgs.follows = "nixpkgs"; # skopeo-nix2container override was locked by patch
+    # nix2container.inputs.nixpkgs.follows = "nixpkgs"; # skopeo-nix2container override was locked by patch
   };
 
   outputs = {

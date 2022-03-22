@@ -3,14 +3,11 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
-  inherit (inputs.cells._writers.library) writeShellApplication;
+  inherit (inputs.cells._writers.library) writeComoniconApplication;
 in {
-  mycmd = writeShellApplication {
-    name = "mycmd-comonicon";
+  mycmd = writeComoniconApplication {
     runtimeInputs = [nixpkgs.julia_17-bin];
-    text = ''
-      cd "$CELL_ROOT/comonicon"
-      julia -e "import Pkg; Pkg.activate(\".\"); Pkg.instantiate()" -L entrypoints/mycmd.jl -- "$@"
-    '';
+    path = ./.;
+    args = [ "mycmd.jl" ];
   };
 }

@@ -96,8 +96,37 @@
         else checkPhase;
       meta.mainProgram = name;
     };
+  writePiplelineApplication = {
+    julia ? nixpkgs.julia_17-bin,
+    path ? "",
+    args ? [],
+    runtimeInputs ? [],
+  }:
+    writeShellApplication {
+      name = "writePiplelineApplication";
+      runtimeInputs = [nixpkgs.julia_17-bin] ++ runtimeInputs;
+      text = ''
+        manifest=$CELL_ROOT/_writers/_packages/jobSchedulers
+        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} "$@"
+      '';
+    };
+
+  writeComoniconApplication = {
+    julia ? nixpkgs.julia_17-bin,
+    path ? "",
+    args ? [],
+    runtimeInputs ? [],
+  }:
+    writeShellApplication {
+      name = "writePiplelineApplication";
+      runtimeInputs = [nixpkgs.julia_17-bin] ++ runtimeInputs;
+      text = ''
+        manifest=$CELL_ROOT/_writers/_packages/comonicon
+        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} "$@"
+      '';
+    };
 in {
-  inherit writeClicheApplication;
+  inherit writeClicheApplication writePiplelineApplication writeComoniconApplication;
   writeShellApplication = {...} @ args:
     writeShellApplication (
       args

@@ -15,5 +15,5 @@
     )
   ];
 in {
-  images-alpine = nixpkgs.callPackage ./images/alpine.nix {};
+  opencti-platform = nixpkgs.callPackage ./images/opencti-platform.nix {};
 }
