@@ -9,7 +9,7 @@ in {
   secrets-for-gpg-from-env = makeSopsScript {
     name = "name";
     env = __output__.secretsForEnvFromSops.example;
-    text = "echo $hello";
+    text = "echo $OPENCTI_ADMIN_EMAIL";
     searchPaths.bin = [];
   };
   scriptEnv = makeScript {
