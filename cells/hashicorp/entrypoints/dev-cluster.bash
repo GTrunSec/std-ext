@@ -50,4 +50,6 @@ nix-cache-proxy \
     --dir nix-cache-proxy \
     |& log 3 nix-cache-proxy &
 
+vault secrets enable -version=2 kv |& log 0 vault
+
 wait
