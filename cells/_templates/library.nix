@@ -34,25 +34,30 @@
       '';
     });
 
+  # the attrConvertTemplate does not work with hcl to nomad
   attrConvertTemplate = {
     name ? "attrConvertTemplate",
     source,
     text ? "",
     format,
     runtimeInputs ? [],
+    target ? "nomad",
   }:
     writeShellApplication {
       name = "attrConvert";
-      runtimeInputs = [nixpkgs.remarshal nixpkgs.yj] ++ runtimeInputs;
+      runtimeInputs = [nixpkgs.remarshal nixpkgs.yj nixpkgs.nomad] ++ runtimeInputs;
       text = let
         json = nixpkgs.writeText "JSON" (builtins.toJSON source);
       in
         ''
-           ${nixpkgs.lib.optionalString (format == "yaml") ''
+          ${nixpkgs.lib.optionalString (format == "yaml") ''
             json2yaml  -i ${json} -o "$PRJ_ROOT/cells-infra/${name}.json"
           ''}
           ${nixpkgs.lib.optionalString (format == "json") ''
             json2json -i ${json} -o "$PRJ_ROOT/cells-infra/${name}.json"
+          ''}
+          ${nixpkgs.lib.optionalString (target == "nomad") ''
+            nomad job plan "$PRJ_ROOT/cells-infra/${name}.json"
           ''}
         ''
         + text;

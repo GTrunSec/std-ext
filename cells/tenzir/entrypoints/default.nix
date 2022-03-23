@@ -13,12 +13,21 @@
     vast.endpoint = "192.168.1.1:4000";
   };
 in {
-  vast-nomad-node = attrConvertTemplate {
-    name = "vast-nomad-default";
+  nomad-standalone-node = attrConvertTemplate {
+    name = "nomad-standalone-node";
+    target = "nomad";
     source = nomadJobs.vast-nixos-node {
-      flake = "${self.sourceInfo.outPath}#${nixpkgs.system}.tenzir.nixosProfiles.nomad-nixos-1";
+      flake = "${self.sourceInfo.outPath}#${nixpkgs.system}.tenzir.nixosProfiles.nomad-tenzir-vast";
     };
-    # the attrConvertTemplate does not work with hcl to nomad
+    format = "json";
+  };
+
+  nomad-nixos-opencti-dev = attrConvertTemplate {
+    name = "nomad-nixos-opencti-dev";
+    target = "nomad";
+    source = nomadJobs.vast-nixos-node {
+      flake = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab#nixosConfigurations.nomad-opencti";
+    };
     format = "json";
   };
 

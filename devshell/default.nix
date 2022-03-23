@@ -17,7 +17,7 @@ devshell.legacyPackages.mkShell {
 
     # cells.continuous-integration.devshellProfiles.default
     cells.hashicorp.devshellProfiles.default
-    # cells.secrets.devshellProfiles.default
+    cells.secrets.devshellProfiles.default
 
     # cells.zeek.devshellProfiles.default
     cells.soc-action.devshellProfiles.default
