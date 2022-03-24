@@ -40,12 +40,12 @@
     source,
     text ? "",
     format,
-    searchPaths ? { bin = []; },
+    searchPaths ? {bin = [];},
     target ? "nomad",
   }:
     writeShellApplication {
       name = "makeTemplate";
-      runtimeInputs = [nixpkgs.remarshal nixpkgs.yj nixpkgs.nomad nixpkgs.git nixpkgs.treefmt ] ++ searchPaths.bin;
+      runtimeInputs = [nixpkgs.remarshal nixpkgs.yj nixpkgs.nomad nixpkgs.git nixpkgs.treefmt] ++ searchPaths.bin;
       text = let
         json = nixpkgs.writeText "JSON" (builtins.toJSON source);
         parseName = p: toString (builtins.elemAt (builtins.split "-" name) p);
