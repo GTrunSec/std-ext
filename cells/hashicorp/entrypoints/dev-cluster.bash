@@ -2,7 +2,7 @@ export VAULT_DEV_ROOT_TOKEN_ID=root
 export VAULT_ADDR=http://127.0.0.1:8200
 export VAULT_TOKEN=$VAULT_DEV_ROOT_TOKEN_ID
 
-if [[ -d "/opt/nomad" ]];then
+if [[ ! -d "/opt/nomad" ]];then
     echo "creat volumes for the host"
     sudo mkdir -p /opt/nomad
     sudo mkdir -p /opt/nomad/{mysql,vast}

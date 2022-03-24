@@ -41,17 +41,22 @@
     memory = 1024;
     cpu = 3000;
   };
+  # volume_mount = {
+  #   volume = "opencti";
+  #   destination = "/var/lib/private/opencti";
+  #   read_only = false;
+  # };
+  # volume.opencti = {
+  #   type = "host";
+  #   read_only = false;
+  #   source = "opencti";
+  # };
 in {
   # based on https://github.com/OpenCTI-Platform/docker/blob/master/docker-compose.yml
   job.opencti = {
     inherit datacenters type namespace;
     group.container = {
       # count = 1;
-      # volume.opencti = {
-      #   type = "host";
-      #   read_only = false;
-      #   source = "opencti";
-      # };
       task.connector-export-file-stix = {
         inherit driver env resources;
         config = {
@@ -92,11 +97,27 @@ in {
         config = {
           image = "opencti/platform:${version}";
         };
-        # volume_mount = {
-        #   volume = "opencti";
-        #   destination = "/var/lib/private/opencti";
-        #   read_only = false;
-        # };
+        template = [
+          {
+            change_mode = "restart";
+            data = ''
+              {{ with secret "$\{consulPath}" }}
+              CONSUL_HTTP_TOKEN="{{ .Data.token }}"
+              PATRONI_CONSUL_TOKEN="{{ .Data.token }}"
+              PATRONICTL_CONFIG_FILE="$\{patroniYaml}"
+              {{ end }}
+
+              CONSUL_HTTP_ADDR="127.0.0.1:8500"
+              TERM="xterm-256color"
+            '';
+            destination = "secrets/env.txt";
+            env = true;
+            left_delimiter = "{{";
+            perms = "0644";
+            right_delimiter = "}}";
+            splay = "5s";
+          }
+        ];
       };
     };
   };

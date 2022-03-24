@@ -28,11 +28,11 @@ in {
         };
         client.host_volume = {
           mysql = {
-            path = "/opt/mysql/data";
+            path = "/opt/nomad/mysql";
             read_only = false;
           };
           vast = {
-            path = "/opt/vast/data";
+            path = "/opt/nomad/vast";
             read_only = false;
           };
         };
