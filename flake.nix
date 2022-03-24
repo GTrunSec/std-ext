@@ -32,8 +32,6 @@
     nickel-nix.inputs.nixpkgs.follows = "nixpkgs";
     nickel-nix.inputs.nickel.follows = "nickel";
 
-    terranix.url = "github:terranix/terranix";
-    terranix.inputs.nixpkgs.follows = "nixpkgs";
     terraform-providers.url = "github:numtide/nixpkgs-terraform-providers-bin";
     terraform-providers.inputs.nixpkgs.follows = "nixpkgs";
 
