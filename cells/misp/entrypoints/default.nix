@@ -20,7 +20,7 @@ in {
   nomad-hydration = makeTemplate {
     name = "misp-nomad-hydration-dev";
     target = "nomad";
-    source = nomadJobs.misp-compose {
+    source = nomadJobs.hydration {
       driver = "podman";
     };
     format = "json";
