@@ -59,6 +59,7 @@
         meta.mainProgram = name;
       }
     );
+
   writeShellApplication = {
     name,
     text,
@@ -96,14 +97,16 @@
         else checkPhase;
       meta.mainProgram = name;
     };
+
   writePiplelineApplication = {
+    name,
     julia ? nixpkgs.julia_17-bin,
     path ? "",
     args ? [],
     runtimeInputs ? [],
   }:
     writeShellApplication {
-      name = "writePiplelineApplication";
+      inherit name;
       runtimeInputs = [nixpkgs.julia_17-bin] ++ runtimeInputs;
       text = ''
         manifest=$CELL_ROOT/_writers/_packages/jobSchedulers
@@ -112,13 +115,14 @@
     };
 
   writeComoniconApplication = {
+    name,
     julia ? nixpkgs.julia_17-bin,
     path ? "",
     args ? [],
     runtimeInputs ? [],
   }:
     writeShellApplication {
-      name = "writePiplelineApplication";
+      inherit name;
       runtimeInputs = [nixpkgs.julia_17-bin] ++ runtimeInputs;
       text = ''
         manifest=$CELL_ROOT/_writers/_packages/comonicon

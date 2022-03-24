@@ -34,34 +34,41 @@
       '';
     });
 
-  # the attrConvertTemplate does not work with hcl to nomad
-  attrConvertTemplate = {
-    name ? "attrConvertTemplate",
+  # the makeTemplate does not work with hcl to nomad
+  makeTemplate = {
+    name ? "makeTemplate",
     source,
     text ? "",
     format,
-    runtimeInputs ? [],
+    searchPaths ? {},
     target ? "nomad",
   }:
     writeShellApplication {
-      name = "attrConvert";
-      runtimeInputs = [nixpkgs.remarshal nixpkgs.yj nixpkgs.nomad] ++ runtimeInputs;
+      name = "makeTemplate";
+      runtimeInputs = [nixpkgs.remarshal nixpkgs.yj nixpkgs.nomad nixpkgs.git] ++ searchPaths.bin;
       text = let
         json = nixpkgs.writeText "JSON" (builtins.toJSON source);
+        parseName = p: toString (builtins.elemAt (builtins.split "-" name) p);
       in
         ''
+          # <project>-<target>-<driver>-<branch>
+          CELLSINFRAPATH="$PRJ_ROOT/cells-infra/${parseName 0}/${parseName 2}/${parseName 4}/${parseName 6}"
+          if [ ! -d "$CELLSINFRAPATH" ]; then
+          mkdir -p "$CELLSINFRAPATH"
+          fi
+
           ${nixpkgs.lib.optionalString (format == "yaml") ''
-            json2yaml  -i ${json} -o "$PRJ_ROOT/cells-infra/${name}.json"
+            json2yaml  -i ${json} -o "$CELLSINFRAPATH/${name}.json"
           ''}
           ${nixpkgs.lib.optionalString (format == "json") ''
-            json2json -i ${json} -o "$PRJ_ROOT/cells-infra/${name}.json"
+            json2json -i ${json} -o "$CELLSINFRAPATH/${name}.json"
           ''}
           ${nixpkgs.lib.optionalString (target == "nomad") ''
-            nomad job plan "$PRJ_ROOT/cells-infra/${name}.json"
+            nomad job plan "$CELLSINFRAPATH/${name}.json"
           ''}
         ''
         + text;
     };
 in {
-  inherit glamourTemplate attrConvertTemplate;
+  inherit glamourTemplate makeTemplate;
 }

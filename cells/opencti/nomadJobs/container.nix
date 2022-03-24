@@ -3,7 +3,15 @@
   type ? "batch",
   driver ? ["podman" "docker"],
   namespace ? "default",
+  version ? "5.2.2",
+}: {
+  inputs,
+  cell,
 }: let
+  elasticsearch = inputs.cells.profiles.nomadJobs.elasticsearch {
+    inherit datacenters driver type namespace;
+  };
+
   env = {
     NODE_OPTIONS = "--max-old-space-size = 8096";
     APP__PORT = 8080;
@@ -29,68 +37,66 @@
     SMTP__PORT = 25;
     PROVIDERS__LOCAL__STRATEGY = "LocalStrategy";
   };
+  resources = {
+    memory = 1024;
+    cpu = 3000;
+  };
 in {
   # based on https://github.com/OpenCTI-Platform/docker/blob/master/docker-compose.yml
   job.opencti = {
     inherit datacenters type namespace;
     group.container = {
-      count = 1;
+      # count = 1;
       # volume.opencti = {
       #   type = "host";
       #   read_only = false;
       #   source = "opencti";
       # };
       task.connector-export-file-stix = {
-        inherit driver env;
+        inherit driver env resources;
         config = {
-          image = "opencti/connector-export-file-stix:5.2.1";
+          image = "opencti/connector-export-file-stix:${version}";
         };
       };
 
       task.connector-import-file-stix = {
-        inherit driver env;
+        inherit driver env resources;
         config = {
-          image = "opencti/connector-import-file-stix:5.2.1";
+          image = "opencti/connector-import-file-stix:${version}";
         };
       };
 
       task.connector-import-document = {
-        inherit driver env;
+        inherit driver env resources;
         config = {
-          image = "opencti/connector-import-document:5.2.1";
+          image = "opencti/connector-import-document:${version}";
         };
       };
 
       task.connector-export-file-csv = {
-        inherit driver env;
+        inherit driver env resources;
         config = {
-          image = "opencti/connector-export-file-csv:5.2.1";
+          image = "opencti/connector-export-file-csv:${version}";
         };
       };
 
       task.connector-export-file-txt = {
-        inherit driver env;
+        inherit driver env resources;
         config = {
-          image = "opencti/connector-export-file-txt:5.2.1";
+          image = "opencti/connector-export-file-txt:${version}";
         };
-        inherit env;
       };
 
       task.opencti-platform = {
-        inherit driver env;
-
+        inherit driver env resources;
         config = {
-          image = "opencti/platform:5.2.1";
+          image = "opencti/platform:${version}";
         };
         # volume_mount = {
         #   volume = "opencti";
         #   destination = "/var/lib/private/opencti";
         #   read_only = false;
         # };
-        resources = {
-          memory = 1100;
-          cpu = 3000;
-        };
       };
     };
   };

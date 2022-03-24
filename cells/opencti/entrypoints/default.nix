@@ -7,18 +7,18 @@
   inherit (cell) nomadJobs generator library nixosProfiles;
   inherit (inputs.cells._modules.library) makeSocProfile;
   inherit (inputs.cells._writers.library) writeShellApplication;
-  inherit (inputs.cells._templates.library) attrConvertTemplate;
+  inherit (inputs.cells._templates.library) makeTemplate;
 in {
-  opencti-nomad-container = attrConvertTemplate {
-    name = "opencti-nomad-container";
+  nomad-container = makeTemplate {
+    name = "opencti-nomad-container-dev";
     target = "nomad";
-    source = nomadJobs.opencti-compose {
+    source = nomadJobs.container {
       driver = "podman";
     };
     format = "json";
   };
-  opencti-nomad-hydration = attrConvertTemplate {
-    name = "opencti-nomad-hydration";
+  nomad-hydration = makeTemplate {
+    name = "opencti-nomad-hydration-dev";
     target = "nomad";
     source = nomadJobs.opencti-compose {
       driver = "podman";

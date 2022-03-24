@@ -1,6 +1,9 @@
 {
   inputs,
   cell,
-}: {
-  opencti-compose = args: import ./opencti-docker-compose.nix args;
+} @ args: rec {
+  container = _args: import ./container.nix _args {inherit inputs cell;};
+  hydration =
+    container {
+    };
 }

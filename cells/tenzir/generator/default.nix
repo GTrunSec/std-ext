@@ -5,7 +5,7 @@
   inherit (inputs) nixpkgs self data-merge;
   inherit (cell) nomadJobs configFiles library;
   inherit (inputs.cells._writers.library) writeShellApplication;
-  inherit (inputs.cells._templates.library) attrConvertTemplate;
+  inherit (inputs.cells._templates.library) makeTemplate;
   inherit (inputs.cells.makes.library) __output__ makeSubstitution;
   # default
   vast-settings = {

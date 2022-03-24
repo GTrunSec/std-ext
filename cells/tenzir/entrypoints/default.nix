@@ -6,14 +6,14 @@
   inherit (cell) nomadJobs generator library nixosProfiles;
   inherit (inputs.cells._modules.library) makeSocProfile;
   inherit (inputs.cells._writers.library) writeShellApplication;
-  inherit (inputs.cells._templates.library) attrConvertTemplate;
+  inherit (inputs.cells._templates.library) makeTemplate;
   inherit (inputs.cells.makes.library) __output__ makeSubstitution;
 
   vast-config-state-1 = data-merge.merge generator.prod {
     vast.endpoint = "192.168.1.1:4000";
   };
 in {
-  nomad-standalone-node = attrConvertTemplate {
+  nomad-standalone-node = makeTemplate {
     name = "nomad-standalone-node";
     target = "nomad";
     source = nomadJobs.vast-nixos-node {
@@ -22,7 +22,7 @@ in {
     format = "json";
   };
 
-  nomad-nixos-opencti-dev = attrConvertTemplate {
+  nomad-nixos-opencti-dev = makeTemplate {
     name = "nomad-nixos-opencti-dev";
     target = "nomad";
     source = nomadJobs.vast-nixos-node {
@@ -42,7 +42,7 @@ in {
     # source = makeSocProfile-custom1;
     path = "/tmp/OpenCTI-HELM-CHART/templates";
   };
-  vast-config-prod = attrConvertTemplate {
+  vast-config-prod = makeTemplate {
     name = "vast-config-prod";
     source = vast-config-state-1;
     format = "yaml";
