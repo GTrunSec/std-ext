@@ -9,8 +9,8 @@
   inherit (inputs.cells._writers.library) writeShellApplication;
   inherit (inputs.cells._templates.library) makeTemplate;
 in {
-  elasticsearch-nomad-container = makeTemplate {
-    name = "elasticsearch-nomad-container-dev";
+  nomad-container-elasticsearch-dev = makeTemplate {
+    name = "nomad-container-elasticsearch-dev";
     target = "nomad";
     source =
       nixpkgs.lib.recursiveUpdate (nomadJobs.elasticsearch {
@@ -18,6 +18,15 @@ in {
       }) {
         job.elasticsearch = (nomadJobs.kibana {driver = "podman";}).job.elasticsearch;
       };
+    format = "json";
+  };
+
+  nomad-nixos-airflow = makeTemplate {
+    name = "nomad-nixos-airflow";
+    target = "nomad";
+    source = nomadJobs.nixos-airflow {
+      flake = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab#nixosConfigurations.nomad-airflow";
+    };
     format = "json";
   };
 }
