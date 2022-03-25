@@ -41,24 +41,24 @@
     text ? "",
     format,
     searchPaths ? {bin = [];},
-    target ? "nomad",
+    target ? ["nomad"],
   }:
     writeShellApplication {
       name = "makeTemplate";
       runtimeInputs = [nixpkgs.remarshal nixpkgs.yj nixpkgs.nomad nixpkgs.git nixpkgs.treefmt] ++ searchPaths.bin;
       text = let
         json = nixpkgs.writeText "JSON" (builtins.toJSON source);
-        parseName = p: toString (builtins.elemAt (builtins.split "-" name) p);
+        directory = builtins.replaceStrings ["-"] ["/"] name;
       in
         ''
           # <project>-<target>-<driver>-<branch>
-          CELLSINFRAPATH="$PRJ_ROOT/cells-infra/${parseName 0}/${parseName 2}/${parseName 4}/${parseName 6}"
+          CELLSINFRAPATH="$PRJ_ROOT/cells-infra/${directory}"
           if [ ! -d "$CELLSINFRAPATH" ]; then
           mkdir -p "$CELLSINFRAPATH"
           fi
 
           ${nixpkgs.lib.optionalString (format == "yaml") ''
-            json2yaml  -i ${json} -o "$CELLSINFRAPATH/${name}.json"
+            json2yaml  -i ${json} -o "$CELLSINFRAPATH/${name}.yaml"
           ''}
           ${nixpkgs.lib.optionalString (format == "json") ''
             json2json -i ${json} -o "$CELLSINFRAPATH/${name}.json"

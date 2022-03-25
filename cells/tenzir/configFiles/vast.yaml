@@ -4,7 +4,6 @@
 
 # Options that concern VAST.
 vast:
-
   # The host and port to listen at and connect to.
   endpoint: "localhost:42000"
 
@@ -150,7 +149,6 @@ vast:
 
   # The `vast start` command starts a new VAST server process.
   start:
-
     # Prints the endpoint for clients when the server is ready to accept
     # connections. This comes in handy when letting the OS choose an
     # available random port, i.e., when specifying 0 as port value.
@@ -186,7 +184,6 @@ vast:
 
   # The `vast count` command counts hits for a query without exporting data.
   count:
-
     # Estimate an upper bound by skipping candidate checks.
     estimate: false
 
@@ -222,7 +219,7 @@ vast:
     #read: '-'
 
     # Path to write events to or "-" for writing to stdout.
-    write: '-'
+    write: "-"
 
     # Treat the write option as a UNIX domain socket to connect to.
     uds: false
@@ -230,7 +227,6 @@ vast:
     # The `vast export json` command exports events formatted as JSONL (line-
     # delimited JSON).
     json:
-
       # Flatten nested objects into the top-level object.
       flatten: false
 
@@ -247,16 +243,14 @@ vast:
 
   # The `vast infer` command tries to infer the schema from data.
   infer:
-
     # Path to read events from or "-" for reading from stdin.
-    read: '-'
+    read: "-"
 
     # Maximum number of bytes to buffer.
     buffer: 8192
 
   # The `vast explore` command explore context around query results.
   explore:
-
     # The output format.
     format: json
 
@@ -281,7 +275,6 @@ vast:
   # The `vast import` command imports data from stdin, files or over the
   # network.
   import:
-
     # The maximum number of events to import.
     #max-events: <infinity>
 
@@ -306,7 +299,7 @@ vast:
     #listen: <none>
 
     # Path to file to read events from or "-" for stdin.
-    read: '-'
+    read: "-"
 
     # Treat the read option as a UNIX domain socket to connect to.
     uds: false
@@ -369,14 +362,12 @@ vast:
   # The `vast pivot` command extracts related events of a given type.
   # For additionally available options, see export.pcap.
   pivot:
-
     # The output format.
     format: json
 
   # The `vast status` command prints a JSON-formatted status summary of the
   # node.
   status:
-
     # Add more information to the output
     detailed: false
 
@@ -387,10 +378,8 @@ vast:
 # Please be careful when changing these options. Note that some CAF options may
 # be in conflict with VAST options, and are only listed here for completeness.
 caf:
-
   # Options affecting the internal scheduler.
   scheduler:
-
     # Accepted alternative: "sharing".
     policy: stealing
 
@@ -411,7 +400,6 @@ caf:
 
   # When using "stealing" as scheduler policy.
   work-stealing:
-
     # Number of zero-sleep-interval polling attempts.
     aggressive-poll-attempts: 100
 

@@ -13,8 +13,10 @@
   - prod -> production
 
 #+begin_src sh :async :exports both :results output
-std run //tenzir//generator:vast-config-prod /tmp/vast.yaml
+std run //tenzir//generator:config-vast-prod
 #+end_src
+
+#+RESULTS:
 
 
 ** generating config to nixosModule of the vast

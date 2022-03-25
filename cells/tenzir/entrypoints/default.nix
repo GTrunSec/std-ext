@@ -43,8 +43,8 @@ in {
     path = "/tmp/OpenCTI-HELM-CHART/templates";
   };
 
-  vast-config-prod = makeTemplate {
-    name = "vast-config-prod";
+  config-vast-prod = makeTemplate {
+    name = "config-vast-prod";
     source = vast-config-state-1;
     format = "yaml";
   };
