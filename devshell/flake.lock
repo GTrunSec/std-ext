@@ -91,12 +91,12 @@
         "zeek2nix": "zeek2nix_10"
       },
       "locked": {
-        "narHash": "sha256-0UN78tuJRgY6TuOcjVFTk5IrgIzdjW7gq5ybCAeXB0Q=",
-        "path": "/nix/store/r02vqv1zwjlh1qvhrfmif2mzmc8bfrkq-source",
+        "narHash": "sha256-fS3sl6X6WT99nC6bMEkC2sX8QhF0oKk6gamxeEyWf/k=",
+        "path": "/nix/store/k6g1cj216f37zipd0m37cg58nayvhx7i-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/r02vqv1zwjlh1qvhrfmif2mzmc8bfrkq-source",
+        "path": "/nix/store/k6g1cj216f37zipd0m37cg58nayvhx7i-source",
         "type": "path"
       }
     },

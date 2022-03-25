@@ -103,14 +103,16 @@
     julia ? nixpkgs.julia_17-bin,
     path ? "",
     args ? [],
+    env ? {},
+    threads ? 8,
     runtimeInputs ? [],
   }:
     writeShellApplication {
-      inherit name;
+      inherit name env;
       runtimeInputs = [nixpkgs.julia_17-bin] ++ runtimeInputs;
       text = ''
         manifest=$CELL_ROOT/_writers/_packages/jobSchedulers
-        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} "$@"
+        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} --threads 8 "$@"
       '';
     };
 
@@ -119,14 +121,16 @@
     julia ? nixpkgs.julia_17-bin,
     path ? "",
     args ? [],
+    env ? {},
+    threads ? 8,
     runtimeInputs ? [],
   }:
     writeShellApplication {
-      inherit name;
+      inherit name env;
       runtimeInputs = [nixpkgs.julia_17-bin] ++ runtimeInputs;
       text = ''
         manifest=$CELL_ROOT/_writers/_packages/comonicon
-        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} "$@"
+        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} --threads 8 "$@"
       '';
     };
 in {
