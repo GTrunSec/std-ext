@@ -37,11 +37,12 @@ in {
       openCTI = true;
       zeek = true;
     };
-    target = "k8s"; # or k8s, podman, docker;
+    target = "nomad"; # or k8s, podman, docker;
     format = "yaml";
     # source = makeSocProfile-custom1;
     path = "/tmp/OpenCTI-HELM-CHART/templates";
   };
+
   vast-config-prod = makeTemplate {
     name = "vast-config-prod";
     source = vast-config-state-1;

@@ -12,9 +12,12 @@ in {
   elasticsearch-nomad-container = makeTemplate {
     name = "elasticsearch-nomad-container-dev";
     target = "nomad";
-    source = nomadJobs.elasticsearch {
-      driver = "podman";
-    };
+    source =
+      nixpkgs.lib.recursiveUpdate (nomadJobs.elasticsearch {
+        driver = "podman";
+      }) {
+        job.elasticsearch = (nomadJobs.kibana {driver = "podman";}).job.elasticsearch;
+      };
     format = "json";
   };
 }

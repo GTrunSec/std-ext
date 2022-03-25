@@ -25,4 +25,13 @@ in {
     };
     format = "json";
   };
+
+  nomad-nixos-dev = makeTemplate {
+    name = "opencti-nomad-nixos-dev";
+    target = "nomad";
+    source = nomadJobs.nixos-node {
+      flake = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab#nixosConfigurations.nomad-tenzir-opencti";
+    };
+    format = "json";
+  };
 }

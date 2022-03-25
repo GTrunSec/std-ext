@@ -9,20 +9,15 @@
     memory = 1024;
     cpu = 3000;
   };
-  volume.elasticsearch = {
-    type = "host";
-    read_only = false;
-    source = "elasticsearch";
-  };
   network = {
-    port.elasticsearch = {
-      static = 9200;
-      to = 9200;
+    port.kibana = {
+      static = 5601;
+      to = 5601;
     };
   };
   service = {
-    name = "elasticsearch";
-    port = 9200;
+    name = "kibana";
+    port = 5601;
   };
 in {
   job.elasticsearch = {
@@ -30,17 +25,15 @@ in {
     group.container = {
       count = 1;
       inherit network service;
-      task.elasticsearch = {
+      task.kibana = {
         inherit resources driver;
         config = {
-          image = "docker.elastic.co/elasticsearch/elasticsearch:${version}";
+          image = "docker.elastic.co/kibana/kibana:${version}";
 
-          ports = ["elasticsearch"];
+          ports = ["kibana"];
         };
         env = {
-          "bootstrap.memory_lock" = "true";
-          "ES_JAVA_OPTS" = "-Xms512m -Xmx512m";
-          "discovery.type" = "single-node";
+          ELASTICSEARCH_HOSTS = "http://127.0.0.1:9200";
         };
       };
     };
