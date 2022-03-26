@@ -8,3 +8,4 @@ tmp/
 vast.yaml
 .*
 !.sops.yaml
+gcroot

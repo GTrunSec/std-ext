@@ -17,12 +17,12 @@ in {
     };
     format = "json";
   };
-  nomad-hydration = makeTemplate {
-    name = "misp-nomad-hydration-dev";
-    target = "nomad";
-    source = nomadJobs.hydration {
-      driver = "podman";
-    };
-    format = "json";
-  };
+  # nomad-hydration = makeTemplate {
+  #   name = "misp-nomad-hydration-dev";
+  #   target = "nomad";
+  #   source = nomadJobs.hydration {
+  #     driver = "podman";
+  #   };
+  #   format = "json";
+  # };
 }

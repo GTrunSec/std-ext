@@ -26,6 +26,9 @@ jobs:
       - name: Run Flake Show
         run: nix -Lv flake show
 
+      - name: Eval Cells
+        run: nix -Lv develop -c eval-cells
+
       - name: Check Cliche Example
         run: nix develop ./devshell\#default -c std run //cliche//entrypoints:example
 

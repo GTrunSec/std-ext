@@ -20,7 +20,7 @@ in {
   nomad-hydration = makeTemplate {
     name = "opencti-nomad-hydration-dev";
     target = "nomad";
-    source = nomadJobs.opencti-compose {
+    source = nomadJobs.container {
       driver = "podman";
     };
     format = "json";

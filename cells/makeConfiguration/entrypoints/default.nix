@@ -23,12 +23,4 @@ in {
     args = ["jobs.dev"];
     path = ./tenzir/nomad;
   };
-  threatbus-terranix-nixpkgs-terranix = makeConfiguration {
-    name = "terranix-threatbus";
-    target = "terranix";
-    # terranix
-    language = "nix";
-    args = ["config.nix"];
-    path = ./tenzir/nomad;
-  };
 }
