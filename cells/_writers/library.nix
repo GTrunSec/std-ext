@@ -4,6 +4,9 @@
 }: let
   nixpkgs = inputs.nixpkgs.appendOverlays [
     inputs.nixpkgs-hardenedlinux.inputs.gomod2nix.overlay
+    (final: prev: {
+      cliche = python3Packages.callPackage ./_packages/cliche {};
+    })
   ];
   inherit
     (nixpkgs)
@@ -15,7 +18,6 @@
     glibcLocales
     python3Packages
     ;
-  cliche = python3Packages.callPackage ./_packages/cliche {};
 
   writeClicheApplication = {
     name,
@@ -27,7 +29,7 @@
   }: let
     python = inputs.nixpkgs.python3.withPackages (
       ps: [
-        cliche
+        nixpkgs.cliche
         libraries
       ]
     );
@@ -40,7 +42,7 @@
         runHook preInstall
 
         mkdir -p $out/bin
-        cp ${cliche}/bin/hello $out/bin/${name}
+        cp ${nixpkgs.cliche}/bin/hello $out/bin/${name}
         sed -i 's|#! /nix/store/.*.|#! ${python}/bin/python|' $out/bin/${name}
         sed -i 's|{{runtimeInputs}}|${lib.makeBinPath runtimeInputs}|' $out/bin/${name}
 
@@ -61,40 +63,6 @@
         else checkPhase;
       meta.mainProgram = name;
     };
-  # cliche.overridePythonAttrs (
-  #   oldAttrs: let
-  #     python = inputs.nixpkgs.python3.withPackages (
-  #       ps: [
-  #         cliche
-  #         libraries
-  #       ]
-  #     );
-  #   in {
-  #     pname = name;
-  #     propagatedBuildInputs = oldAttrs.propagatedBuildInputs ++ runtimeInputs;
-  #     postFixup = ''
-  #       $out/bin/cliche install --module_dir ${path} ${name}
-  #       sed -i 's|#! /nix/store/.*.|#! ${python}/bin/python|' $out/bin/${name}
-  #       sed -i 's|{{runtimeInputs}}|${lib.makeBinPath runtimeInputs}|' $out/bin/${name}
-  #       rm -rf $out/bin/cliche
-  #     '';
-  #     checkPhase =
-  #       if checkPhase == null
-  #       then ''
-  #         runHook preCheck
-  #         for path in $(find "${path}" -name '*.py')
-  #         do
-  #            ${nixpkgs.python3Packages.black}/bin/black --check $path
-  #         done
-  #         export HOME=$(mktemp -d)
-  #         $out/bin/${name} --help
-  #         runHook postCheck
-  #       ''
-  #       else checkPhase;
-
-  #     meta.mainProgram = name;
-  #   }
-  # );
 
   writeShellApplication = {
     name,
@@ -171,6 +139,7 @@
     };
 in {
   inherit writeClicheApplication writePiplelineApplication writeComoniconApplication;
+
   writeShellApplication = {...} @ args:
     writeShellApplication (
       args
