@@ -5,14 +5,18 @@ scheduler_start()
 sleep(2)
 
 prog = CmdProgram(
-    inputs = ["SHELL", "INPUT1"],
+    inputs = ["PATH", "SHELL", "INPUT1", "INPUT2"],
     # outputs = "OUTPUT_FILE",
-    cmd = pipeline(`nix develop SHELL INPUT1`),
+    cmd = pipeline(`SHELL PATH -c INPUT1`,
+                   `SHELL PATH -c INPUT2`
+                   ),
 )
 
 inputs = Dict(
-    "SHELL" => ENV["PRJ_ROOT"] * "/devshell",
-    "INPUT1" => `-c std run //tenzir//entrypoints:config-vast-prod`,
+    "SHELL" => `nix develop`,
+    "PATH" => ENV["PRJ_ROOT"] * "/devshell",
+    "INPUT1" => `std run //tenzir//entrypoints:config-vast-prod`,
+    "INPUT2" => `std run //cliche//entrypoints:example add 1 2`,
 )
 #outputs = "OUTPUT_FILE" => "out" # save output to file
 

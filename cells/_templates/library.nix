@@ -63,7 +63,6 @@
           ${nixpkgs.lib.optionalString (format == "json") ''
             json2json -i ${json} -o "$CELLSINFRAPATH/${name}.json"
           ''}
-          treefmt "$PRJ_ROOT/cells-infra"
           ${nixpkgs.lib.optionalString (target == "nomad") ''
             nomad job plan "$CELLSINFRAPATH/${name}.json"
           ''}
