@@ -27,20 +27,20 @@ jobs:
         run: nix -Lv flake show
 
       - name: Eval Cells
-        run: nix -Lv develop -c eval-cells
+        run: nix -Lv develop ./devshell -c eval-cells
 
       - name: Check Cliche Example
-        run: nix develop ./devshell\#default -c std run //cliche//entrypoints:example
+        run: nix develop ./devshell -c std run //cliche//entrypoints:example
 
       - name: Check Comonicon Example
-        run: nix develop ./devshell\#default -c std run //comonicon//entrypoints:mycmd
+        run: nix develop ./devshell -c std run //comonicon//entrypoints:mycmd
 
       - name: Check nickel template of the threatbus
         run: |
-          nix develop ./devshell\#default -c std run //makeConfiguration//entrypoints:threatbus-nomad-nixpkgs-nickel
+          nix develop ./devshell -c std run //makeConfiguration//entrypoints:threatbus-nomad-nixpkgs-nickel
 
       - name: Check glamour template of the test
-        run: nix develop ./devshell\#default -c std run //glamour//entrypoints:test
+        run: nix develop ./devshell -c std run //glamour//entrypoints:test
 
       - name: Check DevShell Menu
-        run: nix develop ./devshell\#default -c menu
+        run: nix develop ./devshell -c menu
