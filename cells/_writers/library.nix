@@ -116,7 +116,7 @@
       runtimeInputs = [nixpkgs.julia_17-bin] ++ runtimeInputs;
       text = ''
         manifest=$CELL_ROOT/_writers/_packages/jobSchedulers
-        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} --threads ${threads} "$@"
+        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} --threads ${toString threads} "$@"
       '';
     };
 
@@ -134,7 +134,7 @@
       runtimeInputs = [nixpkgs.julia_17-bin] ++ runtimeInputs;
       text = ''
         manifest=$CELL_ROOT/_writers/_packages/comonicon
-        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} --threads ${threads} "$@"
+        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} --threads ${toString threads} "$@"
       '';
     };
 in {
