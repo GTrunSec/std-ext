@@ -5,10 +5,11 @@ scheduler_start()
 sleep(2)
 
 prog = CmdProgram(
-    inputs = ["PATH", "SHELL", "INPUT1", "INPUT2"],
+    inputs = ["PATH", "SHELL", "INPUT1", "INPUT2", "INPUT3"],
     # outputs = "OUTPUT_FILE",
     cmd = pipeline(`SHELL PATH -c INPUT1`,
-                   `SHELL PATH -c INPUT2`
+                   `SHELL PATH -c INPUT2`,
+                   `SHELL PATH -c INPUT3`
                    ),
 )
 
@@ -17,6 +18,7 @@ inputs = Dict(
     "PATH" => ENV["PRJ_ROOT"] * "/devshell",
     "INPUT1" => `std run //tenzir//entrypoints:config-vast-prod`,
     "INPUT2" => `std run //cliche//entrypoints:example add 1 2`,
+    "INPUT3" => `std run //makes//entrypoints:scriptEnv`,
 )
 #outputs = "OUTPUT_FILE" => "out" # save output to file
 

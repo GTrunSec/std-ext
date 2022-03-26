@@ -35,9 +35,8 @@ jobs:
       - name: Check Comonicon Example
         run: nix develop ./devshell -c std run //comonicon//entrypoints:mycmd
 
-      - name: Check nickel template of the threatbus
-        run: |
-          nix develop ./devshell -c std run //makeConfiguration//entrypoints:threatbus-nomad-nixpkgs-nickel
+      - name: Check schedulers of config
+        run: nix develop ./devshell -c std run //schedulers//entrypoints:tenzir-config
 
       - name: Check glamour template of the test
         run: nix develop ./devshell -c std run //glamour//entrypoints:test
