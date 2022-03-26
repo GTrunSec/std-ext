@@ -30,7 +30,7 @@ jobs:
         run: nix -Lv develop ./devshell -c eval-cells
 
       - name: Check Cliche Example
-        run: nix develop ./devshell -c std run //cliche//entrypoints:example
+        run: nix develop ./devshell -c std run //cliche//entrypoints:example add 1 2
 
       - name: Check Comonicon Example
         run: nix develop ./devshell -c std run //comonicon//entrypoints:mycmd
