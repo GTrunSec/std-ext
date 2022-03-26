@@ -24,41 +24,77 @@
     runtimeInputs ? [],
     libraries ? [],
     checkPhase ? null,
-  }:
-    cliche.overridePythonAttrs (
-      oldAttrs: let
-        python = inputs.nixpkgs.python3.withPackages (
-          ps: [
-            cliche
-            libraries
-          ]
-        );
-      in {
-        pname = name;
-        propagatedBuildInputs = oldAttrs.propagatedBuildInputs ++ runtimeInputs;
-        postFixup = ''
-          $out/bin/cliche install --module_dir ${path} ${name}
-          sed -i 's|#! /nix/store/.*.|#! ${python}/bin/python|' $out/bin/${name}
-          sed -i 's|{{runtimeInputs}}|${lib.makeBinPath runtimeInputs}|' $out/bin/${name}
-          rm -rf $out/bin/cliche
-        '';
-        checkPhase =
-          if checkPhase == null
-          then ''
-            runHook preCheck
-            for path in $(find "${path}" -name '*.py')
-            do
-               ${nixpkgs.python3Packages.black}/bin/black --check $path
-            done
-            export HOME=$(mktemp -d)
-            $out/bin/${name} --help
-            runHook postCheck
-          ''
-          else checkPhase;
-
-        meta.mainProgram = name;
-      }
+  }: let
+    python = inputs.nixpkgs.python3.withPackages (
+      ps: [
+        cliche
+        libraries
+      ]
     );
+  in
+    nixpkgs.stdenvNoCC.mkDerivation {
+      inherit name;
+      buildInputs = runtimeInputs;
+      src = path;
+      installPhase = ''
+        runHook preInstall
+
+        mkdir -p $out/bin
+        cp ${cliche}/bin/hello $out/bin/${name}
+        sed -i 's|#! /nix/store/.*.|#! ${python}/bin/python|' $out/bin/${name}
+        sed -i 's|{{runtimeInputs}}|${lib.makeBinPath runtimeInputs}|' $out/bin/${name}
+
+        runHook postInstall
+      '';
+      checkPhase =
+        if checkPhase == null
+        then ''
+          runHook preCheck
+          for path in $(find "${path}" -name '*.py')
+          do
+             ${nixpkgs.python3Packages.black}/bin/black --check $path
+          done
+          export HOME=$(mktemp -d)
+          $out/bin/${name} --help
+          runHook postCheck
+        ''
+        else checkPhase;
+      meta.mainProgram = name;
+    };
+  # cliche.overridePythonAttrs (
+  #   oldAttrs: let
+  #     python = inputs.nixpkgs.python3.withPackages (
+  #       ps: [
+  #         cliche
+  #         libraries
+  #       ]
+  #     );
+  #   in {
+  #     pname = name;
+  #     propagatedBuildInputs = oldAttrs.propagatedBuildInputs ++ runtimeInputs;
+  #     postFixup = ''
+  #       $out/bin/cliche install --module_dir ${path} ${name}
+  #       sed -i 's|#! /nix/store/.*.|#! ${python}/bin/python|' $out/bin/${name}
+  #       sed -i 's|{{runtimeInputs}}|${lib.makeBinPath runtimeInputs}|' $out/bin/${name}
+  #       rm -rf $out/bin/cliche
+  #     '';
+  #     checkPhase =
+  #       if checkPhase == null
+  #       then ''
+  #         runHook preCheck
+  #         for path in $(find "${path}" -name '*.py')
+  #         do
+  #            ${nixpkgs.python3Packages.black}/bin/black --check $path
+  #         done
+  #         export HOME=$(mktemp -d)
+  #         $out/bin/${name} --help
+  #         runHook postCheck
+  #       ''
+  #       else checkPhase;
+
+  #     meta.mainProgram = name;
+  #   }
+  # );
 
   writeShellApplication = {
     name,
@@ -112,7 +148,7 @@
       runtimeInputs = [nixpkgs.julia_17-bin] ++ runtimeInputs;
       text = ''
         manifest=$CELL_ROOT/_writers/_packages/jobSchedulers
-        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} --threads 8 "$@"
+        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} --threads ${threads} "$@"
       '';
     };
 
@@ -130,7 +166,7 @@
       runtimeInputs = [nixpkgs.julia_17-bin] ++ runtimeInputs;
       text = ''
         manifest=$CELL_ROOT/_writers/_packages/comonicon
-        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} --threads 8 "$@"
+        julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} --threads ${threads} "$@"
       '';
     };
 in {

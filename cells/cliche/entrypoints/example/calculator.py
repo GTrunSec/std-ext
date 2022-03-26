@@ -6,7 +6,6 @@ from cliche import cli
 def add(a: int, b: int):
     print(a + b)
 
-
 @cli
 def sum_or_multiply(a_number: int, b_number: int = 10, sums: bool = False):
     """Sums or multiplies a and b

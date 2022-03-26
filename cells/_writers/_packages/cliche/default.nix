@@ -5,13 +5,13 @@
 }:
 pythonPackages.buildPythonPackage rec {
   pname = "cliche";
-  version = "8e6eb57f1145aee4c43f2bc4e6a508b8922a152e";
+  version = "2b0369de9473a832974c623724ba4e314e3af8f4";
   src = fetchFromGitHub {
     owner = "kootenpv";
     repo = "cliche";
     rev = version;
     fetchSubmodules = false;
-    sha256 = "sha256-lr4M/dDM97M6mNpciJC8EVYAavf4Asbzoic/jgSt29c=";
+    sha256 = "sha256-x09eZDcxljWA86+lXij6DIz0R3HYH18JNA37hEoIbqM=";
   };
 
   checkInputs = with pythonPackages; [pytestCheckHook];
@@ -22,6 +22,9 @@ pythonPackages.buildPythonPackage rec {
 
   propagatedBuildInputs = with pythonPackages; [ipdb argcomplete];
 
+  postFixup = ''
+    $out/bin/cliche install --module_dir ${./.} hello
+  '';
   meta = with lib; {
     description = "Build a simple command-line interface from your functions 💻";
     homepage = "https://github.com/kootenpv/cliche";

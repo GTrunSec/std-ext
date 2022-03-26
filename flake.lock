@@ -12165,11 +12165,11 @@
         "nixpkgs": "nixpkgs_209"
       },
       "locked": {
-        "lastModified": 1648066215,
-        "narHash": "sha256-Ufz0T08YXcguPgm83ImbK17XN2Kd0c3lfa8KCMfjAvk=",
+        "lastModified": 1648247166,
+        "narHash": "sha256-zGbrJ5ddo+MvCHHuY2kGWi6N2676DkBjz3Qbu66LhHg=",
         "owner": "nlewo",
         "repo": "nix2container",
-        "rev": "5c33081c1c611bf3e0c24eb6f0df19a7639e6844",
+        "rev": "065e5b108650ee4c2dc80fe1f4952eff50922e6c",
         "type": "github"
       },
       "original": {

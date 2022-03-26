@@ -8,7 +8,7 @@
 
   makeSubstitution = args: makes ./makeLib/makeSubstitution.nix {} args;
 
-  makeSopsScript = args: makes ./makeLib/secrets-for-gpg-from-env.nix {} args;
+  makeSops = args: makes ./makeLib/secrets-for-gpg-from-env.nix {} args;
 
   __output__ = import ./makes.nix {inherit inputs;};
 in {
@@ -16,7 +16,7 @@ in {
     __output__
     makes
     makeScript
-    makeSopsScript
+    makeSops
     makeSubstitution
     ;
 }
