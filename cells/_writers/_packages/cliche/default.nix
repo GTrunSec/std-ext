@@ -22,9 +22,6 @@ pythonPackages.buildPythonPackage rec {
 
   propagatedBuildInputs = with pythonPackages; [ipdb argcomplete];
 
-  postFixup = ''
-    $out/bin/cliche install --module_dir ${./.} hello
-  '';
   meta = with lib; {
     description = "Build a simple command-line interface from your functions 💻";
     homepage = "https://github.com/kootenpv/cliche";
