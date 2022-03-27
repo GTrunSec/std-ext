@@ -16,4 +16,13 @@ in {
       #podman rmi docker.io/library/${packages.opencti-platform.imageName}:${packages.opencti-platform.imageTag}
     '';
   };
+  cliche-example-podman = writeShellApplication {
+    name = "cliche-example";
+    runtimeInputs = [nixpkgs.podman];
+    text = ''
+      ${packages.cliche-example.copyToPodman}/bin/copy-to-podman
+      podman run ${packages.cliche-example.imageName}:${packages.cliche-example.imageTag} | grep /opt/opencti
+      #podman rmi docker.io/library/${packages.cliche-example.imageName}:${packages.cliche-example.imageTag}
+    '';
+  };
 }
