@@ -2,8 +2,8 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) self;
-  inherit (cell) packages;
+  inherit (inputs) cells;
+  inherit (cell) packages entrypoints;
 in {
   default = _: {
     commands = [
@@ -12,12 +12,12 @@ in {
         category = "Update";
       }
       {
-        package = self.packages.update-nvfetcher-update;
+        package = entrypoints.nvfetcher-update;
         category = "Update";
         help = "run nvfetcher with sources.toml <github-CI>";
       }
       {
-        package = self.packages.update-nix-github-update;
+        package = entrypoints.nix-github-update;
         help = "run nvfetcher to update your github action version";
         category = "Update";
       }

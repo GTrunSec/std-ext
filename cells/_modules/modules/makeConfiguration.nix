@@ -6,7 +6,7 @@
   inputs,
   ...
 }: let
-  inherit (inputs) self;
+  inherit (inputs) cells;
 in {
   config.templates = {
     makeConfiguration = let
@@ -15,7 +15,7 @@ in {
       writeShellApplication {
         name = cfg.name;
         runtimeInputs =
-          lib.optionals (cfg.language == "nickel") [self.packages.makeConfiguration-nickel]
+          lib.optionals (cfg.language == "nickel") [cells.makeConfiguration.packages.nickel]
           ++ lib.optionals (cfg.language == "cue") [pkgs.cue]
           ++ lib.optionals (cfg.language == "nix") []
           ++ cfg.runtimeInputs;

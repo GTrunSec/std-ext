@@ -3,6 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs self;
+  inherit (cell) entrypoints;
 in {
   default = _: {
     commands = [
@@ -12,7 +13,7 @@ in {
         category = "julia";
       }
       {
-        package = self.packages.comonicon-mycmd;
+        package = entrypoints.mycmd;
         category = "julia";
       }
     ];

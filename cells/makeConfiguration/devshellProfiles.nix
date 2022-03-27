@@ -3,9 +3,9 @@
   cell,
 }: let
   inherit (cell) packages library;
-  inherit (inputs) nixpkgs self;
+  inherit (inputs) nixpkgs inputsSystem;
 in {
-  nickel = library.importNcl ./shell.ncl self.__inputs__;
+  nickel = library.importNcl ./shell.ncl inputsSystem;
   default = _: {
     commands = [
       {

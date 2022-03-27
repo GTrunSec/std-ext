@@ -17,7 +17,7 @@ in {
     name = "nomad-standalone-node";
     target = "nomad";
     source = nomadJobs.vast-nixos-node {
-      flake = "${self.sourceInfo.outPath}#${nixpkgs.system}.tenzir.nixosProfiles.nomad-tenzir-vast";
+      flake = "${self.outPath}#${nixpkgs.system}.tenzir.nixosProfiles.nomad-tenzir-vast";
     };
     format = "json";
   };
