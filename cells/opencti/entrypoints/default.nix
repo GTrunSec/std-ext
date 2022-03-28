@@ -1,8 +1,7 @@
 {
   inputs,
   cell,
-  ...
-}: let
+} @ args: let
   inherit (inputs) nixpkgs self data-merge;
   inherit (cell) nomadJobs dockerJobs generator library nixosProfiles;
   inherit (inputs.cells._modules.library) makeSocProfile makeConfiguration;
@@ -35,21 +34,5 @@ in {
     format = "json";
   };
 
-  docker-compose-prod = makeConfiguration rec {
-    name = "opencti-docker-compose";
-    target = "docker-compose";
-    searchPaths.source = let
-      justfile = makeSubstitution {
-        name = "justfile";
-        env = {
-          __argFile__ = name;
-        };
-        source = ./justfile;
-      };
-    in ["${justfile}/justfile"];
-    branch = "prod";
-    searchPaths.bin = [];
-    source = dockerJobs.compose {};
-    format = "yaml";
-  };
+  docker-compose-prod = import ./docker-compose-prod.nix args;
 }
