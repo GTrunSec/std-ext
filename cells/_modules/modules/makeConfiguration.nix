@@ -18,6 +18,12 @@ in {
         text = let
           json = pkgs.writeText "JSON" (builtins.toJSON cfg.source);
           directory = builtins.replaceStrings ["-"] ["/"] cfg.name + "/" + cfg.branch;
+          writeSource = lib.concatStringsSep "\n" (map (f: ''
+              cp ${f} "$CELLSINFRAPATH/${builtins.baseNameOf f}"
+              chmod +rw "$CELLSINFRAPATH/${builtins.baseNameOf f}"
+            '')
+            cfg.searchPaths.source);
+
           CELLSINFRAPATH =
             if cfg.path == null
             then "$PRJ_ROOT/cells-infra/infra/${directory}"
@@ -47,7 +53,12 @@ in {
               ${pkgs.docker-compose}/bin/docker-compose -f "$CELLSINFRAPATH/${cfg.name}.${cfg.format}" config -q
             ''}
           ''
-          + cfg.text;
+          + cfg.text
+          + (
+            if cfg.searchPaths.source != []
+            then "${writeSource}"
+            else ""
+          );
       };
   };
 }

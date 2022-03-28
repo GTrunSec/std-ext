@@ -17,7 +17,7 @@ in {
     };
     text = mkOption {
       type = types.str;
-      default = "echo Template";
+      default = "";
       description = ''
         write your shell context here
       '';
@@ -30,7 +30,7 @@ in {
       '';
     };
     target = mkOption {
-      type = types.enum ["nomad" "terraform" "podman" "docker" "k8s"];
+      type = types.enum ["nomad" "terraform" "podman" "docker" "k8s" "docker-compose"];
       default = "echo Template";
       description = ''
         Which platform do you want to deploy it by template

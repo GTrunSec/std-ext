@@ -38,6 +38,7 @@ devshell.legacyPackages.mkShell {
     nixpkgs.nodePackages.prettier-plugin-toml
     nixpkgs.python3Packages.black
     nixpkgs.nix-eval-jobs
+    nixpkgs.just
   ];
   devshell.startup.nodejs-setuphook = nixpkgs.lib.stringsWithDeps.noDepEntry ''
     export NODE_PATH=${nixpkgs.nodePackages.prettier-plugin-toml}/lib/node_modules:$NODE_PATH

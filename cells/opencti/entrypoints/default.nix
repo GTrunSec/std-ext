@@ -7,6 +7,7 @@
   inherit (cell) nomadJobs dockerJobs generator library nixosProfiles;
   inherit (inputs.cells._modules.library) makeSocProfile makeConfiguration;
   inherit (inputs.cells._writers.library) writeShellApplication;
+  inherit (inputs.cells.makes.library) makeSubstitution;
 in {
   nomad-container = makeConfiguration {
     name = "opencti-nomad-container-dev";
@@ -34,9 +35,20 @@ in {
     format = "json";
   };
 
-  docker-compose = makeConfiguration {
-    name = "opencti-docker-compose-prod";
+  docker-compose-prod = makeConfiguration rec {
+    name = "opencti-docker-compose";
     target = "docker-compose";
+    searchPaths.source = let
+      justfile = makeSubstitution {
+        name = "justfile";
+        env = {
+          __argFile__ = name;
+        };
+        source = ./justfile;
+      };
+    in ["${justfile}/justfile"];
+    branch = "prod";
+    searchPaths.bin = [];
     source = dockerJobs.compose {};
     format = "yaml";
   };
