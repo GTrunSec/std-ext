@@ -3,6 +3,7 @@
 from cliche import cli
 import os
 
+
 @cli
 def env():
     a = os.environ["test"]

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from cliche import cli
 
 
@@ -10,6 +9,7 @@ def add(a: int, b: int):
 @cli
 def sum_or_multiply(a_number: int, b_number: int = 10, sums: bool = False):
     """Sums or multiplies a and b
+
     :param a_number: the first one
     :param b_number: This parameter seems to be
     :param sums: Sums when true, otherwise multiply

@@ -10057,25 +10057,27 @@
     },
     "latest_42": {
       "locked": {
+        "lastModified": 1648431601,
+        "narHash": "sha256-D2TVthe59QrVjLiY1czw+eya4NiU0rxLrFyXKIE1wCM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "188a15c3f94893d247983088d3c0567e636e4e28",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "latest_43": {
+      "locked": {
         "lastModified": 1647921675,
         "narHash": "sha256-Ntwdo1dwwoYaksCZvzbYC+Rq9QeNEs44FqxPDweLaD8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "1cec41b727197f8df4f203cb3dfffed80706ca45",
-        "type": "github"
-      },
-      "original": {
-        "id": "latest",
-        "type": "indirect"
-      }
-    },
-    "latest_43": {
-      "locked": {
-        "lastModified": 1644994982,
-        "narHash": "sha256-SvXFMwBIs3tuKRnJHYzjZK0w3qCytLn0eFqAFI4bWiw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "6d5e3764dd3802fe55d8753e27daeb14a76ce0e0",
         "type": "github"
       },
       "original": {
@@ -10211,6 +10213,20 @@
     },
     "latest_52": {
       "locked": {
+        "lastModified": 1644994982,
+        "narHash": "sha256-SvXFMwBIs3tuKRnJHYzjZK0w3qCytLn0eFqAFI4bWiw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "6d5e3764dd3802fe55d8753e27daeb14a76ce0e0",
+        "type": "github"
+      },
+      "original": {
+        "id": "latest",
+        "type": "indirect"
+      }
+    },
+    "latest_53": {
+      "locked": {
         "lastModified": 1645695090,
         "narHash": "sha256-q3FYGic9v062MeHGh0MdfUVmIp3qJU16PwAsA/zXigA=",
         "owner": "NixOS",
@@ -10223,7 +10239,7 @@
         "type": "indirect"
       }
     },
-    "latest_53": {
+    "latest_54": {
       "locked": {
         "lastModified": 1644994982,
         "narHash": "sha256-SvXFMwBIs3tuKRnJHYzjZK0w3qCytLn0eFqAFI4bWiw=",
@@ -13472,7 +13488,7 @@
         "devshell": "devshell_47",
         "flake-compat": "flake-compat_125",
         "gomod2nix": "gomod2nix_41",
-        "latest": "latest_42",
+        "latest": "latest_43",
         "mach-nix": "mach-nix_41",
         "nixpkgs": [
           "nixpkgs"
@@ -13502,7 +13518,7 @@
         "devshell": "devshell_50",
         "flake-compat": "flake-compat_129",
         "gomod2nix": "gomod2nix_42",
-        "latest": "latest_43",
+        "latest": "latest_44",
         "mach-nix": "mach-nix_42",
         "nixpkgs": "nixpkgs_219",
         "nixpkgs_20": "nixpkgs_20_39",
@@ -13553,7 +13569,7 @@
         "devshell": "devshell_51",
         "flake-compat": "flake-compat_132",
         "gomod2nix": "gomod2nix_43",
-        "latest": "latest_44",
+        "latest": "latest_45",
         "mach-nix": "mach-nix_43",
         "nixpkgs": "nixpkgs_224",
         "nixpkgs_20": "nixpkgs_20_40",
@@ -13579,7 +13595,7 @@
         "devshell": "devshell_52",
         "flake-compat": "flake-compat_136",
         "gomod2nix": "gomod2nix_44",
-        "latest": "latest_45",
+        "latest": "latest_46",
         "mach-nix": "mach-nix_44",
         "nixpkgs": "nixpkgs_230",
         "nixpkgs_20": "nixpkgs_20_41",
@@ -13605,7 +13621,7 @@
         "devshell": "devshell_53",
         "flake-compat": "flake-compat_139",
         "gomod2nix": "gomod2nix_45",
-        "latest": "latest_46",
+        "latest": "latest_47",
         "mach-nix": "mach-nix_45",
         "nixpkgs": "nixpkgs_235",
         "nixpkgs_20": "nixpkgs_20_42",
@@ -13631,7 +13647,7 @@
         "devshell": "devshell_54",
         "flake-compat": "flake-compat_142",
         "gomod2nix": "gomod2nix_46",
-        "latest": "latest_47",
+        "latest": "latest_48",
         "mach-nix": "mach-nix_46",
         "nixpkgs": "nixpkgs_240",
         "nixpkgs_20": "nixpkgs_20_43",
@@ -13657,7 +13673,7 @@
         "devshell": "devshell_55",
         "flake-compat": "flake-compat_145",
         "gomod2nix": "gomod2nix_47",
-        "latest": "latest_48",
+        "latest": "latest_49",
         "mach-nix": "mach-nix_47",
         "nixpkgs": "nixpkgs_245",
         "nixpkgs_20": "nixpkgs_20_44",
@@ -13683,7 +13699,7 @@
         "devshell": "devshell_56",
         "flake-compat": "flake-compat_148",
         "gomod2nix": "gomod2nix_48",
-        "latest": "latest_49",
+        "latest": "latest_50",
         "mach-nix": "mach-nix_48",
         "nixpkgs": "nixpkgs_250",
         "nixpkgs_20": "nixpkgs_20_45",
@@ -13709,7 +13725,7 @@
         "devshell": "devshell_57",
         "flake-compat": "flake-compat_152",
         "gomod2nix": "gomod2nix_49",
-        "latest": "latest_50",
+        "latest": "latest_51",
         "mach-nix": "mach-nix_49",
         "nixpkgs": "nixpkgs_256",
         "nixpkgs_20": "nixpkgs_20_46",
@@ -13735,7 +13751,7 @@
         "devshell": "devshell_58",
         "flake-compat": "flake-compat_155",
         "gomod2nix": "gomod2nix_50",
-        "latest": "latest_51",
+        "latest": "latest_52",
         "mach-nix": "mach-nix_50",
         "nixpkgs": "nixpkgs_261",
         "nixpkgs_20": "nixpkgs_20_47",
@@ -13761,7 +13777,7 @@
         "devshell": "devshell_59",
         "flake-compat": "flake-compat_158",
         "gomod2nix": "gomod2nix_51",
-        "latest": "latest_52",
+        "latest": "latest_53",
         "mach-nix": "mach-nix_51",
         "nixpkgs": "nixpkgs_266",
         "nixpkgs_20": "nixpkgs_20_48",
@@ -13787,7 +13803,7 @@
         "devshell": "devshell_61",
         "flake-compat": "flake-compat_161",
         "gomod2nix": "gomod2nix_52",
-        "latest": "latest_53",
+        "latest": "latest_54",
         "mach-nix": "mach-nix_52",
         "nixpkgs": "nixpkgs_271",
         "nixpkgs_20": "nixpkgs_20_49",
@@ -20048,6 +20064,7 @@
         "data-merge": "data-merge",
         "dream2nix": "dream2nix",
         "lambda-microvm-hunting-lab": "lambda-microvm-hunting-lab",
+        "latest": "latest_42",
         "makes": "makes_3",
         "nickel": "nickel_3",
         "nickel-nix": "nickel-nix_3",

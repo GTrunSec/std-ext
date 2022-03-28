@@ -38,8 +38,5 @@ jobs:
       - name: Check schedulers of config
         run: nix develop ./devshell -c std run //schedulers//entrypoints:tenzir-config
 
-      - name: Check glamour template of the test
-        run: nix develop ./devshell -c std run //glamour//entrypoints:test
-
       - name: Check DevShell Menu
         run: nix develop ./devshell -c menu

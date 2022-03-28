@@ -4,6 +4,7 @@
     data-merge.url = "github:divnix/data-merge";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    latest.url = "github:NixOS/nixpkgs/master";
 
     lambda-microvm-hunting-lab.url = "github:GTrunSec/lambda-microvm-hunting-lab";
     lambda-microvm-hunting-lab.inputs.zeek2nix.follows = "zeek2nix";

@@ -41,11 +41,11 @@
     text ? "",
     format,
     searchPaths ? {bin = [];},
-    target ? ["nomad"],
+    target ? ["nomad" "docker-compose"],
   }:
     writeShellApplication {
       name = "makeTemplate";
-      runtimeInputs = [nixpkgs.remarshal nixpkgs.yj nixpkgs.nomad nixpkgs.git nixpkgs.treefmt] ++ searchPaths.bin;
+      runtimeInputs = [nixpkgs.remarshal nixpkgs.yj nixpkgs.git nixpkgs.treefmt] ++ searchPaths.bin;
       text = let
         json = nixpkgs.writeText "JSON" (builtins.toJSON source);
         directory = builtins.replaceStrings ["-"] ["/"] name;
@@ -64,7 +64,10 @@
             json2json -i ${json} -o "$CELLSINFRAPATH/${name}.json"
           ''}
           ${nixpkgs.lib.optionalString (target == "nomad") ''
-            nomad job plan "$CELLSINFRAPATH/${name}.json"
+            ${nixpkgs.nomad}/bin/nomad job plan "$CELLSINFRAPATH/${name}.json"
+          ''}
+          ${nixpkgs.lib.optionalString (target == "docker-compose") ''
+            ${nixpkgs.docker-compose}/bin/docker-compose -f "$CELLSINFRAPATH/${name}.${format}" config -q
           ''}
         ''
         + text;
