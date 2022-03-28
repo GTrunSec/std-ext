@@ -5,11 +5,10 @@
 }: let
   inherit (inputs) nixpkgs self data-merge;
   inherit (cell) nomadJobs generator library nixosProfiles;
-  inherit (inputs.cells._modules.library) makeSocProfile;
+  inherit (inputs.cells._modules.library) makeSocProfile makeConfiguration;
   inherit (inputs.cells._writers.library) writeShellApplication;
-  inherit (inputs.cells._templates.library) makeTemplate;
 in {
-  nomad-container-elasticsearch-dev = makeTemplate {
+  nomad-container-elasticsearch-dev = makeConfiguration {
     name = "nomad-container-elasticsearch-dev";
     target = "nomad";
     source =
@@ -21,7 +20,7 @@ in {
     format = "json";
   };
 
-  nomad-nixos-airflow = makeTemplate {
+  nomad-nixos-airflow = makeConfiguration {
     name = "nomad-nixos-airflow";
     target = "nomad";
     source = nomadJobs.nixos-airflow {

@@ -4,16 +4,15 @@
 }: let
   inherit (inputs) nixpkgs self data-merge;
   inherit (cell) nomadJobs generator library nixosProfiles;
-  inherit (inputs.cells._modules.library) makeSocProfile;
+  inherit (inputs.cells._modules.library) makeSocProfile makeConfiguration;
   inherit (inputs.cells._writers.library) writeShellApplication;
-  inherit (inputs.cells._templates.library) makeTemplate;
   inherit (inputs.cells.makes.library) __output__ makeSubstitution;
 
   vast-config-state-1 = data-merge.merge generator.prod {
     vast.endpoint = "192.168.1.1:4000";
   };
 in {
-  nomad-standalone-node = makeTemplate {
+  nomad-standalone-node = makeConfiguration {
     name = "nomad-standalone-node";
     target = "nomad";
     source = nomadJobs.vast-nixos-node {
@@ -22,7 +21,7 @@ in {
     format = "json";
   };
 
-  nomad-nixos-opencti-dev = makeTemplate {
+  nomad-nixos-opencti-dev = makeConfiguration {
     name = "nomad-nixos-opencti-dev";
     target = "nomad";
     source = nomadJobs.vast-nixos-node {
@@ -38,12 +37,9 @@ in {
       zeek = true;
     };
     target = "nomad"; # or k8s, podman, docker;
-    format = "yaml";
-    # source = makeSocProfile-custom1;
-    path = "/tmp/OpenCTI-HELM-CHART/templates";
   };
 
-  config-vast-prod = makeTemplate {
+  config-vast-prod = makeConfiguration {
     name = "config-vast-prod";
     source = vast-config-state-1;
     format = "yaml";
