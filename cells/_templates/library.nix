@@ -39,10 +39,13 @@
     name ? "makeTemplate",
     source,
     text ? "",
-    format,
+    format ? "",
     path ? null,
-    searchPaths ? {bin = []; source = [];},
-    target ? ["nomad" "docker-compose"],
+    searchPaths ? {
+      bin = [];
+      source = [];
+    },
+    target ? ["nomad" "docker-compose" "terraform"],
   }:
     writeShellApplication {
       name = "makeTemplate";
@@ -67,6 +70,9 @@
           ''}
           ${nixpkgs.lib.optionalString (format == "json") ''
             json2json -i ${json} -o "$CELLSINFRAPATH/${name}.json"
+          ''}
+          ${nixpkgs.lib.optionalString (target == "terraform") ''
+            cp ${source} "$CELLSINFRAPATH/${name}.tf.json"
           ''}
           ${nixpkgs.lib.optionalString (target == "nomad") ''
             ${nixpkgs.nomad}/bin/nomad job plan "$CELLSINFRAPATH/${name}.json"

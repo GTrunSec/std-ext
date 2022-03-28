@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (cell) packages library;
-  inherit (inputs) nixpkgs inputsSystem;
+  inherit (inputs) nixpkgs inputsSystem terranix;
 in {
   nickel = library.importNcl ./shell.ncl inputsSystem;
   default = _: {

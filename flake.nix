@@ -35,6 +35,8 @@
 
     terraform-providers.url = "github:numtide/nixpkgs-terraform-providers-bin";
     terraform-providers.inputs.nixpkgs.follows = "nixpkgs";
+    terranix.url = "github:terranix/terranix";
+    terranix.inputs.nixpkgs.follows = "nixpkgs";
 
     nomad-driver-nix.url = "github:input-output-hk/nomad-driver-nix";
     nomad-driver-nix.inputs.nixpkgs.follows = "nixpkgs";
@@ -65,6 +67,7 @@
         (std.functions "nomadJobs")
         (std.functions "nixosProfiles")
         (std.functions "dockerJobs")
+        (std.runnables "terranix")
         (std.functions "configFiles")
         (std.functions "devshellProfiles")
         (std.functions "consulProfiles")
