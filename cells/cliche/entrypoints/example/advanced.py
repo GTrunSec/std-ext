@@ -14,8 +14,13 @@ def badd(a_string: str, a_number: int = 10):
 
 
 @cli
-def add(a_number: int, b_number: int = 10):
+def add_number(a_number: int, b_number: int = 10):
     print(a_number + b_number)
+
+
+@cli
+def add(a: int, b: int):
+    print(a + b)
 
 
 @cli
