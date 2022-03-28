@@ -6,6 +6,15 @@
   inherit (inputs.cells._writers.library) writeShellApplication;
   eval = (import ./modules) nixpkgs;
 in {
+  makeConfigurationFromLang = templates:
+    (eval {
+      configuration = {inherit templates;};
+      extraSpecialArgs = {inherit inputs cell writeShellApplication;};
+    })
+    .config
+    .templates
+    .makeConfigurationFromLang;
+
   makeConfiguration = templates:
     (eval {
       configuration = {inherit templates;};
@@ -15,12 +24,12 @@ in {
     .templates
     .makeConfiguration;
 
-  makeSocProfile = templates:
+  makeSocProfile = socProfile:
     (eval {
-      configuration = {inherit templates;};
+      configuration = {inherit socProfile;};
       extraSpecialArgs = {inherit inputs cell writeShellApplication;};
     })
     .config
-    .templates
+    .socProfile
     .makeSocProfile;
 }

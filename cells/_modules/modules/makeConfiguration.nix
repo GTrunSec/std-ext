@@ -13,33 +13,41 @@ in {
       cfg = config.templates;
     in
       writeShellApplication {
-        name = cfg.name;
-        runtimeInputs =
-          lib.optionals (cfg.language == "nickel") [cells.makeConfiguration.packages.nickel]
-          ++ lib.optionals (cfg.language == "cue") [pkgs.cue]
-          ++ lib.optionals (cfg.language == "nix") []
-          ++ cfg.runtimeInputs;
+        name = "makeConfiguration";
+        runtimeInputs = [pkgs.remarshal pkgs.yj] ++ cfg.searchPaths.bin;
         text = let
-          command = lib.removeSuffix "\n\n\n\n" ''
-            ${lib.optionalString (cfg.language == "nickel") ''
-              nickel -f ${cfg.path}/${builtins.concatStringsSep " " cfg.args} export --format ${cfg.format}
+          json = pkgs.writeText "JSON" (builtins.toJSON cfg.source);
+          directory = builtins.replaceStrings ["-"] ["/"] cfg.name + "/" + cfg.branch;
+          CELLSINFRAPATH =
+            if cfg.path == null
+            then "$PRJ_ROOT/cells-infra/infra/${directory}"
+            else cfg.path;
+        in
+          ''
+            # <project>-<target>-<driver>-<branch>
+            CELLSINFRAPATH="${CELLSINFRAPATH}"
+            if [ ! -d "$CELLSINFRAPATH" ]; then
+            mkdir -p "$CELLSINFRAPATH"
+            fi
+
+            ${pkgs.lib.optionalString (cfg.format == "yaml") ''
+              json2yaml  -i ${json} -o "$CELLSINFRAPATH/${cfg.name}.yaml"
             ''}
-            ${lib.optionalString (cfg.language == "cue") "
-              cue export ./${cfg.path} -e ${builtins.concatStringsSep " " cfg.args} --out=${cfg.format}
-              "}
-            ${lib.optionalString (cfg.language == "nix") "
-              cue export ./${cfg.path} -e ${builtins.concatStringsSep " " cfg.args} --out=${cfg.format}
-              "}
-          '';
-        in ''
-          ${command}
-          ${
-            lib.optionalString (cfg.target == "nomad") ''
-              ${command} | ${pkgs.nomad}/bin/nomad job validate -
-            ''
-          }
-          ${cfg.text}
-        '';
+            ${pkgs.lib.optionalString (cfg.format == "json") ''
+              json2json -i ${json} -o "$CELLSINFRAPATH/${cfg.name}.json"
+            ''}
+            ${pkgs.lib.optionalString (cfg.target == "terraform") ''
+              cp ${cfg.source} "$CELLSINFRAPATH/config.tf.json"
+              chmod +rw "$CELLSINFRAPATH/config.tf.json"
+            ''}
+            ${pkgs.lib.optionalString (cfg.target == "nomad") ''
+              ${pkgs.nomad}/bin/nomad job plan "$CELLSINFRAPATH/${cfg.name}.json"
+            ''}
+            ${pkgs.lib.optionalString (cfg.target == "docker-compose") ''
+              ${pkgs.docker-compose}/bin/docker-compose -f "$CELLSINFRAPATH/${cfg.name}.${cfg.format}" config -q
+            ''}
+          ''
+          + cfg.text;
       };
   };
 }

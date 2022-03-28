@@ -3,7 +3,8 @@
   lib,
 }: let
   modules = [
-    ./templates.nix
+    ./template-options.nix
+    ./socProfile-options.nix
   ];
 
   pkgsModule = {config, ...}: {

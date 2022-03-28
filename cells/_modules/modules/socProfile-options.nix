@@ -7,12 +7,12 @@
 }: let
   cfg = config.templates;
 in {
-  options.templates = with lib; {
+  options.socProfile = with lib; {
     name = mkOption {
       type = types.str;
-      default = "templates";
+      default = "socProfile";
       description = ''
-        Name of the templates
+        Name of the socProfile
       '';
     };
     text = mkOption {
@@ -20,13 +20,6 @@ in {
       default = "echo Template";
       description = ''
         write your shell context here
-      '';
-    };
-    language = mkOption {
-      type = types.enum ["nickel" "nix" "cue"];
-      default = "nickel";
-      description = ''
-        Write your shell context here
       '';
     };
     target = mkOption {
@@ -37,17 +30,10 @@ in {
       '';
     };
     path = mkOption {
-      type = types.path;
-      default = [];
+      type = types.nullOr types.path;
+      default = null;
       description = ''
         The path for Your Configuration files
-      '';
-    };
-    format = mkOption {
-      type = types.enum ["yaml" "toml" "json" "json"];
-      default = [];
-      description = ''
-        Which format do you want to generate in.
       '';
     };
     branch = mkOption {
@@ -56,6 +42,9 @@ in {
       description = ''
         Which branch do you want to import in.
       '';
+    };
+    source = mkOption {
+      default = {};
     };
     features = mkOption {
       description = "The feature list which can we support";
@@ -71,7 +60,10 @@ in {
     };
     searchPaths = mkOption {
       type = types.attrs;
-      default = {};
+      default = {
+        bin = [];
+        source = [];
+      };
     };
     runtimeInputs = mkOption {
       type = types.listOf types.str;
@@ -82,13 +74,10 @@ in {
       type = types.listOf types.str;
       default = [];
     };
-    makeConfiguration = mkOption {
-      type = types.package;
-    };
     makeSocProfile = mkOption {
       type = types.package;
     };
   };
 
-  imports = [./makeConfiguration.nix ./makeSocProfile.nix];
+  imports = [./makeSocProfile.nix];
 }

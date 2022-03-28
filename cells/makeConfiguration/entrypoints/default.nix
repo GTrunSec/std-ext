@@ -4,9 +4,9 @@
 }: let
   inherit (inputs) nixpkgs;
   inherit (cell) library;
-  inherit (inputs.cells._modules.library) makeConfiguration;
+  inherit (inputs.cells._modules.library) makeConfigurationFromLang;
 in {
-  threatbus-nomad-nixpkgs-nickel = makeConfiguration {
+  threatbus-nomad-nixpkgs-nickel = makeConfigurationFromLang {
     name = "nomad-threatbus";
     target = "nomad";
     language = "nickel";
@@ -15,7 +15,7 @@ in {
     path = ./tenzir/nomad;
   };
 
-  threatbus-nomad-nixpkgs-cue = makeConfiguration {
+  threatbus-nomad-nixpkgs-cue = makeConfigurationFromLang {
     name = "cue-threatbus";
     language = "cue";
     target = "nomad";

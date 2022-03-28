@@ -9,7 +9,7 @@
   inherit (inputs) self;
   cfg = config.templates;
 in {
-  config.templates = {
+  config.socProfile = {
     makeSocProfile = writeShellApplication {
       name = cfg.name;
       runtimeInputs = cfg.runtimeInputs;

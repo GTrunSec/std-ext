@@ -33,56 +33,7 @@
         cp ${main} main.go
       '';
     });
-
   # the makeTemplate does not work with hcl to nomad
-  makeTemplate = {
-    name ? "makeTemplate",
-    source,
-    text ? "",
-    format ? "",
-    path ? null,
-    searchPaths ? {
-      bin = [];
-      source = [];
-    },
-    target ? ["nomad" "docker-compose" "terraform"],
-  }:
-    writeShellApplication {
-      name = "makeTemplate";
-      runtimeInputs = [nixpkgs.remarshal nixpkgs.yj nixpkgs.git] ++ searchPaths.bin;
-      text = let
-        json = nixpkgs.writeText "JSON" (builtins.toJSON source);
-        directory = builtins.replaceStrings ["-"] ["/"] name;
-        CELLSINFRAPATH =
-          if path == null
-          then "$PRJ_ROOT/cells-infra/${directory}"
-          else path;
-      in
-        ''
-          # <project>-<target>-<driver>-<branch>
-          CELLSINFRAPATH="${CELLSINFRAPATH}"
-          if [ ! -d "$CELLSINFRAPATH" ]; then
-          mkdir -p "$CELLSINFRAPATH"
-          fi
-
-          ${nixpkgs.lib.optionalString (format == "yaml") ''
-            json2yaml  -i ${json} -o "$CELLSINFRAPATH/${name}.yaml"
-          ''}
-          ${nixpkgs.lib.optionalString (format == "json") ''
-            json2json -i ${json} -o "$CELLSINFRAPATH/${name}.json"
-          ''}
-          ${nixpkgs.lib.optionalString (target == "terraform") ''
-            cp ${source} "$CELLSINFRAPATH/${name}.tf.json"
-          ''}
-          ${nixpkgs.lib.optionalString (target == "nomad") ''
-            ${nixpkgs.nomad}/bin/nomad job plan "$CELLSINFRAPATH/${name}.json"
-          ''}
-          ${nixpkgs.lib.optionalString (target == "docker-compose") ''
-            ${nixpkgs.docker-compose}/bin/docker-compose -f "$CELLSINFRAPATH/${name}.${format}" config -q
-          ''}
-        ''
-        + text;
-    };
 in {
-  inherit glamourTemplate makeTemplate;
+  inherit glamourTemplate;
 }

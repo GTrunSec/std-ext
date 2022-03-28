@@ -5,16 +5,18 @@
   inherit (inputs) terranix nixpkgs;
   inherit (inputs.nixpkgs) system;
   inherit (inputs.cells.makes.library) makeScript;
-  inherit (inputs.cells._templates.library) makeTemplate;
+  inherit (inputs.cells._modules.library) makeConfiguration;
 in {
-  terraform-example = let
+  terraform-example-dev = let
     terraformConfiguration = terranix.lib.terranixConfiguration {
       inherit system;
       modules = [./example.nix];
     };
   in
-    makeTemplate {
+    makeConfiguration {
       name = "terraform-nixos-example";
+      branch = "dev";
+      format = "nix";
       target = "terraform";
       source = terraformConfiguration;
     };
