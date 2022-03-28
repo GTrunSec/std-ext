@@ -40,19 +40,24 @@
     source,
     text ? "",
     format,
-    searchPaths ? {bin = [];},
+    path ? null,
+    searchPaths ? {bin = []; source = [];},
     target ? ["nomad" "docker-compose"],
   }:
     writeShellApplication {
       name = "makeTemplate";
-      runtimeInputs = [nixpkgs.remarshal nixpkgs.yj nixpkgs.git nixpkgs.treefmt] ++ searchPaths.bin;
+      runtimeInputs = [nixpkgs.remarshal nixpkgs.yj nixpkgs.git] ++ searchPaths.bin;
       text = let
         json = nixpkgs.writeText "JSON" (builtins.toJSON source);
         directory = builtins.replaceStrings ["-"] ["/"] name;
+        CELLSINFRAPATH =
+          if path == null
+          then "$PRJ_ROOT/cells-infra/${directory}"
+          else path;
       in
         ''
           # <project>-<target>-<driver>-<branch>
-          CELLSINFRAPATH="$PRJ_ROOT/cells-infra/${directory}"
+          CELLSINFRAPATH="${CELLSINFRAPATH}"
           if [ ! -d "$CELLSINFRAPATH" ]; then
           mkdir -p "$CELLSINFRAPATH"
           fi
