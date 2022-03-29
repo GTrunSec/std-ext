@@ -10,5 +10,5 @@ in {
 
   nomad-nixos-dev = (import ./nomad-nixos.nix args).dev;
 
-  docker-compose-prod = (import ./docker-compose-prod.nix args).prod;
+  docker-compose-prod = (import ./docker-compose args).prod;
 }
