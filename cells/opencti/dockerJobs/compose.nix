@@ -47,7 +47,7 @@
       CONNECTOR_NAME = "History";
       CONNECTOR_SCOPE = "history";
     }
-    // env.opencti
+    // env.opencti-common
     // env.connector-common;
 
   env.connector-common = {
@@ -62,7 +62,7 @@
       CONNECTOR_NAME = "ExportFileCsv";
       CONNECTOR_SCOPE = "text/csv";
     }
-    // env.opencti
+    // env.opencti-common
     // env.connector-common;
 
   env.connector-export-file-csv =
@@ -72,7 +72,7 @@
       CONNECTOR_NAME = "ExportFileCsv";
       CONNECTOR_SCOPE = "text/plain";
     }
-    // env.opencti
+    // env.opencti-common
     // env.connector-common;
 
   env.connector-export-file-txt =
@@ -82,7 +82,7 @@
       CONNECTOR_NAME = "ExportFileTxt";
       CONNECTOR_SCOPE = "text/plain";
     }
-    // env.opencti
+    // env.opencti-common
     // env.connector-common;
 
   env.connector-import-file-stix =
@@ -94,7 +94,7 @@
       CONNECTOR_SCOPE = "application/json,text/xml";
       CONNECTOR_AUTO = "true"; # Enable/disable auto-import of file
     }
-    // env.opencti
+    // env.opencti-common
     // env.connector-common;
 
   env.connector-import-document =
@@ -108,7 +108,7 @@
       CONNECTOR_ONLY_CONTEXTUAL = "false"; # Only extract data related to an entity (a report, a threat actor, etc.)
       IMPORT_DOCUMENT_CREATE_INDICATOR = "true";
     }
-    // env.opencti
+    // env.opencti-common
     // env.connector-common;
 in {
   version = "3";
