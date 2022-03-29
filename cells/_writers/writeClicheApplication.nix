@@ -40,6 +40,8 @@ in
           env
         )
       }" $out/bin/${name}
+
+      runHook postInstall
     '';
     checkPhase =
       if checkPhase == null
