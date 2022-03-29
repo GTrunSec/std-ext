@@ -29,6 +29,7 @@ devshell.legacyPackages.mkShell ({
 
     # cells.zeek.devshellProfiles.default
     cells.soc-action.devshellProfiles.default
+    cells.opencti.devshellProfiles.default
   ];
   commands = [
     {

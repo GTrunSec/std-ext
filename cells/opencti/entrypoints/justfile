@@ -1,0 +1,5 @@
+PRJ_ROOT := env_var('PRJ_ROOT')
+stdRun := "std run //opencti//entrypoints:"
+
+compose-prod:
+    {{stdRun}}docker-compose-prod

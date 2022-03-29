@@ -1,0 +1,6 @@
+PRJ_ROOT := env_var('PRJ_ROOT')
+stdRun := "std run //profiles//entrypoints:"
+
+
+airflow-dev:
+    {{stdRun}}nomad-nixos-airflow-dev
