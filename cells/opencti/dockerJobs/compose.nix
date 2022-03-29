@@ -46,10 +46,9 @@
       CONNECTOR_TYPE = "STREAM";
       CONNECTOR_NAME = "History";
       CONNECTOR_SCOPE = "history";
-      CONNECTOR_CONFIDENCE_LEVEL = "15"; # From 0 (Unknown) to 100 (Fully trusted)
-      CONNECTOR_LOG_LEVEL = "info";
     }
-    // env.opencti;
+    // env.opencti
+    // env.connector-common;
 
   env.connector-common = {
     CONNECTOR_CONFIDENCE_LEVEL = 15; # From 0 (Unknown) to 100 (Fully trusted)
@@ -58,6 +57,7 @@
 
   env.connector-export-file-stix =
     {
+      CONNECTOR_ID = "\${CONNECTOR_EXPORT_FILE_STIX_ID}";
       CONNECTOR_TYPE = "INTERNAL_EXPORT_FILE";
       CONNECTOR_NAME = "ExportFileCsv";
       CONNECTOR_SCOPE = "text/csv";
@@ -65,11 +65,48 @@
     // env.opencti
     // env.connector-common;
 
+  env.connector-export-file-csv =
+    {
+      CONNECTOR_ID = "\${CONNECTOR_EXPORT_FILE_CSV_ID}";
+      CONNECTOR_TYPE = "INTERNAL_EXPORT_FILE";
+      CONNECTOR_NAME = "ExportFileCsv";
+      CONNECTOR_SCOPE = "text/plain";
+    }
+    // env.opencti
+    // env.connector-common;
+
   env.connector-export-file-txt =
     {
+      CONNECTOR_ID = "\${CONNECTOR_EXPORT_FILE_TXT_ID}";
       CONNECTOR_TYPE = "INTERNAL_EXPORT_FILE";
       CONNECTOR_NAME = "ExportFileTxt";
-      CONNECTOR_SCOPE = "ExportFileTxt";
+      CONNECTOR_SCOPE = "text/plain";
+    }
+    // env.opencti
+    // env.connector-common;
+
+  env.connector-import-file-stix =
+    {
+      CONNECTOR_ID = "\${CONNECTOR_IMPORT_FILE_STIX_ID}";
+      CONNECTOR_TYPE = "INTERNAL_IMPORT_FILE";
+      CONNECTOR_NAME = "ImportFileStix";
+      CONNECTOR_VALIDATE_BEFORE_IMPORT = "true"; # Validate any bundle before import
+      CONNECTOR_SCOPE = "application/json,text/xml";
+      CONNECTOR_AUTO = "true"; # Enable/disable auto-import of file
+    }
+    // env.opencti
+    // env.connector-common;
+
+  env.connector-import-document =
+    {
+      CONNECTOR_ID = "\${CONNECTOR_IMPORT_DOCUMENT_ID}";
+      CONNECTOR_TYPE = "INTERNAL_IMPORT_FILE";
+      CONNECTOR_NAME = "ImportDocument";
+      CONNECTOR_VALIDATE_BEFORE_IMPORT = "true"; # Validate any bundle before import
+      CONNECTOR_SCOPE = "application/pdf,text/plain,text/html";
+      CONNECTOR_AUTO = "true"; # Enable/disable auto-import of file
+      CONNECTOR_ONLY_CONTEXTUAL = "false"; # Only extract data related to an entity (a report, a threat actor, etc.)
+      IMPORT_DOCUMENT_CREATE_INDICATOR = "true";
     }
     // env.opencti
     // env.connector-common;
@@ -112,6 +149,16 @@ in {
       "discovery.type=single-node"
       "xpack.ml.enabled=false"
     ];
+    ulimits = {
+      memlock = {
+        soft = "-1";
+        hard = "-1";
+      };
+      nofile = {
+        soft = 65536;
+        hard = 65536;
+      };
+    };
   };
 
   services.opencti = {
@@ -119,6 +166,60 @@ in {
     restart = "always";
     environment = env.opencti;
     depends_on = ["redis" "elasticsearch" "minio" "rabbitmq"];
+    ports = ["8080:8080"];
+  };
+
+  services.worker = {
+    image = "opencti/worker:5.2.3";
+    restart = "always";
+    environment = env.opencti-common;
+    depends_on = ["opencti"];
+    deploy = {
+      mode = "replicated";
+      replicas = 3;
+    };
+  };
+
+  services.connector-history = {
+    image = "opencti/connector-history:5.2.3";
+    restart = "always";
+    environment = env.connector-history;
+    depends_on = ["opencti"];
+  };
+
+  services.connector-export-file-stix = {
+    image = "opencti/connector-export-file-stix:5.2.3";
+    restart = "always";
+    environment = env.connector-export-file-stix;
+    depends_on = ["opencti"];
+  };
+
+  services.connector-export-file-csv = {
+    image = "opencti/connector-export-file-csv:5.2.3";
+    restart = "always";
+    environment = env.connector-export-file-csv;
+    depends_on = ["opencti"];
+  };
+
+  services.connector-export-file-txt = {
+    image = "opencti/connector-export-file-txt:5.2.3";
+    restart = "always";
+    environment = env.connector-export-file-txt;
+    depends_on = ["opencti"];
+  };
+
+  services.connector-import-file-stix = {
+    image = "opencti/connector-import-file-stix:5.2.3";
+    restart = "always";
+    environment = env.connector-import-file-stix;
+    depends_on = ["opencti"];
+  };
+
+  services.connector-import-document = {
+    image = "opencti/connector-import-document:5.2.3";
+    restart = "always";
+    environment = env.connector-import-document;
+    depends_on = ["opencti"];
   };
 
   volumes = {

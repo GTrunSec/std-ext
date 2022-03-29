@@ -4,6 +4,28 @@ file := "./__argFile__.yaml"
 default:
     docker-compose -f {{file}} up -d
 
+deploy:
+    docker-compose --env-file .env -f {{file}} up -d
+
+env:
+    (cat <<EOF
+    OPENCTI_ADMIN_EMAIL=admin@opencti.io
+    OPENCTI_ADMIN_PASSWORD=CHANGEMEPLEASE
+    OPENCTI_ADMIN_TOKEN=$(cat /proc/sys/kernel/random/uuid)
+    MINIO_ROOT_USER=$(cat /proc/sys/kernel/random/uuid)
+    MINIO_ROOT_PASSWORD=$(cat /proc/sys/kernel/random/uuid)
+    RABBITMQ_DEFAULT_USER=guest
+    RABBITMQ_DEFAULT_PASS=guest
+    CONNECTOR_HISTORY_ID=$(cat /proc/sys/kernel/random/uuid)
+    CONNECTOR_EXPORT_FILE_STIX_ID=$(cat /proc/sys/kernel/random/uuid)
+    CONNECTOR_EXPORT_FILE_CSV_ID=$(cat /proc/sys/kernel/random/uuid)
+    CONNECTOR_EXPORT_FILE_TXT_ID=$(cat /proc/sys/kernel/random/uuid)
+    CONNECTOR_IMPORT_FILE_STIX_ID=$(cat /proc/sys/kernel/random/uuid)
+    CONNECTOR_IMPORT_DOCUMENT_ID=$(cat /proc/sys/kernel/random/uuid)
+    SMTP_HOSTNAME=localhost
+    EOF
+    ) > .env
+
 # Terraform plan
 plan:
     echo "planner"
