@@ -125,12 +125,12 @@
         "zeek2nix": "zeek2nix_10"
       },
       "locked": {
-        "narHash": "sha256-t9GPGvXpUk33J5VrwC4oC/graF/5Zr6PCPw+SG5/EyA=",
-        "path": "/nix/store/s7c38vnah70sp6m4pqv8vzhkqcyn36x4-source",
+        "narHash": "sha256-GWSLWnQGz6nxjtTEJ/UOVJks1QjwQkYeAx38qNYHnLE=",
+        "path": "/nix/store/42123hp5ny2n8wb7q6p4lvn7mhcnr0wr-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/s7c38vnah70sp6m4pqv8vzhkqcyn36x4-source",
+        "path": "/nix/store/42123hp5ny2n8wb7q6p4lvn7mhcnr0wr-source",
         "type": "path"
       }
     },
@@ -12945,16 +12945,15 @@
         "yants": "yants_3"
       },
       "locked": {
-        "lastModified": 1647164267,
-        "narHash": "sha256-X7UHFDNm/oU37PGjnKt+YcSLCxr0w6eRNKaj2lcXF/I=",
-        "owner": "gtrunsec",
+        "lastModified": 1647235919,
+        "narHash": "sha256-fO4dlRO0zeZtzY1QF7iLatx81jena6QP7HZEA83AJ8E=",
+        "owner": "divnix",
         "repo": "std",
-        "rev": "a1cfc283c14c69bcccff08969383b3d464b77039",
+        "rev": "133fb0c1cc8d0d477a3d339971ef09fa57a60fd3",
         "type": "github"
       },
       "original": {
-        "owner": "gtrunsec",
-        "ref": "lab",
+        "owner": "divnix",
         "repo": "std",
         "type": "github"
       }

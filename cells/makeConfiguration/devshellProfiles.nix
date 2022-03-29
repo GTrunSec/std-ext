@@ -3,9 +3,10 @@
   cell,
 }: let
   inherit (cell) packages library;
-  inherit (inputs) nixpkgs inputsSystem terranix;
+  inherit (inputs) nixpkgs terranix;
+  inputsSystem = {inputs.nixpkgs.legacyPackages."${nixpkgs.system}" = nixpkgs;};
 in {
-  nickel = library.importNcl ./shell.ncl inputsSystem;
+  nickel = library.importNcl ./shell.ncl inputsSystem.inputs;
   default = _: {
     commands = [
       {

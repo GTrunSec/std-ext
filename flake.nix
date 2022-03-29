@@ -1,6 +1,6 @@
 {
   inputs = {
-    std.url = "github:gtrunsec/std/lab";
+    std.url = "github:divnix/std";
     data-merge.url = "github:divnix/data-merge";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";

@@ -20756,16 +20756,15 @@
         "yants": "yants_5"
       },
       "locked": {
-        "lastModified": 1648361380,
-        "narHash": "sha256-e1HgliWfT4gDFO4uFawxjB+U7opwtJZEJK/tym8jXiI=",
-        "owner": "gtrunsec",
+        "lastModified": 1647235919,
+        "narHash": "sha256-fO4dlRO0zeZtzY1QF7iLatx81jena6QP7HZEA83AJ8E=",
+        "owner": "divnix",
         "repo": "std",
-        "rev": "45b074bdf05028e5590736a1045a44750bd69430",
+        "rev": "133fb0c1cc8d0d477a3d339971ef09fa57a60fd3",
         "type": "github"
       },
       "original": {
-        "owner": "gtrunsec",
-        "ref": "lab",
+        "owner": "divnix",
         "repo": "std",
         "type": "github"
       }
