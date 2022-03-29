@@ -162,7 +162,7 @@ in {
   };
 
   services.opencti = {
-    image = "opencti/platform:5.2.3";
+    image = "opencti/platform:${version}";
     restart = "always";
     environment = env.opencti;
     depends_on = ["redis" "elasticsearch" "minio" "rabbitmq"];
@@ -170,7 +170,7 @@ in {
   };
 
   services.worker = {
-    image = "opencti/worker:5.2.3";
+    image = "opencti/worker:${version}";
     restart = "always";
     environment = env.opencti-common;
     depends_on = ["opencti"];
@@ -181,42 +181,42 @@ in {
   };
 
   services.connector-history = {
-    image = "opencti/connector-history:5.2.3";
+    image = "opencti/connector-history:${version}";
     restart = "always";
     environment = env.connector-history;
     depends_on = ["opencti"];
   };
 
   services.connector-export-file-stix = {
-    image = "opencti/connector-export-file-stix:5.2.3";
+    image = "opencti/connector-export-file-stix:${version}";
     restart = "always";
     environment = env.connector-export-file-stix;
     depends_on = ["opencti"];
   };
 
   services.connector-export-file-csv = {
-    image = "opencti/connector-export-file-csv:5.2.3";
+    image = "opencti/connector-export-file-csv:${version}";
     restart = "always";
     environment = env.connector-export-file-csv;
     depends_on = ["opencti"];
   };
 
   services.connector-export-file-txt = {
-    image = "opencti/connector-export-file-txt:5.2.3";
+    image = "opencti/connector-export-file-txt:${version}";
     restart = "always";
     environment = env.connector-export-file-txt;
     depends_on = ["opencti"];
   };
 
   services.connector-import-file-stix = {
-    image = "opencti/connector-import-file-stix:5.2.3";
+    image = "opencti/connector-import-file-stix:${version}";
     restart = "always";
     environment = env.connector-import-file-stix;
     depends_on = ["opencti"];
   };
 
   services.connector-import-document = {
-    image = "opencti/connector-import-document:5.2.3";
+    image = "opencti/connector-import-document:${version}";
     restart = "always";
     environment = env.connector-import-document;
     depends_on = ["opencti"];
