@@ -8,7 +8,7 @@ in {
 
   nomad-hydration-dev = (import ./nomad-container.nix args).hydration.dev;
 
-  nomad-nixos-dev = (import ./docker-compose-prod.nix args).dev;
+  nomad-nixos-dev = (import ./nomad-nixos.nix args).dev;
 
   docker-compose-prod = (import ./docker-compose-prod.nix args).prod;
 }

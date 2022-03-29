@@ -4,9 +4,15 @@
   cells,
   std,
 }:
-devshell.legacyPackages.mkShell {
+devshell.legacyPackages.mkShell ({
+  extraModulesPath,
+  pkgs,
+  ...
+}: {
   name = "DevSecOps Cells";
   imports = [
+    "${extraModulesPath}/git/hooks.nix"
+
     std.std.devshellProfiles.default
 
     cells.update.devshellProfiles.default
@@ -40,7 +46,13 @@ devshell.legacyPackages.mkShell {
     nixpkgs.nix-eval-jobs
     nixpkgs.just
   ];
+
+  git.hooks = {
+    enable = true;
+    pre-commit.text = builtins.readFile ./pre-commit.bash;
+  };
+
   devshell.startup.nodejs-setuphook = nixpkgs.lib.stringsWithDeps.noDepEntry ''
     export NODE_PATH=${nixpkgs.nodePackages.prettier-plugin-toml}/lib/node_modules:$NODE_PATH
   '';
-}
+})
