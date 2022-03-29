@@ -12,8 +12,9 @@
     vast.endpoint = "192.168.1.1:4000";
   };
 in {
-  nomad-standalone-node = makeConfiguration {
-    name = "nomad-standalone-node";
+  nomad-node-dev = makeConfiguration {
+    name = "nomad-node";
+    branch = "dev";
     target = "nomad";
     source = nomadJobs.vast-nixos-node {
       flake = "${self.outPath}#${nixpkgs.system}.tenzir.nixosProfiles.nomad-tenzir-vast";

@@ -1,5 +1,11 @@
 {version ? "5.2.3"}: let
   # based on https://github.com/OpenCTI-Platform/docker/blob/master/docker-compose.yml
+  env.opencti-common = {
+    OPENCTI_URL = "http://opencti:8080";
+    OPENCTI_TOKEN = "\${OPENCTI_ADMIN_TOKEN}";
+    WORKER_LOG_LEVEL = "info";
+  };
+
   env.opencti =
     {
       NODE_OPTIONS = "--max-old-space-size=8096";
@@ -35,11 +41,6 @@
     RABBITMQ__PASSWORD = "\${RABBITMQ_DEFAULT_PASS}";
   };
 
-  env.opencti-common = {
-    OPENCTI_URL = "http://opencti:8080";
-    OPENCTI_TOKEN = "\${OPENCTI_ADMIN_TOKEN}";
-    WORKER_LOG_LEVEL = "info";
-  };
   env.connector-history =
     {
       CONNECTOR_ID = "\${CONNECTOR_HISTORY_ID}"; # Valid UUIDv4
