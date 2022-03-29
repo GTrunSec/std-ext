@@ -2,6 +2,7 @@
   inputs = {
     std.url = "github:divnix/std";
     data-merge.url = "github:divnix/data-merge";
+    yants.url = "github:divnix/yants";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     latest.url = "github:NixOS/nixpkgs/master";

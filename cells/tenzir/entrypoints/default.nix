@@ -40,8 +40,10 @@ in {
   };
 
   config-vast-prod = makeConfiguration {
-    name = "config-vast-prod";
+    name = "config-vast";
+    target = "regular";
     source = vast-config-state-1;
     format = "yaml";
+    branch = "prod";
   };
 }
