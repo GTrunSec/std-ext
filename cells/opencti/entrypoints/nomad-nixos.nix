@@ -8,25 +8,18 @@
   inherit (inputs.cells._writers.library) writeShellApplication;
   inherit (inputs.cells.makes.library) makeSubstitution;
 
-  name = "opencti-docker-compose";
+  name = "opencti-nomad-container";
 
-  justfile = makeSubstitution {
-    name = "justfile";
-    env = {
-      __argFile__ = name;
-    };
-    source = ./justfile;
-  };
   common = branch:
     makeConfiguration {
       inherit name;
-      target = "docker-compose";
+      target = "nomad";
       inherit branch;
-      searchPaths.source = ["${justfile}/justfile"];
-      searchPaths.bin = [];
-      source = dockerJobs.compose {};
-      format = "yaml";
+      source = nomadJobs.container {
+        driver = "podman";
+      };
+      format = "json";
     };
 in {
-  prod = common "prod";
+  dev = common "dev";
 }

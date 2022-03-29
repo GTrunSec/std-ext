@@ -8,25 +8,19 @@
   inherit (inputs.cells._writers.library) writeShellApplication;
   inherit (inputs.cells.makes.library) makeSubstitution;
 
-  name = "opencti-docker-compose";
+  name = "opencti-nomad-nixos";
 
-  justfile = makeSubstitution {
-    name = "justfile";
-    env = {
-      __argFile__ = name;
-    };
-    source = ./justfile;
-  };
   common = branch:
     makeConfiguration {
       inherit name;
-      target = "docker-compose";
+      target = "nomad";
+      source = nomadJobs.nixos-node {
+        flake = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab#nixosConfigurations.nomad-tenzir-opencti";
+      };
+      format = "json";
       inherit branch;
-      searchPaths.source = ["${justfile}/justfile"];
-      searchPaths.bin = [];
-      source = dockerJobs.compose {};
-      format = "yaml";
     };
 in {
-  prod = common "prod";
+  dev = common "dev";
+  hydration.dev = common "dev" // {};
 }
