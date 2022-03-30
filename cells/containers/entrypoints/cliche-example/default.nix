@@ -2,27 +2,31 @@
   inputs,
   cell,
 }: let
-  inherit (cell) dockerJobs library;
+  inherit (cell) dockerJobs library packages;
   inherit (inputs.cells._modules.library) makeConfiguration;
   inherit (inputs.cells.makes.library) makeSubstitution;
 
-  name = "opencti-" + builtins.baseNameOf ./.;
+  name = "containers-" + builtins.baseNameOf ./.;
 
   justfile = makeSubstitution {
     name = "justfile";
     env = {
-      __argFile__ = name;
+      __argName__ = packages.cliche-example.imageName;
+      __argTag__ = packages.cliche-example.imageTag;
     };
     source = ./justfile;
   };
+
   common = branch:
     makeConfiguration {
-      target = "docker-compose";
+      inherit name;
+      target = "docker";
       inherit branch;
-      searchPaths.file = ["${justfile}/justfile"];
+      searchPaths.file = [
+        "${justfile}/justfile"
+      ];
       searchPaths.bin = [];
-      source = dockerJobs.compose {};
-      format = "yaml";
+      format = "raw";
     };
 in {
   prod = common "prod";

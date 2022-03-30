@@ -21,7 +21,9 @@
       inherit name;
       target = "docker-compose";
       inherit branch;
-      searchPaths.source = ["${justfile}/justfile"];
+      searchPaths.file = [
+        "${justfile}/justfile"
+      ];
       searchPaths.bin = [];
       inherit source;
       format = "yaml";

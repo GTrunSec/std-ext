@@ -20,7 +20,7 @@
               cp ${f} "$CELLSINFRAPATH/${builtins.baseNameOf f}"
               chmod +rw "$CELLSINFRAPATH/${builtins.baseNameOf f}"
             '')
-            cfg.searchPaths.source);
+            cfg.searchPaths.file);
 
           CELLSINFRAPATH =
             if cfg.path == null
@@ -53,7 +53,7 @@
           ''
           + cfg.text
           + (
-            if cfg.searchPaths.source != []
+            if cfg.searchPaths.file != []
             then "${writeSource}"
             else ""
           );

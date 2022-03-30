@@ -1,0 +1,12 @@
+image := "__argName__:__argTag__"
+
+set positional-arguments
+# List all recipies
+default:
+    echo "Hello cliche Example"
+
+@podman command:
+    podman run -it {{image}} /bin/example $@
+
+@docker command:
+    docker run -it {{image}} /bin/example $@

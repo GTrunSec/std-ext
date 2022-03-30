@@ -40,7 +40,7 @@
       '';
     };
     format = mkOption {
-      type = types.enum ["yaml" "toml" "json" "nix"];
+      type = types.enum ["yaml" "toml" "json" "nix" "raw"];
       default = [];
       description = ''
         Which format do you want to generate in.
@@ -69,10 +69,23 @@
         });
     };
     searchPaths = mkOption {
-      type = types.attrs;
-      default = {
-        bin = [];
-        source = [];
+      description = "Disk images";
+      default = {};
+      type = lib.types.submodule {
+        options = {
+          bin = mkOption {
+            type = types.listOf types.str;
+            default = [  ];
+          };
+          source = mkOption {
+            type = types.listOf (types.either types.str types.path);
+            default = [  ];
+          };
+          file = mkOption {
+            type = types.listOf (types.either types.str types.path);
+            default = [  ];
+          };
+        };
       };
     };
     runtimeInputs = mkOption {
