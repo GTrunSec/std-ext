@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs self spongix nomad-driver-nix;
+  inherit (inputs) nixpkgs spongix nomad-driver-nix;
   inherit (inputs.cells._writers.library) writeShellApplication;
 in {
   dev-cluster = writeShellApplication {

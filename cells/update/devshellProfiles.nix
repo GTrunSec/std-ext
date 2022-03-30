@@ -2,7 +2,6 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) cells;
   inherit (cell) packages entrypoints;
 in {
   default = _: {

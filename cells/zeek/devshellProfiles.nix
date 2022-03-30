@@ -2,8 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (cell) packages devshellProfiles;
-  inherit (inputs) nixpkgs self;
+  inherit (cell) packages;
 in {
   default = _: {
     commands = [

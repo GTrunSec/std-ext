@@ -2,7 +2,6 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs;
   inherit (cell) library;
   inherit (inputs.cells._modules.library) makeConfigurationFromLang;
 in {

@@ -3,14 +3,13 @@
   cell,
   ...
 }: let
-  inherit (inputs) nixpkgs self data-merge;
-  inherit (cell) nomadJobs generator library nixosProfiles;
-  inherit (inputs.cells._modules.library) makeSocProfile makeConfiguration;
-  inherit (inputs.cells._writers.library) writeShellApplication;
+  inherit (cell) nomadJobs;
+  inherit (inputs.cells._modules.library) makeConfiguration;
 in {
   nomad-container = makeConfiguration {
     name = "misp-nomad-container-dev";
     target = "nomad";
+    branch = "dev";
     source = nomadJobs.container {
       driver = "podman";
     };

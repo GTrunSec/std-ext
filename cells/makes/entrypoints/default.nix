@@ -2,9 +2,8 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs self;
-  inherit (inputs.cells._writers.library) writeShellApplication;
-  inherit (cell.library) makeSopsScript makeScript __output__ makeSubstitution;
+  inherit (inputs) nixpkgs;
+  inherit (cell.library) makeSopsScript makeScript __output__;
 in {
   secrets-for-gpg-from-env = makeSopsScript {
     name = "name";

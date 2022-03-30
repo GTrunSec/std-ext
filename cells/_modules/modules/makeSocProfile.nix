@@ -6,7 +6,6 @@
   inputs,
   ...
 }: let
-  inherit (inputs) self;
   cfg = config.templates;
 in {
   config.socProfile = {

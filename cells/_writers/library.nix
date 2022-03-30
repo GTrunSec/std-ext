@@ -2,12 +2,7 @@
   inputs,
   cell,
 } @ args: let
-  inherit (inputs) nixpkgs;
-  inherit
-    (nixpkgs)
-    lib
-    glibcLocales
-    ;
+  inherit (inputs.nixpkgs) glibcLocales;
 
   writeClicheApplication = _args: import ./writeClicheApplication.nix args _args;
 

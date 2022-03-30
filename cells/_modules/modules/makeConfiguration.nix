@@ -5,9 +5,7 @@
   writeShellApplication,
   inputs,
   ...
-}: let
-  inherit (inputs) cells;
-in {
+}: {
   config.templates = {
     makeConfiguration = let
       cfg = config.templates;

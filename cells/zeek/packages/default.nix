@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs zeek2nix nixpkgs-hardenedlinux;
+  inherit (inputs) zeek2nix nixpkgs-hardenedlinux;
 in {
   inherit
     (zeek2nix.packages)

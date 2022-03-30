@@ -4,7 +4,6 @@
 }: let
   inherit (inputs) terranix nixpkgs;
   inherit (inputs.nixpkgs) system;
-  inherit (inputs.cells.makes.library) makeScript;
   inherit (inputs.cells._modules.library) makeConfiguration;
 in {
   terraform-example-dev = let

@@ -10,16 +10,11 @@
     (nixpkgs)
     lib
     ;
-  inherit
-    (inputs.self)
-    packages
-    ;
-  inherit (inputs.cells._writers.library) writeShellApplication;
 
   glamour-coustom = nixpkgs.callPackage ./_packages/glamour-custom {};
 
   glamourTemplate = {...} @ attrs:
-    glamour-coustom.overrideAttrs (old: let
+    glamour-coustom.overrideAttrs (_old: let
       context = builtins.concatStringsSep " " (
         lib.attrsets.mapAttrsToList (n: v: ''
           ${n} := `${toString v}`

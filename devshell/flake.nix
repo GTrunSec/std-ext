@@ -1,10 +1,12 @@
 {
   description = "DevSecOps Cells Development Shells";
+
   inputs.devshell.url = "github:numtide/devshell";
   inputs.flake-utils.url = "github:numtide/flake-utils";
   inputs.nixpkgs.follows = "cells/nixpkgs";
   inputs.std.follows = "cells/std";
   inputs.cells.url = "../.";
+
   outputs = inputs:
     inputs.flake-utils.lib.eachSystem ["x86_64-linux" "x86_64-darwin"] (
       system: let

@@ -2,8 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs self nomad spongix nomad-driver-nix;
-  inherit (inputs.nixpkgs.lib.strings) fileContents;
+  inherit (inputs) nixpkgs;
   inherit (inputs.cells._writers.library) writeShellApplication;
   inherit (cell) packages;
 in {
@@ -20,7 +19,7 @@ in {
     runtimeInputs = [nixpkgs.podman];
     text = ''
       ${packages.cliche-example.copyToPodman}/bin/copy-to-podman
-      podman run ${packages.cliche-example.imageName}:${packages.cliche-example.imageTag} example 2 3
+      podman run ${packages.cliche-example.imageName}:${packages.cliche-example.imageTag} example add 2 3
     '';
   };
 }

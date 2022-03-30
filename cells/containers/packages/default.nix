@@ -4,7 +4,7 @@
 }: let
   nixpkgs = inputs.nixpkgs.appendOverlays [
     (
-      final: prev: {
+      _final: _prev: {
         inherit
           (inputs.nix2container.packages)
           nix2containerUtil

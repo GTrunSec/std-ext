@@ -1,9 +1,7 @@
 {
   inputs,
   cell,
-}: let
-  inherit (inputs) nixpkgs self;
-in {
+}: {
   default = _: {
     imports = [
       inputs.cells.zeek-action.devshellProfiles.default

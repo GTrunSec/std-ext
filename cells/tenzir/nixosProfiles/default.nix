@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
-  inherit (cell) configFiles generator;
+  inherit (cell) generator;
   nomad-nixos-1 = inputs.lambda-microvm-hunting-lab.nixosConfigurations.nomad-nixos-1;
 in {
   nomad-nixos-1 = nixpkgs.lib.recursiveUpdate nomad-nixos-1 {

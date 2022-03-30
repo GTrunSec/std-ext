@@ -2,8 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (cell) packages library devshellProfiles;
-  inherit (inputs) nixpkgs;
+  inherit (cell) devshellProfiles;
 in {
   default = _: {
     imports = [inputs.cells.zeek.devshellProfiles.default];

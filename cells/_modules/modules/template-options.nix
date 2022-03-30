@@ -1,12 +1,8 @@
 {
   config,
   lib,
-  pkgs,
-  inputs,
   ...
-}: let
-  cfg = config.templates;
-in {
+}: {
   options.templates = with lib; {
     name = mkOption {
       type = types.str;

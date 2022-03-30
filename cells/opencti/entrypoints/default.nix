@@ -1,9 +1,7 @@
 {
   inputs,
   cell,
-} @ args: let
-  inherit (inputs) nixpkgs;
-in {
+} @ args: {
   nomad-container-dev = (import ./nomad-container args).dev;
 
   nomad-hydration-dev = (import ./nomad-container args).hydration.dev;

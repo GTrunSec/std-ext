@@ -1,7 +1,7 @@
 {
   inputs,
   cell,
-} @ args: let
+}: let
   nixpkgs = inputs.nixpkgs.appendOverlays [];
   inherit (inputs.cells._writers.library) writeShellApplication;
   eval = (import ./modules) nixpkgs;

@@ -10,7 +10,6 @@
   threads ? 8,
   runtimeInputs ? [],
 }: let
-  inherit (inputs) nixpkgs;
   inherit (cell) library;
 in
   library.writeShellApplication {

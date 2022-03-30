@@ -10,13 +10,13 @@
   checkPhase ? null,
 }: let
   nixpkgs = inputs.nixpkgs.appendOverlays [
-    (final: prev: {
+    (_final: _prev: {
       cliche = nixpkgs.python3Packages.callPackage ./_packages/cliche {};
     })
   ];
   inherit (inputs.nixpkgs) lib;
   python = inputs.nixpkgs.python3.withPackages (
-    ps: [
+    _ps: [
       nixpkgs.cliche
       libraries
     ]

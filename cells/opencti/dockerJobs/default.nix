@@ -1,6 +1,6 @@
 {
   inputs,
   cell,
-} @ args: rec {
+}: rec {
   compose = _args: import ./compose.nix _args;
 }

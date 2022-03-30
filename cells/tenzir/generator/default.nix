@@ -2,11 +2,8 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs self data-merge;
-  inherit (cell) nomadJobs configFiles library;
-  inherit (inputs.cells._writers.library) writeShellApplication;
-  inherit (inputs.cells._templates.library) makeTemplate;
-  inherit (inputs.cells.makes.library) __output__ makeSubstitution;
+  inherit (inputs) data-merge;
+  inherit (cell) configFiles;
   # default
   vast-settings = {
     db-directory = "vast.db";
@@ -22,11 +19,12 @@
       vast.print-endpoint = true;
     };
 in {
-  inherit prod;
-  mkSocProfile-custom-1 = library.makeConfiguration {
-    searchPaths.path = [
-      inputs.cells.openCTI.generator.nomad.vast
-      inputs.cells.zeek.generator.nomad.vast
-    ];
-  };
+  vast.prod = prod;
+
+  # mkSocProfile-custom-1 = library.makeConfiguration {
+  #   searchPaths.path = [
+  #     inputs.cells.openCTI.generator.nomad.vast
+  #     inputs.cells.zeek.generator.nomad.vast
+  #   ];
+  # };
 }

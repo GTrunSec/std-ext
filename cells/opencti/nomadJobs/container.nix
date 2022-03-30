@@ -8,10 +8,6 @@
   inputs,
   cell,
 }: let
-  elasticsearch = inputs.cells.profiles.nomadJobs.elasticsearch {
-    inherit datacenters driver type namespace;
-  };
-
   env = {
     NODE_OPTIONS = "--max-old-space-size = 8096";
     APP__PORT = 8080;

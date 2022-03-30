@@ -2,7 +2,6 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs;
   inherit (cell) entrypoints;
 in {
   default = _: {

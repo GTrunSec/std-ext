@@ -32,12 +32,6 @@
     memory = 1024;
     cpu = 3000;
   };
-
-  volume_mount = {
-    volume = "misp";
-    destination = "/var/lib/private/misp";
-    read_only = false;
-  };
 in {
   job.misp = {
     inherit datacenters type namespace;

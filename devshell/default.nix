@@ -4,11 +4,7 @@
   cells,
   std,
 }:
-devshell.legacyPackages.mkShell ({
-  extraModulesPath,
-  pkgs,
-  ...
-}: {
+devshell.legacyPackages.mkShell ({extraModulesPath, ...}: {
   name = "DevSecOps Cells";
   imports = [
     "${extraModulesPath}/git/hooks.nix"
@@ -16,6 +12,7 @@ devshell.legacyPackages.mkShell ({
     std.std.devshellProfiles.default
 
     cells.update.devshellProfiles.default
+    cells.nix-linter.devshellProfiles.default
 
     cells.makeConfiguration.devshellProfiles.default
     # cells.cliche.devshellProfiles.default

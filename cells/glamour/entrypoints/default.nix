@@ -2,7 +2,6 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs;
   inherit (inputs.cells._writers.library) writeShellApplication;
   inherit (inputs.cells._templates.library) glamourTemplate;
 

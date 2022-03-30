@@ -49,11 +49,14 @@
     # nix2container.inputs.nixpkgs.follows = "nixpkgs"; # skopeo-nix2container override was locked by patch
   };
 
-  outputs = {
-    std,
-    nixpkgs,
-    ...
-  } @ inputs:
+  # nix linters
+  inputs = {
+    deadnix.url = "github:gtrunsec/deadnix/packages.name";
+    statix.url = "github:nerdypepper/statix";
+    statix.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs = {std, ...} @ inputs:
     std.grow {
       inherit inputs;
       #as-nix-cli-epiphyte = false;

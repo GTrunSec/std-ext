@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs nickel;
+  inherit (inputs) nickel;
 in {
   nickel = nickel.packages.build;
 }

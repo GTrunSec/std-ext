@@ -4,15 +4,10 @@
   driver ? ["podman" "docker"],
   namespace ? "default",
   version ? "7.17.1",
-}: args: let
+}: _args: let
   resources = {
     memory = 1024;
     cpu = 3000;
-  };
-  volume.elasticsearch = {
-    type = "host";
-    read_only = false;
-    source = "elasticsearch";
   };
   network = {
     port.elasticsearch = {

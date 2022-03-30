@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs threatbus2nix vast2nix;
+  inherit (inputs) threatbus2nix vast2nix;
 in {
   inherit
     (vast2nix.packages)
