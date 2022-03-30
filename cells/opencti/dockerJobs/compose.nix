@@ -224,9 +224,9 @@ in {
   };
 
   volumes = {
-    esdata = null;
-    s3data = null;
-    redisdata = null;
-    amqpdata = null;
+    esdata = {};
+    s3data = {};
+    redisdata = {};
+    amqpdata = {};
   };
 }

@@ -128,12 +128,12 @@
         "zeek2nix": "zeek2nix_10"
       },
       "locked": {
-        "narHash": "sha256-bOJuFIBsa8gXONX0r0X+95N3egUFrEHpmJXZZedxkSg=",
-        "path": "/nix/store/bq77cc5bg804fsm4p1im50mf2135bs7y-source",
+        "narHash": "sha256-55plTR6i2y69SWfD07Wn6BLb2cxtW80dPwILmF5NIWo=",
+        "path": "/nix/store/zbcf9dgnrngl85gsp4z67yn0kwv1vym9-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/bq77cc5bg804fsm4p1im50mf2135bs7y-source",
+        "path": "/nix/store/zbcf9dgnrngl85gsp4z67yn0kwv1vym9-source",
         "type": "path"
       }
     },
@@ -12720,6 +12720,10 @@
         "cells": "cells",
         "devshell": "devshell_38",
         "flake-utils": "flake-utils_142",
+        "latest": [
+          "cells",
+          "latest"
+        ],
         "nixpkgs": [
           "cells",
           "nixpkgs"

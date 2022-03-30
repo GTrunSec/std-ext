@@ -10,6 +10,7 @@ in {
       {
         package = packages.deadnix;
         category = "nix-linter";
+        help = "Scan Nix files for dead code";
       }
       {
         package = packages.statix;

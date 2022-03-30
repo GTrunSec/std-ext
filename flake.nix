@@ -66,7 +66,7 @@
       organelles = [
         (std.installables "packages")
         (std.runnables "entrypoints")
-        (std.functions "generator")
+        (std.functions "generators")
         (std.functions "library")
         (std.functions "nomadJobs")
         (std.functions "nixosProfiles")

@@ -1,0 +1,11 @@
+file := "./__argFile__.yaml"
+
+# List all recipies
+default:
+    docker-compose -f {{file}} up -d
+
+deploy:
+    docker-compose --env-file .env -f {{file}} up -d
+
+plan:
+    echo "planner"

@@ -6,7 +6,7 @@
   inherit (cell) nomadJobs;
   inherit (inputs.cells._modules.library) makeConfiguration;
 
-  name = builtins.baseNameOf ./.;
+  name = "tenzir-" + builtins.baseNameOf ./.;
 
   common = branch: source:
     makeConfiguration {

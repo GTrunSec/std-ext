@@ -16,4 +16,6 @@
   # };
 
   config-vast-prod = (import ./vast-config args).prod;
+
+  docker-compose-vast-prod = (import ./docker-compose args).vast.prod;
 }

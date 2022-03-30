@@ -1,0 +1,7 @@
+
+
+all:
+    std run //tenzir//entrypoints:docker-compose-vast-prod
+    std run //tenzir//entrypoints:config-vast-prod
+    std run //tenzir//entrypoints:nomad-node-prod
+    std run //tenzir//entrypoints:nomad-opencti-dev

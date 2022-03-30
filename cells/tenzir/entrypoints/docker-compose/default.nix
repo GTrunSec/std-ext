@@ -6,7 +6,7 @@
   inherit (inputs.cells._modules.library) makeConfiguration;
   inherit (inputs.cells.makes.library) makeSubstitution;
 
-  name = "opencti-" + builtins.baseNameOf ./.;
+  name = "tenzir-" + builtins.baseNameOf ./.;
 
   justfile = makeSubstitution {
     name = "justfile";
@@ -15,15 +15,17 @@
     };
     source = ./justfile;
   };
-  common = branch:
+
+  common = branch: source:
     makeConfiguration {
+      inherit name;
       target = "docker-compose";
       inherit branch;
       searchPaths.source = ["${justfile}/justfile"];
       searchPaths.bin = [];
-      source = dockerJobs.compose {};
+      inherit source;
       format = "yaml";
     };
 in {
-  prod = common "prod";
+  vast.prod = common "prod" (dockerJobs.vast.compose {});
 }
