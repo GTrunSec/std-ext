@@ -6,16 +6,11 @@
 
   nomad-opencti-dev = (import ./nomad-nixos args).opencti.dev;
 
-  # socProfile-openCTI-solution = makeSocProfile {
-  #   features = {
-  #     # TIPs
-  #     openCTI = true;
-  #     zeek = true;
-  #   };
-  #   target = "nomad"; # or k8s, podman, docker;
-  # };
-
   config-vast-prod = (import ./vast-config args).prod;
 
-  docker-compose-vast-prod = (import ./docker-compose args).vast.prod;
+  docker-compose-vast-prod = (import ./vast-container/compose.nix args).vast.prod;
+
+  podman-vast-release-prod = (import ./vast-container/packages.nix args).release.prod;
+
+  podman-vast-latest-prod = (import ./vast-container/packages.nix args).latest.prod;
 }

@@ -9,7 +9,11 @@ in {
     commands = [
       {
         package = nixpkgs.docker-compose;
-        category = "docker";
+        category = "container";
+      }
+      {
+        package = nixpkgs.podman-compose;
+        category = "container";
       }
     ];
   };

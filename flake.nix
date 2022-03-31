@@ -65,16 +65,26 @@
       systems = ["x86_64-linux" "x86_64-darwin"];
       organelles = [
         (std.installables "packages")
+
         (std.runnables "entrypoints")
+        (std.runnables "onPremises")
+
         (std.functions "generators")
         (std.functions "library")
-        (std.functions "nomadJobs")
-        (std.functions "nixosProfiles")
-        (std.functions "dockerJobs")
-        (std.runnables "terranix")
+
         (std.functions "configFiles")
+
+        (std.functions "nixosProfiles")
         (std.functions "devshellProfiles")
+
+        (std.functions "containerJobs")
+
+        # hashicorp ecoSystem
         (std.functions "consulProfiles")
+        (std.functions "nomadJobs")
+        (std.runnables "terranix")
+
+        (std.functions "schemaProfiles")
       ];
     };
 }

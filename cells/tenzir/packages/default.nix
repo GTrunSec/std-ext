@@ -1,7 +1,7 @@
 {
   inputs,
   cell,
-}: let
+} @ args: let
   inherit (inputs) threatbus2nix vast2nix;
 in {
   inherit

@@ -75,15 +75,15 @@
         options = {
           bin = mkOption {
             type = types.listOf types.str;
-            default = [  ];
+            default = [];
           };
           source = mkOption {
             type = types.listOf (types.either types.str types.path);
-            default = [  ];
+            default = [];
           };
           file = mkOption {
             type = types.listOf (types.either types.str types.path);
-            default = [  ];
+            default = [];
           };
         };
       };

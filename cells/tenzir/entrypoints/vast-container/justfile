@@ -4,8 +4,10 @@ file := "./__argFile__.yaml"
 default:
     docker-compose -f {{file}} up -d
 
-deploy:
+@compose:
     docker-compose --env-file .env -f {{file}} up -d
 
-plan:
+@plan:
     echo "planner"
+
+@package:
