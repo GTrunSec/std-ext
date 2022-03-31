@@ -51,7 +51,7 @@
 
   # nix linters
   inputs = {
-    deadnix.url = "github:gtrunsec/deadnix/packages.name";
+    deadnix.url = "github:astro/deadnix";
     statix.url = "github:nerdypepper/statix";
     statix.inputs.nixpkgs.follows = "nixpkgs";
   };
