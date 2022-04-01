@@ -128,12 +128,12 @@
         "zeek2nix": "zeek2nix_10"
       },
       "locked": {
-        "narHash": "sha256-55plTR6i2y69SWfD07Wn6BLb2cxtW80dPwILmF5NIWo=",
-        "path": "/nix/store/zbcf9dgnrngl85gsp4z67yn0kwv1vym9-source",
+        "narHash": "sha256-SukhBn/G9VPnAGAIHOOIXrnZ9KwscjLSHFVRNgDP17I=",
+        "path": "/nix/store/py4g42kwcmyjr95f4221zr4ki41cqnnp-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/zbcf9dgnrngl85gsp4z67yn0kwv1vym9-source",
+        "path": "/nix/store/py4g42kwcmyjr95f4221zr4ki41cqnnp-source",
         "type": "path"
       }
     },
@@ -849,16 +849,15 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1648605849,
-        "narHash": "sha256-5toybilwMiZW2dIvTWXk5JQU69TVWhZkhyQc5NPzsFA=",
-        "owner": "gtrunsec",
+        "lastModified": 1648830814,
+        "narHash": "sha256-Q51A1kpeWioMrrtkuUexbKwS6hts2PNxgb8H2ExXyW4=",
+        "owner": "astro",
         "repo": "deadnix",
-        "rev": "3997980a2b8d671b792776af6726b1eb915f0671",
+        "rev": "9617e4c6ecbe96ce9b451ec0ee7b0951812decd1",
         "type": "github"
       },
       "original": {
-        "owner": "gtrunsec",
-        "ref": "packages.name",
+        "owner": "astro",
         "repo": "deadnix",
         "type": "github"
       }

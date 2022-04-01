@@ -1,8 +1,10 @@
 file := "./__argFile__.yaml"
 
 # List all recipies
-default:
+up:
     docker-compose -f {{file}} up -d
+down:
+    docker-compose -f {{file}} rm --stop -v --force
 
 deploy:
     docker-compose --env-file .env -f {{file}} up -d

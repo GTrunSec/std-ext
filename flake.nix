@@ -85,6 +85,10 @@
         (std.runnables "terranix")
 
         (std.functions "schemaProfiles")
+
+        # Jobs workflow
+        (std.functions "airflowJobs")
+        (std.functions "waterwheelJobs")
       ];
     };
 }

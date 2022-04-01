@@ -1314,11 +1314,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1648682841,
-        "narHash": "sha256-VSVvQVc712qqxErn6s+0mKL0lBLMZyWQvErayQnUGE0=",
+        "lastModified": 1648830814,
+        "narHash": "sha256-Q51A1kpeWioMrrtkuUexbKwS6hts2PNxgb8H2ExXyW4=",
         "owner": "astro",
         "repo": "deadnix",
-        "rev": "da77dc6e85a7cdbe040847ec0d2739c8e6024c38",
+        "rev": "9617e4c6ecbe96ce9b451ec0ee7b0951812decd1",
         "type": "github"
       },
       "original": {

@@ -17,9 +17,9 @@
       format = "yaml";
     };
 
-  state-prod = data-merge.merge generators.vast.prod {
+  prod-state = data-merge.merge generators.vast.prod {
     vast.endpoint = "192.168.1.1:4000";
   };
 in {
-  prod = common "prod" state-prod;
+  prod = common "prod" prod-state;
 }

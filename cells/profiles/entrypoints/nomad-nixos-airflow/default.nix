@@ -11,7 +11,7 @@
     makeConfiguration {
       inherit name;
       target = "nomad";
-      source = nomadJobs.nixos-airflow {
+      source = nomadJobs.nixos.airflow {
         flake = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab#nixosConfigurations.nomad-airflow";
       };
       inherit branch;
