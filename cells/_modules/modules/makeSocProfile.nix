@@ -3,7 +3,6 @@
   lib,
   pkgs,
   writeShellApplication,
-  inputs,
   ...
 }: let
   cfg = config.templates;

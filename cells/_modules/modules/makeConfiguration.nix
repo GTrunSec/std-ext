@@ -3,7 +3,6 @@
   lib,
   pkgs,
   writeShellApplication,
-  inputs,
   ...
 }: {
   config.templates = {

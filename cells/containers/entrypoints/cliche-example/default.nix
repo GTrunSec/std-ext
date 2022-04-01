@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (cell) dockerJobs library packages;
+  inherit (cell) library packages;
   inherit (inputs.cells._modules.library) makeConfiguration;
   inherit (inputs.cells.makes.library) makeSubstitution;
 
