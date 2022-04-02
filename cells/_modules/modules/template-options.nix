@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: {
+{lib, ...}: {
   options.templates = with lib; {
     name = mkOption {
       type = types.str;

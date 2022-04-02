@@ -9,7 +9,7 @@
   };
 in
   nix2container.buildImage {
-    name = "from-image";
+    name = builtins.baseNameOf ./opencti-platform.nix;
     contents = [
       (pkgs.symlinkJoin {
         name = "root";

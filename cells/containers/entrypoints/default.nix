@@ -23,5 +23,14 @@ in {
       podman run ${packages.cliche-example.imageName}:${packages.cliche-example.imageTag} example add 2 3
     '';
   };
+
+  podman-comonicon-mycmd = writeShellApplication {
+    name = "comonicon-mycmd";
+    runtimeInputs = [nixpkgs.podman];
+    text = ''
+      ${packages.comonicon-mycmd.copyToPodman}/bin/copy-to-podman
+      podman run ${packages.comonicon-mycmd.imageName}:${packages.comonicon-mycmd.imageTag} example add 2 3
+    '';
+  };
   cliche-example-prod = (import ./cliche-example args).prod;
 }

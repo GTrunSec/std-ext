@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: {
+{lib, ...}: {
   options.socProfile = with lib; {
     name = mkOption {
       type = types.str;
