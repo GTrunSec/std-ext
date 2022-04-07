@@ -25,8 +25,8 @@ devshell.legacyPackages.mkShell ({extraModulesPath, ...}: {
     cells.containers.devshellProfiles.default
 
     # cells.zeek.devshellProfiles.default
-    cells.soc-action.devshellProfiles.default
-    cells.opencti.devshellProfiles.default
+    # cells.soc-action.devshellProfiles.default
+    # cells.opencti.devshellProfiles.default
   ];
   commands = [
     {

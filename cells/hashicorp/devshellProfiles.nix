@@ -31,6 +31,10 @@ in {
         category = "hashicorp";
       }
       {
+        package = packages.vault-cli;
+        category = "hashicorp";
+      }
+      {
         package = packages.terraform;
         category = "hashicorp";
         help = "Terraform is an open-source infrastructure as code software tool that provides a consistent CLI workflow to manage hundreds of cloud services.";

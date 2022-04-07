@@ -29,7 +29,7 @@ in {
     runtimeInputs = [nixpkgs.podman];
     text = ''
       ${packages.comonicon-mycmd.copyToPodman}/bin/copy-to-podman
-      podman run ${packages.comonicon-mycmd.imageName}:${packages.comonicon-mycmd.imageTag} example add 2 3
+      podman run ${packages.comonicon-mycmd.imageName}:${packages.comonicon-mycmd.imageTag} mycmd
     '';
   };
   cliche-example-prod = (import ./cliche-example args).prod;

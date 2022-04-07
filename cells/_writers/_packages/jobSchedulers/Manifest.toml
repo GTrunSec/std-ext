@@ -109,9 +109,9 @@ version = "0.21.3"
 
 [[deps.JobSchedulers]]
 deps = ["DataFrames", "Dates", "JLD2", "JSON", "Pipelines", "Test"]
-git-tree-sha1 = "5f276f9e0d4ee560d00773b4f37694482dc74f03"
+git-tree-sha1 = "ea9e21779b03e4543a265fd2e2a3ff43cb148112"
 uuid = "eeff360b-c02d-44d3-ab26-4013c616a17e"
-version = "0.4.0"
+version = "0.5.0"
 
 [[deps.LibCURL]]
 deps = ["LibCURL_jll", "MozillaCACerts_jll"]
@@ -179,17 +179,17 @@ version = "1.4.1"
 
 [[deps.Parsers]]
 deps = ["Dates"]
-git-tree-sha1 = "85b5da0fa43588c75bb1ff986493443f821c70b7"
+git-tree-sha1 = "621f4f3b4977325b9128d5fae7a8b4829a0c2222"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "2.2.3"
+version = "2.2.4"
 
 [[deps.Pipelines]]
 deps = ["Dates", "Logging", "Test", "UUIDs"]
-git-tree-sha1 = "48d59baa4519b3b71ec4c17a81eb73270942a0bc"
+git-tree-sha1 = "d0eb799cf0f0ef209c03e309bb336d8a7026b24a"
 repo-rev = "main"
 repo-url = "https://github.com/cihga39871/Pipelines.jl"
 uuid = "ef544631-5c6f-4e9b-994c-12e7a4cd724c"
-version = "0.4.6"
+version = "0.5.2"
 
 [[deps.Pkg]]
 deps = ["Artifacts", "Dates", "Downloads", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "Serialization", "TOML", "Tar", "UUIDs", "p7zip_jll"]
