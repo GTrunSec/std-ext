@@ -15,7 +15,7 @@ in {
     ];
     commands = [
       {
-        package = nixpkgs.nomad;
+        package = packages.nomad;
         category = "hashicorp";
       }
       {

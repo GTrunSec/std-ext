@@ -12182,11 +12182,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1647076370,
-        "narHash": "sha256-XE9yKXNrUYEbyYe9chguVS0o6Nwg+7wpW2nEj0CVH5M=",
+        "lastModified": 1648225064,
+        "narHash": "sha256-Iq/7D+j4Hg3llKMoujTYCGyz0j9iSYRECwzu5Yk+o+o=",
         "owner": "nickel-lang",
         "repo": "nickel-nix",
-        "rev": "43c3973200febd6835b3303749ef46216334f5e9",
+        "rev": "6061184498ddd3c41baea5361380ba6137ad422f",
         "type": "github"
       },
       "original": {
@@ -19279,11 +19279,11 @@
         "utils": "utils_87"
       },
       "locked": {
-        "lastModified": 1648029666,
-        "narHash": "sha256-kShItLLtoWLqE+6Uzc8171a+NXST4arZgxEP0SYPp44=",
+        "lastModified": 1649338225,
+        "narHash": "sha256-hET+b7XhDLSuVQwXLI2V5nYCcdvxQQj9BAG8z4ta6CE=",
         "owner": "input-output-hk",
         "repo": "nomad-driver-nix",
-        "rev": "0be4fea24e1b747389b2e79813891805fed521b6",
+        "rev": "010b09c680887d0cade86e8ac136c3a04609e04a",
         "type": "github"
       },
       "original": {

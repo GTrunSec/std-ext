@@ -3,6 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs spongix nomad-driver-nix;
+  inherit (cell) packages;
   inherit (inputs.cells._writers.library) writeShellApplication;
 in {
   dev-cluster = writeShellApplication {
@@ -44,6 +45,6 @@ in {
       })}";
     };
     text = nixpkgs.lib.fileContents ./dev-cluster.bash;
-    runtimeInputs = [nixpkgs.vault-bin nixpkgs.bash nixpkgs.netcat nixpkgs.nomad spongix.defaultPackage nixpkgs.consul];
+    runtimeInputs = [nixpkgs.vault-bin nixpkgs.bash nixpkgs.netcat packages.nomad spongix.defaultPackage nixpkgs.consul];
   };
 }

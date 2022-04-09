@@ -16,5 +16,5 @@
            hello
          "%m
 
-    } | nix.Shell,
+    } | Nix.Shell,
 }
