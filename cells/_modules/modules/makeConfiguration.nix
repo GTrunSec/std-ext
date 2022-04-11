@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   writeShellApplication,
   ...
 }: {
@@ -44,7 +45,7 @@
               chmod +rw "$CELLSINFRAPATH/config.tf.json"
             ''}
             ${pkgs.lib.optionalString (cfg.target == "nomad") ''
-              ${pkgs.nomad}/bin/nomad job plan "$CELLSINFRAPATH/${cfg.name}.json"
+              ${inputs.cells.hashicorp.packages.nomad}/bin/nomad job plan "$CELLSINFRAPATH/${cfg.name}.json"
             ''}
             ${pkgs.lib.optionalString (cfg.target == "docker-compose") ''
               ${pkgs.docker-compose}/bin/docker-compose -f "$CELLSINFRAPATH/${cfg.name}.${cfg.format}" config -q

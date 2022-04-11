@@ -23,7 +23,7 @@ in {
   job.vast = {
     inherit datacenters type namespace;
     group.nixos = {
-      count = 1;
+      # count = 1;
       inherit volume;
       task.vast = {
         driver = "nix";

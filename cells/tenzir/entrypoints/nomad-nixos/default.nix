@@ -10,21 +10,17 @@
 
   common = branch: source:
     makeConfiguration {
-      inherit name;
+      inherit name branch source;
       target = "nomad";
-      inherit branch;
-      source = nomadJobs.vast-nixos-node {
-        flake = source;
-      };
       format = "json";
     };
 
   prod = nomadJobs.vast-nixos-node {
-    flake = "${self.outPath}#${nixpkgs.system}.tenzir.nixosProfiles.nomad-tenzir-vast";
+    flake = "${self.outPath}#${nixpkgs.system}.tenzir.nixosProfiles.nomad-vast";
   };
 
   dev = nomadJobs.vast-nixos-node {
-    flake = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab#nixosConfigurations.nomad-opencti";
+    flake = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab#nixosConfigurations.nomad-tenzir-opencti";
   };
 in {
   opencti.dev = common "dev" dev;

@@ -63,7 +63,7 @@ uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
 name = "cliche"
-version = "0.10.91"
+version = "0.10.95"
 description = "A minimalistic CLI wrapper out to be the best"
 category = "main"
 optional = false
@@ -77,7 +77,7 @@ ipdb = "0.13.9"
 type = "git"
 url = "https://github.com/kootenpv/cliche"
 reference = "master"
-resolved_reference = "8e6eb57f1145aee4c43f2bc4e6a508b8922a152e"
+resolved_reference = "363c301afc11e739bec5a1798dd5e9216c7181be"
 
 [[package]]
 name = "click"

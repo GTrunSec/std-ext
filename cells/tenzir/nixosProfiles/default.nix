@@ -4,9 +4,8 @@
 }: let
   inherit (inputs) nixpkgs;
   inherit (cell) generator;
-  nomad-nixos-1 = inputs.lambda-microvm-hunting-lab.nixosConfigurations.nomad-nixos-1;
 in {
-  nomad-nixos-1 = nixpkgs.lib.recursiveUpdate nomad-nixos-1 {
+  nomad-vast = nixpkgs.lib.recursiveUpdate inputs.lambda-microvm-hunting-lab.nixosConfigurations.nomad-tenzir-vast {
     config.services.vast = {
       enable = true;
       settings = generator.prod;

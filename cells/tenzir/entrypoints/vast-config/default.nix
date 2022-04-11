@@ -10,10 +10,8 @@
 
   common = branch: source:
     makeConfiguration {
-      inherit name;
+      inherit name branch source;
       target = "regular";
-      inherit branch;
-      inherit source;
       format = "yaml";
     };
 
