@@ -14592,11 +14592,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1649883980,
-        "narHash": "sha256-prHo1DUWLVqtDRXxWj2SQ1xeweCznJ2kVCPzN8cJXZk=",
+        "lastModified": 1649885239,
+        "narHash": "sha256-jm6fk7izG8BKzEejTUU9VqvnRMdyg7nZqx8uGCfp0fE=",
         "owner": "GTrunSec",
         "repo": "lambda-microvm-hunting-lab",
-        "rev": "3c67a9355b68fc888aa13840e2070c4badbfd792",
+        "rev": "818d775dd1aa09cc1b719c1dcb339425f051b330",
         "type": "github"
       },
       "original": {

@@ -6,7 +6,7 @@
   inherit (cell) packages nixosProfiles;
   inherit (inputs.cells._writers.library) writeShellApplication;
 in {
-  qemu-cluster = nixosProfiles.cluster;
+  qemu-cluster = nixosProfiles.cluster.config.microvm.runner.qemu;
 
   dev-cluster = writeShellApplication {
     name = "dev-nomad";

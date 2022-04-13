@@ -3,13 +3,16 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
-  inherit (cell) generator;
+  inherit (cell) generator packages;
 in {
-  cluster =
-    (nixpkgs.lib.recursiveUpdate
-      inputs.lambda-microvm-hunting-lab.nixosConfigurations.nomad-qemu-cluster {})
-    .config
-    .microvm
-    .runner
-    .qemu;
+  cluster = inputs.lambda-microvm-hunting-lab.nixosConfigurations.nomad-qemu-cluster.extendModules {
+    modules = [
+      ./nomad.nix
+      {
+        _module.args = {
+          inherit packages;
+        };
+      }
+    ];
+  };
 }
