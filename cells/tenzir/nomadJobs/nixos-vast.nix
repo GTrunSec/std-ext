@@ -33,6 +33,12 @@ in {
         config = {
           nixos = flake;
         };
+
+        service = {
+          # name         = "api";
+          provider = "nomad";
+          # port         = "api";
+        };
       };
     };
   };

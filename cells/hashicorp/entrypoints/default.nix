@@ -3,9 +3,11 @@
   cell,
 }: let
   inherit (inputs) nixpkgs spongix nomad-driver-nix;
-  inherit (cell) packages;
+  inherit (cell) packages nixosProfiles;
   inherit (inputs.cells._writers.library) writeShellApplication;
 in {
+  qemu-cluster = nixosProfiles.cluster;
+
   dev-cluster = writeShellApplication {
     name = "dev-nomad";
     env = {

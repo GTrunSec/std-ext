@@ -2,5 +2,5 @@
   inputs,
   cell,
 }: {
-  vast-nixos-node = args: import ./vast-nixos-node.nix args;
+  nixos-vast = args: import ./nixos-vast.nix args;
 }

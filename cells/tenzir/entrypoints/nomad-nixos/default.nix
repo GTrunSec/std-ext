@@ -15,11 +15,11 @@
       format = "json";
     };
 
-  prod = nomadJobs.vast-nixos-node {
+  prod = nomadJobs.nixos-vast {
     flake = "${self.outPath}#${nixpkgs.system}.tenzir.nixosProfiles.nomad-vast";
   };
 
-  dev = nomadJobs.vast-nixos-node {
+  dev = nomadJobs.nixos-vast {
     flake = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab#nixosConfigurations.nomad-tenzir-opencti";
   };
 in {
