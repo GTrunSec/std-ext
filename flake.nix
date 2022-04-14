@@ -8,6 +8,7 @@
     latest.url = "github:NixOS/nixpkgs/master";
 
     lambda-microvm-hunting-lab.url = "github:GTrunSec/lambda-microvm-hunting-lab";
+    #lambda-microvm-hunting-lab.url = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab";
     lambda-microvm-hunting-lab.inputs.zeek2nix.follows = "zeek2nix";
     lambda-microvm-hunting-lab.inputs.vast2nix.follows = "vast2nix";
 
