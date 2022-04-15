@@ -1,5 +1,5 @@
 PRJ_ROOT := env_var('PRJ_ROOT')
-stdRun := "std run //profiles//entrypoints:"
+stdRun := "std run //services//entrypoints:nomad-container-elk-dev"
 
 
 airflow-dev:

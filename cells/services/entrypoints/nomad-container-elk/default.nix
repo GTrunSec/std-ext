@@ -2,6 +2,7 @@
   inputs,
   cell,
 }: let
+  inherit (inputs) nixpkgs;
   inherit (cell) nomadJobs;
   inherit (inputs.cells._modules.library) makeConfiguration;
 
@@ -11,12 +12,16 @@
     makeConfiguration {
       inherit name;
       target = "nomad";
-      source = nomadJobs.nixos.airflow {
-        flake = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab#nixosConfigurations.nomad-airflow";
-      };
+      source =
+        nixpkgs.lib.recursiveUpdate (nomadJobs.container.elasticsearch {
+          driver = "podman";
+        }) {
+          job.elasticsearch = (nomadJobs.container.kibana {driver = "podman";}).job.elasticsearch;
+        };
       inherit branch;
       format = "json";
     };
 in {
   dev = common "dev";
+  prod = common "prod";
 }
