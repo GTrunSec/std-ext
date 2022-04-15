@@ -1,4 +1,4 @@
-final: prev: {
+_final: prev: {
   nomad = prev.callPackage "${prev.path}/pkgs/applications/networking/cluster/nomad/generic.nix" {
     inherit (prev) buildGoModule;
     nvidiaGpuSupport = false;

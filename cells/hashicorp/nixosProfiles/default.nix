@@ -2,8 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs;
-  inherit (cell) generator packages;
+  inherit (cell) packages;
 in {
   cluster = inputs.lambda-microvm-hunting-lab.nixosConfigurations.nomad-qemu-cluster.extendModules {
     modules = [
