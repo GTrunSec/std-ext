@@ -10,15 +10,14 @@
 
   common = branch:
     makeConfiguration {
-      inherit name;
-      target = "nomad";
+      inherit name branch;
       source =
         nixpkgs.lib.recursiveUpdate (nomadJobs.container.elasticsearch {
           driver = "podman";
         }) {
           job.elasticsearch = (nomadJobs.container.kibana {driver = "podman";}).job.elasticsearch;
         };
-      inherit branch;
+      target = "nomad";
       format = "json";
     };
 in {

@@ -5,11 +5,14 @@
   inherit (inputs) nixpkgs;
   inherit (cell) generator;
 in {
-  nomad-vast = nixpkgs.lib.recursiveUpdate inputs.lambda-microvm-hunting-lab.nixosConfigurations.nomad-tenzir-vast {
-    config.services.vast = {
-      enable = true;
-      settings = generator.prod;
-      extraConfigFile = null;
-    };
+  nomad-vast = inputs.lambda-microvm-hunting-lab.nixosConfigurations.nomad-tenzir-vast.extendModules {
+    modules = [
+      ./nomad-vast.nix
+      {
+        _module.args = {
+          inherit generator;
+        };
+      }
+    ];
   };
 }
