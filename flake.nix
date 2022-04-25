@@ -1,16 +1,16 @@
 {
   inputs = {
-    std.url = "github:divnix/std";
+    std.url = "github:divnix/std/dec02a093e355a2c41f3170bd9a9dbdd9bd05c2b";
     data-merge.url = "github:divnix/data-merge";
     yants.url = "github:divnix/yants";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     latest.url = "github:NixOS/nixpkgs/master";
 
-    lambda-microvm-hunting-lab.url = "github:GTrunSec/lambda-microvm-hunting-lab";
-    # lambda-microvm-hunting-lab.url = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab";
-    lambda-microvm-hunting-lab.inputs.zeek2nix.follows = "zeek2nix";
-    lambda-microvm-hunting-lab.inputs.vast2nix.follows = "vast2nix";
+    lambda-microvm-lab.url = "github:GTrunSec/lambda-microvm-lab";
+    # lambda-microvm-lab.url = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-lab";
+    lambda-microvm-lab.inputs.zeek2nix.follows = "zeek2nix";
+    lambda-microvm-lab.inputs.vast2nix.follows = "vast2nix";
 
     threatbus2nix.url = "github:gtrunsec/threatbus2nix";
 
@@ -88,7 +88,7 @@
         (std.functions "schemaProfiles")
 
         # Jobs workflow
-        (std.functions "airflowJobs")
+        (std.functions "cargoMakeJobs")
         (std.functions "waterwheelJobs")
       ];
     };

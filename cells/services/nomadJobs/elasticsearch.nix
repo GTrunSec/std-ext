@@ -1,10 +1,11 @@
 {
   datacenters ? ["dc1"],
-  type ? "batch",
+  type ? "service",
   driver ? ["podman" "docker"],
   namespace ? "default",
   version ? "7.17.1",
-}: _args: let
+  task ? "prod",
+}: let
   resources = {
     memory = 1024;
     cpu = 3000;
@@ -25,7 +26,7 @@ in {
     group.container = {
       count = 1;
       inherit network service;
-      task.elasticsearch = {
+      task.${task} = {
         inherit resources driver;
         config = {
           image = "docker.elastic.co/elasticsearch/elasticsearch:${version}";

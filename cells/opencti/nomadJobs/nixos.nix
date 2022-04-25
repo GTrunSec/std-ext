@@ -14,7 +14,7 @@ in {
     group.nixos = {
       count = 1;
 
-      task.opencti = {
+      task.prod = {
         driver = "nix";
 
         inherit resources;

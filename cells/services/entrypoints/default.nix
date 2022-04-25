@@ -17,5 +17,6 @@ in
       ./nomad-container-elk
       ./nomad-nixos-airflow
       ./nomad-nixos-waterwheel
+      ./nomad-container-traefik
     ]
     args)

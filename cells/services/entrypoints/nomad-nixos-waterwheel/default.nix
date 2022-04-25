@@ -19,7 +19,7 @@ in {
     # flake = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab#nixosConfigurations.nomad-airflow";
     flake = "${self.outPath}#${nixpkgs.system}.services.nixosProfiles.nomad-waterwheel-dev";
   });
-  prod = common "prod" (nomadJobs.nixos.airflow {
-    flake = "${self.outPath}#${nixpkgs.system}.tenzir.nixosProfiles.nomad-waterwheel";
+  prod = common "prod" (nomadJobs.nixos.waterwheel {
+    flake = "${self.outPath}#${nixpkgs.system}.services.nixosProfiles.nomad-waterwheel-prod";
   });
 }

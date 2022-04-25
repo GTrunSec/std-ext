@@ -4,8 +4,14 @@
   ...
 }: {
   networking.firewall.enable = lib.mkForce false;
-  networking.nameservers = ["192.168.1.1" "1.1.1.1"];
   services.nomad = {
     package = packages.nomad;
   };
+  microvm.forwardPorts = [
+    {
+      from = "host";
+      host.port = 4646;
+      guest.port = 4646;
+    }
+  ];
 }

@@ -4,7 +4,7 @@
 }: let
   inherit (cell) packages;
 in {
-  cluster = inputs.lambda-microvm-hunting-lab.nixosConfigurations.nomad-qemu-cluster.extendModules {
+  cluster-dev = inputs.lambda-microvm-lab.nixosConfigurations.nomad-qemu-cluster.extendModules {
     modules = [
       ./nomad.nix
       {

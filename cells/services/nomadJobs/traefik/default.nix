@@ -3,10 +3,12 @@
   type ? "system",
   namespace ? "default",
   version ? "2.6",
-}: {
-  job.http-ingress-connect = {
+  task ? "prod",
+  group ? "edge",
+}: {inputs}: {
+  job.traefik = {
     inherit datacenters type namespace;
-    group.edge = {
+    group.${group} = {
       network = {
         mode = "bridge";
 
@@ -36,27 +38,28 @@
         };
       };
 
-      task.traefik = {
+      task.${task} = {
         driver = "docker";
+
         config = {
           image = "traefik:${version}";
           volumes = [
             "local/traefik.toml:/etc/traefik/traefik.toml"
           ];
         };
-      };
 
-      template = [
-        {
-          destination = "local/traefik.toml";
-          left_delimiter = "<<";
-          right_delimiter = ">>";
-          data = builtins.fromTOML (builtins.readFile ./http.toml);
-        }
-      ];
-      resources = {
-        cpu = 100;
-        memory = 128;
+        template = [
+          {
+            destination = "local/traefik.toml";
+            left_delimiter = "<<";
+            right_delimiter = ">>";
+            data = inputs.nixpkgs.lib.fileContents ./http.toml;
+          }
+        ];
+        resources = {
+          cpu = 100;
+          memory = 128;
+        };
       };
     };
   };

@@ -14,6 +14,7 @@
       source =
         nixpkgs.lib.recursiveUpdate (nomadJobs.container.elasticsearch {
           driver = "podman";
+          task = branch;
         }) {
           job.elasticsearch = (nomadJobs.container.kibana {driver = "podman";}).job.elasticsearch;
         };

@@ -1,10 +1,11 @@
 {
   datacenters ? ["dc1"],
-  type ? "batch",
+  type ? "service",
   driver ? ["podman" "docker"],
   namespace ? "default",
   version ? "7.17.1",
-}: _args: let
+  task ? "prod",
+}: let
   resources = {
     memory = 1024;
     cpu = 3000;
@@ -20,18 +21,22 @@
     port = 5601;
   };
 in {
-  job.elasticsearch = {
+  job.kibana = {
     inherit datacenters type namespace;
+
     group.container = {
       count = 1;
+
       inherit network service;
-      task.kibana = {
+
+      task.${task} = {
         inherit resources driver;
+
         config = {
           image = "docker.elastic.co/kibana/kibana:${version}";
-
           ports = ["kibana"];
         };
+
         env = {
           ELASTICSEARCH_HOSTS = "http://127.0.0.1:9200";
         };
