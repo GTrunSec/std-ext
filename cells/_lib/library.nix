@@ -5,7 +5,7 @@
   lib =
     (inputs.nixpkgs.appendOverlays [
       (final: prev: {
-        lib = prev.lib.extend (import ./extend.nix);
+        lib = prev.lib.extend (import ./extend.nix {inherit inputs;});
       })
     ])
     .lib;
