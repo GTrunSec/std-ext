@@ -11,5 +11,7 @@ in {
   dev = makeCommonNomad name "dev" (nomadJobs.container.traefik {
     task = "dev";
   });
-  prod = makeCommonNomad name "prod";
+  prod = makeCommonNomad name "prod" (nomadJobs.container.traefik {
+    task = "prod";
+  });
 }
