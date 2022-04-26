@@ -2,7 +2,6 @@
   inputs,
   cell,
 } @ args: let
-  inherit (inputs.cells._lib.library.lib) pathsToImportedNestedAttrs;
   lib =
     (inputs.nixpkgs.appendOverlays [
       (_final: prev: {
@@ -13,7 +12,7 @@
 in
   {
   }
-  // (lib.pathsToImportedNestedAttrs [
+  // (lib.makeNestedJobs [
       ./nomad
     ]
     args)

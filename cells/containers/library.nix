@@ -2,6 +2,8 @@
   inputs,
   cell,
 }: let
+  inherit (inputs.cells._writers.library) writeShellApplication;
+
   nixpkgs = inputs.nixpkgs.appendOverlays [
     (
       _final: _prev: {
@@ -16,4 +18,14 @@
   ];
 in {
   inherit nixpkgs;
+
+  makePodmanJobs = package:
+    writeShellApplication {
+      name = "makePodmanJobs";
+      runtimeInputs = [nixpkgs.podman];
+      text = ''
+        ${package.copyToPodman}/bin/copy-to-podman
+        podman run ${package.imageName}:${package.imageTag}
+      '';
+    };
 }

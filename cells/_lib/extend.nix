@@ -1,4 +1,4 @@
-{inputs}: lfinal: lprev: let
+{inputs}: _lfinal: lprev: let
   lib = lprev;
 in rec {
   mapNestedMattr = let
@@ -10,7 +10,7 @@ in rec {
 
   genAttrs' = values: f: lib.listToAttrs (map f values);
 
-  pathsToImportedNestedAttrs = paths: args:
+  makeNestedJobs = paths: args:
     mapNestedMattr (mapNestedMattr (mapNestedMattr (genAttrs' paths (
       path: {
         name = baseNameOf path;

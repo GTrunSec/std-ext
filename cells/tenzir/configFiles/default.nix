@@ -11,9 +11,9 @@ in {
     vast =
       (
         data-merge.merge
-        (import ./vast-metrics.nix args)
-        (data-merge.decorate (import ./vast-start.nix args) {})
+        (import ./vast/metrics.nix args)
+        (data-merge.decorate (import ./vast/start.nix args) {})
       )
-      // (import ./vast-default.nix args);
+      // (import ./vast/default.nix args);
   };
 }

@@ -2,9 +2,10 @@
   inputs,
   cell,
 }: let
-  inherit (cell) dockerJobs library;
+  inherit (cell) containerJobs;
   inherit (inputs.cells._modules.library) makeConfiguration;
   inherit (inputs.cells.makes.library) makeSubstitution;
+  inherit (inputs.cells.containers.library) makePodmanJobs;
 
   name = "tenzir-" + builtins.baseNameOf ./.;
 
@@ -16,18 +17,22 @@
     source = ./justfile;
   };
 
-  common = branch: source:
+  makeDockerComposeJobs = branch: source:
     makeConfiguration {
-      inherit name;
+      inherit name branch source;
       target = "docker-compose";
-      inherit branch;
       searchPaths.file = [
         "${justfile}/justfile"
       ];
       searchPaths.bin = [];
-      inherit source;
       format = "yaml";
     };
 in {
-  vast.prod = common "prod" (dockerJobs.vast.compose {});
+  podman = {
+    vast.release = makePodmanJobs (containerJobs.vast "release");
+  };
+
+  docker-compose = {
+    vast.release = makeDockerComposeJobs "release" (containerJobs.vast.compose {});
+  };
 }

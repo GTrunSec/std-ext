@@ -4,24 +4,24 @@
 }: let
   inherit (cell) nomadJobs;
   inherit (inputs) nixpkgs self;
-  inherit (inputs.cells._modules.library) makeCommonNomad;
+  inherit (inputs.cells.hashicorp.library) makeNomadJobs;
 in {
   nixos = {
     airflow = {
-      dev = makeCommonNomad "airflow" "dev" (nomadJobs.nixos.airflow {
+      dev = makeNomadJobs "airflow" "dev" (nomadJobs.nixos.airflow {
         flake = "${self.outPath}#${nixpkgs.system}.services.nixosProfiles.nomad-airflow.dev";
       });
-      prod = makeCommonNomad "airflow" "prod" (nomadJobs.nixos.airflow {
+      prod = makeNomadJobs "airflow" "prod" (nomadJobs.nixos.airflow {
         flake = "${self.outPath}#${nixpkgs.system}.services.nixosProfiles.nomad-airflow.prod";
       });
     };
 
     waterwheel = {
-      dev = makeCommonNomad "waterwheel" "dev" (nomadJobs.nixos.waterwheel {
+      dev = makeNomadJobs "waterwheel" "dev" (nomadJobs.nixos.waterwheel {
         # flake = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-hunting-lab#nixosConfigurations.nomad-airflow";
         flake = "${self.outPath}#${nixpkgs.system}.services.nixosProfiles.nomad-waterwheel.dev";
       });
-      prod = makeCommonNomad "waterwheel" "prod" (nomadJobs.nixos.waterwheel {
+      prod = makeNomadJobs "waterwheel" "prod" (nomadJobs.nixos.waterwheel {
         flake = "${self.outPath}#${nixpkgs.system}.services.nixosProfiles.nomad-waterwheel.prod";
       });
     };
@@ -29,7 +29,7 @@ in {
 
   containers = {
     elasticsearch = {
-      dev = makeCommonNomad "elasticsearch" "dev" (nomadJobs.container.elasticsearch {
+      dev = makeNomadJobs "elasticsearch" "dev" (nomadJobs.container.elasticsearch {
         driver = "podman";
         task = "dev";
         # job.elasticsearch = (nomadJobs.container.kibana {driver = "podman";}).job.elasticsearch;
@@ -37,10 +37,10 @@ in {
     };
 
     traefik = {
-      dev = makeCommonNomad "traefik" "dev" (nomadJobs.container.traefik {
+      dev = makeNomadJobs "traefik" "dev" (nomadJobs.container.traefik {
         task = "dev";
       });
-      prod = makeCommonNomad "traefik" "prod" (nomadJobs.container.traefik {
+      prod = makeNomadJobs "traefik" "prod" (nomadJobs.container.traefik {
         task = "prod";
       });
     };

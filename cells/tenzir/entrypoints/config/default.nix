@@ -14,10 +14,10 @@
       target = "regular";
       format = "yaml";
     };
-
-  prod-state = data-merge.merge generators.vast.prod {
-    vast.endpoint = "192.168.1.1:4000";
-  };
 in {
-  prod = common "prod" prod-state;
+  default = {
+    vast.prod = common "prod" (data-merge.merge generators.vast.prod {
+      vast.endpoint = "192.168.1.1:4000";
+    });
+  };
 }
