@@ -3,6 +3,7 @@
   cell,
 }: let
   inherit (inputs.cells._writers.library) writeShellApplication;
+  inherit (inputs.cells._modules.library) makeConfiguration;
 
   nixpkgs = inputs.nixpkgs.appendOverlays [
     (
@@ -27,5 +28,13 @@ in {
         ${package.copyToPodman}/bin/copy-to-podman
         podman run ${package.imageName}:${package.imageTag}
       '';
+    };
+
+  makeDockerComposeJobs = branch: source:
+    makeConfiguration {
+      name = "makeDockerComposeJobs";
+      inherit branch source;
+      target = "docker-compose";
+      format = "yaml";
     };
 }

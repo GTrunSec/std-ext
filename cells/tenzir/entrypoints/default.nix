@@ -2,6 +2,7 @@
   inputs,
   cell,
 } @ args: let
+  inherit (inputs.cells._lib.library) makeNestedJobs;
   lib =
     (inputs.nixpkgs.appendOverlays [
       (_final: prev: {
@@ -11,17 +12,6 @@
     .lib;
 in
   {
-    # nomad-node-prod = (import ./nomad-nixos args).prod;
-
-    # nomad-opencti-dev = (import ./nomad-nixos args).opencti.dev;
-
-    # config-vast-prod = (import ./vast-config args).prod;
-
-    # docker-compose-vast-prod = (import ./vast-container/compose.nix args).vast.prod;
-
-    # podman-vast-release-prod = (import ./vast-container/packages.nix args).release.prod;
-
-    # podman-vast-latest-prod = (import ./vast-container/packages.nix args).latest.prod;
   }
   // (lib.makeNestedJobs [
       ./nomad

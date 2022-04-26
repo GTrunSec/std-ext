@@ -5,7 +5,7 @@
   inherit (cell) containerJobs;
   inherit (inputs.cells._modules.library) makeConfiguration;
   inherit (inputs.cells.makes.library) makeSubstitution;
-  inherit (inputs.cells.containers.library) makePodmanJobs;
+  inherit (inputs.cells.containers.library) makePodmanJobs makeDockerComposeJobs;
 
   name = "tenzir-" + builtins.baseNameOf ./.;
 
@@ -16,23 +16,19 @@
     };
     source = ./justfile;
   };
-
-  makeDockerComposeJobs = branch: source:
-    makeConfiguration {
-      inherit name branch source;
-      target = "docker-compose";
-      searchPaths.file = [
-        "${justfile}/justfile"
-      ];
-      searchPaths.bin = [];
-      format = "yaml";
-    };
 in {
   podman = {
     vast.release = makePodmanJobs (containerJobs.vast "release");
   };
 
   docker-compose = {
-    vast.release = makeDockerComposeJobs "release" (containerJobs.vast.compose {});
+    vast.release =
+      (makeDockerComposeJobs "release" (containerJobs.vast.compose {}))
+      // {
+        searchPaths.file = [
+          "${justfile}/justfile"
+        ];
+        searchPaths.bin = [];
+      };
   };
 }
