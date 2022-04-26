@@ -9,6 +9,7 @@
   config.templates = {
     makeConfiguration = let
       cfg = config.templates;
+      format = lib.last (lib.splitString "." cfg.name);
     in
       writeShellApplication {
         name = "makeConfiguration";
@@ -34,21 +35,21 @@
             mkdir -p "$CELLSINFRAPATH"
             fi
 
-            ${pkgs.lib.optionalString (cfg.format == "yaml") ''
-              json2yaml  -i ${json} -o "$CELLSINFRAPATH/${cfg.name}.yaml"
+            ${pkgs.lib.optionalString (format == "yaml") ''
+              json2yaml  -i ${json} -o "$CELLSINFRAPATH/${cfg.name}"
             ''}
-            ${pkgs.lib.optionalString (cfg.format == "json") ''
-              json2json -i ${json} -o "$CELLSINFRAPATH/${cfg.name}.json"
+            ${pkgs.lib.optionalString (format == "json") ''
+              json2json -i ${json} -o "$CELLSINFRAPATH/${cfg.name}"
             ''}
             ${pkgs.lib.optionalString (cfg.target == "terraform") ''
               cp ${cfg.source} "$CELLSINFRAPATH/config.tf.json"
               chmod +rw "$CELLSINFRAPATH/config.tf.json"
             ''}
             ${pkgs.lib.optionalString (cfg.target == "nomad") ''
-              ${inputs.cells.hashicorp.packages.nomad}/bin/nomad job plan "$CELLSINFRAPATH/${cfg.name}.json"
+              ${inputs.cells.hashicorp.packages.nomad}/bin/nomad job plan "$CELLSINFRAPATH/${cfg.name}"
             ''}
             ${pkgs.lib.optionalString (cfg.target == "docker-compose") ''
-              ${pkgs.docker-compose}/bin/docker-compose -f "$CELLSINFRAPATH/${cfg.name}.${cfg.format}" config -q
+              ${pkgs.docker-compose}/bin/docker-compose -f "$CELLSINFRAPATH/${cfg.name}" config -q
             ''}
           ''
           + cfg.text

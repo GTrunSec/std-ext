@@ -1,6 +1,0 @@
-PRJ_ROOT := env_var('PRJ_ROOT')
-stdRun := "std run //services//entrypoints:nomad-container-elk-dev"
-
-
-airflow-dev:
-    {{stdRun}}nomad-nixos-airflow-dev

@@ -29,10 +29,10 @@
       '';
     };
     path = mkOption {
-      type = types.nullOr types.path;
+      type = types.nullOr (types.either types.str types.path);
       default = null;
       description = ''
-        The path for Your Configuration files
+        The path for Your Configuration file
       '';
     };
     format = mkOption {

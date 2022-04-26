@@ -7,11 +7,14 @@
 in {
   inherit importNcl;
 
-  makeRegular = branch: source:
+  makeConfig = settings: source: let
+    path = builtins.elemAt settings 0;
+    branch = builtins.elemAt settings 1;
+    name = builtins.elemAt settings 2;
+  in
     makeConfiguration {
-      name = "makeRegularConfig";
-      inherit branch source;
+      inherit name branch source;
+      path = "cells-infra/infra/${path}";
       target = "regular";
-      format = "yaml";
     };
 }

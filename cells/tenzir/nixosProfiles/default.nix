@@ -4,7 +4,7 @@
 }: let
   inherit (cell) generator;
 in {
-  nomad-vast = {
+  nomad.vast = {
     prod = inputs.lambda-microvm-hunting-lab.nixosConfigurations.nomad-tenzir-vast.extendModules {
       modules = [
         ./nomad-vast.nix
