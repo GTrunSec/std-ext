@@ -2,13 +2,16 @@
   inputs,
   cell,
 }: let
-  inherit (cell) packages;
+  inherit (inputs) nixpkgs;
 in {
   default = _: {
     commands = [
       {
-        package =
-          packages.difftastic;
+        package = nixpkgs.difftastic;
+        category = "utils";
+      }
+      {
+        package = nixpkgs.dasel;
         category = "utils";
       }
     ];

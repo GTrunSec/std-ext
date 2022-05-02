@@ -1,22 +1,19 @@
 {
   inputs = {
-    std.url = "github:divnix/std/dec02a093e355a2c41f3170bd9a9dbdd9bd05c2b";
+    std.url = "github:divnix/std";
+    std.inputs.nixpkgs.follows = "nixpkgs";
+
     data-merge.url = "github:divnix/data-merge";
+    data-merge.inputs.nixpkgs.follows = "nixpkgs";
+
     yants.url = "github:divnix/yants";
+    yants.inputs.nixpkgs.follows = "nixpkgs";
+
+    flake-compat.url = "github:edolstra/flake-compat";
+    flake-compat.flake = false;
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     latest.url = "github:NixOS/nixpkgs/master";
-
-    lambda-microvm-lab.url = "github:GTrunSec/lambda-microvm-lab";
-    # lambda-microvm-lab.url = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-lab";
-    lambda-microvm-lab.inputs.zeek2nix.follows = "zeek2nix";
-    lambda-microvm-lab.inputs.vast2nix.follows = "vast2nix";
-
-    threatbus2nix.url = "github:gtrunsec/threatbus2nix";
-
-    vast2nix.url = "github:gtrunsec/vast2nix";
-
-    zeek2nix.url = "github:hardenedlinux/zeek2nix";
 
     nvfetcher.url = "github:berberman/nvfetcher";
     nvfetcher.inputs.nixpkgs.follows = "nixpkgs";
@@ -57,13 +54,22 @@
     statix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  inputs = {
+    lambda-microvm-lab.url = "github:GTrunSec/lambda-microvm-lab";
+    # lambda-microvm-lab.url = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-lab";
+    lambda-microvm-lab.inputs.zeek2nix.follows = "zeek2nix";
+    lambda-microvm-lab.inputs.vast2nix.follows = "vast2nix";
+
+    vast2nix.url = "github:gtrunsec/vast2nix";
+    zeek2nix.url = "github:hardenedlinux/zeek2nix";
+    threatbus2nix.url = "github:gtrunsec/threatbus2nix";
+  };
   outputs = {std, ...} @ inputs:
     std.grow {
       inherit inputs;
       #as-nix-cli-epiphyte = false;
       cellsFrom = ./cells;
       # debug = ["tenzir"];
-      systems = ["x86_64-linux" "x86_64-darwin"];
       organelles = [
         (std.installables "packages")
 
