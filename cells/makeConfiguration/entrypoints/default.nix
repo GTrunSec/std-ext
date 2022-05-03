@@ -3,23 +3,23 @@
   cell,
 }: let
   inherit (cell) library;
-  inherit (inputs.cells._modules.library) makeConfigurationFromLang;
+  inherit (inputs.cells._writers.library) writeConfigurationFromLang;
 in {
-  threatbus-nomad-nixpkgs-nickel = makeConfigurationFromLang {
+  threatbus-nomad-nixpkgs-nickel = writeConfigurationFromLang {
     name = "nomad-threatbus";
     target = "nomad";
     language = "nickel";
     format = "json";
     args = ["threatbus-nomad-nix.ncl"];
-    path = ./tenzir/nomad;
+    source = ./tenzir/nomad;
   };
 
-  threatbus-nomad-nixpkgs-cue = makeConfigurationFromLang {
+  threatbus-nomad-nixpkgs-cue = writeConfigurationFromLang {
     name = "cue-threatbus";
     language = "cue";
     target = "nomad";
     format = "yaml";
     args = ["jobs.dev"];
-    path = ./tenzir/nomad;
+    source = ./tenzir/nomad;
   };
 }

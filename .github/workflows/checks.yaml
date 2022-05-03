@@ -26,17 +26,14 @@ jobs:
       - name: Run Flake Show
         run: nix -Lv flake show
 
-      - name: Eval Cells
-        run: nix -Lv develop ./devshell -c eval-cells
-
       - name: Check Cliche Example
-        run: nix develop ./devshell -c std run //cliche//entrypoints:example add 1 2
+        run:  nix run .#x86_64-linux.cliche.entrypoints.example add 1 2
 
       - name: Check Comonicon Example
-        run: nix develop ./devshell -c std run //comonicon//entrypoints:mycmd
+        run: nix run .#x86_64-linux.comonicon.entrypoints.mycmd
 
-      - name: Check schedulers of config
-        run: nix develop ./devshell -c std run //schedulers//entrypoints:tenzir-config
+      # - name: Check schedulers of config
+      #   run: nix run .#x86_64-linux.schedulers.entrypoints.tenzir-config
 
       - name: Check DevShell Menu
-        run: nix develop ./devshell -c menu
+        run: menu

@@ -11,8 +11,10 @@
   writePiplelineApplication = _args: import ./writePiplelineApplication.nix args _args;
 
   writeComoniconApplication = _args: import ./writeComoniconApplication.nix args _args;
+
+  writeConfigurationFromLang = _args: import ./writeConfigurationFromLang.nix args _args;
 in {
-  inherit writeClicheApplication writePiplelineApplication writeComoniconApplication;
+  inherit writeClicheApplication writePiplelineApplication writeComoniconApplication writeConfigurationFromLang;
 
   writeShellApplication = {...} @ args:
     writeShellApplication (

@@ -16,7 +16,7 @@ in
     inherit name env;
     runtimeInputs = [julia] ++ runtimeInputs;
     text = ''
-      manifest=$CELL_ROOT/_writers/_packages/comonicon
+      manifest=${./_packages/comonicon}
       julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} --threads ${toString threads} "$@"
     '';
   }

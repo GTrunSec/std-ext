@@ -14,7 +14,6 @@ in
     }: {
       name = "DevSecOps Cells Lab";
       std.docs.enable = false;
-
       git.hooks = {
         enable = true;
         # pre-commit.text = builtins.readFile ./pre-flight-check.sh;
@@ -27,13 +26,14 @@ in
         (withCategory "hexagon" {package = nixpkgs.treefmt;})
         # (withCategory "hexagon" {package = nixpkgs.colmena;})
       ];
-      packages = [
+      packages = (with nixpkgs; [
         # formatters
-        nixpkgs.alejandra
-        nixpkgs.nodePackages.prettier
-        nixpkgs.nodePackages.prettier-plugin-toml
-        nixpkgs.shfmt
-      ];
+        alejandra
+        nodePackages.prettier
+        nodePackages.prettier-plugin-toml
+        shfmt
+        dasel
+      ]);
       devshell.startup.nodejs-setuphook =
         l.stringsWithDeps.noDepEntry
         ''
