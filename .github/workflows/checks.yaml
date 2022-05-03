@@ -36,4 +36,4 @@ jobs:
       #   run: nix run .#x86_64-linux.schedulers.entrypoints.tenzir-config
 
       - name: Check DevShell Menu
-        run: menu
+        run: nix develop .#x86_64-linux.main.devshellProfiles.default -c menu
