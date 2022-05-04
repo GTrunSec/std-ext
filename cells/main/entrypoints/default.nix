@@ -18,7 +18,7 @@ in {
         cd docs/publish && cp ../config.toml .
         hugo
         cp -rf --no-preserve=mode,ownership public/posts/index.html ./public/
-        hugo server "$@"
+        "$@"
       '';
     };
 }
