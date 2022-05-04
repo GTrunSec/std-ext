@@ -8,7 +8,7 @@
   args ? [],
   source ? "",
   format ? "json",
-  target ? "nomad",
+  target ? "",
   text ? "",
 }: let
   inherit (cell) library;
@@ -16,7 +16,7 @@
   inherit (inputs) cells nixpkgs;
 
   writeSource = let
-    json = builtins.toJSON source;
+    json = builtins.toFile "${name}.json" (builtins.toJSON source);
     xml = builtins.toXML source;
   in
     nixpkgs.runCommand "${name}.${format}" {
@@ -27,7 +27,7 @@
         cp ${json} $out
       ''}
       ${nixpkgs.lib.optionalString (format == "yaml") ''
-        json2yaml  -i ${json} -o $out
+        json2yaml -i ${json} -o $out
       ''}
         ${nixpkgs.lib.optionalString (format == "toml") ''
         json2toml -i ${json} -o $out
@@ -70,10 +70,15 @@ in
           "${writeSource}"
         ]));
     in ''
-      ${command} | bat --theme ansi --file-name ${name}.${format} --paging=never
+      ${command} | bat --theme ansi --file-name "${name}-${target}.${format}==>${writeSource.out}" --paging=never
       ${
         lib.optionalString (target == "nomad") ''
           ${command} | ${nixpkgs.nomad}/bin/nomad job validate -
+        ''
+      }
+      ${
+        lib.optionalString (target == "cargo-make") ''
+          ${nixpkgs.cargo-make}/bin/cargo-make make --makefile ${writeSource} "$@"
         ''
       }
       ${text}

@@ -21,6 +21,7 @@ in
       imports = [
         std.std.devshellProfiles.default
         "${extraModulesPath}/git/hooks.nix"
+        inputs.cells.cargo-make.devshellProfiles.default
       ];
       commands = [
         (withCategory "hexagon" {package = nixpkgs.treefmt;})

@@ -3,7 +3,8 @@
   cell,
 }: let
   inherit (cell) library packages;
-  inherit (inputs.cells._modules.library) makeConfiguration;
+  inherit (inputs.cells._writers.library) writeConfigurationFromLang;
+
   inherit (inputs.cells.makes.library) makeSubstitution;
 
   name = "containers-" + builtins.baseNameOf ./.;
@@ -18,14 +19,13 @@
   };
 
   common = branch:
-    makeConfiguration {
+    writeConfigurationFromLang {
       inherit name;
       target = "docker";
-      inherit branch;
-      searchPaths.file = [
-        "${justfile}/justfile"
-      ];
-      searchPaths.bin = [];
+      # searchPaths.file = [
+      #   "${justfile}/justfile"
+      # ];
+      # searchPaths.bin = [];
       format = "raw";
     };
 in {

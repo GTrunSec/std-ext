@@ -35,5 +35,8 @@ jobs:
       # - name: Check schedulers of config
       #   run: nix run .#x86_64-linux.schedulers.entrypoints.tenzir-config
 
+      - name: Check cargo-make flow
+        run: nix run .\#x86_64-linux.cargo-make.entrypoints.flow --print-build-logs -- format
+
       - name: Check DevShell Menu
         run: nix develop .#x86_64-linux.main.devshellProfiles.default -c menu

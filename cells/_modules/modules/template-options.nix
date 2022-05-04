@@ -101,5 +101,5 @@
     };
   };
 
-  imports = [./makeConfigurationFromLang.nix ./makeConfiguration.nix];
+  imports = [];
 }
