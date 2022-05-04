@@ -36,7 +36,18 @@ jobs:
       #   run: nix run .#x86_64-linux.schedulers.entrypoints.tenzir-config
 
       - name: Check cargo-make flow
-        run: nix run .\#x86_64-linux.cargo-make.entrypoints.flow --print-build-logs -- format
+        run: |
+          nix develop ./\#x86_64-linux.main.devshellProfiles.default -c \
+          nix run .\#x86_64-linux.cargo-make.entrypoints.flow --print-build-logs -- format
 
       - name: Check DevShell Menu
         run: nix develop .#x86_64-linux.main.devshellProfiles.default -c menu
+
+      - name: Build Doc
+        run: nix run .\#x86_64-linux.main.entrypoints.mkdoc
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages
+          folder: ./docs/publish/public
