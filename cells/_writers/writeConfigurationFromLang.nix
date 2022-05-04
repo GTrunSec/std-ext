@@ -14,6 +14,29 @@
   inherit (cell) library;
   inherit (inputs.nixpkgs) lib;
   inherit (inputs) cells nixpkgs;
+
+  writeSource = let
+    json = builtins.toJSON source;
+    xml = builtins.toXML source;
+  in
+    nixpkgs.runCommand "${name}.${format}" {
+      preferLocalBuild = true;
+      buildInputs = [nixpkgs.remarshal];
+    } ''
+      ${nixpkgs.lib.optionalString (format == "json") ''
+        cp ${json} $out
+      ''}
+      ${nixpkgs.lib.optionalString (format == "yaml") ''
+        json2yaml  -i ${json} -o $out
+      ''}
+        ${nixpkgs.lib.optionalString (format == "toml") ''
+        json2toml -i ${json} -o $out
+      ''}
+
+      ${nixpkgs.lib.optionalString (format == "xml") ''
+        cp ${xml} $out
+      ''}
+    '';
 in
   library.writeShellApplication {
     inherit name;
@@ -21,11 +44,10 @@ in
       lib.optionals (language == "nickel") [cells.makeConfiguration.packages.nickel]
       ++ lib.optionals (language == "cue") [nixpkgs.cue]
       ++ lib.optionals (language == "nix") []
-      ++ runtimeInputs ++ [ nixpkgs.bat ];
+      ++ runtimeInputs
+      ++ [nixpkgs.bat];
     text = let
-      json = nixpkgs.writeText "JSON" (builtins.toJSON source);
-      command =
-        lib.concatStringsSep " " ((lib.optionals (language == "nickel")
+      command = lib.concatStringsSep " " ((lib.optionals (language == "nickel")
           [
             "nickel"
             "-f"
@@ -45,8 +67,8 @@ in
         ++ (lib.optionals (language == "nix") [
           "cat"
           "<"
-          "${json}"
-          ]));
+          "${writeSource}"
+        ]));
     in ''
       ${command} | bat --theme ansi --file-name ${name}.${format} --paging=never
       ${

@@ -26,14 +26,14 @@ in
         (withCategory "hexagon" {package = nixpkgs.treefmt;})
         # (withCategory "hexagon" {package = nixpkgs.colmena;})
       ];
-      packages = (with nixpkgs; [
+      packages = with nixpkgs; [
         # formatters
         alejandra
         nodePackages.prettier
         nodePackages.prettier-plugin-toml
         shfmt
         dasel
-      ]);
+      ];
       devshell.startup.nodejs-setuphook =
         l.stringsWithDeps.noDepEntry
         ''
