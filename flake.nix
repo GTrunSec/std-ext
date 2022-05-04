@@ -14,6 +14,7 @@
     flake-compat.flake = false;
 
     org-roam-book-template.url = "github:gtrunsec/org-roam-book-template";
+    org-roam-book-template.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # utils

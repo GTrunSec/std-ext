@@ -9,3 +9,4 @@ vast.yaml
 .*
 !.sops.yaml
 gcroot
+docs/publish
