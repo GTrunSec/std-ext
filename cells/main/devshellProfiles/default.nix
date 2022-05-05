@@ -41,4 +41,5 @@ in
           export NODE_PATH=${nixpkgs.nodePackages.prettier-plugin-toml}/lib/node_modules:$NODE_PATH
         '';
     };
+    update = {...}: {imports = [inputs.cells.update.devshellProfiles.default];};
   }

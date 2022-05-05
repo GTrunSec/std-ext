@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       59a5c8e4-bfc9-48f7-aab6-8a43f4d3fb04
+:END:
+#+title: On Premises
+
+
+* Solutions
+** DOING [[https://www.chezmoi.io/user-guide/command-overview/][chezmoi]]

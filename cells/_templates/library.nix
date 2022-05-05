@@ -10,25 +10,5 @@
     (nixpkgs)
     lib
     ;
-
-  glamour-coustom = nixpkgs.callPackage ./_packages/glamour-custom {};
-
-  glamourTemplate = {...} @ attrs:
-    glamour-coustom.overrideAttrs (_old: let
-      context = builtins.concatStringsSep " " (
-        lib.attrsets.mapAttrsToList (n: v: ''
-          ${n} := `${toString v}`
-          fmt.Print(glamour.Render(${n}, "dark"))
-        '')
-        attrs
-      );
-      main = nixpkgs.writeText "main.go" (import ./_packages/glamour-custom/main.nix {inherit context;});
-    in {
-      preConfigure = ''
-        cp ${main} main.go
-      '';
-    });
-  # the makeTemplate does not work with hcl to nomad
 in {
-  inherit glamourTemplate;
 }

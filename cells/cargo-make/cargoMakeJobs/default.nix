@@ -4,7 +4,7 @@
 }: {
   job_a.tasks = {
     format = {
-      description = "Runs the cargo rustfmt plugin.";
+      description = "Runs the treefmt format";
       command = "treefmt";
       args = [];
     };

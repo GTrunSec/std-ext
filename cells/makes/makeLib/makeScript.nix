@@ -4,7 +4,7 @@
   __nixpkgs__,
 }: {
   name ? "makeScript",
-  text,
+  entrypoint ? "",
   searchPaths,
   env,
 }: let
@@ -16,9 +16,7 @@
   env;
 in
   makeScript (__nixpkgs__.lib.recursiveUpdate {
-      entrypoint = text;
-      inherit name;
-      inherit searchPaths;
+      inherit name searchPaths entrypoint;
     } {
       searchPaths.source = [makeEnvVarsOutput];
     })

@@ -8,7 +8,7 @@ in {
   secrets-for-gpg-from-env = makeSopsScript {
     name = "name";
     env = __output__.secretsForEnvFromSops.example;
-    text = "echo $OPENCTI_ADMIN_EMAIL";
+    entrypoint = "echo $OPENCTI_ADMIN_EMAIL";
     searchPaths.bin = [];
   };
   scriptEnv = makeScript {
@@ -16,6 +16,6 @@ in {
     env = __output__.envVars.example;
     searchPaths.bin = [nixpkgs.hello];
     searchPaths.source = [];
-    text = "hello --help echo $a";
+    entrypoint = "hello --help echo $a";
   };
 }

@@ -62,8 +62,10 @@
     terranix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {std, ...} @ inputs:
-    std.grow {
+  outputs = {std, ...} @ inputs: let
+    mkFlow = import ./clades/mkCargoMake.nix {inherit inputs;};
+  in
+    std.growOn {
       inherit inputs;
       cellsFrom = ./cells;
       organelles = [
@@ -89,5 +91,7 @@
         (std.data "cargoMakeJobs")
         (std.data "waterwheelJobs")
       ];
+    } {
+      devShells = inputs.std.harvest inputs.self ["main" "devshellProfiles"];
     };
 }

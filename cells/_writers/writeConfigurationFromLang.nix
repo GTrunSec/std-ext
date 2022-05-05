@@ -6,7 +6,7 @@
   language ? "nix",
   runtimeInputs ? [],
   args ? [],
-  source ? "",
+  source ? {},
   format ? "json",
   target ? "",
   text ? "",
@@ -14,9 +14,12 @@
   inherit (cell) library;
   inherit (inputs.nixpkgs) lib;
   inherit (inputs) cells nixpkgs;
+  json =
+    if target == "terraform"
+    then (builtins.toJSON source)
+    else builtins.toFile "${name}.json" (builtins.toJSON source);
 
   writeSource = let
-    json = builtins.toFile "${name}.json" (builtins.toJSON source);
     xml = builtins.toXML source;
   in
     nixpkgs.runCommand "${name}.${format}" {
@@ -32,13 +35,12 @@
         ${nixpkgs.lib.optionalString (format == "toml") ''
         json2toml -i ${json} -o $out
       ''}
-
       ${nixpkgs.lib.optionalString (format == "xml") ''
         cp ${xml} $out
       ''}
     '';
 in
-  library.writeShellApplication {
+  (library.writeShellApplication {
     inherit name;
     runtimeInputs =
       lib.optionals (language == "nickel") [cells.makeConfiguration.packages.nickel]
@@ -47,7 +49,8 @@ in
       ++ runtimeInputs
       ++ [nixpkgs.bat];
     text = let
-      command = lib.concatStringsSep " " ((lib.optionals (language == "nickel")
+      command = lib.concatStringsSep " " (
+        (lib.optionals (language == "nickel")
           [
             "nickel"
             "-f"
@@ -64,23 +67,27 @@ in
           "${builtins.concatStringsSep " " args}"
           "--out=${format}"
         ])
-        ++ (lib.optionals (language == "nix") [
+        ++ (lib.optionals (language == "nix" && source != {}) [
           "cat"
           "<"
           "${writeSource}"
-        ]));
+        ])
+      );
     in ''
-      ${command} | bat --theme ansi --file-name "${name}-${target}.${format}==>${writeSource.out}" --paging=never
+         ${
+        lib.optionalString (command != "") ''
+          ${command} | bat --theme ansi --file-name "${name}.${format}==>${writeSource.out}" --paging=never
+        ''
+      }
+
       ${
         lib.optionalString (target == "nomad") ''
           ${command} | ${nixpkgs.nomad}/bin/nomad job validate -
         ''
       }
-      ${
-        lib.optionalString (target == "cargo-make") ''
-          ${nixpkgs.cargo-make}/bin/cargo-make make --makefile ${writeSource} "$@"
-        ''
-      }
       ${text}
     '';
-  }
+  })
+  .overrideAttrs (old: {
+    passthru.data = writeSource;
+  })

@@ -3,7 +3,7 @@
   makeScript,
   __nixpkgs__,
 }: {
-  text,
+  entrypoint,
   name ? "secrets-for-gpg-from-env",
   env,
   searchPaths,
@@ -14,9 +14,7 @@
   };
 in
   makeScript (__nixpkgs__.lib.recursiveUpdate {
-      entrypoint = text;
-      inherit name;
-      inherit searchPaths;
+      inherit name searchPaths entrypoint;
     } {
       searchPaths.bin = [__nixpkgs__.gnupg];
       searchPaths.source = [secretsEnv];

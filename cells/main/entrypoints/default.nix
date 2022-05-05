@@ -3,11 +3,13 @@
   cell,
 }: let
   inherit (inputs.cells._writers.library) writeShellApplication;
-  inherit (inputs) self nixpkgs;
+  inherit (inputs) self nixpkgs std;
 in {
   mkdoc = let
     org-roam-book = inputs.org-roam-book-template.packages.${nixpkgs.system}.default.override {
-      org = "${self.outPath}/docs/org";
+      org = "${(std.incl self [
+        (self + /docs/org)
+      ])}/docs/org";
     };
   in
     writeShellApplication {
