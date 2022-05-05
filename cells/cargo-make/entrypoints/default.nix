@@ -15,5 +15,6 @@ in rec {
 
   flow = makeCargoMakeFlow {
     source = test.passthru.data;
+    args = ["format"];
   };
 }
