@@ -7,15 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://gtrunsec.github.io/DevSecOps-Cells-Lab/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Cells: Tenzir</title>
-      <link>https://gtrunsec.github.io/DevSecOps-Cells-Lab/posts/tenzir/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gtrunsec.github.io/DevSecOps-Cells-Lab/posts/tenzir/</guid>
-      <description>Generator Vast.yaml  namespace: vast-config-&amp;lt;state&amp;gt;  prod -&amp;gt; production     std run //tenzir//generator:config-vast-prod generating config to nixosModule of the vast services.vast.settings = inputs.data-merge.merge inputs.cells-lab.tenzir.generator.prod {  vast.endpoint = &amp;#34;192.168.1.1:4000&amp;#34;; }; generating config to NomadJobs of the vast deployNomadJobs.vast.prod = inputs.data-merge.merge inputs.cells.tenzir.generator.prod {  vast.endpoint = &amp;#34;192.168.1.1:4000&amp;#34;;  # &amp;lt;custom settings&amp;gt; };  deploy   std //tenzir//deploy:vast-prod NomadJobs Vast </description>
-    </item>
-    
-    <item>
       <title>Investigation</title>
       <link>https://gtrunsec.github.io/DevSecOps-Cells-Lab/posts/investigation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
