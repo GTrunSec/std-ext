@@ -37,11 +37,10 @@ jobs:
 
       - name: Check cargo-make flow
         run: |
-          nix develop ./\#x86_64-linux.main.devshellProfiles.default -c \
-          nix run .\#x86_64-linux.cargo-make.entrypoints.flow --print-build-logs --
+          nix develop -c nix run .\#x86_64-linux.cargo-make.entrypoints.flow --print-build-logs --
 
       - name: Check DevShell Menu
-        run: nix develop .#x86_64-linux.main.devshellProfiles.default -c menu
+        run: nix develop -c menu
 
       - name: Build Doc
         run: nix run .\#x86_64-linux.main.entrypoints.mkdoc

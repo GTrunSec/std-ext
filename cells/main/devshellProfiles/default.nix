@@ -13,7 +13,10 @@ in
       ...
     }: {
       name = "DevSecOps Cells Lab";
+
       std.docs.enable = false;
+      std.adr.enable = false;
+
       git.hooks = {
         enable = true;
         # pre-commit.text = builtins.readFile ./pre-flight-check.sh;
