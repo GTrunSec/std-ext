@@ -9,7 +9,7 @@ in
     default = {...}: {
       name = "DevSecOps Cells Lab";
       imports = [
-        cell.devshellProfiles.main
+        cell.devshellProfiles.default
         inputs.cells.cargo-make.devshellProfiles.default
       ];
     };
