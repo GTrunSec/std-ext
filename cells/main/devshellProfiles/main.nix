@@ -18,6 +18,11 @@ in {
   ];
   commands = [
     (withCategory "hexagon" {package = pkgs.treefmt;})
+    (withCategory "docs" {
+      name = "mkdoc";
+      command = "nix run $PRJ_ROOT#x86_64-linux.main.entrypoints.mkdoc -- $@";
+      help = "mkdoc with org-roam-book";
+    })
   ];
   packages = with pkgs; [
     # formatters

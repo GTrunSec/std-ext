@@ -2,5 +2,5 @@
   inputs,
   cell,
 } @ args: {
-  default = import ./default_.nix args;
+  default = import ./main.nix args;
 }
