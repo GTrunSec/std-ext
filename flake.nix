@@ -10,9 +10,6 @@
     data-merge.url = "github:divnix/data-merge";
     data-merge.inputs.nixpkgs.follows = "nixpkgs";
 
-    flake-compat.url = "github:edolstra/flake-compat";
-    flake-compat.flake = false;
-
     org-roam-book-template.url = "github:gtrunsec/org-roam-book-template";
     org-roam-book-template.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -94,5 +91,12 @@
       ];
     } {
       devShells = inputs.std.harvest inputs.self ["main" "devshells"];
+    } {
+      templates = {
+        default = {
+          description = "The default template of Cells Lab";
+          path = ./tempaltes/default;
+        };
+      };
     };
 }

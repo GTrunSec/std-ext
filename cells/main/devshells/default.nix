@@ -10,6 +10,7 @@ in
       name = "Cells Lab";
       imports = [
         cell.devshellProfiles.default
+        cell.devshellProfiles.docs
         inputs.cells.cargo-make.devshellProfiles.default
       ];
     };

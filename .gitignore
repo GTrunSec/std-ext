@@ -10,3 +10,4 @@ vast.yaml
 !.sops.yaml
 gcroot
 docs/publish
+templates/*/flake.lock
