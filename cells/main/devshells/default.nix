@@ -7,7 +7,7 @@
 in
   l.mapAttrs (_: std.std.lib.mkShell) {
     default = {...}: {
-      name = "DevSecOps Cells Lab";
+      name = "Cells Lab";
       imports = [
         cell.devshellProfiles.default
         inputs.cells.cargo-make.devshellProfiles.default

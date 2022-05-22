@@ -1,6 +1,6 @@
-baseURL = "https://gtrunsec.github.io/DevSecOps-Cells-Lab"
+baseURL = "https://gtrunsec.github.io/cells-lab"
 languageCode = "en-us"
-title = "DevSecOps cells Lab"
+title = "Cells Lab"
 theme = "cortex"
 
 [params]

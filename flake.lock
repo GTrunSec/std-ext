@@ -6374,11 +6374,11 @@
         "yants": "yants_2"
       },
       "locked": {
-        "lastModified": 1652784712,
-        "narHash": "sha256-ofwGapSWqzUVgIxwwmjlrOVogfjV4yd6WpY8fNfMc2o=",
+        "lastModified": 1653195665,
+        "narHash": "sha256-az3a0WmSrff1WFJto/Dk9B8H3T0IJFfCphM1EJYp7yk=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "3667d2d868352b0bf47c83440da48bee9f2fab47",
+        "rev": "b11a83a202f3d1d425c4c7bd512a5dceea0a8307",
         "type": "github"
       },
       "original": {
