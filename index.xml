@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DevSecOps cells Lab</title>
-    <link>https://gtrunsec.github.io/DevSecOps-Cells-Lab/</link>
-    <description>Recent content on DevSecOps cells Lab</description>
+    <title>Cells Lab</title>
+    <link>https://gtrunsec.github.io/cells-lab/</link>
+    <description>Recent content on Cells Lab</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://gtrunsec.github.io/DevSecOps-Cells-Lab/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://gtrunsec.github.io/cells-lab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Investigation</title>
-      <link>https://gtrunsec.github.io/DevSecOps-Cells-Lab/posts/investigation/</link>
+      <link>https://gtrunsec.github.io/cells-lab/posts/investigation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://gtrunsec.github.io/DevSecOps-Cells-Lab/posts/investigation/</guid>
+      <guid>https://gtrunsec.github.io/cells-lab/posts/investigation/</guid>
       <description>fluidattacks infra https://gitlab.com/fluidattacks/product/-/tree/master/makes/foss/modules/makes </description>
     </item>
     
     <item>
       <title>On Premises</title>
-      <link>https://gtrunsec.github.io/DevSecOps-Cells-Lab/posts/onpremises/</link>
+      <link>https://gtrunsec.github.io/cells-lab/posts/onpremises/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://gtrunsec.github.io/DevSecOps-Cells-Lab/posts/onpremises/</guid>
+      <guid>https://gtrunsec.github.io/cells-lab/posts/onpremises/</guid>
       <description>Solutions DOING chezmoi </description>
     </item>
     
