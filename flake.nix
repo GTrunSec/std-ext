@@ -94,8 +94,8 @@
     } {
       templates = {
         default = {
-          description = "The default template of Cells Lab";
-          path = ./tempaltes/default;
+          description = "The default template of Cells";
+          path = ./templates/default;
         };
       };
     };
