@@ -18,9 +18,8 @@ in {
       text = ''
         rsync -avzh ${org-roam-book}/* docs/publish
         cd docs/publish && cp ../config.toml .
-        hugo
+        hugo "$@"
         cp -rf --no-preserve=mode,ownership public/posts/index.html ./public/
-        "$@"
       '';
     };
 }

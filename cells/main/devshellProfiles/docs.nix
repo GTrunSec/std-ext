@@ -1,5 +1,4 @@
-{...}:
-{
+{...}: {
   commands = [
     {
       name = "mkdoc";
