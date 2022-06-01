@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells._writers.library) writeShellApplication;
+  inherit (inputs.cells-lab._writers.library) writeShellApplication;
   inherit (inputs) self nixpkgs std;
 in {
   mkdoc = let

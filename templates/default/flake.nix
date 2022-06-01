@@ -1,14 +1,13 @@
 {
   inputs = {
-    std.url = "github:divnix/std";
-    std.inputs.nixpkgs.follows = "nixpkgs";
-
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    org-roam-book-template.url = "github:gtrunsec/org-roam-book-template";
-    org-roam-book-template.inputs.nixpkgs.follows = "nixpkgs";
-
     cells-lab.url = "github:GTrunSec/cells-lab";
+
+    yants.follows = "cells-lab/yants";
+    org-roam-book-template.follows = "cells-lab/org-roam-book-template";
+    std.follows = "cells-lab/std";
+    data-merge.follows = "cells-lab/data-merge";
   };
   outputs = {std, ...} @ inputs:
     std.growOn {
@@ -23,6 +22,8 @@
         (std.runnables "entrypoints")
 
         (std.functions "library")
+
+        (std.functions "packages")
 
         (std.functions "overlays")
       ];
