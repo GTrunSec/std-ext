@@ -83,8 +83,10 @@
         (std.functions "generators")
         (std.functions "library")
 
+        (std.functions "nixosProfiles")
+        (std.functions "microvmProfiles")
+
         (std.data "configFiles")
-        (std.data "nixosProfiles")
         (std.data "containerJobs")
         (std.data "schemaProfiles")
 
