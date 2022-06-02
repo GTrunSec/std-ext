@@ -1,10 +1,15 @@
 {
   inputs,
   cell,
-}: {
-  emacs-test = inputs.lambda-microvm-lab.nixosConfigurations.user-qemu-host.extendModules {
+}: let
+  microvm = inputs.std.std.lib.fromMicrovmWith inputs;
+in {
+  inherit (inputs) nixpkgs;
+  task = microvm ({ pkgs, lib, ... }: { networking.hostName = "microvms-host";});
+
+  test = inputs.lambda-microvm-lab.nixosConfigurations.user-qemu-host.extendModules {
     modules = [
-      cell.nixosProfiles.overrideInputs
+      cell.nixosProfiles.override
       {
         # make home-manager writable
         microvm.writableStoreOverlay = "/nix/var/nix/temproots";

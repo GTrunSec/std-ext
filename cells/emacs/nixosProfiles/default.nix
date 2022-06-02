@@ -2,5 +2,5 @@
   inputs,
   cell,
 }: {
-  overrideInputs = ./overrideInput.nix;
+  override = ./override.nix;
 }

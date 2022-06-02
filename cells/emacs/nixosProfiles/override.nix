@@ -15,6 +15,7 @@
         epkgs
         // {
           telega = epkgs.melpaPackages.telega.override {
+            # inherit (epkgs.melpaPackages) telega;
             tdlib = pkgs.tdlib.overrideAttrs (old: rec {
               version = "1.8.0";
               src = pkgs.fetchFromGitHub {

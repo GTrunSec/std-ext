@@ -3,7 +3,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     latest.url = "github:NixOS/nixpkgs/master";
 
-    std.url = "github:divnix/std";
+    std.url = "github:divnix/std/?ref=refs/pull/72/head";
     std.inputs.nixpkgs.follows = "nixpkgs";
     yants.follows = "std/yants";
 
@@ -42,6 +42,7 @@
 
   inputs = {
     lambda-microvm-lab.url = "github:GTrunSec/lambda-microvm-lab";
+    microvm.follows = "lambda-microvm-lab/microvm";
     # lambda-microvm-lab.url = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-lab";
   };
 
@@ -84,7 +85,7 @@
         (std.functions "library")
 
         (std.functions "nixosProfiles")
-        (std.functions "microvmProfiles")
+        (std.microvms "microvmProfiles")
 
         (std.data "configFiles")
         (std.data "containerJobs")
