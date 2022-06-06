@@ -41,9 +41,7 @@
   };
 
   inputs = {
-    lambda-microvm-lab.url = "github:GTrunSec/lambda-microvm-lab";
     microvm.url = "github:astro/microvm.nix";
-    # lambda-microvm-lab.url = "/home/gtrun/ghq/github.com/GTrunSec/lambda-microvm-lab";
   };
 
   # configuration modules
