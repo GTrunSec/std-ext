@@ -19,8 +19,6 @@
     nvfetcher.url = "github:berberman/nvfetcher";
     nvfetcher.inputs.nixpkgs.follows = "nixpkgs";
 
-    dream2nix.url = "github:nix-community/dream2nix";
-
     nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
     nixpkgs-hardenedlinux.inputs.nixpkgs.follows = "nixpkgs";
 
