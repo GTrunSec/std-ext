@@ -3,7 +3,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     latest.url = "github:NixOS/nixpkgs/master";
 
-    std.url = "github:divnix/std/?ref=refs/pull/72/head";
+    std.url = "github:divnix/std";
+    std-microvm.url = "github:divnix/std/?ref=refs/pull/72/head";
     std.inputs.nixpkgs.follows = "nixpkgs";
     yants.follows = "std/yants";
 
@@ -40,6 +41,8 @@
 
   inputs = {
     microvm.url = "github:astro/microvm.nix";
+    nomad-driver.url = "github:input-output-hk/nomad-driver-nix";
+    nomad-driver.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # configuration modules
@@ -81,7 +84,7 @@
         (std.functions "library")
 
         (std.functions "nixosProfiles")
-        (std.microvms "microvmProfiles")
+        (inputs.std-microvm.microvms "microvmProfiles")
 
         (std.data "configFiles")
         (std.data "containerJobs")
