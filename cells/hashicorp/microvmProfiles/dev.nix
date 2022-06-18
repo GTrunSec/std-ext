@@ -9,6 +9,24 @@
   users.users.root.password = "";
 
   microvm = {
+    mem = 8192;
+    vcpu = 6;
+  };
+
+  microvm.forwardPorts = [
+    {
+      from = "host";
+      host.port = 5999;
+      guest.port = 22;
+    }
+  ];
+
+  services.openssh = {
+    enable = true;
+    permitRootLogin = "yes";
+  };
+
+  microvm = {
     hypervisor = "qemu";
     interfaces = [
       {

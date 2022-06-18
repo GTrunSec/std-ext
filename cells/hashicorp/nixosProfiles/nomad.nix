@@ -9,6 +9,10 @@
   networking.firewall.allowedUDPPorts = [4647 4646];
   networking.firewall.allowedTCPPorts = [4647 4646];
 
+  virtualisation.podman.enable = true;
+  virtualisation.podman.defaultNetwork.dnsname.enable = true;
+  users.extraUsers.root.extraGroups = ["podman"];
+
   systemd.services.nomad.serviceConfig.SupplementaryGroups = ["podman" "docker"];
 
   services.nomad = {
@@ -26,11 +30,12 @@
         enabled = true;
         cni_path = "${pkgs.cni-plugins}/bin/";
       };
-      vault = {
-        enabled = true;
-        address = "http://0.0.0.0:8200";
-        token = "root";
-      };
+
+      # vault = {
+      #   enabled = true;
+      #   address = "http://0.0.0.0:8200";
+      #   token = "root";
+      # };
 
       plugin = {
         nix_driver.config.enabled = true;
