@@ -5,6 +5,9 @@
   ...
 }: {
   networking.hostName = "nomad-dev";
+
+  users.users.root.password = "";
+
   microvm = {
     hypervisor = "qemu";
     interfaces = [
@@ -22,4 +25,14 @@
       }
     ];
   };
+
+  microvm.shares = [
+    {
+      # use "virtiofs" for MicroVMs that are started by systemd
+      proto = "9p";
+      tag = "ro-store";
+      source = "/nix/store";
+      mountPoint = "/nix/.ro-store";
+    }
+  ];
 }
