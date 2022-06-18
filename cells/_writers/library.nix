@@ -14,7 +14,12 @@
 
   writeConfigurationFromLang = _args: import ./writeConfigurationFromLang.nix args _args;
 in {
-  inherit writeClicheApplication writePiplelineApplication writeComoniconApplication writeConfigurationFromLang;
+  inherit
+    writeClicheApplication
+    writePiplelineApplication
+    writeComoniconApplication
+    writeConfigurationFromLang
+    ;
 
   writeShellApplication = {...} @ args:
     writeShellApplication (

@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     latest.url = "github:NixOS/nixpkgs/master";
+    nixos.url = "github:NixOS/nixpkgs/nixos-22.05";
 
     std.url = "github:divnix/std";
     std-microvm.url = "github:divnix/std/?ref=refs/pull/72/head";
