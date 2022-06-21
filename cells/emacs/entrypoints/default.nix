@@ -5,5 +5,5 @@
   inherit (inputs.cells._writers.library) writeShellApplication;
   inherit (inputs) nixpkgs;
 in {
-  test = cell.microvmProfiles.test.config.microvm.runner.qemu;
+  test = cell.microvmProfiles.task.config.microvm.runner.qemu;
 }
