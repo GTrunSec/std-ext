@@ -46,7 +46,6 @@
       # consul.address = config.machine.services.nomad.consul.address;
     };
   };
-
   microvm.forwardPorts = [
     {
       from = "host";

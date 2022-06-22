@@ -13,6 +13,7 @@ in {
         cell.nixosProfiles.nomad
         cell.nixosProfiles.nomad-module
         ./dev.nix
+        ./microvm.nix
       ];
       _module.args = {
         inherit (cell) packages;
