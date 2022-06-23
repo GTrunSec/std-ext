@@ -14,6 +14,7 @@ inputs: let
       fragmentRelPath,
     }: let
       nixpkgs = inputs.nixpkgs.legacyPackages.${system};
+      l = nixpkgs;
       builder = ["nix" "build" "--impure" "--json" "--no-link" "${flake}#${fragment}"];
       jq = ["|" "${nixpkgs.legacyPackages.${system}.jq}/bin/jq" "-r" "'.[].outputs.out'"];
       bat = ["${nixpkgs.legacyPackages.${system}.bat}/bin/bat"];
