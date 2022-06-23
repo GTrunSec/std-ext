@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells._writers.library) writeConfigurationFromLang;
+  inherit (inputs.cells._writers.library) writeConfiguration;
 in {
   sync = {
     branch ? "",

@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (cell) library packages;
-  inherit (inputs.cells._writers.library) writeConfigurationFromLang;
+  inherit (inputs.cells._writers.library) writeConfiguration;
 
   inherit (inputs.cells.makes.library) makeSubstitution;
 
@@ -19,7 +19,7 @@
   };
 
   common = branch:
-    writeConfigurationFromLang {
+    writeConfiguration {
       inherit name;
       target = "docker";
       # searchPaths.file = [

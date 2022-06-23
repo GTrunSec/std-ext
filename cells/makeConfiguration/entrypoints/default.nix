@@ -3,9 +3,9 @@
   cell,
 }: let
   inherit (cell) library terranix;
-  inherit (inputs.cells._writers.library) writeConfigurationFromLang;
+  inherit (inputs.cells._writers.library) writeConfiguration;
 in {
-  threatbus-nomad-nixpkgs-nickel = writeConfigurationFromLang {
+  threatbus-nomad-nixpkgs-nickel = writeConfiguration {
     name = "nomad-threatbus";
     target = "nomad";
     language = "nickel";
@@ -14,7 +14,7 @@ in {
     source = ./tenzir/nomad;
   };
 
-  threatbus-nomad-nixpkgs-cue = writeConfigurationFromLang {
+  threatbus-nomad-nixpkgs-cue = writeConfiguration {
     name = "cue-threatbus";
     language = "cue";
     target = "nomad";
@@ -23,7 +23,7 @@ in {
     source = ./tenzir/nomad;
   };
 
-  terraform-example = writeConfigurationFromLang {
+  terraform-example = writeConfiguration {
     name = "terraform-nixos-example";
     language = "nix";
     format = "json";

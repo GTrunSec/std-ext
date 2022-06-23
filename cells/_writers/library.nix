@@ -12,13 +12,13 @@
 
   writeComoniconApplication = _args: import ./writeComoniconApplication.nix args _args;
 
-  writeConfigurationFromLang = _args: import ./writeConfigurationFromLang.nix args _args;
+  writeConfiguration = _args: import ./writeConfiguration.nix args _args;
 in {
   inherit
     writeClicheApplication
     writePiplelineApplication
     writeComoniconApplication
-    writeConfigurationFromLang
+    writeConfiguration
     ;
 
   writeShellApplication = {...} @ args:
