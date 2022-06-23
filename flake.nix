@@ -60,7 +60,7 @@
   };
 
   outputs = {std, ...} @ inputs: let
-    clades = import ./clades {inherit inputs;};
+    clades = import ./clades inputs;
   in
     std.growOn {
       inherit inputs;
@@ -86,7 +86,7 @@
         (std.functions "nixosProfiles")
         (clades.microvms "microvmProfiles")
 
-        (std.data "configFiles")
+        (clades.files "configFiles")
         (std.data "containerJobs")
         (std.data "schemaProfiles")
 
