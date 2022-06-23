@@ -15,6 +15,5 @@ in
   __nixpkgs__.writeTextFile {
     inherit name;
     executable = false;
-    destination = "/${name}";
     text = builtins.readFile "${template}/template";
   }

@@ -5,7 +5,6 @@
     nixos.url = "github:NixOS/nixpkgs/nixos-22.05";
 
     std.url = "github:divnix/std";
-    std-microvm.url = "github:divnix/std/?ref=refs/pull/72/head";
     std.inputs.nixpkgs.follows = "nixpkgs";
     yants.follows = "std/yants";
 
@@ -61,7 +60,7 @@
   };
 
   outputs = {std, ...} @ inputs: let
-    mkFlow = import ./clades/mkCargoMake.nix {inherit inputs;};
+    clades = import ./clades {inherit inputs;};
   in
     std.growOn {
       inherit inputs;
@@ -73,7 +72,7 @@
         "x86_64-linux"
       ];
       organelles = [
-        (std.installables "packages")
+        (clades.installables "packages")
 
         (std.functions "devshellProfiles")
         (std.devshells "devshells")
@@ -85,7 +84,7 @@
         (std.functions "library")
 
         (std.functions "nixosProfiles")
-        (inputs.std-microvm.microvms "microvmProfiles")
+        (clades.microvms "microvmProfiles")
 
         (std.data "configFiles")
         (std.data "containerJobs")
@@ -100,6 +99,7 @@
       ];
     } {
       devShells = inputs.std.harvest inputs.self ["main" "devshells"];
+      inherit (clades) installables files microvms;
     } {
       templates = {
         default = {

@@ -10,6 +10,6 @@
     nixpkgs = channel;
     inherit (inputs) microvm;
   };
-  microvm = inputs.std-microvm.std.lib.fromMicrovmWith channels;
+  microvm = cell.library.microvm channels;
 in
   microvm module
