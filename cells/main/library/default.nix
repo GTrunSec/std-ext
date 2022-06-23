@@ -2,8 +2,15 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs;
-in rec {
+  inherit (inputs) nixpkgs std self;
+  inputs' =
+    (import "${(std.incl self [
+      (self + /lock)
+    ])}/lock")
+    .inputs
+    // inputs;
+in {
+  inherit inputs';
   /*
    tests = mergeDevShell { default = cell.devshellProfiles.mkshell; mkshell = cell.devshell;};
    */

@@ -6,9 +6,10 @@
   channel ? inputs.nixpkgs,
 }: let
   inherit (cell) library;
+  inherit (inputs.cells.main.library) inputs';
   channels = {
     nixpkgs = channel;
-    inherit (inputs) microvm;
+    inherit (inputs') microvm;
   };
   microvm = cell.library.microvm channels;
 in
