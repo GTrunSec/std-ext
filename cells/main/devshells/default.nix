@@ -11,7 +11,7 @@ in
       imports = [
         cell.devshellProfiles.default
         cell.devshellProfiles.docs
-        inputs.cells.cargo-make.devshellProfiles.default
+        inputs.cells.cargoMake.devshellProfiles.default
       ];
     };
     update = {...}: {imports = [inputs.cells.update.devshellProfiles.default];};

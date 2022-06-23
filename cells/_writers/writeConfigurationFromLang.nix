@@ -76,7 +76,7 @@ in
     in ''
          ${
         lib.optionalString (command != "") ''
-          ${command} | bat --theme ansi --file-name "${name}.${format}==>${writeSource.out}" --paging=never
+          ${command} | bat --theme ansi --file-name "${writeSource.out}" --paging=never
         ''
       }
 
