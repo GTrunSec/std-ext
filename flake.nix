@@ -17,6 +17,9 @@
     data-merge.url = "github:divnix/data-merge";
     data-merge.inputs.nixpkgs.follows = "nixpkgs";
     data-merge.inputs.yants.follows = "std/yants";
+
+    std.inputs.kroki-preprocessor.follows = "kroki-preprocessor";
+    kroki-preprocessor.url = "github:input-output-hk/mdbook-kroki-preprocessor";
   };
 
   outputs = {std, ...} @ inputs: let
