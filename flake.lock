@@ -19,7 +19,10 @@
     "data-merge": {
       "inputs": {
         "nixlib": "nixlib",
-        "yants": "yants"
+        "yants": [
+          "std",
+          "yants"
+        ]
       },
       "locked": {
         "lastModified": 1655854240,
@@ -84,7 +87,7 @@
     "emacs-overlay": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1653452277,
@@ -178,7 +181,7 @@
     },
     "kroki-preprocessor": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_3",
         "std": "std_2"
       },
       "locked": {
@@ -259,21 +262,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1655599917,
-        "narHash": "sha256-kjZbt5WdTrnjMxL79okg9TCoRUdADG50x/TWozbyTsE=",
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "rev": "5fb55578aa2f1a502d636a8ac71aece57cb730bb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1655567057,
         "narHash": "sha256-Cc5hQSMsTzOHmZnYm8OSJ5RNUp22bd5NADWLHorULWQ=",
         "owner": "NixOS",
@@ -288,7 +276,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1653326962,
         "narHash": "sha256-W8feCYqKTsMre4nAEpv5Kx1PVFC+hao/LwqtB2Wci/8=",
@@ -302,7 +290,7 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1652059086,
         "narHash": "sha256-CjHSbr6LSFkN4YBdTB6+8ZQmSqhsbiXqAeQ9hQJ/gBI=",
@@ -318,7 +306,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1650469885,
         "narHash": "sha256-BuILRZ6pzMnGey8/irbjGq1oo3vIvZa1pitSdZCmIXA=",
@@ -381,7 +369,7 @@
         "data-merge": "data-merge",
         "latest": "latest",
         "nixos": "nixos",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "org-roam-book-template": "org-roam-book-template",
         "std": "std",
         "yants": [
@@ -397,7 +385,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "yants": "yants_3"
+        "yants": "yants_2"
       },
       "locked": {
         "lastModified": 1655841593,
@@ -416,8 +404,8 @@
     "std_2": {
       "inputs": {
         "devshell": "devshell_2",
-        "nixpkgs": "nixpkgs_5",
-        "yants": "yants_2"
+        "nixpkgs": "nixpkgs_4",
+        "yants": "yants"
       },
       "locked": {
         "lastModified": 1651690129,
@@ -434,24 +422,6 @@
       }
     },
     "yants": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1645126146,
-        "narHash": "sha256-XQ1eg4gzXoc7Tl8iXak1uCt3KnsTyxqPtLE+vOoDnrQ=",
-        "owner": "divnix",
-        "repo": "yants",
-        "rev": "77df2be1b3cce9f571c6cf451f786b266a6869cc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "divnix",
-        "repo": "yants",
-        "type": "github"
-      }
-    },
-    "yants_2": {
       "inputs": {
         "nixpkgs": [
           "std",
@@ -474,7 +444,7 @@
         "type": "github"
       }
     },
-    "yants_3": {
+    "yants_2": {
       "inputs": {
         "nixpkgs": [
           "std",

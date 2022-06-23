@@ -14,7 +14,6 @@ let
     defaultNix
     ;
 in
-  # Pass this flake as inputs.POP
   defaultNix
   // {
     inputs = defaultNix.inputs;

@@ -4,15 +4,19 @@
     latest.url = "github:NixOS/nixpkgs/master";
     nixos.url = "github:NixOS/nixpkgs/nixos-22.05";
 
+    org-roam-book-template.url = "github:gtrunsec/org-roam-book-template";
+    org-roam-book-template.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  # Std Inputs
+  inputs = {
     std.url = "github:divnix/std";
     std.inputs.nixpkgs.follows = "nixpkgs";
     yants.follows = "std/yants";
 
     data-merge.url = "github:divnix/data-merge";
     data-merge.inputs.nixpkgs.follows = "nixpkgs";
-
-    org-roam-book-template.url = "github:gtrunsec/org-roam-book-template";
-    org-roam-book-template.inputs.nixpkgs.follows = "nixpkgs";
+    data-merge.inputs.yants.follows = "std/yants";
   };
 
   outputs = {std, ...} @ inputs: let
