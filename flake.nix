@@ -35,7 +35,7 @@
         "x86_64-linux"
       ];
       organelles = [
-        (clades.installables "packages")
+        (std.installables "packages")
 
         (std.functions "devshellProfiles")
         (std.devshells "devshells")
@@ -49,7 +49,7 @@
         (std.functions "nixosProfiles")
         (clades.microvms "microvmProfiles")
 
-        (clades.files "configFiles")
+        (std.files "configFiles")
         (std.data "containerJobs")
         (std.data "schemaProfiles")
 
