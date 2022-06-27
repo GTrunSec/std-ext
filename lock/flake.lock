@@ -81,11 +81,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1655647809,
-        "narHash": "sha256-npyHYIJW7HyGIFpCZZK+t5JM/v2LsyFhAGJxX1DXO7E=",
+        "lastModified": 1656370114,
+        "narHash": "sha256-XBbSWeBuF6Ck0jc634yAp2hjPXWM2JyRDPCdK0dh3w4=",
         "owner": "astro",
         "repo": "deadnix",
-        "rev": "83c42cc64d190ecb72f5929eab0f64fe88e25dc4",
+        "rev": "9f450f7250ad7680cb5f12ce5985cc18496c2d5f",
         "type": "github"
       },
       "original": {
@@ -710,11 +710,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1656081716,
-        "narHash": "sha256-HQ/7G+OSWZCqNDyidqxcFgN/GRxdmAkx72WPVlmvAOo=",
+        "lastModified": 1656346564,
+        "narHash": "sha256-tHekWu20wxJdtfmxd3x8iaZ+GXG8pwZcQjMWgtdaCf4=",
         "owner": "tweag",
         "repo": "nickel",
-        "rev": "f7a99a8853f8fdbf30873e81c2fbf64b2d23aa5d",
+        "rev": "d952614e4c7b7c12f2d7cbfa141be9fa0a06729c",
         "type": "github"
       },
       "original": {
@@ -833,11 +833,11 @@
     },
     "nixlib_3": {
       "locked": {
-        "lastModified": 1655599917,
-        "narHash": "sha256-kjZbt5WdTrnjMxL79okg9TCoRUdADG50x/TWozbyTsE=",
+        "lastModified": 1656205009,
+        "narHash": "sha256-c5Lu5hzDPWZLU7EAFv5gLoFdrZo2U9Ko2cwd/MlyBic=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "5fb55578aa2f1a502d636a8ac71aece57cb730bb",
+        "rev": "db960fdb35abd684899e75747fa441978c3d49e1",
         "type": "github"
       },
       "original": {
@@ -1018,11 +1018,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1656130826,
-        "narHash": "sha256-g5Wo75ddDQmWnL70rJCMm+JJlvHbzPFUePUpuMNn5qk=",
+        "lastModified": 1656250965,
+        "narHash": "sha256-2IlNf6jxEJiuCrGymqLOLjxk2SIj4HhVIwEb0kvcs24=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "72d1b0d0fac131df1ea254b65413c85609bdd2ee",
+        "rev": "9a17f325397d137ac4d219ecbd5c7f15154422f4",
         "type": "github"
       },
       "original": {
@@ -1407,11 +1407,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1656202056,
-        "narHash": "sha256-u2qlK/ks9dmd7aCRVn6YtYp71Qn6bHhfs1fJs67tsdI=",
+        "lastModified": 1656288377,
+        "narHash": "sha256-68jZfbzP4H1CySLlk2MovAYI6AzkDwcdUWIMxuEhVQE=",
         "owner": "numtide",
         "repo": "nixpkgs-terraform-providers-bin",
-        "rev": "37b4bbd901956409664df5d1724b6f675f51788b",
+        "rev": "7eb4ec570c85b1fecff8152366cfc9a1e9edd29c",
         "type": "github"
       },
       "original": {
@@ -1546,11 +1546,11 @@
         "pop": "pop_2"
       },
       "locked": {
-        "lastModified": 1655684329,
-        "narHash": "sha256-uYLqfNWpITbAghWOhuST1cYLaNd1N2QUbHWESt+q2s4=",
+        "lastModified": 1656284751,
+        "narHash": "sha256-+YOFNEFwWyik8crueiqprCFcBK3l5sumAob+Lk7xn8E=",
         "owner": "gtrunsec",
         "repo": "xnlib",
-        "rev": "f133b07964857b4a04e1a1531f6ad96e1b5260a8",
+        "rev": "513ab5b895053eb6d332ee3a0698ea3c0859b9b0",
         "type": "github"
       },
       "original": {
