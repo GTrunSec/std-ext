@@ -10,12 +10,12 @@
   bin = nixpkgs.symlinkJoin {
     inherit paths;
     name = "bin";
+    # ln -s ${bin}/bin $out
   };
 in
   nixpkgs.runCommand name {
     buildInputs = [];
   } ''
      mkdir -p $out
-     ln -s ${bin}/bin $out
     ${cpPackages}
   ''
