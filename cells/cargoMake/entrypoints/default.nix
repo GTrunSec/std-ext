@@ -10,7 +10,7 @@ in rec {
     name = "test-flow";
     format = "toml";
     language = "nix";
-    source = cargoMakeJobs.job_a;
+    source = cargoMakeJobs.default;
   };
 
   flow = makeCargoMakeFlow {
