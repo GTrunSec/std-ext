@@ -5,7 +5,7 @@
   name,
   paths ? [],
 }: let
-  drvIsDir = path: builtins.pathExists ((toString path) + "/bin");
+  drvIsDir = path: builtins.pathExists ((toString path) + "./.");
   drvIsFile = path: builtins.pathExists path && ! (drvIsDir path);
 
   cpPackages = lib.concatStringsSep "\n" (map (f: let name = f.pname or f.name; in "ln -s ${f} $out/${name}") paths);

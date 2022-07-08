@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: {
-  job_a.tasks = {
+  default.tasks = {
     format = {
       description = "Runs the treefmt format";
       command = "treefmt";
