@@ -5,10 +5,7 @@
   inherit (inputs) nixpkgs std self;
   inputs' =
     (std.deSystemize nixpkgs.system
-      (import "${(std.incl self [
-        (self + /lock)
-      ])}/lock")
-      .inputs)
+      (import "${(std.incl self [(self + /lock)])}/lock").inputs)
     // inputs;
 in {
   inherit inputs';
