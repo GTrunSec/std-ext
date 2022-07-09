@@ -13,12 +13,26 @@
   writeComoniconApplication = _args: import ./writeComoniconApplication.nix args _args;
 
   writeConfiguration = _args: import ./writeConfiguration.nix args _args;
+  /*
+   doc = writeGlowDoc {
+     src ="${std.incl self [
+       (self + /docs)
+     ]}/docs";
+     paths = [ "protocols" "features" ];
+     tip = ''
+     example: just doc `flag`
+     '';
+     extraMd = ./default.md;
+   };
+   */
+  writeGlowDoc = _args: import ./writeGlowDoc.nix args _args;
 in {
   inherit
     writeClicheApplication
     writePiplelineApplication
     writeComoniconApplication
     writeConfiguration
+    writeGlowDoc
     ;
 
   writeShellApplication = {...} @ args:
