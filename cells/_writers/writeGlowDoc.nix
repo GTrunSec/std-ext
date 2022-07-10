@@ -8,14 +8,14 @@
   tip ? "",
 }: let
   inherit (inputs) std self nixpkgs;
-  inherit (inputs.cells.main.library) inputs';
+  inherit (inputs.cells.main.library) __inputs__;
   inherit (nixpkgs) lib;
 
-  getDocs = path: (builtins.attrNames (inputs'.xnlib.lib.importers.filterFiles
+  getDocs = path: (builtins.attrNames (__inputs__.xnlib.lib.importers.filterFiles
     "/${path}"
     "md"));
 
-  dirs = inputs'.xnlib.lib.path.listAllDirs src;
+  dirs = __inputs__.xnlib.lib.path.listAllDirs src;
 
   query = lib.flatten (map (p: (map (x:
       lib.removePrefix "/" ((lib.removePrefix src p) + "/" + x)) (getDocs p)))

@@ -2,9 +2,9 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells.main.library) inputs';
+  inherit (inputs.cells.main.library) __inputs__;
   nixpkgs = inputs.nixpkgs.appendOverlays [
-    inputs'.nixpkgs-hardenedlinux.overlays."nixpkgs/nixpkgs-hardenedlinux-sources"
+    __inputs__.nixpkgs-hardenedlinux.overlays."nixpkgs/nixpkgs-hardenedlinux-sources"
   ];
   inherit (cell) packages;
   inherit (inputs.cells._writers.library) writeShellApplication;

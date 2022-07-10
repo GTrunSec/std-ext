@@ -3,12 +3,12 @@
   cell,
 }: let
   inherit (inputs.cells.microvms.library) makeVM;
-  inherit (inputs.cells.main.library) inputs';
+  inherit (inputs.cells.main.library) __inputs__;
 in {
   dev = makeVM {
     channel = inputs.nixos.legacyPackages;
     module = _: {
-      nixpkgs.overlays = [inputs'.nomad-driver.overlay];
+      nixpkgs.overlays = [__inputs__.nomad-driver.overlay];
       disabledModules = ["services/networking/nomad.nix"];
       imports = [
         cell.nixosProfiles.nomad

@@ -2,9 +2,9 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells.main.library) inputs';
+  inherit (inputs.cells.main.library) __inputs__;
 
-  makes = inputs.std."x86_64-linux".std.lib.fromMakesWith inputs';
+  makes = inputs.std."x86_64-linux".std.lib.fromMakesWith __inputs__;
 
   makeScript = args: makes ./makeLib/makeScript.nix {} args;
 
