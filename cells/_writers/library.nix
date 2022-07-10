@@ -15,10 +15,10 @@
   writeConfiguration = _args: import ./writeConfiguration.nix args _args;
   /*
    doc = writeGlowDoc {
+     name = "CLI Docs"
      src ="${std.incl self [
        (self + /docs)
      ]}/docs";
-     paths = [ "protocols" "features" ];
      tip = ''
      example: just doc `flag`
      '';

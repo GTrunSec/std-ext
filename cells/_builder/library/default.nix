@@ -1,9 +1,7 @@
 {
   inputs,
   cell,
-}: let
-  inherit (inputs) nixpkgs;
-  inherit (inputs.nixpkgs) lib;
+}@args: let
 in {
-  mkPaths = import ./mkPaths.nix {inherit nixpkgs lib;};
+  mkPaths = import ./mkPaths.nix args;
 }

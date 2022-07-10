@@ -1,15 +1,17 @@
 {
-  nixpkgs,
-  lib,
+  inputs,
+  cell
 }: {
   name,
   paths ? [],
-}: let
-  drvIsDir = path: builtins.pathExists ((toString path) + "/bin");
-  drvIsFile = path: builtins.pathExists path && ! (drvIsDir path);
+}:let
+  inherit (inputs.nixpkgs) lib;
+  inherit (inputs) nixpkgs;
+
+  isDir = path: builtins.pathExists ((toString path) + "/bin");
 
   cpPackages = lib.concatStringsSep "\n" (map (f: let name = f.pname or f.name; in "ln -s ${f} $out/${name}") paths);
-  onlyPathsDir = lib.flatten (map (f: lib.optionals (drvIsDir f) f) paths);
+  onlyPathsDir = lib.flatten (map (f: lib.optionals (isDir f) f) paths);
 
   bin = nixpkgs.symlinkJoin {
     paths = onlyPathsDir;

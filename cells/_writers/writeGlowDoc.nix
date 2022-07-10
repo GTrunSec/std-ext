@@ -2,8 +2,8 @@
   inputs,
   cell,
 }: {
+  name ? "",
   src ? "",
-  paths ? [],
   extraMd ? "",
   tip ? "",
 }: let
@@ -11,18 +11,15 @@
   inherit (inputs.cells.main.library) inputs';
   inherit (nixpkgs) lib;
 
-  getDocs = path: (builtins.attrNames (inputs'.xnlib.lib.files.filterFilesBySuffix
-    "${src}/${path}"
+  getDocs = path: (builtins.attrNames (inputs'.xnlib.lib.importers.filterFiles
+    "/${path}"
     "md"));
 
 
-  concatDirs = lib.flatten (map (p: p) ["${src}"] ++ lib.optional (paths != []) (map (p: "${src}" + p ) paths));
+  dirs = inputs'.xnlib.lib.path.listAllDirs src;
 
-  filterPaths = lib.flatten (map (f: (lib.attrNames (lib.filterAttrs (name: type: type == "directory") (builtins.readDir f)))) concatDirs);
-
-  fixDirs = map (p: p) [""] ++ (map (p: p + "/") filterPaths);
-
-  query = lib.flatten (map (p: (map (x: p + x) (getDocs p))) fixDirs);
+  query = lib.flatten (map (p: (map (x:
+    lib.removePrefix "/" ((lib.removePrefix src p) + "/" + x)) (getDocs p))) dirs);
 
   concatContent = s: f:
     lib.concatStringsSep s (map (f: let
@@ -36,7 +33,7 @@
 
   md = nixpkgs.writeText "md" ''
     ${lib.optionalString (extraMd != "") "${lib.fileContents extraMd}"}
-    ## Command Flags
+    ## ${name}
     + Available flags:
     ${tip}
     | name      | description                           |
