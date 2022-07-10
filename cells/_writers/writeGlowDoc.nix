@@ -38,7 +38,7 @@
     ${tip}
     | name      | description                           |
     |-----------|--------------------------------|
-    |help| display the help markdown file|
+    |help| display the help menu|
     ${md'}
   '';
 
