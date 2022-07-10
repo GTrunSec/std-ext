@@ -65,9 +65,8 @@
     esac
   '';
 in
-  filterPaths
-  # cell.library.writeShellApplication {
-  #   name = "writeGlowDoc";
-  #   runtimeInputs = [nixpkgs.glow];
-  #   text = content;
-  # }
+  cell.library.writeShellApplication {
+    name = "writeGlowDoc";
+    runtimeInputs = [nixpkgs.glow];
+    text = content;
+  }
