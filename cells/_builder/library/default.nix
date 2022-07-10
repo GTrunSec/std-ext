@@ -1,7 +1,7 @@
 {
   inputs,
   cell,
-}@args: let
+} @ args: let
 in {
   mkPaths = import ./mkPaths.nix args;
 }

@@ -1,10 +1,10 @@
 {
   inputs,
-  cell
+  cell,
 }: {
   name,
   paths ? [],
-}:let
+}: let
   inherit (inputs.nixpkgs) lib;
   inherit (inputs) nixpkgs;
 

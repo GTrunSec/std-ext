@@ -15,11 +15,11 @@
     "/${path}"
     "md"));
 
-
   dirs = inputs'.xnlib.lib.path.listAllDirs src;
 
   query = lib.flatten (map (p: (map (x:
-    lib.removePrefix "/" ((lib.removePrefix src p) + "/" + x)) (getDocs p))) dirs);
+      lib.removePrefix "/" ((lib.removePrefix src p) + "/" + x)) (getDocs p)))
+  dirs);
 
   concatContent = s: f:
     lib.concatStringsSep s (map (f: let
