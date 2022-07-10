@@ -15,9 +15,14 @@
     "${src}/${path}"
     "md"));
 
-  dirs = map (p: p) [""] ++ (map (p: p + "/") paths);
 
-  query = lib.flatten (map (p: (map (x: p + x) (getDocs p))) dirs);
+  concatDirs = lib.flatten (map (p: p) ["${src}"] ++ lib.optional (paths != []) (map (p: "${src}" + p ) paths));
+
+  filterPaths = lib.flatten (map (f: (lib.attrNames (lib.filterAttrs (name: type: type == "directory") (builtins.readDir f)))) concatDirs);
+
+  fixDirs = map (p: p) [""] ++ (map (p: p + "/") filterPaths);
+
+  query = lib.flatten (map (p: (map (x: p + x) (getDocs p))) fixDirs);
 
   concatContent = s: f:
     lib.concatStringsSep s (map (f: let
@@ -60,8 +65,9 @@
     esac
   '';
 in
-  cell.library.writeShellApplication {
-    name = "writeGlowDoc";
-    runtimeInputs = [nixpkgs.glow];
-    text = content;
-  }
+  filterPaths
+  # cell.library.writeShellApplication {
+  #   name = "writeGlowDoc";
+  #   runtimeInputs = [nixpkgs.glow];
+  #   text = content;
+  # }
