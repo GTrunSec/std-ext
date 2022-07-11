@@ -25,7 +25,7 @@
     lib.concatStringsSep s (map (f: let
         name = lib.removeSuffix ".md" f;
       in ''
-        | ${name}   | display the `${f}` markdown file              |
+        | ${name}   | display the `${lib.last (builtins.split "/" "${f}")}` doc              |
       '')
       f);
 

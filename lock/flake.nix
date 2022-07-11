@@ -4,7 +4,11 @@
     flake = false;
   };
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  inputs = {
+    main.url = "../.";
+    nixpkgs.follows = "main/nixpkgs";
+  };
+
   # nix linters
   inputs = {
     deadnix.url = "github:astro/deadnix";
