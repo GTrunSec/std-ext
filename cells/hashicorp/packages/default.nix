@@ -2,7 +2,8 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs-hardenedlinux;
+  inherit (inputs.cells.main.library) __inputs__;
+  inherit (__inputs__) nixpkgs-hardenedlinux;
   nixpkgs = inputs.nixpkgs.appendOverlays [
     (import ./nomad.nix)
   ];

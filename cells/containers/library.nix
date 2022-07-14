@@ -4,12 +4,13 @@
 }: let
   inherit (inputs.cells._writers.library) writeShellApplication;
   inherit (inputs.cells._modules.library) makeConfiguration;
+  inherit (inputs.cells.main.library) __inputs__;
 
   nixpkgs = inputs.nixpkgs.appendOverlays [
     (
       _final: _prev: {
         inherit
-          (inputs.nix2container.packages)
+          (__inputs__.nix2container.packages)
           nix2containerUtil
           skopeo-nix2container
           nix2container
