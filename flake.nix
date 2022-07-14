@@ -47,7 +47,7 @@
         (std.functions "library")
 
         (std.functions "nixosProfiles")
-        (clades.microvms "microvmProfiles")
+        (std.microvms "microvmProfiles")
 
         (std.files "configFiles")
         (std.data "containerJobs")

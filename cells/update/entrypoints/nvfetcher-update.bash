@@ -3,7 +3,7 @@ cd "$(dirname "$@")"
 # shellcheck disable=all
 nvfetcher -c "$PRJ_ROOT/$@" -l nvfetcher-changelog
 # shellcheck disable=all
-if [[ -n "$(cat changelog)" && -v "${GITHUB_ENV}" ]]; then
+if [[ -n "$(cat nvfetcher-changelog)" && -v "${GITHUB_ENV}" ]]; then
 	echo "COMMIT_MSG<<EOF" >>"$GITHUB_ENV"
 	echo "$(cat changelog)" >>"$GITHUB_ENV"
 	echo "EOF" >>"$GITHUB_ENV"
