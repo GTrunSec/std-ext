@@ -1,13 +1,13 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
     cells-lab.url = "github:GTrunSec/cells-lab";
 
+    std.follows = "cells-lab/std";
     yants.follows = "cells-lab/yants";
     org-roam-book-template.follows = "cells-lab/org-roam-book-template";
-    std.follows = "cells-lab/std";
     data-merge.follows = "cells-lab/data-merge";
+    nixago.follows = "cells-lab/nixago";
   };
   outputs = {std, ...} @ inputs:
     std.growOn {
@@ -26,6 +26,8 @@
         (std.functions "packages")
 
         (std.functions "overlays")
+
+        (std.nixago "nixago")
       ];
     } {
       devShells = inputs.std.harvest inputs.self ["main" "devshells"];

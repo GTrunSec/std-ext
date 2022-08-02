@@ -11,3 +11,6 @@ vast.yaml
 gcroot
 docs/publish
 templates/*/flake.lock
+
+# nixago: ignore-linked-files
+treefmt.toml

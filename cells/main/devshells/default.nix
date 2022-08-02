@@ -13,6 +13,9 @@ in
         cell.devshellProfiles.docs
         inputs.cells.cargoMake.devshellProfiles.default
       ];
+      nixago = [
+        cell.nixago.treefmt
+      ];
     };
     update = {...}: {imports = [inputs.cells.update.devshellProfiles.default];};
   }
