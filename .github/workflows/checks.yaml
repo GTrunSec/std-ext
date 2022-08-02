@@ -46,7 +46,7 @@ jobs:
         run: nix run .\#x86_64-linux.main.entrypoints.mkdoc
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.3.4
+        uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
           branch: gh-pages
           folder: ./docs/publish/public
