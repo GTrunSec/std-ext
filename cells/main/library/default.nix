@@ -11,7 +11,7 @@
 in {
   inherit __inputs__;
   /*
-   tests = mergeDevShell { default = cell.devshellProfiles.mkshell; mkshell = cell.devshell;};
-   */
+  tests = mergeDevShell { default = cell.devshellProfiles.mkshell; mkshell = cell.devshell;};
+  */
   mergeDevShell = import ./mergeDevShell.nix nixpkgs;
 }

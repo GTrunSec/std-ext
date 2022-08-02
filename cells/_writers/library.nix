@@ -14,17 +14,17 @@
 
   writeConfiguration = _args: import ./writeConfiguration.nix args _args;
   /*
-   doc = writeGlowDoc {
-     name = "CLI Docs"
-     src ="${std.incl self [
-       (self + /docs)
-     ]}/docs";
-     tip = ''
-     example: just doc `flag`
-     '';
-     extraMd = ./default.md;
-   };
-   */
+  doc = writeGlowDoc {
+    name = "CLI Docs"
+    src ="${std.incl self [
+      (self + /docs)
+    ]}/docs";
+    tip = ''
+    example: just doc `flag`
+    '';
+    extraMd = ./default.md;
+  };
+  */
   writeGlowDoc = _args: import ./writeGlowDoc.nix args _args;
 in {
   inherit

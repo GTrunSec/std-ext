@@ -10,5 +10,12 @@ in {
         "generated.nix"
       ];
     };
+    configData.formatter.prettier = {
+      excludes = [
+        "secrets*.yaml"
+        "Manifest.toml"
+        "Project.toml"
+      ];
+    };
   };
 }
