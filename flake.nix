@@ -62,7 +62,6 @@
       ];
     } {
       devShells = inputs.std.harvest inputs.self ["main" "devshells"];
-      inherit (clades) installables files microvms;
     } {
       templates = {
         default = {
