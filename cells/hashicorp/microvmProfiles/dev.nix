@@ -4,6 +4,8 @@
   pkgs,
   ...
 }: {
+  system.stateVersion = "22.05";
+
   networking.hostName = "nomad-dev";
 
   users.users.root.password = "";

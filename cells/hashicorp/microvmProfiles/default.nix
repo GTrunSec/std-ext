@@ -8,7 +8,10 @@ in {
   dev = makeVM {
     channel = inputs.nixos.legacyPackages;
     module = _: {
-      nixpkgs.overlays = [__inputs__.nomad-driver.overlay];
+      nixpkgs.overlays = [
+        __inputs__.nomad-driver.overlay
+        (import ../packages/nomad.nix)
+      ];
       disabledModules = ["services/networking/nomad.nix"];
       imports = [
         cell.nixosProfiles.nomad
