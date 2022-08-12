@@ -8,7 +8,7 @@ in {
     commands = [
       {
         package = nixpkgs.cargo-make;
-        category = "runner";
+        category = "workflows";
       }
     ];
   };

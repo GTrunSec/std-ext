@@ -852,12 +852,12 @@
       },
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-vI+7X6O14wuc36PLx8VYTTf9k9DB0TQjTI1CNpFHIPQ=",
-        "path": "/nix/store/rwwq5hhyg6zbmvg21z1z2llzjg4kd78h-source",
+        "narHash": "sha256-DUQxKGTRW+oA7phWHOrq1aYUaV5KffVk3/VQqz/Q8cY=",
+        "path": "/nix/store/ki3wi0aai388bx48i7fhymmvkg8s1m2x-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/rwwq5hhyg6zbmvg21z1z2llzjg4kd78h-source",
+        "path": "/nix/store/ki3wi0aai388bx48i7fhymmvkg8s1m2x-source",
         "type": "path"
       }
     },
@@ -903,11 +903,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1660182970,
-        "narHash": "sha256-YEznWDiFOoz9OUpeZOovJvxs9Pbnm0xiVLmggd4hMGk=",
+        "lastModified": 1660337108,
+        "narHash": "sha256-mY50SmWXaOOxSdJraER2nqfEeFWKinJVFYp0fBXezwc=",
         "owner": "astro",
         "repo": "microvm.nix",
-        "rev": "1aba4bba460e365589ef7f24ab7b08573c373ccf",
+        "rev": "d3a58266712190ffbfd580cf8d67b813fb7232c3",
         "type": "github"
       },
       "original": {

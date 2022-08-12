@@ -4,13 +4,17 @@
 }: let
   inherit (inputs.cells.main.library) __inputs__;
   inherit (__inputs__) nixpkgs-hardenedlinux;
+
   nixpkgs = inputs.nixpkgs.appendOverlays [
     (import ./nomad.nix)
   ];
+  terraform-providers-bin = __inputs__.terraform-providers.legacyPackages.providers;
 in {
-  # terraform = inputs.terraform-providers.legacyPackages.wrapTerraform nixpkgs.terraform (p: [
-  #   p.hashicorp.nomad
-  # ]);
+  terraform = nixpkgs.terraform.withPlugins (p: [
+    terraform-providers-bin.hashicorp.nomad
+    terraform-providers-bin.dmacvicar.libvirt
+    terraform-providers-bin.hashicorp.aws
+  ]);
 
   inherit
     (nixpkgs-hardenedlinux.packages)
@@ -18,7 +22,6 @@ in {
     ;
   inherit
     (nixpkgs)
-    terraform
     nomad
     ;
 }

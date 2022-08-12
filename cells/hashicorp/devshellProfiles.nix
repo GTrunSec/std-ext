@@ -5,8 +5,7 @@
   inherit (inputs) nixpkgs;
   inherit (cell) packages;
 in {
-  default = _: {
-    imports = [];
+  default = {
     env = [
       {
         name = "VAULT_ADDR";

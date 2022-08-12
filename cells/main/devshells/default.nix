@@ -12,6 +12,8 @@ in
         cell.devshellProfiles.default
         cell.devshellProfiles.docs
         inputs.cells.cargoMake.devshellProfiles.default
+      ] ++ [
+        inputs.cells.hashicorp.devshellProfiles.default
       ];
       nixago = [
         cell.nixago.treefmt
