@@ -14,6 +14,7 @@ in {
     terraform-providers-bin.hashicorp.nomad
     terraform-providers-bin.dmacvicar.libvirt
     terraform-providers-bin.hashicorp.aws
+    terraform-providers-bin.hashicorp.template
   ]);
 
   inherit

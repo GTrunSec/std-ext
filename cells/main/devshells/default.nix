@@ -8,13 +8,15 @@ in
   l.mapAttrs (_: std.std.lib.mkShell) {
     default = {...}: {
       name = "Cells Lab";
-      imports = [
-        cell.devshellProfiles.default
-        cell.devshellProfiles.docs
-        inputs.cells.cargoMake.devshellProfiles.default
-      ] ++ [
-        inputs.cells.hashicorp.devshellProfiles.default
-      ];
+      imports =
+        [
+          cell.devshellProfiles.default
+          cell.devshellProfiles.docs
+          inputs.cells.cargoMake.devshellProfiles.default
+        ]
+        ++ [
+          inputs.cells.hashicorp.devshellProfiles.default
+        ];
       nixago = [
         cell.nixago.treefmt
       ];

@@ -34,10 +34,14 @@ in {
         category = "hashicorp";
       }
       {
-        package = (packages.terraform // {name = "terraform";}) ;
+        package = packages.terraform // {name = "terraform";};
         category = "hashicorp";
         help = "Terraform is an open-source infrastructure as code software tool that provides a consistent CLI workflow to manage hundreds of cloud services.";
       }
+    ];
+    packages = [
+      # hashicorp.libvirtd required
+      nixpkgs.cdrkit
     ];
   };
 }

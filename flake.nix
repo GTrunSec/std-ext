@@ -12,12 +12,6 @@
   inputs = {
     std.url = "github:divnix/std";
     std.inputs.nixpkgs.follows = "nixpkgs";
-    yants.follows = "std/yants";
-
-    data-merge.url = "github:divnix/data-merge";
-    data-merge.inputs.nixpkgs.follows = "nixpkgs";
-    data-merge.inputs.yants.follows = "std/yants";
-    nixago.follows = "std/nixago";
   };
 
   outputs = {std, ...} @ inputs: let
