@@ -19,7 +19,7 @@ in {
   enumCheck = enum: n: v: let
     check =
       if (l.tryEval ((std.yants.enum "" enum) v)).success
-      then ""
+      then v
       else
         throw ''
           Invalid value for ${n}: "${v}"
