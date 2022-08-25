@@ -22,7 +22,7 @@ in
       ];
     };
     update = {...}: {imports = [inputs.cells.update.devshellProfiles.default];};
-    docs = std.std.lib.mkShell {
+    docs = {
       name = "mkdocs";
 
       std.adr.enable = false;

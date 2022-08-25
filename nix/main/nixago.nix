@@ -18,4 +18,9 @@ in {
       ];
     };
   };
+  mdbook = std.std.nixago.mdbook {
+    configData = {
+      book.title = "Cells Lab Doc";
+    };
+  };
 }
