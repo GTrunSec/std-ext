@@ -35,7 +35,7 @@ jobs:
       # - name: Check schedulers of config
       #   run: nix run .#x86_64-linux.schedulers.entrypoints.tenzir-config
 
-    - name: Check Docs Shell
+      - name: Check Docs Shell
         run: nix develop .#docs -c echo OK --print-build-logs
 
 
