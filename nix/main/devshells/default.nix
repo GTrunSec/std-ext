@@ -22,4 +22,16 @@ in
       ];
     };
     update = {...}: {imports = [inputs.cells.update.devshellProfiles.default];};
+    docs = std.std.lib.mkShell {
+      name = "mkdocs";
+
+      std.adr.enable = false;
+
+      imports = [
+        inputs.std.std.devshellProfiles.default
+      ];
+      nixago = [
+        cell.nixago.mdbook
+      ];
+    };
   }

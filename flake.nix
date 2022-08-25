@@ -19,7 +19,7 @@
   in
     std.growOn {
       inherit inputs;
-      cellsFrom = ./cells;
+      cellsFrom = ./nix;
       systems = [
         "aarch64-darwin"
         "aarch64-linux"

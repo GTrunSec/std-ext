@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
       - uses: cachix/install-nix-action@v17
         with:
-          install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.9.0pre20220428_660835d/install
+          install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.10.0pre20220728_86fcd4f/install
           extra_nix_config: |
             experimental-features = nix-command flakes
             system-features = nixos-test benchmark big-parallel kvm recursive-nix
@@ -34,6 +34,10 @@ jobs:
 
       # - name: Check schedulers of config
       #   run: nix run .#x86_64-linux.schedulers.entrypoints.tenzir-config
+
+    - name: Check Docs Shell
+        run: nix develop .#docs -c echo OK --print-build-logs
+
 
       - name: Check cargo-make flow
         run: |
