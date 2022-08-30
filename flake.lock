@@ -345,6 +345,9 @@
         "latest": "latest",
         "nixos": "nixos",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-lock": [
+          "nixpkgs"
+        ],
         "org-roam-book-template": "org-roam-book-template",
         "std": "std"
       }

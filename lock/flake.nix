@@ -21,7 +21,6 @@
     makes.url = "github:fluidattacks/makes";
 
     nix2container.url = "github:nlewo/nix2container";
-    # nix2container.inputs.nixpkgs.follows = "nixpkgs"; # skopeo-nix2container override was locked by patch
   };
 
   # configuration modules

@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-lock.follows = "nixpkgs";
     latest.url = "github:NixOS/nixpkgs/master";
     nixos.url = "github:NixOS/nixpkgs/nixos-22.05";
 
@@ -23,7 +24,7 @@
     clades = import ./clades inputs;
   in
     std.growOn {
-      inputs = inputs // {__inputs__ = inputs;};
+      inherit inputs;
       cellsFrom = ./nix;
       systems = [
         "aarch64-darwin"
