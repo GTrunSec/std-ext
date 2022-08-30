@@ -4,7 +4,7 @@
 }: src: overrides: let
   inherit (inputs) self std nixpkgs;
   l = nixpkgs.lib;
-  lockFile = l.recursiveUpdate (builtins.fromJSON (builtins.readFile (src + "/flake.lock"))) overrides;
+  lockFile = l.recursiveUpdate (builtins.fromJSON (builtins.readFile (src + "/flake.lock"))) {nodes = overrides;};
   compatFlake = import "${inputs.flake-compat}" {
     inherit lockFile src;
   };
