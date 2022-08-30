@@ -1,11 +1,13 @@
 {
   inputs,
   cell,
-}@args: let
+} @ args: let
   inherit (inputs) nixpkgs std self;
   inherit (nixpkgs) lib;
   __inputs__ = cell.library.callFlake "${(std.incl self [(self + /lock)])}/lock" {
-    statix.inputs.nixpkgs = inputs.nixpkgs.__inputs__.nixos;
+    nodes.nixpkgs.locked = inputs.__inputs__.nixpkgs.sourceInfo;
+    nodes.statix.inputs.nixpkgs = "nixpkgs";
+    nodes.nixpkgs-hardenedlinux.inputs.nixpkgs = "nixpkgs";
   };
 in {
   inherit __inputs__;

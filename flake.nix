@@ -23,7 +23,7 @@
     clades = import ./clades inputs;
   in
     std.growOn {
-      inputs =  inputs // { __inptus__ = inputs; };
+      inputs = inputs // {__inputs__ = inputs;};
       cellsFrom = ./nix;
       systems = [
         "aarch64-darwin"

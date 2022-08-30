@@ -9,4 +9,4 @@
     inherit lockFile src;
   };
 in
-  compatFlake.defaultNix.inputs
+  std.deSystemize nixpkgs.system compatFlake.defaultNix.inputs

@@ -1,5 +1,4 @@
-nixpkgs: src:
-let
+nixpkgs: src: let
   inherit
     (import
       (
