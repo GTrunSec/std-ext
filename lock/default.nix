@@ -1,3 +1,4 @@
+nixpkgs: src:
 let
   inherit
     (import
@@ -10,7 +11,7 @@ let
             sha256 = lock.nodes.flake-compat.locked.narHash;
           }
       )
-      {src = ./.;})
+      {inherit src;})
     defaultNix
     ;
 in

@@ -4,6 +4,11 @@
     latest.url = "github:NixOS/nixpkgs/master";
     nixos.url = "github:NixOS/nixpkgs/nixos-22.05";
 
+    flake-compat = {
+      url = "github:gtrunsec/flake-compat/lockFile";
+      flake = false;
+    };
+
     org-roam-book-template.url = "github:gtrunsec/org-roam-book-template";
     org-roam-book-template.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -18,7 +23,7 @@
     clades = import ./clades inputs;
   in
     std.growOn {
-      inherit inputs;
+      inputs =  inputs // { __inptus__ = inputs; };
       cellsFrom = ./nix;
       systems = [
         "aarch64-darwin"
