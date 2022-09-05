@@ -6,7 +6,7 @@
   inherit (inputs) nixpkgs;
   inputsSystem = {inputs.nixpkgs.legacyPackages."${nixpkgs.system}" = nixpkgs;};
 in {
-  nickel = library.importNcl ./shell.ncl inputsSystem.inputs;
+  # nickel = library.importNcl ./shell.ncl inputsSystem.inputs;
   default = _: {
     commands = [
       {

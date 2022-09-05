@@ -11,7 +11,7 @@
 in
   nix2container.buildImage {
     name = builtins.baseNameOf ./images/comonicon-mycmd.nix;
-    contents = [
+    copyToRoot = [
       comonicon.entrypoints.mycmd
       cmdVar
       # When we want tools in /, we need to symlink them in order to

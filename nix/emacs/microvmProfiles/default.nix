@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs.cells.main.library) __inputs__;
-  microvm = inputs.std.std.lib.fromMicrovmWith __inputs__;
+  microvm = inputs.std.std.lib.fromMicrovmWith (__inputs__ // {inherit (inputs) nixpkgs;});
 in {
   inherit (inputs) nixpkgs;
   task = microvm ({

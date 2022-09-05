@@ -6,7 +6,7 @@
   inherit (inputs.cells.main.library) __inputs__;
   inherit (__inputs__.nickel-nix.packages) importNcl;
 in {
-  inherit importNcl;
+  # inherit importNcl;
 
   makeConfig = settings: source: let
     path = builtins.elemAt settings 0;

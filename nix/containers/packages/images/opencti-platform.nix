@@ -10,7 +10,7 @@
 in
   nix2container.buildImage {
     name = builtins.baseNameOf ./opencti-platform.nix;
-    contents = [
+    copyToRoot = [
       (pkgs.symlinkJoin {
         name = "root";
         paths = [pkgs.bashInteractive pkgs.coreutils];
