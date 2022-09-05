@@ -28,32 +28,32 @@
         "x86_64-linux"
       ];
       organelles = [
-        (std.installables "packages")
+        (std.blockTypes.installables "packages")
 
-        (std.nixago "nixago")
+        (std.blockTypes.nixago "nixago")
 
-        (std.functions "devshellProfiles")
-        (std.devshells "devshells")
+        (std.blockTypes.functions "devshellProfiles")
+        (std.blockTypes.devshells "devshells")
 
-        (std.runnables "entrypoints")
-        (std.runnables "onPremises")
+        (std.blockTypes.runnables "entrypoints")
+        (std.blockTypes.runnables "onPremises")
 
-        (std.functions "generators")
-        (std.functions "library")
+        (std.blockTypes.functions "generators")
+        (std.blockTypes.functions "library")
 
-        (std.functions "nixosProfiles")
-        (std.microvms "microvmProfiles")
+        (std.blockTypes.functions "nixosProfiles")
+        (std.blockTypes.microvms "microvmProfiles")
 
-        (std.files "configFiles")
-        (std.data "containerJobs")
-        (std.data "schemaProfiles")
+        (std.blockTypes.files "configFiles")
+        (std.blockTypes.data "containerJobs")
+        (std.blockTypes.data "schemaProfiles")
 
-        (std.data "consulProfiles")
-        (std.data "nomadJobs")
-        (std.data "terranix")
+        (std.blockTypes.data "consulProfiles")
+        (std.blockTypes.data "nomadJobs")
+        (std.blockTypes.data "terranix")
 
-        (std.data "cargoMakeJobs")
-        (std.data "waterwheelJobs")
+        (std.blockTypes.data "cargoMakeJobs")
+        (std.blockTypes.data "waterwheelJobs")
       ];
     } {
       devShells = inputs.std.harvest inputs.self ["main" "devshells"];
