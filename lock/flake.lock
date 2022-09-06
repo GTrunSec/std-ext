@@ -648,11 +648,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1662408457,
-        "narHash": "sha256-WmVczkrcyGhBX5fuJtD4bgmIPUYxYySGzxHvYQy6eGE=",
+        "lastModified": 1662425977,
+        "narHash": "sha256-Tqa9bRUNV2IFgx5DxvEmPxetbwGa+NKLhFDx8IqQuGY=",
         "owner": "astro",
         "repo": "microvm.nix",
-        "rev": "86dd0b6d05ef349f06906e6e5e7f62e710c1bc26",
+        "rev": "3dabf2a04db57ede7f2e91ee0f33787f70b60638",
         "type": "github"
       },
       "original": {
@@ -1507,11 +1507,11 @@
         "nixpkgs": "nixpkgs_17"
       },
       "locked": {
-        "lastModified": 1662339694,
-        "narHash": "sha256-0E6TEXd61oVZbtj8cgh2CNDbJdRDTgAuvgzbVUZrHjw=",
+        "lastModified": 1662425889,
+        "narHash": "sha256-PGvy4yssMKXS6lrt/2gFWFYhhf8zfFe+A/ep651A0iw=",
         "owner": "numtide",
         "repo": "nixpkgs-terraform-providers-bin",
-        "rev": "f423629063436a89df9d2565ab45d5a731d79356",
+        "rev": "d15c748b22c33fa492b872915c4c55a929b43f2c",
         "type": "github"
       },
       "original": {
