@@ -4,30 +4,27 @@
     cells-lab.url = "github:GTrunSec/cells-lab";
 
     std.follows = "cells-lab/std";
-    yants.follows = "cells-lab/yants";
-    org-roam-book-template.follows = "cells-lab/org-roam-book-template";
-    data-merge.follows = "cells-lab/data-merge";
-    nixago.follows = "cells-lab/nixago";
   };
   outputs = {std, ...} @ inputs:
     std.growOn {
       inherit inputs;
-      cellsFrom = ./cells;
-      organelles = [
-        (std.installables "packages")
+      cellsFrom = ./nix;
 
-        (std.functions "devshellProfiles")
-        (std.devshells "devshells")
+      cellBlocks = [
+        (std.blockTypes.installables "packages")
 
-        (std.runnables "entrypoints")
+        (std.blockTypes.functions "devshellProfiles")
+        (std.blockTypes.devshells "devshells")
 
-        (std.functions "library")
+        (std.blockTypes.runnables "entrypoints")
 
-        (std.functions "packages")
+        (std.blockTypes.functions "library")
 
-        (std.functions "overlays")
+        (std.blockTypes.functions "packages")
 
-        (std.nixago "nixago")
+        (std.blockTypes.functions "overlays")
+
+        (std.blockTypes.nixago "nixago")
       ];
     } {
       devShells = inputs.std.harvest inputs.self ["main" "devshells"];

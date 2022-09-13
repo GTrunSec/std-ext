@@ -7,10 +7,17 @@
 in
   l.mapAttrs (_: std.std.lib.mkShell) {
     default = {...}: {
+      std.adr.enable = false;
+
       name = "default: Cells Lab Tempalte";
+
       imports = [
         inputs.cells-lab.main.devshellProfiles.default
-        inputs.cells-lab.main.devshellProfiles.docs
+      ];
+
+      nixago = [
+        cell.nixago.mdbook
+        cell.nixago.treefmt
       ];
     };
   }
