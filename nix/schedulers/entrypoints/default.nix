@@ -7,7 +7,7 @@
 in {
   tenzir-config = writePiplelineApplication {
     name = "tenzir-config";
-    runtimeInputs = [nixpkgs.julia_17-bin];
+    runtimeInputs = [nixpkgs.julia_18-bin];
     # https://docs.julialang.org/en/v1/manual/multi-threading/#Starting-Julia-with-multiple-threads
     threads = 12;
     path = ./.;
@@ -15,7 +15,7 @@ in {
   };
   job = writePiplelineApplication {
     name = "job";
-    runtimeInputs = [nixpkgs.julia_17-bin];
+    runtimeInputs = [nixpkgs.julia_18-bin];
     path = ./.;
     args = ["job.jl"];
   };

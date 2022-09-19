@@ -9,7 +9,7 @@ in {
     commands = [
       {
         name = "julia";
-        package = nixpkgs.julia_17-bin;
+        package = nixpkgs.julia_18-bin;
         category = "julia";
       }
       {

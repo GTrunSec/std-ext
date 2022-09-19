@@ -3,7 +3,7 @@
   cell,
 }: {
   name,
-  julia ? inputs.nixpkgs.julia_17-bin,
+  julia ? inputs.nixpkgs.julia_18-bin,
   path ? "",
   args ? [],
   env ? {},
