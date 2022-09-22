@@ -3,7 +3,8 @@
   cell,
 } @ args: let
   inherit (inputs) nixpkgs std self;
-  inherit (nixpkgs) lib;
+  l = nixpkgs.lib // builtins;
+
   __inputs__ = cell.library.callFlake "${(std.incl self [(self + /lock)])}/lock" {
     # this is a hack to get the lock file to be followed in our nixpkgs channel
     nixpkgs.locked = inputs.nixpkgs-lock.sourceInfo;
@@ -19,10 +20,8 @@
     nvfetcher.inputs.nixpkgs = "nixos";
   };
 in {
-  inherit __inputs__ inputs;
-  /*
-  tests = mergeDevShell { default = cell.devshellProfiles.mkshell; mkshell = cell.devshell;};
-  */
+  inherit __inputs__ inputs l;
+
   mergeDevShell = import ./mergeDevShell.nix nixpkgs;
 
   callFlake = import ./callFlake.nix args;

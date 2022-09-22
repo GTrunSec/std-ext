@@ -2,7 +2,8 @@
   inputs,
   cell,
 } @ args: let
-  inherit (inputs.nixpkgs) glibcLocales;
+  inherit (inputs.cells.main.library) l;
+  inherit (inputs) nixpkgs;
 
   writeClicheApplication = _args: import ./writeClicheApplication.nix args _args;
 
@@ -40,7 +41,11 @@ in {
       args
       // {
         text = ''
-          export LOCALE_ARCHIVE=${glibcLocales}/lib/locale/locale-archive
+           ${l.optionalString (nixpkgs.stdenv.hostPlatform.libc == "glibc") ''
+            export LOCALE_ARCHIVE=${
+              nixpkgs.glibcLocales.override {allLocales = false;}
+            }/lib/locale/locale-archive
+          ''}
           ${args.text}
         '';
       }
