@@ -1,14 +1,14 @@
 {inputs}: _lfinal: lprev: let
-  lib = lprev;
+  l = lprev // builtins;
 in rec {
   mapNestedMattr = let
     f = x:
-      lib.foldr
-      (n: acc: acc // lib.mapAttrs' (n': lib.nameValuePair (n + "-" + n')) (x.${n})) {} (lib.attrNames x);
+      l.foldr
+      (n: acc: acc // l.mapAttrs' (n': l.nameValuePair (n + "-" + n')) (x.${n})) {} (l.attrNames x);
   in
     f;
 
-  genAttrs' = values: f: lib.listToAttrs (map f values);
+  genAttrs' = values: f: l.listToAttrs (map f values);
 
   makeNestedJobs = paths: args:
     mapNestedMattr (mapNestedMattr (mapNestedMattr (genAttrs' paths (

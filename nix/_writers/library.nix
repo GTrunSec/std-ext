@@ -14,6 +14,14 @@
   writeComoniconApplication = _args: import ./writeComoniconApplication.nix args _args;
 
   writeConfiguration = _args: import ./writeConfiguration.nix args _args;
+in {
+  inherit
+    writeClicheApplication
+    writePiplelineApplication
+    writeComoniconApplication
+    writeConfiguration
+    ;
+
   /*
   doc = writeGlowDoc {
     name = "CLI Docs"
@@ -26,15 +34,10 @@
     extraMd = ./default.md;
   };
   */
+
   writeGlowDoc = _args: import ./writeGlowDoc.nix args _args;
-in {
-  inherit
-    writeClicheApplication
-    writePiplelineApplication
-    writeComoniconApplication
-    writeConfiguration
-    writeGlowDoc
-    ;
+
+  writeConfig = _args: import ./writeConfig.nix args _args;
 
   writeShellApplication = {...} @ args:
     writeShellApplication (

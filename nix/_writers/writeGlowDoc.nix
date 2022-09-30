@@ -7,7 +7,7 @@
   extraMd ? "",
   tip ? "",
 }: let
-  inherit (inputs) std self nixpkgs;
+  inherit (inputs) nixpkgs;
   inherit (inputs.cells.main.library) __inputs__;
   inherit (nixpkgs) lib;
 

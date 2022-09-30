@@ -688,11 +688,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1663931981,
-        "narHash": "sha256-mVf1fMlTVk4uwHwR7z/aj02mUuTUg4UTAYKLKnRYd/o=",
+        "lastModified": 1664443021,
+        "narHash": "sha256-LYjnrFLWPRKhkKMH3vrt6xx5N67xS6smSCAPhfmCjs8=",
         "owner": "tweag",
         "repo": "nickel",
-        "rev": "2e708011ccdb03d298113da65d606e41feb451a8",
+        "rev": "54bfa6eb3074305ab289cec98fe2d6bedd1fdaf2",
         "type": "github"
       },
       "original": {
@@ -1507,11 +1507,11 @@
         "nixpkgs": "nixpkgs_17"
       },
       "locked": {
-        "lastModified": 1664413710,
-        "narHash": "sha256-zSh1ce2DrTDwDY60KxIz0osdKX8X3kaFoIQFXUVyHDs=",
+        "lastModified": 1664500894,
+        "narHash": "sha256-2nM+7yRy7yUszAMIzovVY1MoZKw2wxr8nFuxazZ86do=",
         "owner": "numtide",
         "repo": "nixpkgs-terraform-providers-bin",
-        "rev": "7bbb0cf9a32b35d42c0eff9cce908fa807a4bcac",
+        "rev": "41d8a703d36574e738f8dcf98a3a58d19ee8a75e",
         "type": "github"
       },
       "original": {
