@@ -1,6 +1,10 @@
 {
   # nix linters
   inputs = {
+    std.url = "github:divnix/std";
+  };
+
+  inputs = {
     deadnix.url = "github:astro/deadnix";
     statix.url = "github:nerdypepper/statix";
   };
@@ -20,7 +24,7 @@
 
     makes.url = "github:fluidattacks/makes";
 
-    nix2container.url = "github:nlewo/nix2container";
+    n2c.url = "github:nlewo/nix2container";
   };
 
   # configuration modules

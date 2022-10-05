@@ -2,10 +2,10 @@
   cell,
   inputs,
 }: let
-  inherit (inputs.cells.main.library) __inputs__;
+  inherit (inputs.cells.main.lib) __inputs__;
   inherit (__inputs__) terranix nixpkgs;
   inherit (inputs.nixpkgs) system;
-  inherit (inputs.cells._writers.library) writeConfiguration;
+  inherit (inputs.cells._writers.lib) writeConfiguration;
 in {
   example = terranix.lib.terranixConfiguration {
     inherit system;

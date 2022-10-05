@@ -2,8 +2,8 @@
   inputs,
   cell,
 }: let
-  inherit (cell) library terranix;
-  inherit (inputs.cells._writers.library) writeConfiguration;
+  inherit (cell) lib terranix;
+  inherit (inputs.cells._writers.lib) writeConfiguration;
 in {
   threatbus-nomad-nixpkgs-nickel = writeConfiguration {
     name = "nomad-threatbus";

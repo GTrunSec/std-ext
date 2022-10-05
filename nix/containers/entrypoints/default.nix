@@ -3,7 +3,7 @@
   cell,
 } @ args: let
   inherit (inputs) nixpkgs;
-  inherit (inputs.cells._writers.library) writeShellApplication;
+  inherit (inputs.cells._writers.lib) writeShellApplication;
   inherit (cell) packages;
 in {
   podman-opencti-platform = writeShellApplication {

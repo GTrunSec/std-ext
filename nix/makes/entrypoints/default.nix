@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
-  inherit (cell.library) makeSopsScript makeScript __output__;
+  inherit (cell.lib) makeSopsScript makeScript __output__;
 in {
   secrets-for-gpg-from-env = makeSopsScript {
     name = "name";

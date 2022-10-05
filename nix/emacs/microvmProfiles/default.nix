@@ -2,8 +2,8 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells.main.library) __inputs__;
-  microvm = inputs.std.std.lib.fromMicrovmWith (__inputs__ // {inherit (inputs) nixpkgs;});
+  inherit (inputs.cells.main.lib) __inputs__;
+  microvm = __inputs__.std.lib.ops.mkMicrovm;
 in {
   inherit (inputs) nixpkgs;
   task = microvm ({

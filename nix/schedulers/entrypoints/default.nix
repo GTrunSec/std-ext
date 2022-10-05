@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
-  inherit (inputs.cells._writers.library) writePiplelineApplication;
+  inherit (inputs.cells._writers.lib) writePiplelineApplication;
 in {
   tenzir-config = writePiplelineApplication {
     name = "tenzir-config";

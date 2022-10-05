@@ -5,7 +5,7 @@
   l = nixpkgs.lib // builtins;
   inherit (inputs) nixpkgs std;
 in
-  l.mapAttrs (_: std.std.lib.mkShell) {
+  l.mapAttrs (_: std.lib.dev.mkShell) {
     default = {...}: {
       name = "Cells Lab";
       imports =

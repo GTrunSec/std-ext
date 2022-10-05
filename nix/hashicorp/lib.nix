@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells._writers.library) writeConfiguration;
+  inherit (inputs.cells._writers.lib) writeConfiguration;
 in {
   makeNomadJobs = settings: source: let
     dir = builtins.elemAt settings 0;

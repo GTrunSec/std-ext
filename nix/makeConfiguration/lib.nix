@@ -2,8 +2,8 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells._modules.library) makeConfiguration;
-  inherit (inputs.cells.main.library) __inputs__;
+  inherit (inputs.cells._modules.lib) makeConfiguration;
+  inherit (inputs.cells.main.lib) __inputs__;
   inherit (__inputs__.nickel-nix.packages) importNcl;
 in {
   # inherit importNcl;

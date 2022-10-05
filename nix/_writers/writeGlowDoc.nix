@@ -8,7 +8,7 @@
   tip ? "",
 }: let
   inherit (inputs) nixpkgs;
-  inherit (inputs.cells.main.library) __inputs__;
+  inherit (inputs.cells.main.lib) __inputs__;
   inherit (nixpkgs) lib;
 
   getDocs = path: (builtins.attrNames (__inputs__.xnlib.lib.importers.filterFiles
@@ -62,7 +62,7 @@
     esac
   '';
 in
-  cell.library.writeShellApplication {
+  cell.lib.writeShellApplication {
     name = "writeGlowDoc";
     runtimeInputs = [nixpkgs.glow];
     text = content;

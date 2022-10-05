@@ -2,9 +2,9 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells._writers.library) writeShellApplication;
-  inherit (inputs.cells._modules.library) makeConfiguration;
-  inherit (inputs.cells.main.library) __inputs__;
+  inherit (inputs.cells._writers.lib) writeShellApplication;
+  inherit (inputs.cells._modules.lib) makeConfiguration;
+  inherit (inputs.cells.main.lib) __inputs__;
 
   nixpkgs = inputs.nixpkgs.appendOverlays [
     (

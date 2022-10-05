@@ -4,7 +4,7 @@
 }: let
   inherit (cell) nomadJobs;
   inherit (inputs) nixpkgs self;
-  inherit (inputs.cells.hashicorp.library) makeNomadJobs;
+  inherit (inputs.cells.hashicorp.lib) makeNomadJobs;
 in {
   nixos = {
     dev = makeNomadJobs ["services/nomad/airflow/nixos" "dev" "dev.json"] (nomadJobs.nixos.airflow {

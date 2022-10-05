@@ -1,6 +1,6 @@
 # Document Title
 
-    Nickel library for Nickel-Nix interoperability. Provide contracts used to
+    Nickel lib for Nickel-Nix interoperability. Provide contracts used to
     serialize Nix inputs to Nickel, to define a Nickel expression, and helpers
     to build strings which preserves Nix string contexts.
 

@@ -3,7 +3,7 @@
   cell,
 }: let
   nixpkgs = inputs.nixpkgs.appendOverlays [];
-  inherit (inputs.cells._writers.library) writeShellApplication;
+  inherit (inputs.cells._writers.lib) writeShellApplication;
   eval = (import ./modules) nixpkgs;
 in {
   # makeConfiguration = templates:

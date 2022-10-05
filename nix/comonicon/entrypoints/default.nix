@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
-  inherit (inputs.cells._writers.library) writeComoniconApplication;
+  inherit (inputs.cells._writers.lib) writeComoniconApplication;
 in {
   mycmd = writeComoniconApplication {
     name = "mycmd";

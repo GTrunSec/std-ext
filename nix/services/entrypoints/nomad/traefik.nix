@@ -4,7 +4,7 @@
 }: let
   inherit (cell) nomadJobs;
   inherit (inputs) nixpkgs self;
-  inherit (inputs.cells.hashicorp.library) makeNomadJobs;
+  inherit (inputs.cells.hashicorp.lib) makeNomadJobs;
 in {
   container = {
     dev = makeNomadJobs ["services/nomad/traefik/container" "dev" "dev.json"] (nomadJobs.container.traefik {

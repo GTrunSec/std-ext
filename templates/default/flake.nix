@@ -18,7 +18,7 @@
 
         (std.blockTypes.runnables "entrypoints")
 
-        (std.blockTypes.functions "library")
+        (std.blockTypes.functions "lib")
 
         (std.blockTypes.functions "packages")
 

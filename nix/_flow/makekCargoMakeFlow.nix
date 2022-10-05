@@ -8,7 +8,7 @@
   args ? [],
   ...
 } @ _args: let
-  inherit (inputs.cells._writers.library) writeShellApplication;
+  inherit (inputs.cells._writers.lib) writeShellApplication;
   inherit (inputs) nixpkgs;
   commands = nixpkgs.lib.concatStringsSep "\n" (map (c: ''cargo-make make --makefile ${_args.source} -t ${c} "$@"'') args);
 in

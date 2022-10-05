@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells.main.library) __inputs__;
+  inherit (inputs.cells.main.lib) __inputs__;
 
   makes = inputs.std."x86_64-linux".std.lib.fromMakesWith (__inputs__ // inputs);
 

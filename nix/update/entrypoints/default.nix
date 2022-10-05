@@ -2,12 +2,12 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells.main.library) __inputs__;
+  inherit (inputs.cells.main.lib) __inputs__;
   nixpkgs = inputs.nixpkgs.appendOverlays [
     __inputs__.nixpkgs-hardenedlinux.overlays."nixpkgs/nixpkgs-hardenedlinux-sources"
   ];
   inherit (cell) packages;
-  inherit (inputs.cells._writers.library) writeShellApplication;
+  inherit (inputs.cells._writers.lib) writeShellApplication;
 in {
   nix-github-update = writeShellApplication {
     name = "nix-github-update";

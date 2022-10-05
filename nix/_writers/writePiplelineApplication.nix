@@ -10,9 +10,9 @@
   threads ? 8,
   runtimeInputs ? [],
 }: let
-  inherit (cell) library;
+  inherit (cell) lib;
 in
-  library.writeShellApplication {
+  lib.writeShellApplication {
     inherit name env;
     runtimeInputs = [julia] ++ runtimeInputs;
     text = ''

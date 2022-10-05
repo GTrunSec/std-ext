@@ -12,6 +12,8 @@
   # Std Inputs
   inputs = {
     std.url = "github:divnix/std";
+    # std.url = "/home/gtrun/ghq/github.com/divnix/std";
+    # std.url = "github:divnix/std/?ref=refs/pull/150/head";
     std.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -39,7 +41,7 @@
         (std.blockTypes.runnables "onPremises")
 
         (std.blockTypes.functions "generators")
-        (std.blockTypes.functions "library")
+        (std.blockTypes.functions "lib")
 
         (std.blockTypes.functions "nixosProfiles")
         (std.blockTypes.microvms "microvmProfiles")

@@ -2,10 +2,10 @@
   inputs,
   cell,
 }: let
-  inherit (cell) library packages;
-  inherit (inputs.cells._writers.library) writeConfiguration;
+  inherit (cell) lib packages;
+  inherit (inputs.cells._writers.lib) writeConfiguration;
 
-  inherit (inputs.cells.makes.library) makeSubstitution;
+  inherit (inputs.cells.makes.lib) makeSubstitution;
 
   name = "containers-" + builtins.baseNameOf ./.;
 

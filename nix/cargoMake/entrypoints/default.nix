@@ -2,9 +2,9 @@
   inputs,
   cell,
 }: let
-  inherit (cell) library cargoMakeJobs;
-  inherit (inputs.cells._writers.library) writeConfiguration;
-  inherit (inputs.cells._flow.library) makeCargoMakeFlow;
+  inherit (cell) lib cargoMakeJobs;
+  inherit (inputs.cells._writers.lib) writeConfiguration;
+  inherit (inputs.cells._flow.lib) makeCargoMakeFlow;
 in rec {
   test = writeConfiguration {
     name = "test-flow";
