@@ -4,7 +4,7 @@
 }: let
   inherit (inputs.cells.main.lib) __inputs__;
 
-  makes = inputs.std."x86_64-linux".std.lib.fromMakesWith (__inputs__ // inputs);
+  makes = __inputs__.std."x86_64-linux".lib.dev.mkMakes;
 
   makeScript = args: makes ./makeLib/makeScript.nix {} args;
 
