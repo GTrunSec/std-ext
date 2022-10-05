@@ -2,14 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells._writers.lib) writeConfiguration;
+  inherit (inputs.cells._writers.lib) writeConfig;
 in {
-  test =
-    (writeConfiguration {
-      name = "test-flow";
-      format = "toml";
-      language = "nix";
-      source = cell.cargoMakeJobs.default;
-    })
-    .data;
+  test = writeConfig "test-flow" "toml" cell.cargoMakeJobs.default;
 }
