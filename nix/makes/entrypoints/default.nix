@@ -13,7 +13,11 @@ in {
   };
   scriptEnv = makeScript {
     name = "scriptEnv";
-    env = __output__.envVars.example;
+    env = {
+      a = "1";
+      b = "2";
+      VAR_NAME = "test";
+    };
     searchPaths.bin = [nixpkgs.hello];
     searchPaths.source = [];
     entrypoint = "hello --help echo $a";

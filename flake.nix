@@ -51,7 +51,7 @@
         (std.blockTypes.data "schemaProfiles")
 
         (std.blockTypes.data "consulProfiles")
-        (std.blockTypes.data "nomadJobs")
+        (std.blockTypes.nomadJobManifests "nomadJobs")
         (std.blockTypes.data "terranix")
 
         (std.blockTypes.data "cargoMakeJobs")

@@ -22,7 +22,7 @@ in {
       vars = ["CLOUDFLARE_ACCOUNT_ID" "CLOUDFLARE_API_TOKEN"];
     };
     example = {
-      manifest = ../secrets/opencti.yaml;
+      manifest = ../secrets/secrets-opencti.yaml;
       vars = ["OPENCTI_ADMIN_EMAIL" "OPENCTI_ADMIN_PASSWORD"];
     };
   };
