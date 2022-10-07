@@ -11,7 +11,6 @@
   target ? "",
   text ? "",
 }: let
-  inherit (cell) lib;
   inherit (inputs.nixpkgs) lib;
   inherit (inputs) cells nixpkgs;
   json =
@@ -40,7 +39,7 @@
       ''}
     '';
 in
-  (lib.writeShellApplication {
+  (cell.lib.writeShellApplication {
     inherit name;
     runtimeInputs =
       lib.optionals (language == "nickel") [cells.makeConfiguration.packages.nickel]

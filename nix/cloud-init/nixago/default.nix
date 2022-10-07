@@ -2,16 +2,16 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) std nixpkgs data-merge;
+  inherit (inputs) std;
 in
-  builtins.mapAttrs (_: std.std.lib.mkNixago) {
+  builtins.mapAttrs (_: std.lib.dev.mkNixago) {
     example = {
       configData = {
         description = ''
           https://cloudinit.readthedocs.io/en/latest/topics/examples.html
         '';
       };
-      output = "test/schemas/phishing-url-jsonschema.yaml";
+      output = "test/schemas/cloud-init.json";
       format = "yaml";
       hook.mode = "copy";
     };

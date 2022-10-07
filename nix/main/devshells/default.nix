@@ -22,7 +22,9 @@ in
         cell.nixago.treefmt
       ];
     };
+
     update = {...}: {imports = [inputs.cells.update.devshellProfiles.default];};
+
     docs = {
       name = "mkdocs";
 
