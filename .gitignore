@@ -6,7 +6,9 @@ tmp/
 .cache
 .terraform
 vast.yaml
-.*
+.std
+.terr*
+terraform.tfstate*
 !.sops.yaml
 gcroot
 docs/publish

@@ -1,0 +1,7 @@
+{
+  inputs,
+  cell,
+}: {
+  cloud-init = {
+  };
+}

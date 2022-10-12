@@ -42,6 +42,7 @@
 
         (std.blockTypes.functions "generators")
         (std.blockTypes.functions "lib")
+        (std.blockTypes.functions "config")
 
         (std.blockTypes.functions "nixosProfiles")
         (std.blockTypes.microvms "microvmProfiles")
@@ -51,7 +52,7 @@
         (std.blockTypes.data "schemaProfiles")
 
         (std.blockTypes.data "consulProfiles")
-        (std.blockTypes.nomadJobManifests "nomadJobs")
+        (std.blockTypes.data "nomadJobs")
         (std.blockTypes.data "terranix")
 
         (std.blockTypes.data "cargoMakeJobs")
