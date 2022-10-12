@@ -7,9 +7,7 @@
 in {
   mkdoc = let
     org-roam-book = inputs.org-roam-book-template.packages.${nixpkgs.system}.default.override {
-      org = "${(std.incl self [
-        (self + /docs/org)
-      ])}/docs/org";
+      org = "${(std.incl self ["docs"])}/docs/org";
     };
   in
     writeShellApplication {
