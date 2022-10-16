@@ -7,8 +7,6 @@
 
   writeClicheApplication = _args: import ./writeClicheApplication.nix args _args;
 
-  writeShellApplication = _args: import ./writeShellApplication.nix args _args;
-
   writePiplelineApplication = _args: import ./writePiplelineApplication.nix args _args;
 
   writeComoniconApplication = _args: import ./writeComoniconApplication.nix args _args;
@@ -40,7 +38,7 @@ in {
   writeConfig = _args: import ./writeConfig.nix args _args;
 
   writeShellApplication = {...} @ args:
-    writeShellApplication (
+    inputs.std.lib.ops.writeScript (
       args
       // {
         text = ''
