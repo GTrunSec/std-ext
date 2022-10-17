@@ -18,6 +18,9 @@ in {
   };
   nvfetcher-update = writeShellApplication {
     name = "nvfetcher-update";
+    runtimeEnv = {
+      LC_ALL = "en_US.UTF-8";
+    };
     runtimeInputs = [packages.nvfetcher];
     text = "export NIX_PATH=nixpkgs=${nixpkgs.path} \n" + nixpkgs.lib.fileContents ./nvfetcher-update.bash;
   };

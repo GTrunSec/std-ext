@@ -6,14 +6,14 @@
   julia ? inputs.nixpkgs.julia_18-bin,
   path ? "",
   args ? [],
-  env ? {},
+  runtimeEnv ? {},
   threads ? 8,
   runtimeInputs ? [],
 }: let
   inherit (cell) lib;
 in
   lib.writeShellApplication {
-    inherit name env;
+    inherit name runtimeEnv;
     runtimeInputs = [julia] ++ runtimeInputs;
     text = ''
       manifest=${./_packages/comonicon}
