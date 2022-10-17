@@ -1,8 +1,10 @@
 {
   inputs,
   cell,
-}: name: format: attr: let
+}: name: attr: let
   inherit (cell) lib;
   inherit (inputs) nixpkgs;
+  l = inputs.nixpkgs.lib // builtins;
+  getFormat = l.last (l.splitString "." name);
 in
-  (nixpkgs.formats."${format}" {}).generate "${name}" attr
+  (nixpkgs.formats."${getFormat}" {}).generate "${name}" attr
