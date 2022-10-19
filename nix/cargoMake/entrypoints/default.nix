@@ -7,7 +7,7 @@
   inherit (inputs.cells._flow.lib) makeCargoMakeFlow;
 in rec {
   flow = makeCargoMakeFlow {
-    source = writeConfig "test-flow" "toml" cargoMakeJobs.default;
+    source = writeConfig "test-flow.toml" cargoMakeJobs.default;
     args = ["format"];
   };
 }
