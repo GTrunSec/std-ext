@@ -7,7 +7,7 @@
 
   __inputs__ = cell.lib.callFlake "${(std.incl self ["lock"])}/lock" {
     # this is a hack to get the lock file to be followed in our nixpkgs channel
-    nixpkgs.locked = inputs.nixpkgs-lock.sourceInfo;
+    nixpkgs.locked = inputs.nixpkgs.sourceInfo;
     nixos.locked =
       inputs.nixos.sourceInfo
       // {
