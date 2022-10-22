@@ -3,10 +3,10 @@
   cell,
 }: let
   inherit (inputs.cells.main.lib) __inputs__;
-  inherit (__inputs__) nixpkgs-hardenedlinux;
 
   nixpkgs = inputs.nixpkgs.appendOverlays [
     (import ./nomad.nix)
+    __inputs__.nixpkgs-hardenedlinux.python.overlays.default
   ];
   terraform-providers-bin = __inputs__.terraform-providers.legacyPackages.providers;
 in {
@@ -18,11 +18,8 @@ in {
   ]);
 
   inherit
-    (nixpkgs-hardenedlinux.packages)
-    vault-cli
-    ;
-  inherit
     (nixpkgs)
+    vault-cli
     nomad
     ;
 }

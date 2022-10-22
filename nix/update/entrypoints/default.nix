@@ -4,7 +4,7 @@
 }: let
   inherit (inputs.cells.main.lib) __inputs__;
   nixpkgs = inputs.nixpkgs.appendOverlays [
-    __inputs__.nixpkgs-hardenedlinux.overlays."nixpkgs/nixpkgs-hardenedlinux-sources"
+    __inputs__.nixpkgs-hardenedlinux.pkgs.overlays.default
   ];
   inherit (cell) packages;
   inherit (inputs.cells._writers.lib) writeShellApplication;
@@ -13,7 +13,7 @@ in {
     name = "nix-github-update";
     runtimeInputs = [packages.nvfetcher nixpkgs.coreutils];
     text =
-      "export nixVersion=${toString nixpkgs.nixpkgs-hardenedlinux-sources.nix-unstable-installer.src.urls} \n"
+      "export nixVersion=${toString nixpkgs.nixpkgs-hardenedlinux-pkgs-sources.nix-unstable-installer.src.urls} \n"
       + nixpkgs.lib.fileContents ./nix-github-update.bash;
   };
   nvfetcher-update = writeShellApplication {
