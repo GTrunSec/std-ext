@@ -24,4 +24,12 @@ in {
     runtimeInputs = [packages.nvfetcher];
     text = "export NIX_PATH=nixpkgs=${nixpkgs.path} \n" + nixpkgs.lib.fileContents ./nvfetcher-update.bash;
   };
+  nvfetcher-update-foce = writeShellApplication {
+    name = "nvfetcher-update-force";
+    runtimeEnv = {
+      LC_ALL = "en_US.UTF-8";
+    };
+    runtimeInputs = [packages.nvfetcher];
+    text = "export NIX_PATH=nixpkgs=${nixpkgs.path} \n" + nixpkgs.lib.fileContents ./nvfetcher-update-force.bash;
+  };
 }
