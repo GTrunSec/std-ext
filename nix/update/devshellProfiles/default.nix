@@ -18,7 +18,7 @@ in {
       {
         package = entrypoints.nvfetcher-update-force;
         category = "Update";
-        help = "run nvfetcher with sources.toml <github-CI>";
+        help = "run nvfetcher with sources.toml <github-CI> for force option";
       }
       {
         package = entrypoints.nix-github-update;
