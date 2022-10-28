@@ -47,7 +47,7 @@ jobs:
         run: nix develop -c menu
 
       - name: Build Doc
-        run: nix run .\#x86_64-linux.main.entrypoints.mkdoc
+        run: nix run .\#x86_64-linux.common.entrypoints.mkdoc
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.4.1
