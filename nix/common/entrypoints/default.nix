@@ -28,4 +28,12 @@ in {
       example: std-doc `flag`
     '';
   };
+  update-lock = writeShellApplication {
+    name = "update-lock";
+    text = ''
+      # shellcheck disable=all
+      sed -i 's|NixOS/nixpkgs/.*."|NixOS/nixpkgs/'$(nix flake metadata --json | jq -r ".locks.nodes.nixpkgs.locked.rev")'"|' lock/flake.nix
+      nix flake update ./lock
+    '';
+  };
 }

@@ -15,16 +15,12 @@
         owner = "NixOS";
         repo = "nixpkgs";
       };
-    statix.inputs.nixpkgs = "nixpkgs";
+
     nixpkgs-hardenedlinux.inputs.nixpkgs = "nixpkgs";
     nvfetcher.inputs.nixpkgs = "nixos";
-    makes.inputs.nixpkgs = "nixpkgs";
 
     std.locked = inputs.std.sourceInfo;
     std.inputs.nixpkgs = "nixpkgs";
-    std.inputs.microvm = "microvm";
-    std.inputs.makes = "makes";
-    std.inputs.n2c = "n2c";
   };
 in {
   inherit __inputs__ inputs l std;
