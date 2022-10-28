@@ -2,6 +2,8 @@
   # nix linters
   inputs = {
     std.url = "github:divnix/std";
+    std.inputs.microvm.follows = "microvm";
+    std.inputs.makes.follows = "makes";
   };
 
   inputs = {
@@ -35,6 +37,7 @@
 
     terraform-providers.url = "github:numtide/nixpkgs-terraform-providers-bin";
     terranix.url = "github:terranix/terranix";
+    terrnix.url = "github:br4ch1st0chr0n3/terrafix";
   };
 
   outputs = {self, ...} @ inputs: {

@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs.cells.microvms.lib) makeVM;
-  inherit (inputs.cells.main.lib) __inputs__;
+  inherit (inputs.cells.common.lib) __inputs__;
 in {
   dev = makeVM {
     channel = inputs.nixos.legacyPackages;

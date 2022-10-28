@@ -2,7 +2,7 @@
   cell,
   inputs,
 }: let
-  inherit (inputs.cells.main.lib) __inputs__;
+  inherit (inputs.cells.common.lib) __inputs__;
   inherit (__inputs__) terranix nixpkgs;
   inherit (inputs.nixpkgs) system;
   inherit (inputs.cells._writers.lib) writeConfiguration;

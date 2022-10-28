@@ -8,7 +8,7 @@
   tip ? "",
 }: let
   inherit (inputs) nixpkgs;
-  inherit (inputs.cells.main.lib) __inputs__;
+  inherit (inputs.cells.common.lib) __inputs__;
   inherit (nixpkgs) lib;
 
   getDocs = path: (builtins.attrNames (__inputs__.xnlib.lib.importers.filterFiles

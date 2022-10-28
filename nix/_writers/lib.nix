@@ -2,7 +2,7 @@
   inputs,
   cell,
 } @ args: let
-  inherit (inputs.cells.main.lib) l;
+  inherit (inputs.cells.common.lib) l;
   inherit (inputs) nixpkgs;
 
   writeClicheApplication = _args: import ./writeClicheApplication.nix args _args;

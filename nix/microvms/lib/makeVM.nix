@@ -6,7 +6,7 @@
   channel ? inputs.nixpkgs,
 }: let
   inherit (cell) lib;
-  inherit (inputs.cells.main.lib) __inputs__;
+  inherit (inputs.cells.common.lib) __inputs__;
   channels = {
     nixpkgs = channel;
     inherit (__inputs__) microvm;

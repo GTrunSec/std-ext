@@ -12,7 +12,7 @@ in
       name = "default: Cells Lab Tempalte";
 
       imports = [
-        inputs.cells-lab.main.devshellProfiles.default
+        inputs.cells-lab.common.devshellProfiles.default
       ];
 
       nixago = [

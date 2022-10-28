@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells.main.lib) __inputs__;
+  inherit (inputs.cells.common.lib) __inputs__;
   microvm = __inputs__.std.lib.ops.mkMicrovm;
 in {
   inherit (inputs) nixpkgs;

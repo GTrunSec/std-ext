@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs.cells._modules.lib) makeConfiguration;
-  inherit (inputs.cells.main.lib) __inputs__;
+  inherit (inputs.cells.common.lib) __inputs__;
   inherit (__inputs__.nickel-nix.packages) importNcl;
 in {
   # inherit importNcl;

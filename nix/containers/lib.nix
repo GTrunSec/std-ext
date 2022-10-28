@@ -2,7 +2,9 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells.main.lib) __inputs__;
+  inherit (inputs.cells.common.lib) __inputs__;
+  inherit (inputs.cells._writers.lib) writeShellApplication;
+
 
   nixpkgs = inputs.nixpkgs.appendOverlays [
     (
