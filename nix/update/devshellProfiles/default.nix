@@ -26,5 +26,11 @@ in {
         category = "Update";
       }
     ];
+    env = [
+      {
+        name = "LC_ALL";
+        value = "en_US.UTF-8";
+      }
+    ];
   };
 }
