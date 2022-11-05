@@ -15,6 +15,7 @@ in {
         "secrets*.yaml"
         "Manifest.toml"
         "Project.toml"
+        "generated.json"
       ];
     };
   };
