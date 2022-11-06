@@ -308,6 +308,21 @@
         "type": "indirect"
       }
     },
+    "nosys": {
+      "locked": {
+        "lastModified": 1667698628,
+        "narHash": "sha256-6Q/aeHNCXTsGGb0yoc6CEmyK+9aaMnZkmw2/6jCV39s=",
+        "owner": "divnix",
+        "repo": "nosys",
+        "rev": "cef00e1e6d372874c976cabcee52ab89a0ab1ced",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "nosys",
+        "type": "github"
+      }
+    },
     "org-roam-book-template": {
       "inputs": {
         "cortex": "cortex",
@@ -383,14 +398,15 @@
         "nixpkgs": [
           "nixpkgs"
         ],
+        "nosys": "nosys",
         "yants": "yants"
       },
       "locked": {
-        "lastModified": 1667478631,
-        "narHash": "sha256-Pxwiu8bF7yIVrDkafAEnsYQ3seQU9Gveho2wrL5Vquc=",
+        "lastModified": 1667706640,
+        "narHash": "sha256-AcTYlitotiOlu0ypjT4XCsTqake5zkGNLQXD8rx3E7s=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "e57f04ce142fdd913fe4cf34e80594bc5afdf4fd",
+        "rev": "f2b74537c1fe555147b3ade70aa1f9bf945c4a00",
         "type": "github"
       },
       "original": {
