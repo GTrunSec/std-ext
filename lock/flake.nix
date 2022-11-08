@@ -33,6 +33,7 @@
     nvfetcher.inputs.nixpkgs.follows = "nixpkgs";
 
     nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
+    nixpkgs-hardenedlinux.inputs.nixpkgs.follows = "nixpkgs";
 
     makes.url = "github:fluidattacks/makes";
     makes.inputs.nixpkgs.follows = "nixpkgs";
