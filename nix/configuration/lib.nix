@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells._modules.lib) makeConfiguration;
+  inherit (inputs.cells._modules.lib) configuration;
   inherit (inputs.cells.common.lib) __inputs__;
   inherit (__inputs__.nickel-nix.packages) importNcl;
 in {
@@ -13,7 +13,7 @@ in {
     branch = builtins.elemAt settings 1;
     name = builtins.elemAt settings 2;
   in
-    makeConfiguration {
+    configuration {
       inherit name branch source;
       path = "cells-infra/infra/${path}";
       target = "regular";

@@ -93,10 +93,10 @@
       type = types.listOf types.str;
       default = [];
     };
-    makeConfigurationFromLang = mkOption {
+    configurationFromLang = mkOption {
       type = types.package;
     };
-    makeConfiguration = mkOption {
+    configuration = mkOption {
       type = types.package;
     };
   };

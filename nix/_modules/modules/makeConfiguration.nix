@@ -7,12 +7,12 @@
   ...
 }: {
   config.templates = {
-    makeConfiguration = let
+    configuration = let
       cfg = config.templates;
       format = lib.last (lib.splitString "." cfg.name);
     in
       writeShellApplication {
-        name = "makeConfiguration";
+        name = "configuration";
         runtimeInputs = [pkgs.remarshal pkgs.yj] ++ cfg.searchPaths.bin;
         text = let
           json = pkgs.writeText "JSON" (builtins.toJSON cfg.source);

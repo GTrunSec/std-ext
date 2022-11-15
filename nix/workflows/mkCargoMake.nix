@@ -5,7 +5,7 @@
   entrypoint ? "",
   name ? "cargo-make",
   runtimeInputs ? [],
-  args ? {},
+  args ? [],
   ...
 } @ _args: let
   inherit (inputs.cells.writers.lib) writeShellApplication;

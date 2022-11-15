@@ -6,12 +6,12 @@
   inherit (inputs.cells.writers.lib) writeShellApplication;
   eval = (import ./modules) nixpkgs;
 in {
-  # makeConfiguration = templates:
+  # configuration = templates:
   #   (eval {
   #     configuration = {inherit templates;};
   #     extraSpecialArgs = {inherit inputs cell writeShellApplication;};
   #   })
   #   .config
   #   .templates
-  #   .makeConfiguration;
+  #   .configuration;
 }

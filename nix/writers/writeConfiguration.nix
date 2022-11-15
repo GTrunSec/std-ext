@@ -42,7 +42,7 @@ in
   (cell.lib.writeShellApplication {
     inherit name;
     runtimeInputs =
-      lib.optionals (language == "nickel") [cells.makeConfiguration.packages.nickel]
+      lib.optionals (language == "nickel") [cells.configuration.packages.nickel]
       ++ lib.optionals (language == "cue") [nixpkgs.cue]
       ++ lib.optionals (language == "nix") []
       ++ runtimeInputs
