@@ -16,7 +16,7 @@ in
         ]
         ++ [
           inputs.cells.hashicorp.devshellProfiles.default
-          inputs.cells.makeConfiguration.devshellProfiles.default
+          inputs.cells.configuration.devshellProfiles.default
         ];
       nixago = [
         cell.nixago.treefmt
