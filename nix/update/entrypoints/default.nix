@@ -7,7 +7,7 @@
     __inputs__.nixpkgs-hardenedlinux.pkgs.overlays.default
   ];
   inherit (cell) packages;
-  inherit (inputs.cells._writers.lib) writeShellApplication;
+  inherit (inputs.cells.writers.lib) writeShellApplication;
 in {
   nix-github-update = writeShellApplication {
     name = "nix-github-update";

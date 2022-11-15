@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
-  inherit (inputs.cells._writers.lib) writeClicheApplication;
+  inherit (inputs.cells.writers.lib) writeClicheApplication;
 in {
   example = writeClicheApplication {
     name = "example";

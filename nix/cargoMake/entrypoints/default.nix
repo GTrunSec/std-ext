@@ -2,11 +2,11 @@
   inputs,
   cell,
 }: let
-  inherit (cell) lib cargoMakeJobs;
-  inherit (inputs.cells._writers.lib) writeConfig;
-  inherit (inputs.cells._flow.lib) makeCargoMakeFlow;
-in rec {
-  flow = makeCargoMakeFlow {
+  inherit (cell) cargoMakeJobs;
+  inherit (inputs.cells.writers.lib) writeConfig;
+  inherit (inputs.cells.workflows.lib) mkCargoMake;
+in {
+  flow = mkCargoMake {
     source = writeConfig "test-flow.toml" cargoMakeJobs.default;
     args = ["format"];
   };

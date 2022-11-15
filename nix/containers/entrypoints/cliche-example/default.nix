@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (cell) lib packages;
-  inherit (inputs.cells._writers.lib) writeConfiguration;
+  inherit (inputs.cells.writers.lib) writeConfiguration;
 
   inherit (inputs.cells.makes.lib) makeSubstitution;
 

@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells._writers.lib) writeShellApplication writeGlowDoc;
+  inherit (inputs.cells.writers.lib) writeShellApplication writeGlowDoc;
   inherit (inputs) self nixpkgs std;
 in {
   mkdoc = let

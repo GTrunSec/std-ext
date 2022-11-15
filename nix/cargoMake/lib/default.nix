@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells._writers.lib) writeConfiguration;
+  inherit (inputs.cells.writers.lib) writeConfig;
 in {
   sync = {
     branch ? "",
