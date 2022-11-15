@@ -9,22 +9,18 @@
   libraries ? [],
   checkPhase ? null,
 }: let
-  nixpkgs = inputs.nixpkgs.appendOverlays [
-    (_final: _prev: {
-      cliche = nixpkgs.python3Packages.callPackage ./_packages/cliche {};
-    })
-  ];
   inherit (inputs.nixpkgs) lib;
+  inherit (inputs) nixpkgs;
   python = inputs.nixpkgs.python3.withPackages (
     _ps: [
-      nixpkgs.cliche
+      cell.packages.cliche
       libraries
     ]
   );
 in
   nixpkgs.stdenvNoCC.mkDerivation {
     inherit name;
-    buildInputs = runtimeInputs ++ [nixpkgs.cliche];
+    buildInputs = runtimeInputs ++ [python];
     src = path;
     installPhase = ''
       runHook preInstall

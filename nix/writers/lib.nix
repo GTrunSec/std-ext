@@ -5,13 +5,13 @@
   inherit (inputs.cells.common.lib) l;
   inherit (inputs) nixpkgs;
 
-  writeClicheApplication = _args: import ./writeClicheApplication.nix args _args;
+  writeClicheApplication = import ./writeClicheApplication.nix args;
 
-  writePiplelineApplication = _args: import ./writePiplelineApplication.nix args _args;
+  writePiplelineApplication = import ./writePiplelineApplication.nix args;
 
-  writeComoniconApplication = _args: import ./writeComoniconApplication.nix args _args;
+  writeComoniconApplication = import ./writeComoniconApplication.nix args;
 
-  writeConfiguration = _args: import ./writeConfiguration.nix args _args;
+  writeConfiguration = import ./writeConfiguration.nix args;
 in {
   inherit
     writeClicheApplication
@@ -33,9 +33,9 @@ in {
   };
   */
 
-  writeGlowDoc = _args: import ./writeGlowDoc.nix args _args;
+  writeGlowDoc = import ./writeGlowDoc.nix args;
 
-  writeConfig = _args: import ./writeConfig.nix args _args;
+  writeConfig = import ./writeConfig.nix args;
 
   writeShellApplication = {...} @ args:
     inputs.std.lib.ops.writeScript (
