@@ -2,6 +2,5 @@
   inputs,
   cell,
 }: {
-  cloud-init = {
-  };
+  cloud-init = {};
 }

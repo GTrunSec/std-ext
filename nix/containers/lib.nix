@@ -5,7 +5,6 @@
   inherit (inputs.cells.common.lib) __inputs__;
   inherit (inputs.cells.writers.lib) writeShellApplication;
 
-
   nixpkgs = inputs.nixpkgs.appendOverlays [
     (
       _final: _prev: {

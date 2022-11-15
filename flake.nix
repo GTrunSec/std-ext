@@ -27,7 +27,7 @@
         "x86_64-darwin"
         "x86_64-linux"
       ];
-      cellBlocks = with std.blockTypes;[
+      cellBlocks = with std.blockTypes; [
         (installables "packages")
 
         (nixago "nixago")
