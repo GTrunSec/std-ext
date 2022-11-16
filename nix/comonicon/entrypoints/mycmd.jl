@@ -1,25 +1,32 @@
 using Comonicon
 
+# in a script or module
+
 """
-ArgParse example implemented in Comonicon.
+sum two numbers.
 
-# Arguments
+# Args
 
-- `x`: an argument, an argument
+- `x`: first number
+- `y`: second number
 
 # Options
 
-- `--opt1 <arg>`: an option
-- `-o, --opt2 <arg>`: another option
+- `-p, --precision=<type>`: precision of the calculation.
 
 # Flags
 
-- `-f, --flag`: a flag
+- `-f, --fastmath`: enable fastmath.
+
 """
-@main function main(x; opt1 = 1, opt2::Int = 2, flag = false)
-    println("Parsed args:")
-    println("flag=>", flag)
-    println("arg=>", x)
-    println("opt1=>", opt1)
-    println("opt2=>", opt2)
+@cast function sum(x, y; precision::String="float32", fastmath::Bool=false)
+    # implementation
+    println("sum of $x and $y")
 end
+
+"product two numbers"
+@cast function prod(x, y)
+    return
+end
+
+@main

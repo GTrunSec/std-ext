@@ -12,10 +12,11 @@
   inherit (inputs.nixpkgs) lib;
   inherit (inputs) nixpkgs;
   python = inputs.nixpkgs.python3.withPackages (
-    _ps: [
-      cell.packages.cliche
-      libraries
-    ]
+    _ps:
+      [
+        cell.packages.cliche
+      ]
+      ++ libraries
   );
 in
   nixpkgs.stdenvNoCC.mkDerivation {

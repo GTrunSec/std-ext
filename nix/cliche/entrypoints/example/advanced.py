@@ -1,6 +1,6 @@
 """Can be called like "python advanced.py" or "cliche advanced.py" """
 from cliche import cli, main
-
+from sh import curl
 
 @cli
 def badd(a_string: str, a_number: int = 10):
@@ -22,6 +22,9 @@ def add_number(a_number: int, b_number: int = 10):
 def add(a: int, b: int):
     print(a + b)
 
+@cli
+def shcurl():
+    curl("http://duckduckgo.com/", "-o", "page.html")
 
 @cli
 def sum_or_multiply(a_number: int, b_number: int = 10, sums: bool = True):

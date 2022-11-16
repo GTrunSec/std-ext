@@ -11,7 +11,10 @@ in {
     env = {
       test = "aaa";
     };
-    libraries = with nixpkgs.python3Packages; [six];
+    libraries = with nixpkgs.python3Packages; [
+      six
+      inputs.cells.common.lib.__inputs__.nixpkgs-hardenedlinux.python.packages.sh
+    ];
     runtimeInputs = [];
   };
 }
