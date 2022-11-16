@@ -16,7 +16,7 @@ in
     inherit name runtimeEnv;
     runtimeInputs = [julia] ++ runtimeInputs;
     text = ''
-      manifest=${./_packages/jobSchedulers}
+      manifest=${./packages/jobSchedulers}
       julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} --threads ${toString threads} "$@"
     '';
   }

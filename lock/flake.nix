@@ -55,6 +55,9 @@
     terranix.url = "github:terranix/terranix";
     terrafix.url = "github:br4ch1st0chr0n3/terrafix";
     terrafix.inputs.nixpkgs.follows = "nixpkgs";
+
+    julia2nix.url = "github:JuliaCN/julia2nix";
+    julia2nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {self, ...} @ inputs: {

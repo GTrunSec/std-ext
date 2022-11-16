@@ -14,9 +14,9 @@
 in
   lib.writeShellApplication {
     inherit name runtimeEnv;
-    runtimeInputs = [julia] ++ runtimeInputs;
+    runtimeInputs = [inputs.cells.comonicon.packages.julia-wrapped] ++ runtimeInputs;
     text = ''
-      manifest=${./_packages/comonicon}
-      julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} --threads ${toString threads} "$@"
+      manifest=${./packages/comonicon}
+      julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} "$@"
     '';
   }
