@@ -7,8 +7,7 @@ def badd(a_string: str, a_number: int = 10):
     """Sums a_string and a_number, but we all expect it to fail.
 
     :param a_string: the first one
-    :param a_number: This parameter seems to be
-     really good but i don't know tho
+    :param a_number: This parameter seems to be really good but i don't know tho
     """
     print(a_string + a_number)
 
