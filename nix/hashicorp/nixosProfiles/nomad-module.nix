@@ -134,7 +134,7 @@ in {
           DynamicUser = cfg.dropPrivileges;
           ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";
           ExecStart = let
-            pluginsDir = pkgs.buildEnv {
+            pluginsDir = pkgs.symlinkJoin {
               name = "nomad-plugins";
               paths = cfg.extraPlugins;
             };

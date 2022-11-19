@@ -2,8 +2,10 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs;
   inherit (inputs.cells.writers.lib) writeClicheApplication;
+  nixpkgs = inputs.nixpkgs.appendOverlays [
+    inputs.cells.common.lib.__inputs__.nixpkgs-hardenedlinux.overlays.default
+  ];
 in {
   example = writeClicheApplication {
     name = "example";
@@ -13,7 +15,7 @@ in {
     };
     libraries = with nixpkgs.python3Packages; [
       six
-      inputs.cells.common.lib.__inputs__.nixpkgs-hardenedlinux.python.packages.sh
+      nixpkgs.python3Packages.sh
     ];
     runtimeInputs = [];
   };
