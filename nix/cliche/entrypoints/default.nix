@@ -8,14 +8,15 @@
   ];
 in {
   example = writeClicheApplication {
+    inherit nixpkgs;
     name = "example";
     path = ./example;
     env = {
       test = "aaa";
     };
-    libraries = with nixpkgs.python3Packages; [
+    libraries = ps: with ps; [
       six
-      nixpkgs.python3Packages.sh
+      sh
     ];
     runtimeInputs = [];
   };
