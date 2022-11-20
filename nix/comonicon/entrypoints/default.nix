@@ -7,6 +7,9 @@
 in {
   mycmd = writeComoniconApplication {
     name = "mycmd";
+    runtimeEnv = {
+      b = "1";
+    };
     runtimeInputs = [nixpkgs.julia_18-bin];
     path = ./.;
     args = ["mycmd.jl"];

@@ -9,14 +9,19 @@
   runtimeEnv ? {},
   threads ? 8,
   runtimeInputs ? [],
+  manifest ? ./packages/comonicon,
 }: let
   inherit (cell) lib;
 in
   lib.writeShellApplication {
-    inherit name runtimeEnv;
+    inherit name;
+    runtimeEnv =
+      runtimeEnv
+      // {
+        inherit manifest;
+      };
     runtimeInputs = [inputs.cells.comonicon.packages.julia-wrapped] ++ runtimeInputs;
     text = ''
-      manifest=${./packages/comonicon}
       julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} "$@"
     '';
   }
