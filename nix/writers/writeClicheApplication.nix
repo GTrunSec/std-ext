@@ -6,17 +6,17 @@
   path,
   env ? {},
   runtimeInputs ? [],
-  libraries ? [],
+  libraries ? (_: []),
   checkPhase ? null,
+  nixpkgs ? (inputs.nixpkgs),
 }: let
-  inherit (inputs.nixpkgs) lib;
-  inherit (inputs) nixpkgs;
-  python = inputs.nixpkgs.python3.withPackages (
-    _ps:
+  l = nixpkgs.lib // builtins;
+  python = nixpkgs.python3.withPackages (
+    ps:
       [
-        cell.packages.cliche
+        (ps.callPackage ./packages/cliche {})
       ]
-      ++ libraries
+      ++ (libraries ps)
   );
 in
   nixpkgs.stdenvNoCC.mkDerivation {
@@ -28,12 +28,12 @@ in
 
       mkdir -p $out/bin
       cliche install --module_dir ${path} $out/bin/${name}
-      sed -i 's|#! /nix/store/.*.|#! ${python}/bin/python|' $out/bin/${name}
-      sed -i 's|{{runtimeInputs}}|${lib.makeBinPath runtimeInputs}|' $out/bin/${name}
+      sed -i 's|#! /nix/store/.*.|#! ${l.getExe python}|' $out/bin/${name}
+      sed -i 's|{{runtimeInputs}}|${l.makeBinPath runtimeInputs}|' $out/bin/${name}
       sed -i "14 i time.sleep(os.environ.get('DEBUG_SLEEP', 0))\n\
       ${
         builtins.concatStringsSep "\n" (
-          lib.attrsets.mapAttrsToList (n: v: "os.environ['${n}'] = os.environ.get('${n}', '${v}')")
+          l.attrsets.mapAttrsToList (n: v: "os.environ['${n}'] = os.environ.get('${n}', '${v}')")
           env
         )
       }" $out/bin/${name}
@@ -53,5 +53,8 @@ in
         runHook postCheck
       ''
       else checkPhase;
+    passthru = {
+      inherit python;
+    };
     meta.mainProgram = name;
   }
