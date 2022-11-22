@@ -9,7 +9,6 @@
   runtimeEnv ? {},
   threads ? 8,
   runtimeInputs ? [],
-  manifest ? ./packages/comonicon,
 }: let
   inherit (cell) lib;
 in
@@ -18,7 +17,7 @@ in
     runtimeEnv =
       runtimeEnv
       // {
-        inherit manifest;
+        manifest = path;
       };
     runtimeInputs = [inputs.cells.comonicon.packages.julia-wrapped] ++ runtimeInputs;
     text = ''

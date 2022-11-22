@@ -10,8 +10,8 @@ in {
     runtimeEnv = {
       b = "1";
     };
-    runtimeInputs = [nixpkgs.julia_18-bin];
-    path = ./.;
+    runtimeInputs = [];
+    path = ./mycmd;
     args = ["mycmd.jl"];
   };
 }
