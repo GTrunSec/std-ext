@@ -60,7 +60,7 @@
         (data "waterwheelJobs")
       ];
     } {
-      devShells = inputs.std.harvest inputs.self ["_automation" "devshells"];
+      devShells = inputs.std.harvest inputs.self ["automation" "devshells"];
     } {
       templates = {
         default = {
