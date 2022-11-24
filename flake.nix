@@ -13,8 +13,6 @@
     # std.url = "/home/gtrun/ghq/github.com/divnix/std";
     # std.url = "github:divnix/std/?ref=refs/pull/150/head";
     std.inputs.nixpkgs.follows = "nixpkgs";
-    std.inputs.incl.follows = "incl";
-    incl.url = "github:divnix/incl/bb3a06f5dd32738fa02999bd1e1c0b41cc4a234e";
   };
 
   outputs = {std, ...} @ inputs: let
