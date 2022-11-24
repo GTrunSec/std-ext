@@ -19,7 +19,8 @@ in {
 
   inherit
     (nixpkgs)
-    vault-cli
     nomad
     ;
+
+  inherit (nixpkgs.python3Packages) vault-cli;
 }
