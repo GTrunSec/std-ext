@@ -3,7 +3,7 @@
   cell,
 }: {
   name,
-  julia ? inputs.nixpkgs.julia_18-bin,
+  julia ? inputs.cells.comonicon.packages.julia-wrapped,
   path ? "",
   args ? [],
   runtimeEnv ? {},
@@ -11,7 +11,6 @@
   runtimeInputs ? [],
 }: let
   inherit (cell) lib;
-  julia = inputs.cells.comonicon.packages.julia-wrapped;
 in
   lib.writeShellApplication {
     inherit name;
