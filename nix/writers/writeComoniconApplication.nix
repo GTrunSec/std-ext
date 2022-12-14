@@ -11,6 +11,7 @@
   runtimeInputs ? [],
 }: let
   inherit (cell) lib;
+  julia = inputs.cells.comonicon.packages.julia-wrapped;
 in
   lib.writeShellApplication {
     inherit name;
@@ -19,7 +20,7 @@ in
       // {
         manifest = path;
       };
-    runtimeInputs = [inputs.cells.comonicon.packages.julia-wrapped] ++ runtimeInputs;
+    runtimeInputs = [julia] ++ runtimeInputs;
     text = ''
       julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} "$@"
     '';
