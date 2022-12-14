@@ -14,13 +14,9 @@
 in
   lib.writeShellApplication {
     inherit name;
-    runtimeEnv =
-      runtimeEnv
-      // {
-        manifest = path;
-      };
+    runtimeEnv = runtimeEnv;
     runtimeInputs = [julia] ++ runtimeInputs;
     text = ''
-      julia -e "import Pkg; Pkg.activate(\"$manifest\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} "$@"
+      julia -e "import Pkg; Pkg.activate(\"${path}\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} "$@"
     '';
   }
