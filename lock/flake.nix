@@ -1,7 +1,7 @@
 {
   # nix linters
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/f21f11aa2a02cb78651c6d57546c7d7541f9240c";
+    nixpkgs.url = "github:NixOS/nixpkgs/2c74fcd6c5fc14a61de158fb796243543f46b217";
 
     std.url = "github:divnix/std";
     std.inputs.n2c.follows = "n2c";
@@ -53,8 +53,7 @@
     terraform-providers.inputs.nixpkgs.follows = "nixpkgs";
 
     terranix.url = "github:terranix/terranix";
-    terrafix.url = "github:br4ch1st0chr0n3/terrafix";
-    terrafix.inputs.nixpkgs.follows = "nixpkgs";
+    terranix.inputs.nixpkgs.follows = "nixpkgs";
 
     julia2nix.url = "github:JuliaCN/julia2nix";
     julia2nix.inputs.nixpkgs.follows = "nixpkgs";

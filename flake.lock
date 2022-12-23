@@ -182,22 +182,6 @@
         "type": "github"
       }
     },
-    "mdbook-kroki-preprocessor": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1661755005,
-        "narHash": "sha256-1TJuUzfyMycWlOQH67LR63/ll2GDZz25I3JfScy/Jnw=",
-        "owner": "JoelCourtney",
-        "repo": "mdbook-kroki-preprocessor",
-        "rev": "93adb5716d035829efed27f65f2f0833a7d3e76f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "JoelCourtney",
-        "repo": "mdbook-kroki-preprocessor",
-        "type": "github"
-      }
-    },
     "n2c": {
       "inputs": {
         "flake-utils": [
@@ -269,11 +253,11 @@
     },
     "nixos": {
       "locked": {
-        "lastModified": 1670461440,
-        "narHash": "sha256-jy1LB8HOMKGJEGXgzFRLDU1CBGL0/LlkolgnqIsF0D8=",
+        "lastModified": 1671752829,
+        "narHash": "sha256-oFeJzAq0iRL6md9Si8Tx9bltjwjLmldvgUmAteMhYW4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "04a75b2eecc0acf6239acf9dd04485ff8d14f425",
+        "rev": "9898811c658d39b2692d0ab744377e02fd85d08b",
         "type": "github"
       },
       "original": {
@@ -285,11 +269,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1670525689,
-        "narHash": "sha256-YIjGzxrRQa5LYO0zlnH/ardcwXsRgsnHe3TkGkvCxbc=",
+        "lastModified": 1671788672,
+        "narHash": "sha256-tLkPxJuos3jki2f/TZdHn+NuMQAzN9s2E4QudylQLg0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f21f11aa2a02cb78651c6d57546c7d7541f9240c",
+        "rev": "2c74fcd6c5fc14a61de158fb796243543f46b217",
         "type": "github"
       },
       "original": {
@@ -393,7 +377,6 @@
           "std",
           "blank"
         ],
-        "mdbook-kroki-preprocessor": "mdbook-kroki-preprocessor",
         "microvm": [
           "std",
           "blank"
@@ -407,11 +390,11 @@
         "yants": "yants"
       },
       "locked": {
-        "lastModified": 1671477500,
-        "narHash": "sha256-hmOdmvzb/u9WgGlhZmR+rjHMSjaxWlEU3ZLlGMs5Rpk=",
+        "lastModified": 1671833141,
+        "narHash": "sha256-9v2y129nOrB5Hh/OgU32hHe7mbc3lqORDDnmeORlY5w=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "beb11f62a04d2f1c07ca0eb7b4a21f4f40736121",
+        "rev": "5384b5eec8780cbb1823b70d64b51449f65541b7",
         "type": "github"
       },
       "original": {

@@ -52,7 +52,6 @@
         (data "consulProfiles")
         (data "nomadJobs")
         (data "terranix")
-        (data "terrafix")
 
         (data "cargoMakeJobs")
         (data "waterwheelJobs")

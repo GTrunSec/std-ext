@@ -29,7 +29,7 @@ in
       name = "mkdocs";
 
       imports = [
-        inputs.std.std.devshellProfiles.default
+        cell.devshellProfiles.docs
       ];
 
       nixago = [
