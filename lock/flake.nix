@@ -27,8 +27,6 @@
 
   # utils
   inputs = {
-    xnlib.url = "github:gtrunsec/xnlib";
-
     nvfetcher.url = "github:berberman/nvfetcher";
     nvfetcher.inputs.nixpkgs.follows = "nixpkgs";
 

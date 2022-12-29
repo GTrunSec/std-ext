@@ -13,6 +13,9 @@
     # std.url = "/home/gtrun/ghq/github.com/divnix/std";
     # std.url = "github:divnix/std/?ref=refs/pull/150/head";
     std.inputs.nixpkgs.follows = "nixpkgs";
+    xnlib.url = "github:gtrunsec/xnlib";
+    xnlib.inputs.std.follows = "std";
+    xnlib.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {std, ...} @ inputs: let

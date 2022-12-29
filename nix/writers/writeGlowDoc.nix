@@ -11,11 +11,11 @@
   inherit (inputs.cells.common.lib) __inputs__;
   inherit (nixpkgs) lib;
 
-  getDocs = path: (builtins.attrNames (__inputs__.xnlib.lib.importers.filterFiles
+  getDocs = path: (builtins.attrNames (inputs.xnlib.lib.importers.filterFiles
     "/${path}"
     "md"));
 
-  dirs = __inputs__.xnlib.lib.path.listAllDirs src;
+  dirs = inputs.xnlib.lib.path.listAllDirs src;
 
   query = lib.flatten (map (p: (map (x:
       lib.removePrefix "/" ((lib.removePrefix src p) + "/" + x)) (getDocs p)))

@@ -4,9 +4,9 @@
 }: src: overrides: let
   inherit (inputs) std nixpkgs;
   l = nixpkgs.lib;
-  flake-compat = builtins.fetchurl {
-    url = "https://raw.githubusercontent.com/GTrunSec/flake-compat/lockFile/default.nix";
-    sha256 = "sha256:0i65hifh0z5nxnnn4dy1rgcp0jqkypb95xrk8ksyland8l1ziap6";
+  flake-compat = builtins.fetchTarball {
+    url = "https://github.com/gtrunsec/flake-compat/archive/lockFile.tar.gz";
+    sha256 = "sha256:157zd0xs1qz0synqlphr8xa5cfvflascbv021gwci0w4cgyjmfag";
   };
   lockFile = l.recursiveUpdate (builtins.fromJSON (builtins.readFile (src + "/flake.lock"))) {nodes = overrides;};
   compatFlake = import "${flake-compat}" {

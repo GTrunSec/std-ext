@@ -1467,11 +1467,11 @@
     },
     "nixlib": {
       "locked": {
-        "lastModified": 1671324337,
-        "narHash": "sha256-OZVfw69LQi2RckjPdooYrhw1I2vd28QdzEGJwI3w+jk=",
+        "lastModified": 1671929364,
+        "narHash": "sha256-N9GW06FZTKDpkv9YLMXswUxnX27b9qEtfTg7WsSdXjc=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "b4dd796b65c0bee6185fd2b5c84c2a207231e28f",
+        "rev": "a909f7a2fb4ec6d14d52b8a727bb9ba465e15766",
         "type": "github"
       },
       "original": {
@@ -2208,11 +2208,6 @@
           "std",
           "blank"
         ],
-        "mdbook-kroki-preprocessor": [
-          "xnlib",
-          "std",
-          "blank"
-        ],
         "microvm": [
           "xnlib",
           "std",
@@ -2229,11 +2224,11 @@
         "yants": "yants_4"
       },
       "locked": {
-        "lastModified": 1671753344,
-        "narHash": "sha256-PaDGfnpk1TJYvUgmH/3ViQCk69N385tWie3BuR/O9lA=",
+        "lastModified": 1671833141,
+        "narHash": "sha256-9v2y129nOrB5Hh/OgU32hHe7mbc3lqORDDnmeORlY5w=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "6bce9e92756f3fda1108f5ca0717262c4dc569ff",
+        "rev": "5384b5eec8780cbb1823b70d64b51449f65541b7",
         "type": "github"
       },
       "original": {
@@ -2355,11 +2350,11 @@
         "xnlib": "xnlib_2"
       },
       "locked": {
-        "lastModified": 1671754746,
-        "narHash": "sha256-lD4bA3m6SZPL9lVcKt9mmO1a+w5zJ0jAeaXk5UhbbLE=",
+        "lastModified": 1672290252,
+        "narHash": "sha256-xp5WfZG7qkUxxVgwe8wQXd77c9B+na9Uhq9vzx883Jw=",
         "owner": "gtrunsec",
         "repo": "xnlib",
-        "rev": "d72ba1df29d9b71f5ada6c465562bc5cad15bf04",
+        "rev": "26945424fe9ac445662f6221a1e4144e085239fd",
         "type": "github"
       },
       "original": {
