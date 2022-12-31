@@ -464,11 +464,11 @@
         "xnlib": "xnlib_2"
       },
       "locked": {
-        "lastModified": 1672469998,
-        "narHash": "sha256-vo+7bi86BM578LrxWAV4/gZcw7E2kU+O4UHhDERv0yk=",
+        "lastModified": 1672470364,
+        "narHash": "sha256-NkFBSiTRIpDn9LSMl+P1psZLVnyDKQAVaNEM3DIYph4=",
         "owner": "gtrunsec",
         "repo": "xnlib",
-        "rev": "dfe27ac1f5373fa2c845d86b72abbb1f03bddbb2",
+        "rev": "a7e2c2259af96ce472bb74202fdbd7818b5abed6",
         "type": "github"
       },
       "original": {
