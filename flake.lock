@@ -56,6 +56,22 @@
         "type": "github"
       }
     },
+    "digga": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668250948,
+        "narHash": "sha256-qqyzJQHgb/Bgq3Zxwa0gmaDEpkuyVhvynnq6a0akMWw=",
+        "owner": "divnix",
+        "repo": "digga",
+        "rev": "54ede8e591d288c176a09d6fcf4b123896c0bf0f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "digga",
+        "type": "github"
+      }
+    },
     "dmerge": {
       "inputs": {
         "nixlib": [
@@ -436,6 +452,7 @@
     },
     "xnlib": {
       "inputs": {
+        "digga": "digga",
         "nix-std": "nix-std",
         "nixlib": "nixlib",
         "nixpkgs": [
@@ -447,11 +464,11 @@
         "xnlib": "xnlib_2"
       },
       "locked": {
-        "lastModified": 1672290610,
-        "narHash": "sha256-Y2aIW9emSgFqFE4zUjdMq0iAug78lw5d8qZe52/dnbQ=",
+        "lastModified": 1672469998,
+        "narHash": "sha256-vo+7bi86BM578LrxWAV4/gZcw7E2kU+O4UHhDERv0yk=",
         "owner": "gtrunsec",
         "repo": "xnlib",
-        "rev": "904b1da3efa005881f05247bdf14d7b7243f7abe",
+        "rev": "dfe27ac1f5373fa2c845d86b72abbb1f03bddbb2",
         "type": "github"
       },
       "original": {
