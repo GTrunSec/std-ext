@@ -10,6 +10,10 @@ in {
         package = nixpkgs.cargo-make;
         category = "workflows";
       }
+      {
+        package = cell.packages.process-compose;
+        category = "workflows";
+      }
     ];
   };
 }

@@ -284,11 +284,11 @@
     },
     "nixlib": {
       "locked": {
-        "lastModified": 1672534360,
-        "narHash": "sha256-4r25ZnSyGM3wSuXhAMzROTIvIEqPwAx/L9hjbXDJB2c=",
+        "lastModified": 1673139014,
+        "narHash": "sha256-wWtN1TjfsRbI2AYRP4RPcEKv3HVgy6lCCLg0Lyhlxbc=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "360b002d33d735931db40cdd5ddb4f9ba4ba5804",
+        "rev": "080b7eb536d3baf70796dcc20abe4ee90618ca3c",
         "type": "github"
       },
       "original": {
@@ -464,11 +464,11 @@
         "xnlib": "xnlib_2"
       },
       "locked": {
-        "lastModified": 1673050716,
-        "narHash": "sha256-oJv6E56AOE+FA7txDlvk1CSM4IszUAhriVRfViXVgpw=",
+        "lastModified": 1673569193,
+        "narHash": "sha256-6NeFIJEfU8FGAj5bfTGXHpY9QBkqpSmcCh6gzi71aGA=",
         "owner": "gtrunsec",
         "repo": "xnlib",
-        "rev": "ea1a23b3642c908cb74e01688723740445879052",
+        "rev": "8969b9b5bc431744b95e5d6b58181e11321d7b4e",
         "type": "github"
       },
       "original": {

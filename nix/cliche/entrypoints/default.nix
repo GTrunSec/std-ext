@@ -14,10 +14,11 @@ in {
     env = {
       test = "aaa";
     };
-    libraries = ps: with ps; [
-      six
-      sh
-    ];
+    libraries = ps:
+      with ps; [
+        six
+        sh
+      ];
     runtimeInputs = [];
   };
 }

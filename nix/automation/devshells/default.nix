@@ -12,7 +12,7 @@ in
         [
           cell.devshellProfiles.default
           cell.devshellProfiles.docs
-          inputs.cells.cargoMake.devshellProfiles.default
+          inputs.cells.workflows.devshellProfiles.default
         ]
         ++ [
           inputs.cells.hashicorp.devshellProfiles.default
