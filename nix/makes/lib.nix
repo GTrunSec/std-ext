@@ -4,13 +4,15 @@
 }: let
   inherit (inputs.cells.common.lib) __inputs__;
 
+  l = inputs.nixpkgs.lib // builtins;
+
   makes = __inputs__.std."x86_64-linux".lib.dev.mkMakes;
 
-  makeScript = args: makes ./makeLib/makeScript.nix {} args;
+  makeScript = makes ./makeLib/makeScript.nix {};
 
-  makeSubstitution = args: makes ./makeLib/makeSubstitution.nix {} args;
+  makeSubstitution = makes ./makeLib/makeSubstitution.nix {};
 
-  makeSopsScript = args: makes ./makeLib/secrets-for-gpg-from-env.nix {} args;
+  makeSopsScript = makes ./makeLib/secrets-for-gpg-from-env.nix {};
 
   __output__ = import ./makes.nix {inherit inputs;};
 in {

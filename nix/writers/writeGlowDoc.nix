@@ -11,7 +11,7 @@
   inherit (inputs.cells.common.lib) __inputs__;
   inherit (nixpkgs) lib;
 
-  getDocs = path: (builtins.attrNames (inputs.xnlib.lib.importers.filterFiles
+  getDocs = path: (builtins.attrNames (inputs.xnlib.lib.files.filterFiles
     "/${path}"
     "md"));
 

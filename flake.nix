@@ -14,22 +14,25 @@
     # std.url = "github:divnix/std/?ref=refs/pull/150/head";
     std.inputs.nixpkgs.follows = "nixpkgs";
     xnlib.url = "github:gtrunsec/xnlib";
-    xnlib.inputs.std.follows = "std";
-    xnlib.inputs.nixpkgs.follows = "nixpkgs";
+    # xnlib.url = "/home/guangtao/ghq/github.com/GTrunSec/xnlib";
   };
 
-  outputs = {std, ...} @ inputs: let
+  outputs = {
+    std,
+    self,
+    ...
+  } @ inputs: let
     clades = import ./clades inputs;
+    systems = [
+      "aarch64-darwin"
+      "aarch64-linux"
+      "x86_64-darwin"
+      "x86_64-linux"
+    ];
   in
     std.growOn {
       inherit inputs;
       cellsFrom = ./nix;
-      systems = [
-        "aarch64-darwin"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "x86_64-linux"
-      ];
       cellBlocks = with std.blockTypes; [
         (installables "packages")
 
@@ -61,6 +64,12 @@
       ];
     } {
       devShells = inputs.std.harvest inputs.self ["automation" "devshells"];
+      process-compose =
+        (inputs.std.harvest inputs.self [["workflows" "lib" "mkProcessCompose"]]).x86_64-linux
+        ["entrypoints" "onPremises"]
+        self {
+          log_location = "$HOME/.cache/process-compose.log";
+        };
     } {
       templates = {
         default = {

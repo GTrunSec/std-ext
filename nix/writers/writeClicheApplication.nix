@@ -9,6 +9,7 @@
   libraries ? (_: []),
   checkPhase ? null,
   nixpkgs ? (inputs.nixpkgs),
+  passthru,
 }: let
   l = nixpkgs.lib // builtins;
   python = nixpkgs.python3.withPackages (
@@ -53,8 +54,6 @@ in
         runHook postCheck
       ''
       else checkPhase;
-    passthru = {
-      inherit python;
-    };
+    passthru = passthru // {inherit python;};
     meta.mainProgram = name;
   }

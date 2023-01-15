@@ -20,5 +20,13 @@ in {
         sh
       ];
     runtimeInputs = [];
+    passthru = {
+      process-compose = {
+        availability = {
+          restart = "always";
+          backoff_seconds = 300;
+        };
+      };
+    };
   };
 }
