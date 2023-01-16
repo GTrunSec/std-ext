@@ -164,11 +164,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1673056065,
-        "narHash": "sha256-a68tMDTDqdAauxq377ALl4Uwm6oh9MeoY2WbTYRWZoo=",
+        "lastModified": 1673405853,
+        "narHash": "sha256-6Nq9DuOo+gE2I8z5UZaKuumykz2xxZ9JGYmUthOuwSA=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "0144134311767fcee80213321f079a8ffa0b9cc1",
+        "rev": "b13963c8c18026aa694acd98d14f66d24666f70b",
         "type": "github"
       },
       "original": {
@@ -1112,11 +1112,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1673518912,
-        "narHash": "sha256-98PumVSnbmGnHr1K0Y3zxXQK67Y051KSktqBzdUNAEs=",
+        "lastModified": 1673865833,
+        "narHash": "sha256-Gj62RlCfPXwWVHDvZXVucwbT3QzZt9JQC5yAvMc7Rds=",
         "owner": "tweag",
         "repo": "nickel",
-        "rev": "8e07351c378d38bf1ea25a8251844f1ffbd12877",
+        "rev": "842b1be0046ae319b51f469e180faf97baca4566",
         "type": "github"
       },
       "original": {
@@ -1788,11 +1788,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1672912243,
-        "narHash": "sha256-QnQeKUjco2kO9J4rBqIBPp5XcOMblIMnmyhpjeaJBYc=",
+        "lastModified": 1673627351,
+        "narHash": "sha256-oppRxEg/7ICcG67ErBvu1UlXt3su6zMcNoQmKaHPs5I=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "a4548c09eac4afb592ab2614f4a150120b29584c",
+        "rev": "496e4505c2ddf5f205242eae8064d7d89cd976c0",
         "type": "github"
       },
       "original": {
@@ -1898,11 +1898,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1673058265,
-        "narHash": "sha256-FFigGHIO9BQeIIKjH5dcpB+ey5CSgfy47wHPGeOhCps=",
+        "lastModified": 1673662873,
+        "narHash": "sha256-/YOtiDKPUXKKpIhsAds11llfC42ScGW27bbHnNZebco=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "802ff3314663ec7114f29a6e8b200dfc892023f8",
+        "rev": "90163bbbadce526f8b248a5fe545b06c59597108",
         "type": "github"
       },
       "original": {
@@ -2095,11 +2095,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1673743654,
-        "narHash": "sha256-01hQ/2wpnWqHh1WPhfqIdXjGEmhPaWAr+oqEfG6GnzA=",
+        "lastModified": 1673829787,
+        "narHash": "sha256-8lO09SxufM1WLGbLOFk0GsPV+czOb/biNAl3OP+2wtQ=",
         "owner": "numtide",
         "repo": "nixpkgs-terraform-providers-bin",
-        "rev": "cb7539bbfbf3fd659fd193e825e132c86f32c97d",
+        "rev": "a2dc819a5b6f295be62c5addda187a410f24e7fe",
         "type": "github"
       },
       "original": {

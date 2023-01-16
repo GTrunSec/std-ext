@@ -9,7 +9,7 @@
   libraries ? (_: []),
   checkPhase ? null,
   nixpkgs ? (inputs.nixpkgs),
-  passthru,
+  passthru ? {},
 }: let
   l = nixpkgs.lib // builtins;
   python = nixpkgs.python3.withPackages (

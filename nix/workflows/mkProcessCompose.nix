@@ -13,11 +13,10 @@
             (l.filterAttrs (_: _: inputs.nixpkgs.system == system))
             (l.mapAttrs (name: value: {
               name = "//${user}/${cellBlock}/${name}";
-              value =
-                {
-                  command = l.getExe value;
-                }
-                // (l.optionalAttrs (value ? passthru && value.passthru ? process-compose) value.passthru.process-compose);
+              value = l.recursiveUpdate {
+                command = l.getExe value;
+                disabled = true;
+              } (l.optionalAttrs (value ? process-compose) value.process-compose);
             }))
           ]
         )))
@@ -37,6 +36,6 @@ in
   })
   .overrideAttrs (old: {
     passthru = {
-      process-compose = composeYaml;
+      config = composeYaml;
     };
   })
