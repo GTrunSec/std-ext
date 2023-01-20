@@ -1,6 +1,5 @@
 {inputs}: cellBlocks: self: attrs: let
   l = inputs.nixpkgs.lib // builtins;
-  inherit (inputs.cells.common.lib) __inputs__;
   inherit (inputs.cells.writers.lib) writeShellApplication writeConfig;
 
   cellTasks = cellBlock:
@@ -29,7 +28,7 @@
 in
   (writeShellApplication {
     name = "process-compose";
-    runtimeInputs = [__inputs__.process-compose.packages.process-compose];
+    runtimeInputs = [inputs.cells.workflows.packages.process-compose];
     text = ''
       process-compose -f ${composeYaml} "$@"
     '';
