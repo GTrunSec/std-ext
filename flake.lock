@@ -443,11 +443,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1673775361,
-        "narHash": "sha256-+FqQzn1zlaZ6O7FhaFD0V5RPNRklPcM23DJjnTNCDlc=",
+        "lastModified": 1674227480,
+        "narHash": "sha256-gzsfxk78DfosADqawCy+NVUWBCuK/G5RVwLA2N9Go5Q=",
         "owner": "gtrunsec",
         "repo": "xnlib",
-        "rev": "8c834ea84657f7a242401e5568f25f7d85ba4910",
+        "rev": "0be0127db1ed103718fedff02bc62b6d09f1cfed",
         "type": "github"
       },
       "original": {
