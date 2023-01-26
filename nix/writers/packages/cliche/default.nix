@@ -22,6 +22,11 @@ pythonPackages.buildPythonPackage rec {
 
   propagatedBuildInputs = with pythonPackages; [ipdb argcomplete];
 
+  postPatch = ''
+    substituteInPlace setup.py \
+      --replace "ipdb == 0.13.9" "ipdb"
+  '';
+
   meta = with lib; {
     description = "Build a simple command-line interface from your functions 💻";
     homepage = "https://github.com/kootenpv/cliche";

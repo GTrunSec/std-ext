@@ -58,6 +58,9 @@
 
     julia2nix.url = "github:JuliaCN/julia2nix";
     julia2nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    poetry2nix.url = "github:nix-community/poetry2nix";
+    poetry2nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {self, ...} @ inputs: {
