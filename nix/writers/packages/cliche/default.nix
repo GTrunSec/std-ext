@@ -5,13 +5,13 @@
 }:
 pythonPackages.buildPythonPackage rec {
   pname = "cliche";
-  version = "a13b7e9bf0c0e4f4073da03ae7f2273055232711";
+  version = "80a9ae2e90f4493880b669d5db51f1d4038589df";
   src = fetchFromGitHub {
     owner = "kootenpv";
     repo = "cliche";
     rev = version;
     fetchSubmodules = false;
-    sha256 = "sha256-wGBDylebd8DREU8LxgAy+r1MvuXlWbMRSspmMN466jQ=";
+    sha256 = "sha256-7/icSneLQzwdkRL/mS4RjsgnKa6YIVvGCmdS6pB6r5Y=";
   };
 
   checkInputs = with pythonPackages; [pytestCheckHook];
