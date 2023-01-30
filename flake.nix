@@ -58,6 +58,7 @@
 
         (data "consulProfiles")
         (data "nomadJobs")
+        (data "composeJobs")
         (data "terranix")
 
         (data "cargoMakeJobs")
