@@ -38,7 +38,7 @@
 
     n2c.url = "github:nlewo/nix2container";
 
-    process-compose.url = "github:F1bonacc1/process-compose/f180c8f87cd64ef9aa8aa92e50b67b3a8af18b15";
+    process-compose.url = "github:F1bonacc1/process-compose";
     process-compose.inputs.nixpkgs.follows = "nixpkgs";
   };
 
