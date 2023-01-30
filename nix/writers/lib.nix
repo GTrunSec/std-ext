@@ -12,6 +12,8 @@
   writeComoniconApplication = import ./writeComoniconApplication.nix args;
 
   writeConfiguration = import ./writeConfiguration.nix args;
+
+  writeShellApplication = import ./writeShellApplication.nix args;
 in {
   inherit
     writeClicheApplication
@@ -38,7 +40,7 @@ in {
   writeConfig = import ./writeConfig.nix args;
 
   writeShellApplication = {...} @ args:
-    inputs.std.lib.ops.writeScript (
+    writeShellApplication (
       args
       // {
         text = ''

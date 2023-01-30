@@ -1831,16 +1831,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1674418675,
-        "narHash": "sha256-Jog2MWpEm8dejf4Bxkcfo6dbpKOo/C6QIo1/Y7ykTx8=",
+        "lastModified": 1672960317,
+        "narHash": "sha256-Dk7mGCC92KdWwZddBp+uSHuJrwGb7kDNirtX0x2xlQs=",
         "owner": "F1bonacc1",
         "repo": "process-compose",
-        "rev": "db93aa457ffa6a778ab31cc4337db2acfb671216",
+        "rev": "f180c8f87cd64ef9aa8aa92e50b67b3a8af18b15",
         "type": "github"
       },
       "original": {
         "owner": "F1bonacc1",
         "repo": "process-compose",
+        "rev": "f180c8f87cd64ef9aa8aa92e50b67b3a8af18b15",
         "type": "github"
       }
     },
