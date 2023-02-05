@@ -39,9 +39,9 @@ in {
 
   writeConfig = import ./writeConfig.nix args;
 
-  writeShellApplication = {...} @ args:
-    writeShellApplication (
-      args
+  writeShellApplication = {passthru ? {}, ...} @ args:
+    (writeShellApplication (
+      (l.removeAttrs args ["passthru"])
       // {
         text = ''
            ${l.optionalString (nixpkgs.stdenv.hostPlatform.libc == "glibc") ''
@@ -52,5 +52,7 @@ in {
           ${args.text}
         '';
       }
-    );
+    )).overrideAttrs (old: {
+      inherit passthru;
+    });
 }
