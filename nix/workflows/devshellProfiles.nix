@@ -7,11 +7,15 @@ in {
   default = _: {
     commands = [
       {
-        package = nixpkgs.cargo-make;
+        package = cell.packages.process-compose;
         category = "workflows";
       }
+    ];
+  };
+  cargo-make = {
+    commands = [
       {
-        package = cell.packages.process-compose;
+        package = nixpkgs.cargo-make;
         category = "workflows";
       }
     ];

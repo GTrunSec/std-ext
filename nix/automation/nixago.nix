@@ -2,15 +2,15 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) std nixpkgs data-merge;
+  inherit (inputs) std nixpkgs std-data-collection;
 in {
-  treefmt = std.presets.nixago.treefmt {
-    configData.formatter.nix = {
+  treefmt = std-data-collection.data.configs.treefmt {
+    data.formatter.nix = {
       excludes = [
         "generated.nix"
       ];
     };
-    configData.formatter.prettier = {
+    data.formatter.prettier = {
       excludes = [
         "secrets*.yaml"
         "Manifest.toml"
@@ -19,7 +19,7 @@ in {
       ];
     };
   };
-  mdbook = std.std.nixago.mdbook {
+  mdbook = std-data-collection.data.configs.mdbook {
     configData = {
       book.title = "Cells Lab Doc";
     };

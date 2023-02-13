@@ -13,6 +13,11 @@
     # std.url = "/home/gtrun/ghq/github.com/divnix/std";
     # std.url = "github:divnix/std/?ref=refs/pull/150/head";
     std.inputs.nixpkgs.follows = "nixpkgs";
+
+    std-data-collection.url = "github:divnix/std-data-collection";
+    std-data-collection.inputs.std.follows = "std";
+    std-data-collection.inputs.nixpkgs.follows = "nixpkgs";
+
     xnlib.url = "github:gtrunsec/xnlib";
     xnlib.inputs.std.follows = "std";
     # xnlib.url = "/home/guangtao/ghq/github.com/GTrunSec/xnlib";
@@ -23,7 +28,7 @@
     self,
     ...
   } @ inputs: let
-    clades = import ./clades inputs;
+    blockTypes = import ./blockTypes inputs;
     systems = [
       "aarch64-darwin"
       "aarch64-linux"
@@ -42,7 +47,7 @@
         (functions "devshellProfiles")
         (devshells "devshells")
 
-        (runnables "entrypoints")
+        (blockTypes.runnables "entrypoints")
         (runnables "onPremises")
 
         (functions "generators")
@@ -67,10 +72,12 @@
     } {
       devShells = inputs.std.harvest inputs.self ["automation" "devshells"];
       lib = (inputs.std.harvest inputs.self [["workflows" "lib"]]).x86_64-linux;
-      process-compose = self.lib.mkProcessCompose ["entrypoints" "onPremises"]
+      process-compose =
+        self.lib.mkProcessCompose ["entrypoints" "onPremises"]
         self {
           log_location = "$HOME/.cache/process-compose.log";
         };
+     inherit blockTypes;
     } {
       templates = {
         default = {

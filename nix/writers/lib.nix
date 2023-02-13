@@ -52,7 +52,8 @@ in {
           ${args.text}
         '';
       }
-    )).overrideAttrs (old: {
+    ))
+    .overrideAttrs (old: {
       inherit passthru;
     });
 }

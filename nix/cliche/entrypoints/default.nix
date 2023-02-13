@@ -23,12 +23,12 @@ in {
       runtimeInputs = [];
     })
     // {
-      process-compose = {
-        disabled = false;
-        availability = {
-          restart = "always";
-          backoff_seconds = 300;
-        };
-      };
+      # process-compose = inputs.cells.workflows.lib.mkSingle {
+      #   disabled = false;
+      #   availability = {
+      #     restart = "always";
+      #     backoff_seconds = 300;
+      #   };
+      # };
     };
 }

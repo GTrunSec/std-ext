@@ -13,4 +13,4 @@
     inherit lockFile src;
   };
 in
-  std.deSystemize nixpkgs.system compatFlake.defaultNix.inputs
+  std.inputs.paisano.inputs.nosys.lib.deSys nixpkgs.system compatFlake.defaultNix.inputs
