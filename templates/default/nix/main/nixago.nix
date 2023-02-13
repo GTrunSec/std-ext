@@ -5,18 +5,18 @@
   inherit (inputs) std;
 in {
   mdbook = std.presets.nixago.mdbook {
-    configData = {
+    data = {
       book.title = "Std Template";
     };
   };
 
   treefmt = std.presets.nixago.treefmt {
-    configData.formatter.nix = {
+    data.formatter.nix = {
       excludes = [
         "generated.nix"
       ];
     };
-    configData.formatter.prettier = {
+    data.formatter.prettier = {
       excludes = [
         "conf/*"
         "data/*"

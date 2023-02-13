@@ -6,7 +6,7 @@
 in
   builtins.mapAttrs (_: std.lib.dev.mkNixago) {
     example = {
-      configData = {
+      data = {
         description = ''
           https://cloudinit.readthedocs.io/en/latest/topics/examples.html
         '';

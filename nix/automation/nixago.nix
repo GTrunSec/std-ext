@@ -20,7 +20,7 @@ in {
     };
   };
   mdbook = std-data-collection.data.configs.mdbook {
-    configData = {
+    data = {
       book.title = "Cells Lab Doc";
     };
   };
