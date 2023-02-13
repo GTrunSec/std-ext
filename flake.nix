@@ -4,7 +4,7 @@
     nixos.url = "github:NixOS/nixpkgs/nixos-22.11";
 
     org-roam-book-template.url = "github:gtrunsec/org-roam-book-template";
-    org-roam-book-template.inputs.nixpkgs.follows = "nixpkgs";
+    org-roam-book-template.inputs.nixpkgs.follows = "nixos";
   };
 
   # Std Inputs
