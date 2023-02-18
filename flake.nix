@@ -77,7 +77,7 @@
         self {
           log_location = "$HOME/.cache/process-compose.log";
         };
-     inherit blockTypes;
+      inherit blockTypes;
     } {
       templates = {
         default = {
