@@ -73,7 +73,7 @@
       devShells = inputs.std.harvest inputs.self ["automation" "devshells"];
       lib = (inputs.std.harvest inputs.self [["workflows" "lib"]]).x86_64-linux;
       process-compose =
-        self.lib.mkProcessCompose ["entrypoints" "onPremises"]
+        self.lib.mkProcessComposeTasks ["entrypoints" "onPremises"]
         self {
           log_location = "$HOME/.cache/process-compose.log";
         };

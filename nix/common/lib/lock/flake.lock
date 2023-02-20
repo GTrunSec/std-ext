@@ -1900,11 +1900,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1675450263,
-        "narHash": "sha256-u3yMNhzeBXUZLV//3sbaFwSJgoAWcaQLPknhQRHqy60=",
+        "lastModified": 1676836819,
+        "narHash": "sha256-fjlyxsNzM7NbuO9qEbDJLzNMfOliUY5gw6sV8gLkQAs=",
         "owner": "F1bonacc1",
         "repo": "process-compose",
-        "rev": "8cd4f2986e6075a765ecdc73cb909526f04b6568",
+        "rev": "90a3654507e99a8a1a010ef0b5fabe8b7f2ac35b",
         "type": "github"
       },
       "original": {
