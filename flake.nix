@@ -20,6 +20,7 @@
 
     xnlib.url = "github:gtrunsec/xnlib";
     xnlib.inputs.std.follows = "std";
+    xnlib.inputs.std-data-collection.follows = "std-data-collection";
     # xnlib.url = "/home/guangtao/ghq/github.com/GTrunSec/xnlib";
   };
 
