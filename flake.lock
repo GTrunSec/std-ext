@@ -15,6 +15,21 @@
         "type": "github"
       }
     },
+    "blank_2": {
+      "locked": {
+        "lastModified": 1625557891,
+        "narHash": "sha256-O8/MWsPBGhhyPoPLHZAuoZiiHo9q6FLlEeIDEXuj6T4=",
+        "owner": "divnix",
+        "repo": "blank",
+        "rev": "5a5d2684073d9f563072ed07c871d577a6c614a8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "blank",
+        "type": "github"
+      }
+    },
     "cortex": {
       "flake": false,
       "locked": {
@@ -268,11 +283,26 @@
     },
     "nixlib": {
       "locked": {
-        "lastModified": 1676163193,
-        "narHash": "sha256-6cTwPLtRHsRrIlKnEg3gQ9L+MYdx87eHdRqlTUi4H8Y=",
+        "lastModified": 1676767889,
+        "narHash": "sha256-VjGXT6nZv8KrmrIUkAJr8MjDLJ/mRgWZqCC9mq5J6Gg=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "d3e61f845dbbb77f10900603993c6f00bdfa9fd4",
+        "rev": "710d8816159a542ed0b1dcaf47748e2813af53f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixlib_2": {
+      "locked": {
+        "lastModified": 1653180592,
+        "narHash": "sha256-sVGwmxTj7CY1D4ioy7E+iJE+1/yHqQlxjnTpar3ap/E=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "42c5f5785b70cd64b4afd830dc31d0b08461abd5",
         "type": "github"
       },
       "original": {
@@ -326,6 +356,21 @@
         "owner": "NixOS",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1625557891,
+        "narHash": "sha256-O8/MWsPBGhhyPoPLHZAuoZiiHo9q6FLlEeIDEXuj6T4=",
+        "owner": "divnix",
+        "repo": "blank",
+        "rev": "5a5d2684073d9f563072ed07c871d577a6c614a8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "blank",
         "type": "github"
       }
     },
@@ -412,6 +457,32 @@
         "type": "github"
       }
     },
+    "pop": {
+      "inputs": {
+        "flake-compat": [
+          "xnlib",
+          "blank"
+        ],
+        "nixlib": "nixlib_2",
+        "nixpkgs": [
+          "xnlib",
+          "blank"
+        ]
+      },
+      "locked": {
+        "lastModified": 1655410953,
+        "narHash": "sha256-Er0zdhu7QwpWvVKfauqZqTnxDz6THTWOTVWLoz+Opmw=",
+        "owner": "divnix",
+        "repo": "POP",
+        "rev": "8babe4c9126298d05ebb5ab04727d741b51c022e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "POP",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "nixos": "nixos",
@@ -486,20 +557,45 @@
         "type": "github"
       }
     },
-    "xnlib": {
+    "std-data-collection_2": {
       "inputs": {
-        "nix-std": "nix-std",
-        "nixlib": "nixlib",
+        "nixpkgs": "nixpkgs_3",
         "std": [
+          "xnlib",
           "std"
         ]
       },
       "locked": {
-        "lastModified": 1676679630,
-        "narHash": "sha256-LIpBpunTlKRIs0mV2u2baNJMMph4fh1vG8T95lw/TQ0=",
+        "lastModified": 1676163535,
+        "narHash": "sha256-xofkWLBqU4zj5vzJhWor2Z9CyPGKt7UGkTchsCT48Po=",
+        "owner": "divnix",
+        "repo": "std-data-collection",
+        "rev": "f713d81a6197e1b0854fb201cc7acde5ef9e93d4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "std-data-collection",
+        "type": "github"
+      }
+    },
+    "xnlib": {
+      "inputs": {
+        "blank": "blank_2",
+        "nix-std": "nix-std",
+        "nixlib": "nixlib",
+        "pop": "pop",
+        "std": [
+          "std"
+        ],
+        "std-data-collection": "std-data-collection_2"
+      },
+      "locked": {
+        "lastModified": 1677307296,
+        "narHash": "sha256-31KFV/ikbXWL+tVuWXryhxDDtoumIqpSCKmq0Dq6634=",
         "owner": "gtrunsec",
         "repo": "xnlib",
-        "rev": "bd20acd464f55ed34ff45ee8c8ae16721571337b",
+        "rev": "2a5945dfa066ee12f612a01eff3f8ab19653f2f1",
         "type": "github"
       },
       "original": {
