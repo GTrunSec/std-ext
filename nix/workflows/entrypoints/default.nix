@@ -11,7 +11,7 @@ in {
     source = writeConfig "test-flow.toml" cargoMakeJobs.default;
     args = ["format"];
   };
-  single = cell.lib.mkProcessComposeTask {
+  single = cell.lib.mkProcessCompose {
     processes.simple = {
       command = l.getExe inputs.cells.cliche.entrypoints.example;
     };

@@ -48,7 +48,7 @@
         (functions "devshellProfiles")
         (devshells "devshells")
 
-        (blockTypes.runnables "entrypoints")
+        (runnables "entrypoints")
         (runnables "onPremises")
 
         (functions "generators")

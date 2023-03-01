@@ -13,17 +13,17 @@ inputs: let
     inherit name;
     type = "runnables";
     actions = {
-      system,
+      currentSystem,
       fragment,
       fragmentRelPath,
       target,
     }:
       [
-        (sharedActions.build system target)
-        (sharedActions.run system target)
+        (sharedActions.build currentSystem target)
+        (sharedActions.run currentSystem target)
       ]
       ++ lib.optional (target ? process-compose) [
-        ((sharedActions.run system target.process-compose) // {name = "ps";})
+        ((sharedActions.run currentSystem target.process-compose) // {name = "ps";})
       ];
   };
 in
