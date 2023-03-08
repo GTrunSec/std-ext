@@ -1,6 +1,6 @@
-baseURL = "https://gtrunsec.github.io/cells-lab"
+baseURL = "https://gtrunsec.github.io/std-ext"
 languageCode = "en-us"
-title = "Cells Lab"
+title = "Std Extensions"
 theme = "cortex"
 
 [params]

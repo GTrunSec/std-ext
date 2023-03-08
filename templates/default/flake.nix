@@ -1,9 +1,9 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    cells-lab.url = "github:GTrunSec/cells-lab";
+    std-ext.url = "github:GTrunSec/std-ext";
 
-    std.follows = "cells-lab/std";
+    std.follows = "std-play/std";
   };
   outputs = {std, ...} @ inputs:
     std.growOn {
