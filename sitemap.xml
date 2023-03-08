@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://gtrunsec.github.io/cells-lab/categories/</loc>
+    <loc>https://gtrunsec.github.io/std-ext/categories/</loc>
   </url><url>
-    <loc>https://gtrunsec.github.io/cells-lab/</loc>
+    <loc>https://gtrunsec.github.io/std-ext/posts/investigation/</loc>
   </url><url>
-    <loc>https://gtrunsec.github.io/cells-lab/posts/investigation/</loc>
+    <loc>https://gtrunsec.github.io/std-ext/posts/onpremises/</loc>
   </url><url>
-    <loc>https://gtrunsec.github.io/cells-lab/posts/onpremises/</loc>
+    <loc>https://gtrunsec.github.io/std-ext/posts/</loc>
   </url><url>
-    <loc>https://gtrunsec.github.io/cells-lab/posts/</loc>
+    <loc>https://gtrunsec.github.io/std-ext/search/</loc>
   </url><url>
-    <loc>https://gtrunsec.github.io/cells-lab/search/</loc>
+    <loc>https://gtrunsec.github.io/std-ext/</loc>
   </url><url>
-    <loc>https://gtrunsec.github.io/cells-lab/tags/</loc>
+    <loc>https://gtrunsec.github.io/std-ext/tags/</loc>
   </url>
 </urlset>
