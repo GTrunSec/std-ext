@@ -18,10 +18,11 @@
     std-data-collection.inputs.std.follows = "std";
     std-data-collection.inputs.nixpkgs.follows = "nixpkgs";
 
-    xnlib.url = "github:gtrunsec/xnlib";
-    xnlib.inputs.std.follows = "std";
-    xnlib.inputs.std-data-collection.follows = "std-data-collection";
-    # xnlib.url = "/home/guangtao/ghq/github.com/GTrunSec/xnlib";
+    nix-std.url = "github:chessai/nix-std";
+    nixlib.url = "github:nix-community/nixpkgs.lib";
+    pop.url = "github:divnix/POP";
+    pop.inputs.nixpkgs.follows = "std/blank";
+    pop.inputs.flake-compat.follows = "std/blank";
   };
 
   outputs = {
@@ -30,16 +31,12 @@
     ...
   } @ inputs: let
     blockTypes = import ./blockTypes inputs;
-    systems = [
-      "aarch64-darwin"
-      "aarch64-linux"
-      "x86_64-darwin"
-      "x86_64-linux"
-    ];
   in
     std.growOn {
       inherit inputs;
+
       cellsFrom = ./nix;
+
       cellBlocks = with std.blockTypes; [
         (installables "packages")
 
@@ -69,10 +66,27 @@
 
         (data "cargoMakeJobs")
         (data "waterwheelJobs")
+
+        (functions "utils")
+        (functions "importers")
+        (functions "attrsets")
+        (functions "digga")
+        (functions "validators")
+        (functions "files")
+        (functions "list")
+        (functions "path")
+        (functions "tests")
+        (functions "types")
       ];
     } {
       devShells = inputs.std.harvest inputs.self ["automation" "devshells"];
-      lib = (inputs.std.harvest inputs.self [["workflows" "lib"]]).x86_64-linux;
+      lib =
+        (inputs.std.harvest inputs.self [
+          ["workflows" "lib"]
+          ["lib"]
+        ])
+        .x86_64-linux;
+
       process-compose =
         self.lib.mkProcessComposeTasks ["entrypoints" "onPremises"]
         self {

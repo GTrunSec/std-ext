@@ -15,21 +15,6 @@
         "type": "github"
       }
     },
-    "blank_2": {
-      "locked": {
-        "lastModified": 1625557891,
-        "narHash": "sha256-O8/MWsPBGhhyPoPLHZAuoZiiHo9q6FLlEeIDEXuj6T4=",
-        "owner": "divnix",
-        "repo": "blank",
-        "rev": "5a5d2684073d9f563072ed07c871d577a6c614a8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "divnix",
-        "repo": "blank",
-        "type": "github"
-      }
-    },
     "cortex": {
       "flake": false,
       "locked": {
@@ -469,12 +454,12 @@
     "pop": {
       "inputs": {
         "flake-compat": [
-          "xnlib",
+          "std",
           "blank"
         ],
         "nixlib": "nixlib_2",
         "nixpkgs": [
-          "xnlib",
+          "std",
           "blank"
         ]
       },
@@ -494,12 +479,14 @@
     },
     "root": {
       "inputs": {
+        "nix-std": "nix-std",
+        "nixlib": "nixlib",
         "nixos": "nixos",
         "nixpkgs": "nixpkgs",
         "org-roam-book-template": "org-roam-book-template",
+        "pop": "pop",
         "std": "std",
-        "std-data-collection": "std-data-collection",
-        "xnlib": "xnlib"
+        "std-data-collection": "std-data-collection"
       }
     },
     "std": {
@@ -531,11 +518,11 @@
         "yants": "yants"
       },
       "locked": {
-        "lastModified": 1677533652,
-        "narHash": "sha256-H37dcuWAGZs6Yl9mewMNVcmSaUXR90/bABYFLT/nwhk=",
+        "lastModified": 1677774371,
+        "narHash": "sha256-yBL98bPnnN50fFN48PgyZf7tBMpARCwQrBq3Awh/nLw=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "490542f624412662e0411d8cb5a9af988ef56633",
+        "rev": "01ced7d1415f8a62e9b608bece1f81f95a9d09ca",
         "type": "github"
       },
       "original": {
@@ -564,33 +551,6 @@
       "original": {
         "owner": "divnix",
         "repo": "std-data-collection",
-        "type": "github"
-      }
-    },
-    "xnlib": {
-      "inputs": {
-        "blank": "blank_2",
-        "nix-std": "nix-std",
-        "nixlib": "nixlib",
-        "pop": "pop",
-        "std": [
-          "std"
-        ],
-        "std-data-collection": [
-          "std-data-collection"
-        ]
-      },
-      "locked": {
-        "lastModified": 1677543645,
-        "narHash": "sha256-AbdXZ2MrHOeBPgQF0XDd0ZUF7ruNRDo4cgrze7O41bU=",
-        "owner": "gtrunsec",
-        "repo": "xnlib",
-        "rev": "4161024dd5700516ed8e75405db8b3e85b15a87a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gtrunsec",
-        "repo": "xnlib",
         "type": "github"
       }
     },
