@@ -61,6 +61,12 @@
 
     poetry2nix.url = "github:nix-community/poetry2nix";
     poetry2nix.inputs.nixpkgs.follows = "nixpkgs";
+
+
+    nix-std.url = "github:chessai/nix-std";
+    pop.url = "github:divnix/POP";
+    pop.inputs.nixpkgs.follows = "std/blank";
+    pop.inputs.flake-compat.follows = "std/blank";
   };
 
   outputs = {self, ...} @ inputs: {

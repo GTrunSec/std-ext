@@ -17,12 +17,6 @@
     std-data-collection.url = "github:divnix/std-data-collection";
     std-data-collection.inputs.std.follows = "std";
     std-data-collection.inputs.nixpkgs.follows = "nixpkgs";
-
-    nix-std.url = "github:chessai/nix-std";
-    nixlib.url = "github:nix-community/nixpkgs.lib";
-    pop.url = "github:divnix/POP";
-    pop.inputs.nixpkgs.follows = "std/blank";
-    pop.inputs.flake-compat.follows = "std/blank";
   };
 
   outputs = {

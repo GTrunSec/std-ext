@@ -222,21 +222,6 @@
         "type": "github"
       }
     },
-    "nix-std": {
-      "locked": {
-        "lastModified": 1671250799,
-        "narHash": "sha256-uPIakP98gOf6504NtrAb2/0O0BgRRXNShM0PTV8z+T0=",
-        "owner": "chessai",
-        "repo": "nix-std",
-        "rev": "b300fd6dfeae8cc331c7d8cde0e81b404d50d40c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "chessai",
-        "repo": "nix-std",
-        "type": "github"
-      }
-    },
     "nixago": {
       "inputs": {
         "flake-utils": [
@@ -263,36 +248,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "nixago",
-        "type": "github"
-      }
-    },
-    "nixlib": {
-      "locked": {
-        "lastModified": 1677373009,
-        "narHash": "sha256-kxhz4QUP8tXa/yVSpEzDDZSEp9FvhzRqZzb+SeUaekw=",
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "rev": "c9d4f2476046c6a7a2ce3c2118c48455bf0272ea",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "type": "github"
-      }
-    },
-    "nixlib_2": {
-      "locked": {
-        "lastModified": 1653180592,
-        "narHash": "sha256-sVGwmxTj7CY1D4ioy7E+iJE+1/yHqQlxjnTpar3ap/E=",
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "rev": "42c5f5785b70cd64b4afd830dc31d0b08461abd5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
         "type": "github"
       }
     },
@@ -451,40 +406,11 @@
         "type": "github"
       }
     },
-    "pop": {
-      "inputs": {
-        "flake-compat": [
-          "std",
-          "blank"
-        ],
-        "nixlib": "nixlib_2",
-        "nixpkgs": [
-          "std",
-          "blank"
-        ]
-      },
-      "locked": {
-        "lastModified": 1655410953,
-        "narHash": "sha256-Er0zdhu7QwpWvVKfauqZqTnxDz6THTWOTVWLoz+Opmw=",
-        "owner": "divnix",
-        "repo": "POP",
-        "rev": "8babe4c9126298d05ebb5ab04727d741b51c022e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "divnix",
-        "repo": "POP",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
-        "nix-std": "nix-std",
-        "nixlib": "nixlib",
         "nixos": "nixos",
         "nixpkgs": "nixpkgs",
         "org-roam-book-template": "org-roam-book-template",
-        "pop": "pop",
         "std": "std",
         "std-data-collection": "std-data-collection"
       }
