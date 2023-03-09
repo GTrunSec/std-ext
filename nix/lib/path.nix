@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  l = inputs.nixlib // builtins // cell.files;
+  l = inputs.nixpkgs // builtins // cell.files;
   inherit (l) isDir;
 
   inherit

@@ -2,6 +2,6 @@
   inputs,
   cell,
 }: let
-  l = inputs.nixlib.lib // builtins;
+  l = inputs.nixpkgs.lib // builtins;
 in
   import ./attrsets {inherit l;}

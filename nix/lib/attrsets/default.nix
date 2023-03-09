@@ -60,19 +60,6 @@ in rec {
     assert l.isAttrs attrset;
       l.filterAttrs (_: value: value == valueToFind) attrset;
 
-  # maps attrs to list with an extra i iteration parameter
-  imapAttrsToList = f: set: (
-    let
-      keys = l.attrNames set;
-    in
-      l.genList (
-        n: let
-          key = l.elemAt keys n;
-          value = set.${key};
-        in
-          f n key value
-      ) (l.length keys)
-  );
 
   # Recursively merges attribute sets **and** lists
   recursiveMerge = attrList: let

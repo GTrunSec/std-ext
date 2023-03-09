@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  l = inputs.nixlib.lib // builtins;
+  l = inputs.nixpkgs.lib // builtins;
   inherit
     (builtins)
     isPath
