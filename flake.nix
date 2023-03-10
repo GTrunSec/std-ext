@@ -60,24 +60,13 @@
 
         (data "cargoMakeJobs")
         (data "waterwheelJobs")
-
-        (functions "utils")
-        (functions "importers")
-        (functions "attrsets")
-        (functions "digga")
-        (functions "validators")
-        (functions "files")
-        (functions "list")
-        (functions "path")
-        (functions "tests")
-        (functions "types")
       ];
     } {
       devShells = inputs.std.harvest inputs.self ["automation" "devshells"];
       lib =
         (inputs.std.harvest inputs.self [
           ["workflows" "lib"]
-          ["lib"]
+          ["lib" "lib"]
         ])
         .x86_64-linux;
 
