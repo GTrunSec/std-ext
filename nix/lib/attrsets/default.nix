@@ -60,7 +60,6 @@ in rec {
     assert l.isAttrs attrset;
       l.filterAttrs (_: value: value == valueToFind) attrset;
 
-
   # Recursively merges attribute sets **and** lists
   recursiveMerge = attrList: let
     f = attrPath:
