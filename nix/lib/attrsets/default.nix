@@ -92,4 +92,27 @@ in rec {
   */
   deepMergeMap = f: listOfAttrs:
     l.foldr (attr: acc: (l.recursiveUpdate acc (f attr))) {} listOfAttrs;
+
+  mapNestedMattr = let
+    f = x:
+      l.foldr
+      (n: acc: acc // l.mapAttrs' (n': l.nameValuePair (n + "-" + n')) (x.${n})) {} (l.attrNames x);
+  in
+    f;
+
+  makeNestedJobs = paths: args:
+    mapNestedMattr (mapNestedMattr (mapNestedMattr (genAttrs' paths (
+      path: {
+        name = baseNameOf path;
+        value = import path args;
+      }
+    ))));
+
+  pathsToImportedAttrs = paths: args:
+    genAttrs' paths (
+      path: {
+        name = baseNameOf path;
+        value = import path args;
+      }
+    );
 }
