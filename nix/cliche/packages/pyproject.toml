@@ -5,7 +5,7 @@ description = ""
 authors = ["GTrunSec <gtrunsec@hardenedlinux.org>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 cliche = { git = "https://github.com/kootenpv/cliche" }
 argcomplete = "^2.0.0"
 
