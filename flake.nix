@@ -10,7 +10,8 @@
   # Std Inputs
   inputs = {
     std.url = "github:divnix/std";
-    # std.url = "/home/gtrun/ghq/github.com/divnix/std";
+    std.inputs.paisano.url = "github:paisano-nix/core/?ref=refs/pull/8/head";
+    # std.url = "/home/gtrun/guangtao/github.com/divnix/std";
     # std.url = "github:divnix/std/?ref=refs/pull/150/head";
     std.inputs.nixpkgs.follows = "nixpkgs";
 
