@@ -1,8 +1,7 @@
 {
   inputs,
   cell,
-} @ args: let
-in {
+} @ args: {
   airflow = import ./airflow.nix args;
 
   waterwheel = import ./waterwheel.nix args;

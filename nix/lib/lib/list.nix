@@ -19,7 +19,7 @@ in rec {
 
   attrsToList' = f: set: let
     keys = builtins.attrNames set;
-    imap = key: f key (set.${key});
+    imap = key: f key set.${key};
   in
     map imap keys;
   /*

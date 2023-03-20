@@ -1,4 +1,4 @@
-{...}: {
+_: {
   resource.hcloud_server.nginx = {
     name = "terranix.nginx";
     image = "debian-10";

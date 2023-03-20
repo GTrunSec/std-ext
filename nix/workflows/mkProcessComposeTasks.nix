@@ -33,7 +33,7 @@
       (l.collect (x: x ? name && x ? value))
       l.listToAttrs
     ];
-  composeYaml = writeConfig "compose.yaml" ({processes = l.foldr (a: b: a // b) {} (map (v: cellTasks v) cellBlocks);} // attrs);
+  composeYaml = writeConfig "compose.yaml" ({processes = l.foldr (a: b: a // b) {} (map cellTasks cellBlocks);} // attrs);
 in
   (writeShellApplication {
     name = "process-compose";

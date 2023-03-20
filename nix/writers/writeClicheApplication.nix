@@ -8,7 +8,7 @@
   runtimeInputs ? [],
   libraries ? (_: []),
   checkPhase ? null,
-  nixpkgs ? (inputs.nixpkgs),
+  nixpkgs ? inputs.nixpkgs,
   passthru ? {},
 }: let
   l = nixpkgs.lib // builtins;

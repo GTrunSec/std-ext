@@ -19,8 +19,8 @@
 in
   lib.writeShellApplication {
     inherit name;
-    runtimeEnv = runtimeEnv;
-    runtimeInputs = runtimeInputs;
+    inherit runtimeEnv;
+    inherit runtimeInputs;
     text =
       l.optionalString julia.pure ''
         ${l.getExe julia.package} ${path}/${builtins.concatStringsSep " " args} "$@"

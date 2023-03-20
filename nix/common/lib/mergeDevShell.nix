@@ -21,7 +21,7 @@ in
         (
           let
             isUpperCase = s: l.strings.toUpper s == s;
-            filterUpperCaseAttrs = attrs: l.attrsets.filterAttrs (n: _: isUpperCase n) attrs;
+            filterUpperCaseAttrs = l.attrsets.filterAttrs (n: _: isUpperCase n);
           in
             filterUpperCaseAttrs a // filterUpperCaseAttrs b
         )

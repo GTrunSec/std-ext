@@ -63,7 +63,7 @@ in rec {
   # Recursively merges attribute sets **and** lists
   recursiveMerge = attrList: let
     f = attrPath:
-      l.zipAttrsWith (
+      builtins.zipAttrsWith (
         n: values:
           if l.tail values == []
           then l.head values
@@ -76,8 +76,7 @@ in rec {
   in
     f [] attrList;
 
-  recursiveMergeAttrsWithNames = names: f: sets:
-    l.zipAttrsWithNames names (name: vs: l.foldl' f {} vs) sets;
+  recursiveMergeAttrsWithNames = names: f: l.zipAttrsWithNames names (name: l.foldl' f {});
 
   recursiveMergeAttrsWith = f: sets:
     recursiveMergeAttrsWithNames (l.concatMap l.attrNames sets) f sets;
@@ -90,13 +89,12 @@ in rec {
     deepMergeMap (x: x.t = "test") [ { x = { y = 1; z = 3; }; } { x = { bla = 234; }; } ]
     => { x = { y = 1; z = 3; bla = 234; t = "test"; }; }
   */
-  deepMergeMap = f: listOfAttrs:
-    l.foldr (attr: acc: (l.recursiveUpdate acc (f attr))) {} listOfAttrs;
+  deepMergeMap = f: l.foldr (attr: acc: (l.recursiveUpdate acc (f attr))) {};
 
   mapNestedMattr = let
     f = x:
       l.foldr
-      (n: acc: acc // l.mapAttrs' (n': l.nameValuePair (n + "-" + n')) (x.${n})) {} (l.attrNames x);
+      (n: acc: acc // l.mapAttrs' (n': l.nameValuePair (n + "-" + n')) x.${n}) {} (l.attrNames x);
   in
     f;
 

@@ -3,5 +3,5 @@
   cell,
 }:
 import ./digga/importers.nix {
-  lib = inputs.nixpkgs.lib;
+  inherit (inputs.nixpkgs) lib;
 }
