@@ -72,7 +72,7 @@
         .x86_64-linux;
 
       process-compose =
-        self.lib.mkProcessComposeTasks ["entrypoints" "onPremises"]
+        self.libs.mkProcessComposeTasks ["entrypoints" "onPremises"]
         self {
           log_location = "$HOME/.cache/process-compose.log";
         };
