@@ -1,6 +1,7 @@
 {
   inputs,
   cell,
+  nosys ? true,
 }: src: overrides: let
   inherit (inputs) std nixpkgs;
   l = nixpkgs.lib;
@@ -13,7 +14,7 @@
   compatFlake = import "${flake-compat}" {
     inherit lockFile src;
   };
-in {
-  nosys = std.inputs.paisano.inputs.nosys.lib.deSys nixpkgs.system compatFlake.defaultNix.inputs;
-  withsys = compatFlake.defaultNix.inputs;
-}
+in
+  if nosys
+  then std.inputs.paisano.inputs.nosys.lib.deSys nixpkgs.system compatFlake.defaultNix.inputs
+  else compatFlake.defaultNix.inputs
