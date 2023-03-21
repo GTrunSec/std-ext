@@ -15,5 +15,6 @@ in {
 
   mergeDevShell = import ./mergeDevShell.nix nixpkgs;
 
-  callFlake = import ./callFlake.nix args;
+  callFlake = (import ./callFlake.nix args).nosys;
+  callFlakeSys = (import ./callFlake.nix args).withsys;
 }

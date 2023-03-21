@@ -2,7 +2,10 @@
   # nix linters
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/6ccc4a59c3f1b56d039d93da52696633e641bc71";
-
+    flake-compat = {
+      url = "github:gtrunsec/flake-compat/lockFile";
+      flake = false;
+    };
     std.url = "github:divnix/std";
     std.inputs.n2c.follows = "n2c";
     std.inputs.nixpkgs.follows = "nixpkgs";

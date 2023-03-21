@@ -40,7 +40,7 @@
     then [toplevel]
     else [toplevel] ++ (concatMap _listAllDirs subdirs);
 in {
-  mkPaths = import ./path/mkPaths.nix { inherit inputs cell; };
+  mkPaths = import ./path/mkPaths.nix {inherit inputs cell;};
   # listAllDirs :: path -> [ path ]
   #
   # Traverse the $toplevel from up to bottom

@@ -4,13 +4,16 @@
 }: src: overrides: let
   inherit (inputs) std nixpkgs;
   l = nixpkgs.lib;
+  lock = builtins.fromJSON (builtins.readFile ./lock/flake.lock);
   flake-compat = builtins.fetchTarball {
-    url = "https://github.com/gtrunsec/flake-compat/archive/lockFile.tar.gz";
-    sha256 = "sha256:157zd0xs1qz0synqlphr8xa5cfvflascbv021gwci0w4cgyjmfag";
+    url = "https://github.com/gtrunsec/flake-compat/archive/${lock.nodes.flake-compat.locked.rev}.tar.gz";
+    sha256 = lock.nodes.flake-compat.locked.narHash;
   };
   lockFile = l.recursiveUpdate (builtins.fromJSON (builtins.readFile (src + "/flake.lock"))) {nodes = overrides;};
   compatFlake = import "${flake-compat}" {
     inherit lockFile src;
   };
-in
-  std.inputs.paisano.inputs.nosys.lib.deSys nixpkgs.system compatFlake.defaultNix.inputs
+in {
+  nosys = std.inputs.paisano.inputs.nosys.lib.deSys nixpkgs.system compatFlake.defaultNix.inputs;
+  withsys = compatFlake.defaultNix.inputs;
+}
