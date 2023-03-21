@@ -32,8 +32,12 @@ in {
     name = "update-lock";
     text = ''
       # shellcheck disable=all
-      sed -i 's|NixOS/nixpkgs/.*."|NixOS/nixpkgs/'$(nix flake metadata --json | jq -r ".locks.nodes.nixpkgs.locked.rev")'"|' nix/common/lib/lock/flake.nix
-      nix flake update ./nix/common/lib/lock
+      nixpkgs="$(nix flake metadata --json | jq -r ".locks.nodes.root.inputs.nixpkgs")"
+      # shellcheck disable=all
+      rev="$(nix flake metadata --json | jq -r '.locks.nodes.'$nixpkgs'.locked.rev')"
+      # shellcheck disable=all
+      sed -i 's|NixOS/nixpkgs/.*."|NixOS/nixpkgs/'$rev'"|' "$@"
+      nix flake update "$(dirname "$@")"
     '';
   };
 }
