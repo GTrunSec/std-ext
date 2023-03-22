@@ -64,10 +64,10 @@
       ];
     } {
       devShells = inputs.std.harvest inputs.self ["automation" "devshells"];
-      libs =
+      lib =
         (inputs.std.harvest inputs.self [
           ["workflows" "lib"]
-          ["lib" "lib"]
+          ["library" "lib"]
         ])
         .x86_64-linux;
 

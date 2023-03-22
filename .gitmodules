@@ -1,4 +1,0 @@
-[submodule "cells-infra"]
-	path = infra
-	url = https://github.com/GTrunSec/cells-infra.git
-	branch = lab

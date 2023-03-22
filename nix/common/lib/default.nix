@@ -16,9 +16,4 @@ in {
   mergeDevShell = import ./mergeDevShell.nix nixpkgs;
 
   callFlake = import ./callFlake.nix {inherit cell inputs;};
-
-  callFlakeSys = import ./callFlake.nix {
-    inherit cell inputs;
-    nosys = false;
-  };
 }
