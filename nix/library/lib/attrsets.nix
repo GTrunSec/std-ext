@@ -1,4 +1,8 @@
-{l}: let
+{
+  self,
+  lib,
+}: let
+  l = lib // builtins;
   inherit
     (l)
     nameValuePair

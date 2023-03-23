@@ -1,8 +1,13 @@
 {
-  inputs,
-  cell,
+  self,
+  lib,
 }: let
-  l = inputs.nixpkgs.lib // builtins;
+  inherit
+    (lib)
+    hasSuffix
+    filterAttrs
+    ;
+
   inherit
     (builtins)
     isPath
@@ -27,8 +32,8 @@ in rec {
     a = key: value:
       value
       == "regular"
-      && l.hasSuffix ".${ext}" key
+      && hasSuffix ".${ext}" key
       && key != "default.nix";
   in
-    l.filterAttrs a (builtins.readDir path);
+    filterAttrs a (builtins.readDir path);
 }
