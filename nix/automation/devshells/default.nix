@@ -7,7 +7,7 @@
 in
   l.mapAttrs (_: std.lib.dev.mkShell) {
     default = {...}: {
-      name = "Cells Lab";
+      name = "Std Extensions";
       imports =
         [
           cell.devshellProfiles.default
@@ -18,9 +18,11 @@ in
           inputs.cells.hashicorp.devshellProfiles.default
           inputs.cells.configuration.devshellProfiles.default
         ];
-      nixago = [
-        cell.nixago.treefmt
-      ];
+      nixago =
+        [
+          cell.nixago.treefmt
+        ]
+        ++ __attrValues inputs.cells.presets.nixago;
     };
 
     update = {...}: {imports = [inputs.cells.update.devshellProfiles.default];};
