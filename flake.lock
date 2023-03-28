@@ -444,11 +444,11 @@
         "yants": "yants"
       },
       "locked": {
-        "lastModified": 1679538055,
-        "narHash": "sha256-3c7+l5U5f/KtxDA/cmy33ukL+f0MiaqYd4KLYe2h1O8=",
+        "lastModified": 1679594128,
+        "narHash": "sha256-51ttNavdpilMG/rxA5G5lZzAAuvLU0v5IMThJVQvEG4=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "89f97bb6a2ce3d412a791581e7f480bb147927c0",
+        "rev": "e5f05ec263971190bcda79a914ef5be1a0d60567",
         "type": "github"
       },
       "original": {
