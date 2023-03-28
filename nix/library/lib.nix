@@ -9,17 +9,17 @@
   in {
     path = import ./lib/path.nix {inherit lib;};
 
-    digga = import ./lib/digga.nix {inherit inputs cell;};
+    digga = import ./lib/digga.nix {inherit lib;};
 
-    importers = import ./lib/importers.nix {inherit inputs cell;};
+    importers = import ./lib/importers.nix {inherit lib;};
 
-    types = import ./lib/types.nix {inherit self lib;};
+    types = import ./lib/types.nix {inherit lib;};
 
-    list = import ./lib/list.nix {inherit inputs cell;};
+    list = import ./lib/list.nix {inherit lib;};
 
-    attrsets = import ./lib/attrsets.nix {inherit self lib;};
+    attrsets = import ./lib/attrsets.nix {inherit lib;};
 
-    files = import ./lib/files.nix {inherit self lib;};
+    files = import ./lib/files.nix {inherit lib;};
 
     pop = __inputs__.pop.lib;
   });

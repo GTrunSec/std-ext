@@ -1,9 +1,5 @@
-{
-  inputs,
-  cell,
-}: {
+{lib}: {
   importNixFilesFromPath = import ./importers/importNixFilesFromPath.nix {
-    inherit (inputs.nixpkgs) lib;
-    inherit (cell.attrsets) pathsToImportedAttrs;
+    inherit lib;
   };
 }

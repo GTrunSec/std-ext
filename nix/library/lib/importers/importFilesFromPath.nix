@@ -2,6 +2,8 @@
   lib,
   pathsToImportedAttrs,
 }: let
+  inherit (lib.attrsets) pathsToImportedAttrs;
+
   filesToList = dir: suffix: let
     fullPath = name: dir + "/${name}";
   in

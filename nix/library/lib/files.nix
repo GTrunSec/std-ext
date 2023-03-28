@@ -1,7 +1,4 @@
-{
-  self,
-  lib,
-}: let
+{lib}: let
   inherit
     (lib)
     hasSuffix
@@ -14,6 +11,8 @@
     pathExists
     toString
     ;
+
+  inherit (lib.path) isDir;
 in rec {
   # isFile :: path -> bool
   #

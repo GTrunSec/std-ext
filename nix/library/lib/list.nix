@@ -1,9 +1,5 @@
-{
-  inputs,
-  cell,
-}: let
-  l = inputs.nixpkgs.lib // builtins;
-  inherit (l) filter;
+{lib}: let
+  inherit (lib) filter;
 in rec {
   # filters out empty strings and null objects from a list
   filterListNonEmpty = l: (filter (x: (x != "" && x != null)) l);
@@ -18,7 +14,7 @@ in rec {
   */
 
   attrsToList' = f: set: let
-    keys = builtins.attrNames set;
+    keys = lib.attrNames set;
     imap = key: f key set.${key};
   in
     map imap keys;
@@ -33,15 +29,15 @@ in rec {
   */
   imapAttrsToList = f: set: (
     let
-      keys = l.attrNames set;
+      keys = lib.attrNames set;
     in
-      l.genList (
+      lib.genList (
         n: let
-          key = l.elemAt keys n;
+          key = lib.elemAt keys n;
           value = set.${key};
         in
           f n key value
-      ) (l.length keys)
+      ) (lib.length keys)
   );
 
   /*
@@ -57,5 +53,5 @@ in rec {
     keys = builtins.attrNames set;
     values = builtins.attrValues set;
   in
-    l.zipListsWith (f (l.range 0 (builtins.length keys))) keys values;
+    lib.zipListsWith (f (lib.range 0 (builtins.length keys))) keys values;
 }
