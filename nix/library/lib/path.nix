@@ -1,10 +1,7 @@
 {
+  lib,
   inputs,
-  cell,
 }: let
-  l = inputs.nixpkgs // builtins // cell.files;
-  inherit (l) isDir;
-
   inherit
     (builtins)
     attrNames
@@ -13,9 +10,11 @@
     ;
 
   inherit
-    (cell.attrsets)
+    (lib.attrsets)
     getAttrsByValue
     ;
+
+  isDir = path: builtins.pathExists ((toString path) + "/bin");
 
   # _listDirs :: path -> [ path ]
   #

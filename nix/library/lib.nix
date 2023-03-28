@@ -5,9 +5,9 @@
   inherit (inputs.cells.common.lib) __inputs__;
 
   l = inputs.nixpkgs.lib.makeExtensible (self: let
-    lib = inputs.nixpkgs.lib;
+    lib = inputs.nixpkgs.lib // self;
   in {
-    path = import ./lib/path.nix {inherit inputs cell;};
+    path = import ./lib/path.nix {inherit inputs lib;};
 
     digga = import ./lib/digga.nix {inherit inputs cell;};
 
