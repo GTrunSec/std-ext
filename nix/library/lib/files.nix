@@ -15,12 +15,6 @@
     toString
     ;
 in rec {
-  # isDir:: path -> bool
-  #
-  # A filesystem trick is used.
-  #
-  isDir = path: pathExists ((toString path) + "/.");
-
   # isFile :: path -> bool
   #
   # Symlinks are dirs or files ultimately.

@@ -1,9 +1,6 @@
-{
-  lib,
-  inputs,
-}: let
+{lib}: let
   inherit
-    (builtins)
+    (lib)
     attrNames
     concatMap
     readDir
@@ -13,8 +10,6 @@
     (lib.attrsets)
     getAttrsByValue
     ;
-
-  isDir = path: builtins.pathExists ((toString path) + "/bin");
 
   # _listDirs :: path -> [ path ]
   #
@@ -38,8 +33,14 @@
     if subdirs == []
     then [toplevel]
     else [toplevel] ++ (concatMap _listAllDirs subdirs);
-in {
-  mkPaths = import ./path/mkPaths.nix {inherit inputs cell;};
+in rec {
+  # isDir:: path -> bool
+  #
+  # A filesystem trick is used.
+  #
+  isDir = path: lib.pathExists ((toString path) + "/.");
+
+  mkPaths = import ./path/mkPaths.nix {inherit lib;};
   # listAllDirs :: path -> [ path ]
   #
   # Traverse the $toplevel from up to bottom
@@ -55,5 +56,5 @@ in {
   #
   listAllFiles = toplevel:
     assert isDir toplevel;
-      l.filesystem.listFilesRecursive toplevel;
+      lib.filesystem.listFilesRecursive toplevel;
 }

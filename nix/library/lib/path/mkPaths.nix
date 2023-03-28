@@ -1,11 +1,9 @@
-{
-  lib,
-  inputs,
-}: {
+{lib}: {
+  nixpkgs,
   name,
   paths ? [],
 }: let
-  inherit (inputs) nixpkgs;
+  isDir = path: builtins.pathExists ((toString path) + "/bin");
 
   cpPackages = lib.concatStringsSep "\n" (map (f: let name = f.pname or f.name; in "ln -s ${f} $out/${name}") paths);
   onlyPathsDir = lib.flatten (map (f: lib.optionals (isDir f) f) paths);

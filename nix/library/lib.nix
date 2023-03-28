@@ -4,10 +4,10 @@
 }: let
   inherit (inputs.cells.common.lib) __inputs__;
 
-  l = inputs.nixpkgs.lib.makeExtensible (self: let
-    lib = inputs.nixpkgs.lib // self;
+  l = (inputs.nixpkgs.lib // builtins).makeExtensible (self: let
+    lib = inputs.nixpkgs.lib // builtins // l;
   in {
-    path = import ./lib/path.nix {inherit inputs lib;};
+    path = import ./lib/path.nix {inherit lib;};
 
     digga = import ./lib/digga.nix {inherit inputs cell;};
 
