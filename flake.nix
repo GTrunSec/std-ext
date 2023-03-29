@@ -44,6 +44,7 @@
 
         (functions "generators")
         (functions "lib")
+        (functions "nu") # nushell scripts
         (functions "config")
 
         (functions "nixosProfiles")
