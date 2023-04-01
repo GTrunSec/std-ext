@@ -22,6 +22,8 @@
     files = import ./lib/files.nix {inherit lib;};
 
     pop = __inputs__.pop.lib;
+
+    haumea = __inputs__.haumea.lib;
   });
 in
   l

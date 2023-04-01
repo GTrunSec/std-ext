@@ -11,6 +11,9 @@
     std.inputs.nixpkgs.follows = "nixpkgs";
     std.inputs.microvm.follows = "microvm";
     std.inputs.makes.follows = "makes";
+
+    haumea.url = "github:nix-community/haumea";
+    haumea.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   inputs = {
