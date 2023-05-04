@@ -1,17 +1,14 @@
 {
   inputs,
   cell,
-} @ args: let
-  inherit (inputs) nixpkgs std self;
-  l = nixpkgs.lib // builtins;
+}: let
+  inherit (inputs) nixpkgs std flops;
 
-  __inputs__ = cell.lib.callFlake ./lock {
-    inherit (inputs) std;
-  };
+  callInputs = (flops.lib.flake.pops.default.setInitInputs (flops.lib.callFlake ./lock))
+    .setSystem "x86_64-linux";
 in {
-  inherit __inputs__ inputs l std;
+  inherit callInputs;
+  __inputs__ = callInputs.outputsForInputsCompat;
 
   mergeDevShell = import ./mergeDevShell.nix nixpkgs;
-
-  callFlake = import ./callFlake.nix {inherit cell inputs;};
 }

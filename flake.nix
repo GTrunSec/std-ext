@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixos.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixos.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     org-roam-book-template.url = "github:gtrunsec/org-roam-book-template";
     org-roam-book-template.inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +17,9 @@
     std-data-collection.url = "github:divnix/std-data-collection";
     std-data-collection.inputs.std.follows = "std";
     std-data-collection.inputs.nixpkgs.follows = "nixpkgs";
+
+    flops.url = "github:gtrunsec/flops";
+    flops.inputs.dmerge.follows = "std/dmerge";
   };
 
   outputs = {
