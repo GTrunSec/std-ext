@@ -5,7 +5,7 @@
   inherit (inputs) nixpkgs std flops;
 
   callInputs =
-    (flops.lib.flake.pops.default.setInitInputs (flops.lib.callFlake ./lock))
+    (flops.lib.flake.pops.default.setInitInputs ./lock)
     .setSystem
     nixpkgs.system;
 in {
