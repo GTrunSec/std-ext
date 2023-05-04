@@ -6,9 +6,7 @@
   l = nixpkgs.lib // builtins;
 
   __inputs__ = cell.lib.callFlake ./lock {
-    # this is a hack to get the lock file to be followed in our nixpkgs channel
-    nixpkgs.locked = inputs.nixpkgs.sourceInfo;
-    std.locked = inputs.std.sourceInfo;
+    inherit (inputs) std;
   };
 in {
   inherit __inputs__ inputs l std;
