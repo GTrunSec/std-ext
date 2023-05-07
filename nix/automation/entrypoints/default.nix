@@ -37,7 +37,7 @@ in {
       rev="$(nix flake metadata --json | jq -r '.locks.nodes.'$nixpkgs'.locked.rev')"
       # shellcheck disable=all
       sed -i 's|NixOS/nixpkgs/.*."|NixOS/nixpkgs/'$rev'"|' "$@"
-      nix flake update "$(dirname "$@")"
+      # nix flake update "$(dirname "$@")"
     '';
   };
 }
