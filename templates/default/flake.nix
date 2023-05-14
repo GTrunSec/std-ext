@@ -3,7 +3,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     std-ext.url = "github:GTrunSec/std-ext";
 
-    std.follows = "std-play/std";
+    std.follows = "std-ext/std";
   };
   outputs = {std, ...} @ inputs:
     std.growOn {
