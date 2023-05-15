@@ -2,6 +2,7 @@ baseURL = "https://<username>.github.io/<repo>"
 languageCode = "en-us"
 title = "Cells Lab"
 theme = "cortex"
+canonifyURLs = true
 
 [params]
 email = "<email>"
