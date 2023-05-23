@@ -103,6 +103,33 @@
     },
     "dmerge": {
       "inputs": {
+        "haumea": [
+          "flops",
+          "haumea"
+        ],
+        "namaka": [
+          "flops",
+          "namaka"
+        ],
+        "nixlib": "nixlib_2",
+        "yants": "yants"
+      },
+      "locked": {
+        "lastModified": 1681616844,
+        "narHash": "sha256-xKMiUJaOs3yTbWln047m1P/K/QvijuII3+nVN02SQmY=",
+        "owner": "divnix",
+        "repo": "dmerge",
+        "rev": "4d547351cac82814800d562f0f13686eb63077d9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "dmerge",
+        "type": "github"
+      }
+    },
+    "dmerge_2": {
+      "inputs": {
         "haumea": "haumea_2",
         "namaka": "namaka_2",
         "nixlib": [
@@ -278,14 +305,11 @@
     "flops": {
       "inputs": {
         "POP": "POP",
-        "dmerge": [
-          "std",
-          "dmerge"
-        ],
+        "dmerge": "dmerge",
         "haumea": "haumea",
         "namaka": "namaka",
-        "nixlib": "nixlib_2",
-        "yants": "yants"
+        "nixlib": "nixlib_3",
+        "yants": "yants_2"
       },
       "locked": {
         "lastModified": 1683822301,
@@ -501,6 +525,21 @@
       }
     },
     "nixlib_2": {
+      "locked": {
+        "lastModified": 1681001314,
+        "narHash": "sha256-5sDnCLdrKZqxLPK4KA8+f4A3YKO/u6ElpMILvX0g72c=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "367c0e1086a4eb4502b24d872cea2c7acdd557f4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixlib_3": {
       "locked": {
         "lastModified": 1681001314,
         "narHash": "sha256-5sDnCLdrKZqxLPK4KA8+f4A3YKO/u6ElpMILvX0g72c=",
@@ -847,7 +886,7 @@
         ],
         "blank": "blank",
         "devshell": "devshell",
-        "dmerge": "dmerge",
+        "dmerge": "dmerge_2",
         "flake-utils": "flake-utils_3",
         "incl": "incl",
         "makes": [
@@ -866,7 +905,7 @@
         "paisano": "paisano",
         "paisano-mdbook-preprocessor": "paisano-mdbook-preprocessor",
         "paisano-tui": "paisano-tui",
-        "yants": "yants_2"
+        "yants": "yants_3"
       },
       "locked": {
         "lastModified": 1684352613,
@@ -907,7 +946,11 @@
     },
     "yants": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": [
+          "flops",
+          "dmerge",
+          "nixlib"
+        ]
       },
       "locked": {
         "lastModified": 1677285314,
@@ -924,6 +967,24 @@
       }
     },
     "yants_2": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1677285314,
+        "narHash": "sha256-hlAcg2514zKrPu8jn24BUsIjjvXvCLdw1jvKgBTpqko=",
+        "owner": "divnix",
+        "repo": "yants",
+        "rev": "9eab24b273ce021406c852166c216b86e2bb4ec4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "yants",
+        "type": "github"
+      }
+    },
+    "yants_3": {
       "inputs": {
         "nixpkgs": [
           "std",

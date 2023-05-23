@@ -10,7 +10,11 @@
     nixpkgs.system;
 in {
   inherit callInputs;
-  __inputs__ = callInputs.outputsForInputsCompat;
+  __inputs__ =
+    (callInputs.addInputsOverride {
+      # nixpkgs = callInputs.sysInputs.nixpkgs;
+    })
+    .outputsForInputsCompat;
 
   mergeDevShell = import ./mergeDevShell.nix nixpkgs;
 }

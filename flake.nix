@@ -19,7 +19,6 @@
     std-data-collection.inputs.nixpkgs.follows = "nixpkgs";
 
     flops.url = "github:gtrunsec/flops";
-    flops.inputs.dmerge.follows = "std/dmerge";
   };
 
   outputs = {
