@@ -50,12 +50,6 @@
 
   # configuration modules
   inputs = {
-    nickel.url = "github:tweag/nickel";
-    nickel.inputs.nixpkgs.follows = "nixpkgs";
-    nickel-nix.url = "github:nickel-lang/nickel-nix";
-    nickel-nix.inputs.nickel.follows = "nickel";
-    nickel-nix.inputs.nixpkgs.follows = "nixpkgs";
-
     terraform-providers.url = "github:numtide/nixpkgs-terraform-providers-bin";
     terraform-providers.inputs.nixpkgs.follows = "nixpkgs";
 

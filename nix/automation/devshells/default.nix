@@ -16,7 +16,6 @@ in
         ]
         ++ [
           inputs.cells.hashicorp.devshellProfiles.default
-          inputs.cells.configuration.devshellProfiles.default
         ];
       nixago =
         [
