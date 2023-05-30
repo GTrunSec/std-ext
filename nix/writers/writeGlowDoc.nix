@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: {
-  name ? "",
+  name ? "writeGlowDocs",
   src ? "",
   extraMd ? "",
   tip ? "",
@@ -63,7 +63,7 @@
   '';
 in
   cell.lib.writeShellApplication {
-    name = "writeGlowDoc";
+    name = name;
     runtimeInputs = [nixpkgs.glow];
     text = content;
   }

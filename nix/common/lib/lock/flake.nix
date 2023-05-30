@@ -1,7 +1,7 @@
 {
   # nix linters
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/6ccc4a59c3f1b56d039d93da52696633e641bc71";
+    nixpkgs.url = "github:NixOS/nixpkgs/58c85835512b0db938600b6fe13cc3e3dc4b364e";
     flake-compat = {
       url = "github:gtrunsec/flake-compat/lockFile";
       flake = false;

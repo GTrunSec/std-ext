@@ -115,11 +115,11 @@
         "yants": "yants"
       },
       "locked": {
-        "lastModified": 1681616844,
-        "narHash": "sha256-xKMiUJaOs3yTbWln047m1P/K/QvijuII3+nVN02SQmY=",
+        "lastModified": 1684239705,
+        "narHash": "sha256-goQcIld5PfRlIfC3atNLzLqnOHaMh9m4yoyykraDNlM=",
         "owner": "divnix",
         "repo": "dmerge",
-        "rev": "4d547351cac82814800d562f0f13686eb63077d9",
+        "rev": "a740c5632789ff872a54a5b6595ef07287ff273e",
         "type": "github"
       },
       "original": {
@@ -312,11 +312,11 @@
         "yants": "yants_2"
       },
       "locked": {
-        "lastModified": 1683822301,
-        "narHash": "sha256-0InpySK13jDxkv+8xRYUPwbVFrce+7PmN1akrl0A6XU=",
+        "lastModified": 1685155146,
+        "narHash": "sha256-VByJ7DGoYz+m2CMkbAo4ABR1UJ/HM8wy/43FJMek5Kk=",
         "owner": "gtrunsec",
         "repo": "flops",
-        "rev": "6e547cd4c6a5e89956ca46094505d9cf69a85f57",
+        "rev": "b7a140cc87c4e8c1cda484f7ccba6af80dafd448",
         "type": "github"
       },
       "original": {
@@ -333,11 +333,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1683240641,
-        "narHash": "sha256-nusKJEf8cI9wfHtFb7uiViF7uDsWag0HQ0Ime00N7rY=",
+        "lastModified": 1685133574,
+        "narHash": "sha256-BH/utyzbdD74772wQ2JUf0QP9hw8vz8QhjLAt/W5NhU=",
         "owner": "nix-community",
         "repo": "haumea",
-        "rev": "d817a76c8846b97dd665889c24c25c9e077af268",
+        "rev": "214d73d9d5c44f92b6401af688c2688448768e23",
         "type": "github"
       },
       "original": {
@@ -619,11 +619,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1675940568,
-        "narHash": "sha256-epG6pOT9V0kS+FUqd7R6/CWkgnZx2DMT5Veqo+y6G3c=",
+        "lastModified": 1685399834,
+        "narHash": "sha256-Lt7//5snriXSdJo5hlVcDkpERL1piiih0UXIz1RUcC4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6ccc4a59c3f1b56d039d93da52696633e641bc71",
+        "rev": "58c85835512b0db938600b6fe13cc3e3dc4b364e",
         "type": "github"
       },
       "original": {
@@ -693,11 +693,11 @@
         "ox-hugo": "ox-hugo"
       },
       "locked": {
-        "lastModified": 1676267610,
-        "narHash": "sha256-rweyZN0cRYY9Uoeo/94Sa1DHgBI2NRXC+/iNdqypptc=",
+        "lastModified": 1678147210,
+        "narHash": "sha256-Mj9C519d0F8aQC3dTk3TCOGAdBg8bX9BkALordtZ3Po=",
         "owner": "gtrunsec",
         "repo": "org-roam-book-template",
-        "rev": "fd76272fb78c5fae39e7bd8e8c8165ca85fa2d1a",
+        "rev": "c97abbc42e7048fb866c5dfff78b04846b87570d",
         "type": "github"
       },
       "original": {
@@ -908,11 +908,11 @@
         "yants": "yants_3"
       },
       "locked": {
-        "lastModified": 1684352613,
-        "narHash": "sha256-KqNwJJMFVD0NtnLpbu1oQwf7icU8NSgTlQObHuNnIjI=",
+        "lastModified": 1684882168,
+        "narHash": "sha256-Yu1yw1sPWZsXe7BX7HaHg+O8fWKHCpy/AwgGfBdhivw=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "909682bcdc81c4c7d8ba09bfac0a770f8e782244",
+        "rev": "959f54d6698ff7fea01e4e6d8e5d7d95fcf66844",
         "type": "github"
       },
       "original": {
