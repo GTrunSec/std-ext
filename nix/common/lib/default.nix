@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs std flops;
-
+  inherit (flops.inputs) POP;
   callInputs =
     (flops.lib.flake.pops.default.setInitInputs ./lock)
     .setSystem
@@ -11,10 +11,10 @@
 in {
   inherit callInputs;
   __inputs__ =
-    (callInputs.addInputsOverride {
+    (callInputs.addInputsOverrideExtender (POP.lib.extendPop flops.lib.flake.pops.inputsExtender (self: super: {
       # nixpkgs = callInputs.sysInputs.nixpkgs;
-    })
-    .outputsForInputsCompat;
+    })))
+    .outputsForInputs;
 
   mergeDevShell = import ./mergeDevShell.nix nixpkgs;
 }
