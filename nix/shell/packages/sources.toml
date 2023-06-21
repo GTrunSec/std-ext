@@ -7,8 +7,3 @@ cargo_locks = ["Cargo.lock"]
 src.git = "https://github.com/fdncred/nu_plugin_regex"
 fetch.github = "fdncred/nu_plugin_regex"
 cargo_locks = ["Cargo.lock"]
-
-[nushell]
-src.git = "https://github.com/nushell/nushell"
-fetch.github = "nushell/nushell"
-cargo_locks = ["Cargo.lock"]

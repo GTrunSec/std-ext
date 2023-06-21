@@ -10,7 +10,7 @@ in {
     tuc
     zed
     ;
-  nushell-latest = nixpkgs.nushell-latest.overrideAttrs (old: {
+  nushell = nixpkgs.nushell.overrideAttrs (old: {
     cargoBuildFlags = ["--features" "dataframe"];
   });
   inherit (nixpkgs) nu-plugin-regex nu-plugin-from-parquet;

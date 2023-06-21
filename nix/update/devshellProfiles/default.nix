@@ -2,12 +2,13 @@
   inputs,
   cell,
 }: let
-  inherit (cell) packages entrypoints;
+  inherit (cell) entrypoints;
+  inherit (inputs) nixpkgs;
 in {
   default = _: {
     commands = [
       {
-        package = packages.nvfetcher;
+        package = nixpkgs.nvfetcher;
         category = "Update";
       }
       {

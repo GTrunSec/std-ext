@@ -6,7 +6,6 @@
   nixpkgs = inputs.nixpkgs.appendOverlays [
     __inputs__.nixpkgs-hardenedlinux.pkgs.overlays.default
   ];
-  inherit (cell) packages;
   inherit (inputs.cells.writers.lib) writeShellApplication;
 in {
   nvfetcher-update = writeShellApplication {
@@ -14,7 +13,7 @@ in {
     runtimeEnv = {
       LC_ALL = "en_US.UTF-8";
     };
-    runtimeInputs = [packages.nvfetcher];
+    runtimeInputs = [nixpkgs.nvfetcher];
     text = nixpkgs.lib.fileContents ./nvfetcher-update.bash;
   };
   nvfetcher-update-force = writeShellApplication {
@@ -22,7 +21,7 @@ in {
     runtimeEnv = {
       LC_ALL = "en_US.UTF-8";
     };
-    runtimeInputs = [packages.nvfetcher];
+    runtimeInputs = [nixpkgs.nvfetcher];
     text = nixpkgs.lib.fileContents ./nvfetcher-update-force.bash;
   };
 }
