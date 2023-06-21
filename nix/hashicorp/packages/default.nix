@@ -6,7 +6,7 @@
 
   nixpkgs = inputs.nixpkgs.appendOverlays [
     (import ./nomad.nix)
-    __inputs__.nixpkgs-hardenedlinux.python.overlays.default
+    __inputs__.nixpkgs-hardenedlinux.pkgs.overlays.python
   ];
   terraform-providers-bin = __inputs__.terraform-providers.legacyPackages.providers;
 in {

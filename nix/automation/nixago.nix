@@ -17,9 +17,11 @@ in {
       preset.nvfetcher
     ];
 
-  mdbook = std-data-collection.data.configs.mdbook {
-    data = {
-      book.title = "Cells Lab Doc";
-    };
-  };
+  conform = std-data-collection.data.configs.conform;
+
+  # mdbook = std-data-collection.data.configs.mdbook {
+  #   data = {
+  #     book.title = "Cells Lab Doc";
+  #   };
+  # };
 }
