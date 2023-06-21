@@ -4,11 +4,10 @@
 }: let
   l = inputs.nixpkgs.lib // builtins;
   inherit (cell) packages;
-  inherit (inputs.std-ext.writers.lib) writeShellApplication;
+  inherit (inputs.cells.writers.lib) writeShellApplication;
 in {
-  inherit (inputs.cells.utils.entrypoints) polars;
-  inherit (inputs.cells.julia.entrypoints) cli;
-
+  # inherit (inputs.cells.utils.entrypoints) polars;
+  # inherit (inputs.cells.julia.entrypoints) cli;
   nu = writeShellApplication {
     name = "nu";
     runtimeInputs = [packages.nushell];

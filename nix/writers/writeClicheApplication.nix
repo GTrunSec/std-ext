@@ -12,10 +12,11 @@
   passthru ? {},
 }: let
   l = nixpkgs.lib // builtins;
+  cliche = (nixpkgs.extend inputs.cells.common.lib.__inputs__.nixpkgs-hardenedlinux.overlays.python).python3Packages.cliche;
   python = nixpkgs.python3.withPackages (
     ps:
       [
-        (ps.callPackage ./packages/cliche {})
+        cliche
       ]
       ++ (libraries ps)
   );

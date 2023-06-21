@@ -2,23 +2,21 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) std nixpkgs std-data-collection;
+  inherit (inputs.cells.common.lib) __inputs__;
+  inherit (inputs.cells.library.lib) list;
+  inherit (__inputs__) std-data-collection;
+  l = inputs.nixpkgs.lib // builtins;
 in {
-  treefmt = std-data-collection.data.configs.treefmt {
-    data.formatter.nix = {
-      excludes = [
-        "generated.nix"
-      ];
-    };
-    data.formatter.prettier = {
-      excludes = [
-        "secrets*.yaml"
-        "Manifest.toml"
-        "Project.toml"
-        "generated.json"
-      ];
-    };
-  };
+  treefmt = let
+    preset = inputs.cells.preset.configs.treefmt;
+  in
+    list.foldFunction std-data-collection.data.configs.treefmt
+    [
+      preset.julia
+      preset.rust
+      preset.nvfetcher
+    ];
+
   mdbook = std-data-collection.data.configs.mdbook {
     data = {
       book.title = "Cells Lab Doc";

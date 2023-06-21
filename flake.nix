@@ -12,11 +12,6 @@
     # std.url = "/home/gtrun/guangtao/github.com/divnix/std";
     # std.url = "github:divnix/std/?ref=refs/pull/150/head";
     std.inputs.nixpkgs.follows = "nixpkgs";
-
-    std-data-collection.url = "github:divnix/std-data-collection";
-    std-data-collection.inputs.std.follows = "std";
-    std-data-collection.inputs.nixpkgs.follows = "nixpkgs";
-
     flops.url = "github:gtrunsec/flops";
   };
 
@@ -46,7 +41,8 @@
         (functions "generators")
         (functions "lib")
         (functions "nu") # nushell scripts
-        (functions "config")
+        (functions "configs")
+        (functions "overlays")
 
         (functions "nixosProfiles")
         (microvms "microvmProfiles")

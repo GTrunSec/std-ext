@@ -1,6 +1,8 @@
 {lib}: let
   inherit (lib) filter;
 in rec {
+  foldFunction = f: list: lib.foldl' lib.id f list;
+
   # filters out empty strings and null objects from a list
   filterListNonEmpty = l: (filter (x: (x != "" && x != null)) l);
 
@@ -41,13 +43,13 @@ in rec {
   );
 
   /*
-  imapAttrsToList0 (i: k: v:  (k + v + (toString i))) {
-     a = "x";
-     b = "b";
-     c = "a";
-   };
+    imapAttrsToList0 (i: k: v:  (k + v + (toString i))) {
+       a = "x";
+       b = "b";
+       c = "a";
+    };
   }
-   => [ "ax0 1 2 3" "bb0 1 2 3" "ca0 1 2 3" ]
+     => [ "ax0 1 2 3" "bb0 1 2 3" "ca0 1 2 3" ]
   */
   imapAttrsToList0 = f: set: let
     keys = builtins.attrNames set;

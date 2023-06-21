@@ -1,19 +1,20 @@
 {
   # nix linters
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/58c85835512b0db938600b6fe13cc3e3dc4b364e";
-    flake-compat = {
-      url = "github:gtrunsec/flake-compat/lockFile";
-      flake = false;
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/7cc30fd5372ddafb3373c318507d9932bd74aafe";
+
     std.url = "github:divnix/std";
     std.inputs.n2c.follows = "n2c";
     std.inputs.nixpkgs.follows = "nixpkgs";
     std.inputs.microvm.follows = "microvm";
     std.inputs.makes.follows = "makes";
 
-    haumea.url = "github:nix-community/haumea";
-    haumea.inputs.nixpkgs.follows = "nixpkgs";
+    std-data-collection.url = "github:divnix/std-data-collection";
+    std-data-collection.inputs.std.follows = "std";
+    std-data-collection.inputs.nixpkgs.follows = "nixpkgs";
+
+    nuenv.url = "github:DeterminateSystems/nuenv";
+    nuenv.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   inputs = {

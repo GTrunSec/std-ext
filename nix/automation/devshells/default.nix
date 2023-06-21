@@ -17,11 +17,10 @@ in
         ++ [
           inputs.cells.hashicorp.devshellProfiles.default
         ];
-      nixago =
-        [
-          cell.nixago.treefmt
-        ]
-        ++ __attrValues inputs.cells.presets.nixago;
+      nixago = [
+        cell.nixago.treefmt
+      ];
+      # ++ __attrValues inputs.cells.preset.nixago;
     };
 
     update = {...}: {imports = [inputs.cells.update.devshellProfiles.default];};
