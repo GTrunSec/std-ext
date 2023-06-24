@@ -4,6 +4,7 @@
 }: let
   l = nixpkgs.lib // builtins;
   inherit (inputs) nixpkgs std;
+  inherit (std) lib;
 in
   l.mapAttrs (_: std.lib.dev.mkShell) {
     default = {...}: {
@@ -17,7 +18,10 @@ in
         ++ [
           inputs.cells.hashicorp.devshellProfiles.default
         ];
-      nixago = [] ++ __attrValues cell.nixago;
+      nixago = [
+        (lib.dev.mkNixago cell.configs.treefmt)
+        (lib.dev.mkNixago cell.configs.conform)
+      ];
     };
 
     update = {...}: {imports = [inputs.cells.update.devshellProfiles.default];};

@@ -9,9 +9,14 @@
   # Std Inputs
   inputs = {
     std.url = "github:divnix/std";
+    std.inputs.nixpkgs.follows = "nixpkgs";
+    std.inputs.devshell.follows = "devshell";
+    std.inputs.nixago.follows = "nixago";
     # std.url = "/home/gtrun/guangtao/github.com/divnix/std";
     # std.url = "github:divnix/std/?ref=refs/pull/150/head";
-    std.inputs.nixpkgs.follows = "nixpkgs";
+    devshell.url = "github:numtide/devshell";
+    nixago.url = "github:nix-community/nixago";
+    nixago.inputs.nixpkgs.follows = "nixpkgs";
     flops.url = "github:gtrunsec/flops";
   };
 
@@ -36,6 +41,7 @@
         (devshells "devshells")
 
         (runnables "entrypoints")
+        (runnables "scripts")
         (runnables "onPremises")
 
         (functions "generators")

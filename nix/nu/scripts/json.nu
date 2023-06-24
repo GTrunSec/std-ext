@@ -7,5 +7,5 @@ def create_files [] {
 
 create_files
 echo (open a.json) (open b.json) | save c.json
-open c.json | flatten
-rm a.json b.json c.json
+# open c.json | flatten
+# rm a.json b.json c.json
