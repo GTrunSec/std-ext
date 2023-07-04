@@ -1,5 +1,5 @@
 {lib}: let
-  l = lib;
+  l = lib // builtins;
 
   inherit
     (l)

@@ -30,7 +30,7 @@
     std.growOn {
       inherit inputs;
 
-      cellsFrom = ./nix;
+      cellsFrom = ./cells;
 
       cellBlocks = with std.blockTypes; [
         (installables "packages")
@@ -73,11 +73,6 @@
           ["library" "lib"]
         ])
         .x86_64-linux;
-      # process-compose =
-      #   self.lib.mkProcessComposeTasks ["entrypoints" "onPremises"]
-      #   self {
-      #     log_location = "$HOME/.cache/process-compose.log";
-      #   };
       inherit blockTypes;
     } {
       templates = {
