@@ -1,7 +1,7 @@
 {
   # nix linters
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/7cc30fd5372ddafb3373c318507d9932bd74aafe";
+    nixpkgs.url = "github:NixOS/nixpkgs/d0f2758381caca8b4fb4a6cac61721cc9de06bd9";
 
     std.url = "github:divnix/std";
     std.inputs.n2c.follows = "n2c";
@@ -15,6 +15,9 @@
 
     nuenv.url = "github:DeterminateSystems/nuenv";
     nuenv.inputs.nixpkgs.follows = "nixpkgs";
+
+    climod.url = "github:nixosbrasil/climod";
+    climod.flake = false;
   };
 
   inputs = {

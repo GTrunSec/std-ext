@@ -20,10 +20,9 @@ in {
     preset.nvfetcher
     {
       packages = [
-        inputs.nixpkgs.alejandra
-        inputs.nixpkgs.nodePackages.prettier
-        inputs.nixpkgs.nodePackages.prettier-plugin-toml
-        inputs.nixpkgs.shfmt
+        # inputs.nixpkgs.nodePackages.prettier
+        # inputs.nixpkgs.nodePackages.prettier-plugin-toml
+        # inputs.nixpkgs.shfmt
       ];
       devshell.startup.prettier-plugin-toml =
         inputs.nixpkgs.lib.stringsWithDeps.noDepEntry
