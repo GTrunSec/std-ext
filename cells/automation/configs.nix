@@ -14,27 +14,10 @@ in {
   treefmt = let
     preset = inputs.cells.preset.configs.treefmt;
   in (
-    std-data-collection.data.configs.treefmt
+    inputs.cells.preset.nixago.treefmt
     preset.julia
-    preset.rust
-    preset.nvfetcher
-    {
-      packages = [
-        # inputs.nixpkgs.nodePackages.prettier
-        # inputs.nixpkgs.nodePackages.prettier-plugin-toml
-        # inputs.nixpkgs.shfmt
-      ];
-      devshell.startup.prettier-plugin-toml =
-        inputs.nixpkgs.lib.stringsWithDeps.noDepEntry
-        ''
-          export NODE_PATH=${inputs.nixpkgs.nodePackages.prettier-plugin-toml}/lib/node_modules:''${NODE_PATH-}
-        '';
-    }
+    # preset.rust
+    # preset.nvfetcher
   );
   conform = std-data-collection.data.configs.conform;
-  # mdbook = std-data-collection.data.configs.mdbook {
-  #   data = {
-  #     book.title = "Cells Lab Doc";
-  #   };
-  # };
 }

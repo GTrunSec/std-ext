@@ -19,8 +19,7 @@ in
           inputs.cells.hashicorp.devshellProfiles.default
         ];
       nixago = [
-        (lib.dev.mkNixago
-          cell.configs.treefmt)
+        (lib.dev.mkNixago cell.configs.treefmt)
         (lib.dev.mkNixago cell.configs.conform)
       ];
     };
@@ -32,10 +31,6 @@ in
 
       imports = [
         cell.devshellProfiles.docs
-      ];
-
-      nixago = [
-        cell.nixago.mdbook
       ];
     };
   }

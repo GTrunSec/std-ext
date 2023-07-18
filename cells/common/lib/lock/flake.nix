@@ -2,6 +2,7 @@
   # nix linters
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/d0f2758381caca8b4fb4a6cac61721cc9de06bd9";
+    nixpkgs-release.url = "github:nixos/nixpkgs/release-23.05";
 
     std.url = "github:divnix/std";
     std.inputs.n2c.follows = "n2c";
@@ -67,9 +68,6 @@
     poetry2nix.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-std.url = "github:chessai/nix-std";
-    pop.url = "github:divnix/POP";
-    pop.inputs.nixpkgs.follows = "std/blank";
-    pop.inputs.flake-compat.follows = "std/blank";
   };
 
   outputs = {self, ...} @ inputs: {
