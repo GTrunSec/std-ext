@@ -19,8 +19,8 @@ in
           inputs.cells.hashicorp.devshellProfiles.default
         ];
       nixago = [
-        (lib.dev.mkNixago cell.configs.treefmt)
-        (lib.dev.mkNixago cell.configs.conform)
+        cell.configs.treefmt
+        inputs.cells.preset.nixago.conform
       ];
     };
 

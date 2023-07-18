@@ -1,21 +1,8 @@
 {inputs}: let
-  inherit (inputs) nixpkgs;
   inherit (inputs.std) dmerge;
-  inherit (inputs.std.lib) cfg;
-  inherit (inputs.cells.common.lib) __inputs__;
-  l = nixpkgs.lib // builtins;
 in
   with dmerge; {
     default = {
-      packages = [
-        nixpkgs.alejandra
-        __inputs__.nixpkgs-release.legacyPackages.nodePackages.prettier
-        nixpkgs.shfmt
-        nixpkgs.nodePackages.prettier-plugin-toml
-      ];
-      devshell.startup.prettier-plugin-toml = l.stringsWithDeps.noDepEntry ''
-        export NODE_PATH=${__inputs__.nixpkgs-release.legacyPackages.nodePackages.prettier-plugin-toml}/lib/node_modules:''${NODE_PATH-}
-      '';
       data = {
         formatter = {
           nix = {

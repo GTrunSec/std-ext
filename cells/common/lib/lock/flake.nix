@@ -9,10 +9,7 @@
     std.inputs.nixpkgs.follows = "nixpkgs";
     std.inputs.microvm.follows = "microvm";
     std.inputs.makes.follows = "makes";
-
-    std-data-collection.url = "github:divnix/std-data-collection";
-    std-data-collection.inputs.std.follows = "std";
-    std-data-collection.inputs.nixpkgs.follows = "nixpkgs";
+    std.inputs.terranix.follows = "terranix";
 
     nuenv.url = "github:DeterminateSystems/nuenv";
     nuenv.inputs.nixpkgs.follows = "nixpkgs";
@@ -38,9 +35,6 @@
 
   # utils
   inputs = {
-    nvfetcher.url = "github:berberman/nvfetcher";
-    nvfetcher.inputs.nixpkgs.follows = "nixpkgs";
-
     nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
     nixpkgs-hardenedlinux.inputs.nixpkgs.follows = "nixpkgs";
 
