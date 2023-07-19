@@ -27,12 +27,12 @@ in {
 
   conform = mkNixago cfg.conform cell.configs.conform.default;
 
-  editorconfig = cfg.editorconfig (cell.configs.editorconfig.default
+  editorconfig = mkNixago cfg.editorconfig (cell.configs.editorconfig.default
     // {
       hook.mode = "copy";
     });
 
-  githubsettings = cfg.githubsettings cell.configs.githubsettings.default;
+  githubsettings = mkNixago cfg.githubsettings cell.configs.githubsettings.default;
 
   cog = mkNixago cell.configs.cog.default;
 }
