@@ -42,6 +42,7 @@ in
         excludes = prepend [
           "Manifest.toml"
           "Project.toml"
+          "julia2nix.toml"
         ];
       };
     };
