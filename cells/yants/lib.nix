@@ -15,7 +15,6 @@ in {
            Valid values are: "quiet, error, warning, info, debug, trace"
     (use '--show-trace' to show detailed location information)
   */
-
   enumCheck = enum: n: v: let
     check =
       if (l.tryEval ((std.yants.enum "" enum) v)).success
