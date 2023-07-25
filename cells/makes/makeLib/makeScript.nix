@@ -5,7 +5,7 @@
 }: {
   name ? "makeScript",
   entrypoint ? "",
-  searchPaths,
+  searchPaths ? [],
   env ? {},
 }: let
   makeEnvVarsOutput = (mapping:
