@@ -6,7 +6,7 @@
 
   l = inputs.nixpkgs.lib // builtins;
 
-  makes = __inputs__.std."x86_64-linux".lib.dev.mkMakes;
+  makes = __inputs__.std.${inputs.nixpkgs.system}.lib.dev.mkMakes;
 
   makeScript = makes ./makeLib/makeScript.nix {};
 
