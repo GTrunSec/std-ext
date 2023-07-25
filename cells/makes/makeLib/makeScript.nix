@@ -2,12 +2,14 @@
   makeEnvVars,
   makeScript,
   __nixpkgs__,
+  lib,
 }: {
   name ? "makeScript",
   entrypoint ? "",
-  searchPaths ? [],
+  searchPaths ? {},
   env ? {},
 }: let
+  inherit (lib.attrsets) recursiveMerge;
   makeEnvVarsOutput = (mapping:
     makeEnvVars {
       name = "makeEnvVarsOutput";
@@ -15,8 +17,11 @@
     })
   env;
 in
-  makeScript (__nixpkgs__.lib.recursiveUpdate {
+  makeScript (recursiveMerge [
+    {
       inherit name searchPaths entrypoint;
-    } {
+    }
+    {
       searchPaths.source = [makeEnvVarsOutput];
-    })
+    }
+  ])

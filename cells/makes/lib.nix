@@ -8,7 +8,7 @@
 
   makes = __inputs__.std.${inputs.nixpkgs.system}.lib.dev.mkMakes;
 
-  makeScript = makes ./makeLib/makeScript.nix {};
+  makeScript = makes ./makeLib/makeScript.nix {lib = inputs.cells.library.lib;};
 
   makeSubstitution = makes ./makeLib/makeSubstitution.nix {};
 
