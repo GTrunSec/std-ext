@@ -8,5 +8,5 @@ in rec {
 
   std = import ./std.nix args;
 
-  docs = import ./docs.nix;
+  docs = ./docs.nix;
 }
