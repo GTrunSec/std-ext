@@ -710,11 +710,11 @@
         "ox-hugo": "ox-hugo"
       },
       "locked": {
-        "lastModified": 1690490664,
-        "narHash": "sha256-v5z5aD2eQ79w3z7npGQsX5/9MuMdyWnwFV3k+AWJnxg=",
+        "lastModified": 1690491859,
+        "narHash": "sha256-m50lZ8IU04pBsFaRvGmrUB47an3dGm2vRZPJ56yB49Y=",
         "owner": "gtrunsec",
         "repo": "org-roam-book-template",
-        "rev": "4b2552d27686e9bc9f1a73711606f39b49533152",
+        "rev": "e866a31a36ce3f8673c08f5d1053646c3aa8acc8",
         "type": "github"
       },
       "original": {
