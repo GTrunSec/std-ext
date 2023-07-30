@@ -1,5 +1,6 @@
 {inputs}: let
   inherit (inputs.std) dmerge;
+  inherit (inputs.cells.common.lib) topiary;
 in
   with dmerge; {
     default = {
@@ -76,10 +77,13 @@ in
     topiary = {
       data.formatter.topiary = {
         command = "topiary";
-        options = ["--in-place" "--input-file"];
+        options = ["--in-place" "--input-files"];
+        includes = [
+          "*.ncl"
+        ];
       };
       packages = append [
-        nixpkgs.topiary
+        topiary.packages.topiary
       ];
     };
   }

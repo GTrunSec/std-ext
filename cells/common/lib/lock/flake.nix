@@ -45,6 +45,9 @@
 
     process-compose.url = "github:F1bonacc1/process-compose";
     process-compose.inputs.nixpkgs.follows = "nixpkgs";
+
+    topiary.url = "github:tweag/topiary";
+    topiary.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # configuration modules
