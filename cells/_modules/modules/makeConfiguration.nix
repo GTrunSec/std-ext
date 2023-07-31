@@ -5,29 +5,40 @@
   inputs,
   writeShellApplication,
   ...
-}: {
+}:
+{
   config.templates = {
-    configuration = let
-      cfg = config.templates;
-      format = lib.last (lib.splitString "." cfg.name);
-    in
+    configuration =
+      let
+        cfg = config.templates;
+        format = lib.last (lib.splitString "." cfg.name);
+      in
       writeShellApplication {
         name = "configuration";
-        runtimeInputs = [pkgs.remarshal pkgs.yj] ++ cfg.searchPaths.bin;
-        text = let
-          json = pkgs.writeText "JSON" (builtins.toJSON cfg.source);
-          directory = builtins.replaceStrings ["-"] ["/"] cfg.name + "/" + cfg.branch;
-          writeSource = lib.concatStringsSep "\n" (map (f: ''
-              cp ${f} "$CELLSINFRAPATH/${builtins.baseNameOf f}"
-              chmod +rw "$CELLSINFRAPATH/${builtins.baseNameOf f}"
-            '')
-            cfg.searchPaths.file);
+        runtimeInputs = [
+          pkgs.remarshal
+          pkgs.yj
+        ] ++ cfg.searchPaths.bin;
+        text =
+          let
+            json = pkgs.writeText "JSON" (builtins.toJSON cfg.source);
+            directory = builtins.replaceStrings [ "-" ] [ "/" ] cfg.name + "/" + cfg.branch;
+            writeSource = lib.concatStringsSep "\n" (
+              map
+                (f: ''
+                  cp ${f} "$CELLSINFRAPATH/${builtins.baseNameOf f}"
+                  chmod +rw "$CELLSINFRAPATH/${builtins.baseNameOf f}"
+                '')
+                cfg.searchPaths.file
+            );
 
-          CELLSINFRAPATH =
-            if cfg.path == null
-            then "$PRJ_ROOT/cells-infra/infra/${directory}"
-            else cfg.path;
-        in
+            CELLSINFRAPATH =
+              if cfg.path == null then
+                "$PRJ_ROOT/cells-infra/infra/${directory}"
+              else
+                cfg.path
+            ;
+          in
           ''
             # <project>-<target>-<driver>-<branch>
             CELLSINFRAPATH="${CELLSINFRAPATH}"
@@ -53,11 +64,8 @@
             ''}
           ''
           + cfg.text
-          + (
-            if cfg.searchPaths.file != []
-            then "${writeSource}"
-            else ""
-          );
+          + (if cfg.searchPaths.file != [ ] then "${writeSource}" else "")
+        ;
       };
   };
 }

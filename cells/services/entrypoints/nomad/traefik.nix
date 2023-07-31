@@ -1,17 +1,26 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (cell) nomadJobs;
   inherit (inputs) nixpkgs self;
   inherit (inputs.cells.hashicorp.lib) makeNomadJobs;
-in {
+in
+{
   container = {
-    dev = makeNomadJobs ["services/nomad/traefik/container" "dev" "dev.json"] (nomadJobs.container.traefik {
-      task = "dev";
-    });
-    prod = makeNomadJobs ["services/nomad/traefik/container" "dev" "dev.json"] (nomadJobs.container.traefik {
-      task = "prod";
-    });
+    dev =
+      makeNomadJobs
+        [
+          "services/nomad/traefik/container"
+          "dev"
+          "dev.json"
+        ]
+        (nomadJobs.container.traefik { task = "dev"; });
+    prod =
+      makeNomadJobs
+        [
+          "services/nomad/traefik/container"
+          "dev"
+          "dev.json"
+        ]
+        (nomadJobs.container.traefik { task = "prod"; });
   };
 }

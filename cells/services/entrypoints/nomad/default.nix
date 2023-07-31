@@ -1,7 +1,5 @@
+{ inputs, cell }@args:
 {
-  inputs,
-  cell,
-} @ args: {
   airflow = import ./airflow.nix args;
 
   waterwheel = import ./waterwheel.nix args;

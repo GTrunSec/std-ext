@@ -1,7 +1,5 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (cell) lib packages;
   inherit (inputs.cells.writers.lib) writeConfiguration;
 
@@ -18,7 +16,8 @@
     source = ./justfile;
   };
 
-  common = branch:
+  common =
+    branch:
     writeConfiguration {
       inherit name;
       target = "docker";
@@ -28,6 +27,7 @@
       # searchPaths.bin = [];
       format = "raw";
     };
-in {
+in
+{
   prod = common "prod";
 }

@@ -1,15 +1,12 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (cell) entrypoints;
-in {
+in
+{
   default = _: {
-    commands = [
-      {
-        package = entrypoints.example;
-        category = "cliche";
-      }
-    ];
+    commands = [ {
+      package = entrypoints.example;
+      category = "cliche";
+    } ];
   };
 }

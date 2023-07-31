@@ -1,17 +1,34 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (cell) nomadJobs;
   inherit (inputs) nixpkgs self;
   inherit (inputs.cells.hashicorp.lib) makeNomadJobs;
-in {
+in
+{
   nixos = {
-    dev = makeNomadJobs ["services/nomad/airflow/nixos" "dev" "dev.json"] (nomadJobs.nixos.airflow {
-      flake = "${self.outPath}#${nixpkgs.system}.services.nixosProfiles.nomad-airflow.dev";
-    });
-    prod = makeNomadJobs ["services/nomad/airflow/nixos" "prod" "prod.json"] (nomadJobs.nixos.airflow {
-      flake = "${self.outPath}#${nixpkgs.system}.services.nixosProfiles.nomad-airflow.prod";
-    });
+    dev =
+      makeNomadJobs
+        [
+          "services/nomad/airflow/nixos"
+          "dev"
+          "dev.json"
+        ]
+        (
+          nomadJobs.nixos.airflow {
+            flake = "${self.outPath}#${nixpkgs.system}.services.nixosProfiles.nomad-airflow.dev";
+          }
+        );
+    prod =
+      makeNomadJobs
+        [
+          "services/nomad/airflow/nixos"
+          "prod"
+          "prod.json"
+        ]
+        (
+          nomadJobs.nixos.airflow {
+            flake = "${self.outPath}#${nixpkgs.system}.services.nixosProfiles.nomad-airflow.prod";
+          }
+        );
   };
 }

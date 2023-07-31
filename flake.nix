@@ -20,66 +20,75 @@
     flops.url = "github:gtrunsec/flops";
   };
 
-  outputs = {
-    std,
-    self,
-    ...
-  } @ inputs: let
-    blockTypes = import ./blockTypes inputs;
-  in
-    std.growOn {
-      inherit inputs;
+  outputs =
+    { std, self, ... }@inputs:
+    let
+      blockTypes = import ./blockTypes inputs;
+    in
+    std.growOn
+      {
+        inherit inputs;
 
-      cellsFrom = ./cells;
+        cellsFrom = ./cells;
 
-      cellBlocks = with std.blockTypes; [
-        (installables "packages")
+        cellBlocks = with std.blockTypes; [
+          (installables "packages")
 
-        (nixago "nixago")
+          (nixago "nixago")
 
-        (functions "devshellProfiles")
-        (devshells "devshells")
+          (functions "devshellProfiles")
+          (devshells "devshells")
 
-        (runnables "entrypoints")
-        (runnables "scripts")
-        (runnables "onPremises")
+          (runnables "entrypoints")
+          (runnables "scripts")
+          (runnables "onPremises")
 
-        (functions "generators")
-        (functions "lib")
-        (functions "nu") # nushell scripts
-        (functions "configs")
-        (functions "overlays")
+          (functions "generators")
+          (functions "lib")
+          (functions "nu") # nushell scripts
+          (functions "configs")
+          (functions "overlays")
 
-        (functions "nixosProfiles")
-        (microvms "microvmProfiles")
+          (functions "nixosProfiles")
+          (microvms "microvmProfiles")
 
-        (files "configFiles")
-        (data "containerJobs")
-        (data "schemaProfiles")
+          (files "configFiles")
+          (data "containerJobs")
+          (data "schemaProfiles")
 
-        (data "consulProfiles")
-        (data "nomadJobs")
-        (data "composeJobs")
-        (data "terranix")
+          (data "consulProfiles")
+          (data "nomadJobs")
+          (data "composeJobs")
+          (data "terranix")
 
-        (data "cargoMakeJobs")
-        (data "waterwheelJobs")
-      ];
-    } {
-      devShells = inputs.std.harvest inputs.self ["automation" "devshells"];
-      lib =
-        (inputs.std.harvest inputs.self [
-          ["workflows" "lib"]
-          ["library" "lib"]
-        ])
-        .x86_64-linux;
-      inherit blockTypes;
-    } {
-      templates = {
-        default = {
-          description = "The default template of Cells";
-          path = ./templates/default;
+          (data "cargoMakeJobs")
+          (data "waterwheelJobs")
+        ];
+      }
+      {
+        devShells = inputs.std.harvest inputs.self [
+          "automation"
+          "devshells"
+        ];
+        lib =
+          (inputs.std.harvest inputs.self [
+            [
+              "workflows"
+              "lib"
+            ]
+            [
+              "library"
+              "lib"
+            ]
+          ]).x86_64-linux;
+        inherit blockTypes;
+      }
+      {
+        templates = {
+          default = {
+            description = "The default template of Cells";
+            path = ./templates/default;
+          };
         };
       };
-    };
 }

@@ -1,7 +1,5 @@
-{
-  inputs,
-  cell,
-}: {}
+{ inputs, cell }:
+{ }
 # {
 #   inputs,
 #   cell,
@@ -18,4 +16,3 @@
 #       ./nomad
 #     ]
 #     args)
-

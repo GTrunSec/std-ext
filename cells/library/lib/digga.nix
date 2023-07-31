@@ -1,2 +1,1 @@
-{lib}:
-import ./digga/importers.nix {inherit lib;}
+{ lib }: import ./digga/importers.nix { inherit lib; }

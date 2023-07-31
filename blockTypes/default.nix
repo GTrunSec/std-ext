@@ -1,3 +1,1 @@
-inputs: {
-  runnables = import ./runnables.nix inputs;
-}
+inputs: { runnables = import ./runnables.nix inputs; }

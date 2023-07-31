@@ -3,24 +3,42 @@
   packages,
   pkgs,
   ...
-}: {
+}:
+{
   networking.firewall.enable = lib.mkForce false;
 
-  networking.firewall.allowedUDPPorts = [4647 4646];
-  networking.firewall.allowedTCPPorts = [4647 4646];
+  networking.firewall.allowedUDPPorts = [
+    4647
+    4646
+  ];
+  networking.firewall.allowedTCPPorts = [
+    4647
+    4646
+  ];
 
   virtualisation.podman.enable = true;
   virtualisation.podman.defaultNetwork.dnsname.enable = true;
-  users.extraUsers.root.extraGroups = ["podman"];
+  users.extraUsers.root.extraGroups = [ "podman" ];
 
-  systemd.services.nomad.serviceConfig.SupplementaryGroups = ["podman" "docker"];
+  systemd.services.nomad.serviceConfig.SupplementaryGroups = [
+    "podman"
+    "docker"
+  ];
 
   services.nomad = {
     enable = true;
     dropPrivileges = false;
     package = packages.nomad;
-    extraPackages = [pkgs.cni-plugins pkgs.consul pkgs.nixUnstable pkgs.podman];
-    extraPlugins = [pkgs.nomad-driver-nix pkgs.nomad-driver-podman];
+    extraPackages = [
+      pkgs.cni-plugins
+      pkgs.consul
+      pkgs.nixUnstable
+      pkgs.podman
+    ];
+    extraPlugins = [
+      pkgs.nomad-driver-nix
+      pkgs.nomad-driver-podman
+    ];
     settings = {
       server = {
         enabled = true;
@@ -46,11 +64,9 @@
       # consul.address = config.machine.services.nomad.consul.address;
     };
   };
-  microvm.forwardPorts = [
-    {
-      from = "host";
-      host.port = 4646;
-      guest.port = 4646;
-    }
-  ];
+  microvm.forwardPorts = [ {
+    from = "host";
+    host.port = 4646;
+    guest.port = 4646;
+  } ];
 }

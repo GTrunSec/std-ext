@@ -1,12 +1,11 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) std;
   inherit (std.lib.ops) mkDevOCI mkSetup;
 
   l = inputs.nixpkgs.lib // builtins;
-in {
+in
+{
   dev = mkDevOCI {
     name = "ghcr.io/gtrunsec/desci.devshell";
     tag = "latest";
@@ -21,14 +20,15 @@ in {
       '';
     };
     setup = [
-      (mkSetup "nushell-config" [
-          {
-            path = "/home/user/.config/nushell";
-            mode = "0777";
-          }
-        ] ''
+      (mkSetup "nushell-config"
+        [ {
+          path = "/home/user/.config/nushell";
+          mode = "0777";
+        } ]
+        ''
           mkdir -p $out/home/user/.config/nushell
-        '')
+        ''
+      )
     ];
   };
 }

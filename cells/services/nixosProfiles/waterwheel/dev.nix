@@ -1,8 +1,5 @@
+{ lib, pkgs, ... }:
 {
-  lib,
-  pkgs,
-  ...
-}: {
   services.waterwheel = {
     enable = lib.mkForce false;
     # enable = true;
@@ -19,12 +16,12 @@
   services.postgresql = {
     enable = true;
     port = 5433;
-    ensureDatabases = ["waterwheel"];
-    ensureUsers = [
-      {
-        name = "waterwheel";
-        ensurePermissions = {"DATABASE waterwheel" = "ALL PRIVILEGES";};
-      }
-    ];
+    ensureDatabases = [ "waterwheel" ];
+    ensureUsers = [ {
+      name = "waterwheel";
+      ensurePermissions = {
+        "DATABASE waterwheel" = "ALL PRIVILEGES";
+      };
+    } ];
   };
 }

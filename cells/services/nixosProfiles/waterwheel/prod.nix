@@ -1,8 +1,5 @@
+{ lib, pkgs, ... }:
 {
-  lib,
-  pkgs,
-  ...
-}: {
   services.waterwheel = {
     host = "http://localhost:8080";
     database.passwordFile = lib.mkForce (pkgs.writeText "text" "password");

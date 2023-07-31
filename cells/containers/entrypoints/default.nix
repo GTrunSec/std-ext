@@ -1,11 +1,10 @@
-{
-  inputs,
-  cell,
-} @ args: let
+{ inputs, cell }@args:
+let
   inherit (inputs) nixpkgs;
   inherit (inputs.cells.writers.lib) writeShellApplication;
   inherit (cell) packages;
-in {
+in
+{
   # podman-cliche-example = writeShellApplication {
   #   name = "cliche-example";
   #   runtimeInputs = [nixpkgs.podman];

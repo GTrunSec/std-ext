@@ -30,17 +30,33 @@ rustPlatform.buildRustPackage {
   cargoLock = shell-sources.nushell.cargoLock."Cargo.lock";
 
   nativeBuildInputs =
-    [pkg-config]
-    ++ lib.optionals (withDefaultFeatures && stdenv.isLinux) [python3]
-    ++ lib.optionals stdenv.isDarwin [rustPlatform.bindgenHook];
+    [ pkg-config ]
+    ++ lib.optionals (withDefaultFeatures && stdenv.isLinux) [ python3 ]
+    ++ lib.optionals stdenv.isDarwin [ rustPlatform.bindgenHook ]
+  ;
 
   buildInputs =
-    [openssl zstd]
-    ++ lib.optionals stdenv.isDarwin [zlib libiconv Libsystem Security]
-    ++ lib.optionals (withDefaultFeatures && stdenv.isLinux) [xorg.libX11]
-    ++ lib.optionals (withDefaultFeatures && stdenv.isDarwin) [AppKit nghttp2 libgit2];
+    [
+      openssl
+      zstd
+    ]
+    ++ lib.optionals stdenv.isDarwin [
+      zlib
+      libiconv
+      Libsystem
+      Security
+    ]
+    ++ lib.optionals (withDefaultFeatures && stdenv.isLinux) [ xorg.libX11 ]
+    ++ lib.optionals (withDefaultFeatures && stdenv.isDarwin) [
+      AppKit
+      nghttp2
+      libgit2
+    ]
+  ;
 
-  buildFeatures = additionalFeatures [(lib.optional withDefaultFeatures "default")];
+  buildFeatures = additionalFeatures [
+    (lib.optional withDefaultFeatures "default")
+  ];
 
   # TODO investigate why tests are broken on darwin
   # failures show that tests try to write to paths
@@ -58,15 +74,17 @@ rustPlatform.buildRustPackage {
     description = "A modern shell written in Rust";
     homepage = "https://www.nushell.sh/";
     license = licenses.mit;
-    maintainers = with maintainers; [Br1ght0ne johntitor marsam];
+    maintainers = with maintainers; [
+      Br1ght0ne
+      johntitor
+      marsam
+    ];
     mainProgram = "nu";
   };
 
   passthru = {
     shellPath = "/bin/nu";
-    tests.version = testers.testVersion {
-      package = nushell;
-    };
-    updateScript = nix-update-script {};
+    tests.version = testers.testVersion { package = nushell; };
+    updateScript = nix-update-script { };
   };
 }

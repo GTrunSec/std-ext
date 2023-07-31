@@ -1,4 +1,6 @@
-{inputs}: attrs: let
+{ inputs }:
+attrs:
+let
   l = inputs.nixpkgs.lib // builtins;
   inherit (inputs.cells.writers.lib) writeShellApplication writeConfig;
   # tasks = (l.mapAttrs (name: value:
@@ -18,21 +20,22 @@
   #   }
   #   else {}))
   # attrs;
-  composeYaml = writeConfig "compose.yaml" (l.recursiveUpdate {
-      log_location = "$HOME/.cache/process-compose.log";
-    }
-    attrs);
+  composeYaml = writeConfig "compose.yaml" (
+    l.recursiveUpdate { log_location = "$HOME/.cache/process-compose.log"; } attrs
+  );
 in
-  (writeShellApplication {
-    name = "process-compose";
-    runtimeInputs = [inputs.cells.workflows.packages.process-compose];
-    text = ''
-      process-compose -f ${composeYaml} "$@"
-    '';
-  })
-  .overrideAttrs (old: {
-    passthru = {
-      config = attrs;
-      configFile = composeYaml;
-    };
-  })
+(writeShellApplication {
+  name = "process-compose";
+  runtimeInputs = [ inputs.cells.workflows.packages.process-compose ];
+  text = ''
+    process-compose -f ${composeYaml} "$@"
+  '';
+}).overrideAttrs
+  (
+    old: {
+      passthru = {
+        config = attrs;
+        configFile = composeYaml;
+      };
+    }
+  )

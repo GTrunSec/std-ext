@@ -1,7 +1,9 @@
 {
   default.data = {
     commit = {
-      header = {length = 89;};
+      header = {
+        length = 89;
+      };
       conventional = {
         types = [
           "build"
@@ -15,7 +17,7 @@
           "style"
           "test"
         ];
-        scopes = [];
+        scopes = [ ];
       };
     };
   };

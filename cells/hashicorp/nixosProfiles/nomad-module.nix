@@ -4,14 +4,18 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.services.nomad;
-  format = pkgs.formats.json {};
-in {
+  format = pkgs.formats.json { };
+in
+{
   ##### interface
   options = {
     services.nomad = {
-      enable = mkEnableOption "Nomad, a distributed, highly available, datacenter-aware scheduler";
+      enable =
+        mkEnableOption
+          "Nomad, a distributed, highly available, datacenter-aware scheduler";
       package = mkOption {
         type = types.package;
         default = pkgs.nomad;
@@ -22,7 +26,7 @@ in {
       };
       extraPackages = mkOption {
         type = types.listOf types.package;
-        default = [];
+        default = [ ];
         description = ''
           Extra packages to add to <envar>PATH</envar> for the Nomad agent process.
         '';
@@ -49,7 +53,7 @@ in {
       };
       extraSettingsPaths = mkOption {
         type = types.listOf types.path;
-        default = [];
+        default = [ ];
         description = ''
           Additional settings paths used to configure nomad. These can be files or directories.
         '';
@@ -59,7 +63,7 @@ in {
       };
       extraPlugins = mkOption {
         type = types.listOf types.package;
-        default = [];
+        default = [ ];
         description = ''
           Additional plugins dir used to configure nomad.
         '';
@@ -69,7 +73,7 @@ in {
       };
       settings = mkOption {
         inherit (format) type;
-        default = {};
+        default = { };
         description = ''
           Configuration for Nomad. See the <link xlink:href="https://www.nomadproject.io/docs/configuration">documentation</link>
           for supported values.
@@ -111,14 +115,14 @@ in {
     };
     environment = {
       etc."nomad.json".source = format.generate "nomad.json" cfg.settings;
-      systemPackages = [cfg.package];
+      systemPackages = [ cfg.package ];
     };
     systemd.services.nomad = {
       description = "Nomad";
-      wantedBy = ["multi-user.target"];
-      wants = ["network-online.target"];
-      after = ["network-online.target"];
-      restartTriggers = [config.environment.etc."nomad.json".source];
+      wantedBy = [ "multi-user.target" ];
+      wants = [ "network-online.target" ];
+      after = [ "network-online.target" ];
+      restartTriggers = [ config.environment.etc."nomad.json".source ];
       path =
         cfg.extraPackages
         ++ (
@@ -128,21 +132,23 @@ in {
             iproute2
             iptables
           ]
-        );
+        )
+      ;
       serviceConfig = mkMerge [
         {
           DynamicUser = cfg.dropPrivileges;
           ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";
-          ExecStart = let
-            pluginsDir = pkgs.symlinkJoin {
-              name = "nomad-plugins";
-              paths = cfg.extraPlugins;
-            };
-          in
+          ExecStart =
+            let
+              pluginsDir = pkgs.symlinkJoin {
+                name = "nomad-plugins";
+                paths = cfg.extraPlugins;
+              };
+            in
             "${cfg.package}/bin/nomad agent -config=/etc/nomad.json"
-            + concatMapStrings (path: " -config=${path}")
-            cfg.extraSettingsPaths
-            + " -plugin-dir=${pluginsDir}/bin";
+            + concatMapStrings (path: " -config=${path}") cfg.extraSettingsPaths
+            + " -plugin-dir=${pluginsDir}/bin"
+          ;
           KillMode = "process";
           KillSignal = "SIGINT";
           LimitNOFILE = 65536;
@@ -152,26 +158,22 @@ in {
           RestartSec = 2;
           TasksMax = "infinity";
           SupplementaryGroups =
-            lib.optional cfg.enableDocker ["docker"]
-            ++ lib.optional config.virtualisation.libvirtd.enable ["libvirtd"];
+            lib.optional cfg.enableDocker [ "docker" ]
+            ++ lib.optional config.virtualisation.libvirtd.enable [ "libvirtd" ];
           # space-separated string
         }
-        (
-          mkIf (cfg.settings.data_dir == "/var/lib/nomad") {StateDirectory = "nomad";}
-        )
+        (mkIf (cfg.settings.data_dir == "/var/lib/nomad") { StateDirectory = "nomad"; })
       ];
       unitConfig = {
         StartLimitIntervalSec = 10;
         StartLimitBurst = 3;
       };
     };
-    assertions = [
-      {
-        assertion =
-          cfg.dropPrivileges -> cfg.settings.data_dir == "/var/lib/nomad";
-        message = "settings.data_dir must be equal to \"/var/lib/nomad\" if dropPrivileges is true";
-      }
-    ];
+    assertions = [ {
+      assertion = cfg.dropPrivileges -> cfg.settings.data_dir == "/var/lib/nomad";
+      message = ''
+        settings.data_dir must be equal to "/var/lib/nomad" if dropPrivileges is true'';
+    } ];
     # Docker support requires the Docker daemon to be running.
     virtualisation.docker.enable = mkIf cfg.enableDocker true;
   };

@@ -2,9 +2,10 @@
   rustPlatform,
   shell-sources,
   lib,
-}: package:
+}:
+package:
 rustPlatform.buildRustPackage rec {
   inherit (shell-sources."${package}") src pname version;
   cargoLock.lockFile = shell-sources."${package}".cargoLock."Cargo.lock".lockFile;
-  meta.mainProgram = lib.replaceStrings ["-"] ["_"] pname;
+  meta.mainProgram = lib.replaceStrings [ "-" ] [ "_" ] pname;
 }

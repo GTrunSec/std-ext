@@ -1,10 +1,14 @@
-{inputs}: {
+{ inputs }:
+{
   default = {
     output = "cog.toml";
-    commands = [{package = inputs.nixpkgs.cocogitto;}];
+    commands = [ { package = inputs.nixpkgs.cocogitto; } ];
     data = {
       tag_prefix = "v";
-      branch_whitelist = ["main" "release/**"];
+      branch_whitelist = [
+        "main"
+        "release/**"
+      ];
       ignore_merge_commits = true;
       pre_bump_hooks = [
         "echo {{version}} > ./VERSION"

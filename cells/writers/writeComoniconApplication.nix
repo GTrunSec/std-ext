@@ -1,31 +1,35 @@
+{ inputs, cell }:
 {
-  inputs,
-  cell,
-}: {
   name,
   julia ? {
     package = inputs.cells.comonicon.packages.julia-wrapped;
     pure = false;
   },
   path ? "",
-  args ? [],
-  runtimeEnv ? {},
+  args ? [ ],
+  runtimeEnv ? { },
   threads ? 8,
-  runtimeInputs ? [],
+  runtimeInputs ? [ ],
   pure ? false,
-}: let
+}:
+let
   inherit (cell) lib;
   l = inputs.nixpkgs.lib // builtins;
 in
-  lib.writeShellApplication {
-    inherit name;
-    inherit runtimeEnv;
-    inherit runtimeInputs;
-    text =
-      l.optionalString julia.pure ''
-        ${l.getExe julia.package} ${path}/${builtins.concatStringsSep " " args} "$@"
-      ''
-      + l.optionalString (!julia.pure) ''
-        ${l.getExe julia.package} -e "import Pkg; Pkg.activate(\"${path}\"); Pkg.instantiate();" -L ${path}/${builtins.concatStringsSep " " args} "$@"
-      '';
-  }
+lib.writeShellApplication {
+  inherit name;
+  inherit runtimeEnv;
+  inherit runtimeInputs;
+  text =
+    l.optionalString julia.pure ''
+      ${l.getExe julia.package} ${path}/${builtins.concatStringsSep " " args} "$@"
+    ''
+    + l.optionalString (!julia.pure) ''
+      ${
+        l.getExe julia.package
+      } -e "import Pkg; Pkg.activate(\"${path}\"); Pkg.instantiate();" -L ${path}/${
+        builtins.concatStringsSep " " args
+      } "$@"
+    ''
+  ;
+}

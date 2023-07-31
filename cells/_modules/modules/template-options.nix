@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   options.templates = with lib; {
     name = mkOption {
       type = types.str;
@@ -15,14 +16,26 @@
       '';
     };
     language = mkOption {
-      type = types.enum ["nickel" "nix" "cue"];
+      type = types.enum [
+        "nickel"
+        "nix"
+        "cue"
+      ];
       default = "nickel";
       description = ''
         Write your shell context here
       '';
     };
     target = mkOption {
-      type = types.enum ["nomad" "terraform" "podman" "docker" "k8s" "docker-compose" "regular"];
+      type = types.enum [
+        "nomad"
+        "terraform"
+        "podman"
+        "docker"
+        "k8s"
+        "docker-compose"
+        "regular"
+      ];
       default = "echo Template";
       description = ''
         Which platform do you want to deploy it by template
@@ -36,70 +49,79 @@
       '';
     };
     format = mkOption {
-      type = types.enum ["yaml" "toml" "json" "nix" "raw"];
-      default = [];
+      type = types.enum [
+        "yaml"
+        "toml"
+        "json"
+        "nix"
+        "raw"
+      ];
+      default = [ ];
       description = ''
         Which format do you want to generate in.
       '';
     };
     branch = mkOption {
-      type = types.enum ["prod" "dev" "backport" "staging" "CI"];
-      default = [];
+      type = types.enum [
+        "prod"
+        "dev"
+        "backport"
+        "staging"
+        "CI"
+      ];
+      default = [ ];
       description = ''
         Which branch do you want to import in.
       '';
     };
-    source = mkOption {
-      default = {};
-    };
+    source = mkOption { default = { }; };
     features = mkOption {
       description = "The feature list which can we support";
-      default = [];
-      type = with types;
-        listOf (submodule {
-          options = {
-            zeek = mkEnableOption "add zeek support";
-            openCTI = mkEnableOption "add zeek support";
-            suricata = mkEnableOption "add suricata";
-          };
-        });
+      default = [ ];
+      type =
+        with types;
+        listOf (
+          submodule {
+            options = {
+              zeek = mkEnableOption "add zeek support";
+              openCTI = mkEnableOption "add zeek support";
+              suricata = mkEnableOption "add suricata";
+            };
+          }
+        );
     };
     searchPaths = mkOption {
       description = "Disk images";
-      default = {};
+      default = { };
       type = lib.types.submodule {
         options = {
           bin = mkOption {
             type = types.listOf types.str;
-            default = [];
+            default = [ ];
           };
           source = mkOption {
             type = types.listOf (types.either types.str types.path);
-            default = [];
+            default = [ ];
           };
           file = mkOption {
             type = types.listOf (types.either types.str types.path);
-            default = [];
+            default = [ ];
           };
         };
       };
     };
     runtimeInputs = mkOption {
       type = types.listOf types.str;
-      default = [];
+      default = [ ];
     };
 
     args = mkOption {
       type = types.listOf types.str;
-      default = [];
+      default = [ ];
     };
-    configurationFromLang = mkOption {
-      type = types.package;
-    };
-    configuration = mkOption {
-      type = types.package;
-    };
+    configurationFromLang = mkOption { type = types.package; };
+    configuration = mkOption { type = types.package; };
   };
 
-  imports = [];
+  imports = [ ];
 }

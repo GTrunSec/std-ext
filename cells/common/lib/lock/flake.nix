@@ -48,6 +48,9 @@
 
     topiary.url = "github:tweag/topiary";
     topiary.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixfmt.url = "github:serokell/nixfmt/?ref=refs/pull/118/head";
+    nixfmt.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # configuration modules
@@ -67,7 +70,5 @@
     nix-std.url = "github:chessai/nix-std";
   };
 
-  outputs = {self, ...} @ inputs: {
-    inherit inputs;
-  };
+  outputs = { self, ... }@inputs: { inherit inputs; };
 }

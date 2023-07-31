@@ -1,11 +1,9 @@
+{ cell, inputs }:
 {
-  cell,
-  inputs,
-}: {
   container = {
     elasticsearch = import ./elasticsearch.nix;
     kibana = import ./kibana.nix;
-    traefik = _args: import ./traefik _args {inherit inputs;};
+    traefik = _args: import ./traefik _args { inherit inputs; };
   };
 
   nixos = {

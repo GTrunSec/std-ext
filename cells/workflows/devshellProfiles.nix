@@ -1,23 +1,18 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
+in
+{
   default = _: {
-    commands = [
-      {
-        package = cell.packages.process-compose;
-        category = "workflows";
-      }
-    ];
+    commands = [ {
+      package = cell.packages.process-compose;
+      category = "workflows";
+    } ];
   };
   cargo-make = {
-    commands = [
-      {
-        package = nixpkgs.cargo-make;
-        category = "workflows";
-      }
-    ];
+    commands = [ {
+      package = nixpkgs.cargo-make;
+      category = "workflows";
+    } ];
   };
 }

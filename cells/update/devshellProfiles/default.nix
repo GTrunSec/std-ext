@@ -1,10 +1,9 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (cell) entrypoints;
   inherit (inputs) nixpkgs;
-in {
+in
+{
   default = _: {
     commands = [
       {
@@ -22,11 +21,9 @@ in {
         help = "run nvfetcher with sources.toml <github-CI> for force option";
       }
     ];
-    env = [
-      {
-        name = "LC_ALL";
-        value = "en_US.UTF-8";
-      }
-    ];
+    env = [ {
+      name = "LC_ALL";
+      value = "en_US.UTF-8";
+    } ];
   };
 }

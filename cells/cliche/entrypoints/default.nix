@@ -1,12 +1,11 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs.cells.writers.lib) writeClicheApplication;
   nixpkgs = inputs.nixpkgs.appendOverlays [
     inputs.cells.common.lib.__inputs__.nixpkgs-hardenedlinux.overlays.default
   ];
-in {
+in
+{
   example =
     (writeClicheApplication {
       inherit nixpkgs;
@@ -15,12 +14,13 @@ in {
       env = {
         test = "aaa";
       };
-      libraries = ps:
+      libraries =
+        ps:
         with ps; [
           six
           sh
         ];
-      runtimeInputs = [];
+      runtimeInputs = [ ];
     })
     // {
       # process-compose = inputs.cells.workflows.lib.mkSingle {

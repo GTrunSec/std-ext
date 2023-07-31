@@ -1,9 +1,8 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (cell) packages;
-in {
+in
+{
   default = _: {
     commands = [
       {

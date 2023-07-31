@@ -1,11 +1,15 @@
 {
-  datacenters ? ["dc1"],
+  datacenters ? [ "dc1" ],
   type ? "service",
-  driver ? ["podman" "docker"],
+  driver ? [
+    "podman"
+    "docker"
+  ],
   namespace ? "default",
   version ? "7.17.1",
   task ? "prod",
-}: let
+}:
+let
   resources = {
     memory = 1024;
     cpu = 3000;
@@ -20,7 +24,8 @@
     name = "elasticsearch";
     port = 9200;
   };
-in {
+in
+{
   job.elasticsearch = {
     inherit datacenters type namespace;
     group.container = {
@@ -31,7 +36,7 @@ in {
         config = {
           image = "docker.elastic.co/elasticsearch/elasticsearch:${version}";
 
-          ports = ["elasticsearch"];
+          ports = [ "elasticsearch" ];
         };
         env = {
           "bootstrap.memory_lock" = "true";

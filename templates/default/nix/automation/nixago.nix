@@ -1,9 +1,8 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) std;
-in {
+in
+{
   mdbook = std.presets.nixago.mdbook {
     data = {
       book.title = "Std Template";
@@ -12,9 +11,7 @@ in {
 
   treefmt = std.presets.nixago.treefmt {
     data.formatter.nix = {
-      excludes = [
-        "generated.nix"
-      ];
+      excludes = [ "generated.nix" ];
     };
     data.formatter.prettier = {
       excludes = [

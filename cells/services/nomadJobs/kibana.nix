@@ -1,11 +1,15 @@
 {
-  datacenters ? ["dc1"],
+  datacenters ? [ "dc1" ],
   type ? "service",
-  driver ? ["podman" "docker"],
+  driver ? [
+    "podman"
+    "docker"
+  ],
   namespace ? "default",
   version ? "7.17.1",
   task ? "prod",
-}: let
+}:
+let
   resources = {
     memory = 1024;
     cpu = 3000;
@@ -20,7 +24,8 @@
     name = "kibana";
     port = 5601;
   };
-in {
+in
+{
   job.kibana = {
     inherit datacenters type namespace;
 
@@ -34,7 +39,7 @@ in {
 
         config = {
           image = "docker.elastic.co/kibana/kibana:${version}";
-          ports = ["kibana"];
+          ports = [ "kibana" ];
         };
 
         env = {

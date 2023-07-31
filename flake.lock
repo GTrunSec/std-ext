@@ -5,8 +5,7 @@
         "flake-compat": "flake-compat",
         "nixlib": "nixlib",
         "nixpkgs": [
-          "flops",
-          "blank"
+          "flops"
         ]
       },
       "locked": {
@@ -24,21 +23,6 @@
       }
     },
     "blank": {
-      "locked": {
-        "lastModified": 1625557891,
-        "narHash": "sha256-O8/MWsPBGhhyPoPLHZAuoZiiHo9q6FLlEeIDEXuj6T4=",
-        "owner": "divnix",
-        "repo": "blank",
-        "rev": "5a5d2684073d9f563072ed07c871d577a6c614a8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "divnix",
-        "repo": "blank",
-        "type": "github"
-      }
-    },
-    "blank_2": {
       "locked": {
         "lastModified": 1625557891,
         "narHash": "sha256-O8/MWsPBGhhyPoPLHZAuoZiiHo9q6FLlEeIDEXuj6T4=",
@@ -322,23 +306,21 @@
     "flops": {
       "inputs": {
         "POP": "POP",
-        "blank": "blank",
         "call-flake": "call-flake",
         "dmerge": "dmerge",
         "haumea": "haumea",
         "namaka": [
-          "flops",
-          "blank"
+          "flops"
         ],
         "nixlib": "nixlib_3",
         "yants": "yants_2"
       },
       "locked": {
-        "lastModified": 1690061433,
-        "narHash": "sha256-FEIHjdwZWSn0dNXYoK5vKMdbAaRIpfNjmfPWgft1pMI=",
+        "lastModified": 1690756542,
+        "narHash": "sha256-eccIaIvZURGVK9RfENKfK5pXH9OD3D3L2O3cEJzyCFI=",
         "owner": "gtrunsec",
         "repo": "flops",
-        "rev": "7f4029a9b436bd1fedbf16057364aa6d113e1155",
+        "rev": "c734ae844ea28bd951bcb78c1d8a62c764db0946",
         "type": "github"
       },
       "original": {
@@ -799,7 +781,7 @@
           "std",
           "blank"
         ],
-        "blank": "blank_2",
+        "blank": "blank",
         "devshell": [
           "devshell"
         ],

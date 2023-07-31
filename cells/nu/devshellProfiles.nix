@@ -1,21 +1,16 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
+in
+{
   toolchain = {
     commands = [
       {
         package = cell.packages.tuc;
         help = "When cut doesn't cut it: https://github.com/riquito/tuc";
       }
-      {
-        package = cell.packages.zed;
-      }
-      {
-        package = nixpkgs.jq;
-      }
+      { package = cell.packages.zed; }
+      { package = nixpkgs.jq; }
       {
         package = cell.entrypoints.polars;
         help = "A wrapped CLI for the polars commands";

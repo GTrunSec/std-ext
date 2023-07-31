@@ -1,6 +1,1 @@
-{
-  inputs,
-  cell,
-}: {
-  cloud-init = {};
-}
+{ inputs, cell }: { cloud-init = { }; }

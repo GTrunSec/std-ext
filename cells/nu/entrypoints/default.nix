@@ -1,16 +1,15 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   l = inputs.nixpkgs.lib // builtins;
   inherit (cell) packages;
   inherit (inputs.cells.writers.lib) writeShellApplication;
-in {
+in
+{
   # inherit (inputs.cells.utils.entrypoints) polars;
   # inherit (inputs.cells.julia.entrypoints) cli;
   nu = writeShellApplication {
     name = "nu";
-    runtimeInputs = [packages.nushell];
+    runtimeInputs = [ packages.nushell ];
     text = ''
       nu -c 'register ${l.getExe packages.nu-plugin-regex}' && \
       nu -c 'register ${l.getExe packages.nu-plugin-from-parquet}'

@@ -1,8 +1,7 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs.cells.writers.lib) writeConfig;
-in {
+in
+{
   test = writeConfig "test-flow.toml" cell.cargoMakeJobs.default;
 }

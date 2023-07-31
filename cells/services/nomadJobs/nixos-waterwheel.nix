@@ -1,14 +1,16 @@
 {
   flake ? "",
-  datacenters ? ["dc1"],
+  datacenters ? [ "dc1" ],
   type ? "batch",
   namespace ? "default",
-}: let
+}:
+let
   resources = {
     memory = 1100;
     cpu = 3000;
   };
-in {
+in
+{
   job.waterwheel = {
     inherit datacenters type namespace;
     group.nixos = {

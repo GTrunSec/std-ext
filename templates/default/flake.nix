@@ -5,28 +5,34 @@
 
     std.follows = "std-ext/std";
   };
-  outputs = {std, ...} @ inputs:
-    std.growOn {
-      inherit inputs;
-      cellsFrom = ./nix;
+  outputs =
+    { std, ... }@inputs:
+    std.growOn
+      {
+        inherit inputs;
+        cellsFrom = ./nix;
 
-      cellBlocks = [
-        (std.blockTypes.installables "packages")
+        cellBlocks = [
+          (std.blockTypes.installables "packages")
 
-        (std.blockTypes.functions "devshellProfiles")
-        (std.blockTypes.devshells "devshells")
+          (std.blockTypes.functions "devshellProfiles")
+          (std.blockTypes.devshells "devshells")
 
-        (std.blockTypes.runnables "entrypoints")
+          (std.blockTypes.runnables "entrypoints")
 
-        (std.blockTypes.functions "lib")
+          (std.blockTypes.functions "lib")
 
-        (std.blockTypes.functions "packages")
+          (std.blockTypes.functions "packages")
 
-        (std.blockTypes.functions "overlays")
+          (std.blockTypes.functions "overlays")
 
-        (std.blockTypes.nixago "nixago")
-      ];
-    } {
-      devShells = inputs.std.harvest inputs.self ["main" "devshells"];
-    };
+          (std.blockTypes.nixago "nixago")
+        ];
+      }
+      {
+        devShells = inputs.std.harvest inputs.self [
+          "main"
+          "devshells"
+        ];
+      };
 }

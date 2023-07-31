@@ -1,17 +1,16 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
   inherit (inputs.cells.writers.lib) writeComoniconApplication;
-in {
+in
+{
   mycmd = writeComoniconApplication {
     name = "mycmd";
     runtimeEnv = {
       b = "1";
     };
-    runtimeInputs = [];
+    runtimeInputs = [ ];
     path = ./mycmd;
-    args = ["mycmd.jl"];
+    args = [ "mycmd.jl" ];
   };
 }

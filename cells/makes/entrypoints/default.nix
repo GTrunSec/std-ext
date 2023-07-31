@@ -1,15 +1,14 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
   inherit (cell.lib) makeSopsScript makeScript __output__;
-in {
+in
+{
   secrets-for-gpg-from-env = makeSopsScript {
     name = "name";
     env = __output__.secretsForEnvFromSops.example;
     entrypoint = "echo $OPENCTI_ADMIN_EMAIL";
-    searchPaths.bin = [];
+    searchPaths.bin = [ ];
   };
   scriptEnv = makeScript {
     name = "scriptEnv";
@@ -18,8 +17,8 @@ in {
       b = "2";
       VAR_NAME = "test";
     };
-    searchPaths.bin = [nixpkgs.hello];
-    searchPaths.source = [];
+    searchPaths.bin = [ nixpkgs.hello ];
+    searchPaths.source = [ ];
     entrypoint = "hello --help echo $a";
   };
 }

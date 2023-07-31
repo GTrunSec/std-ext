@@ -114,11 +114,13 @@ let
   };
 
   l = builtins;
-in {
+in
+{
   default.data.labels =
-    []
+    [ ]
     ++ (l.attrValues labels.statuses)
     ++ (l.attrValues labels.types)
     ++ (l.attrValues labels.priorities)
-    ++ (l.attrValues labels.effort);
+    ++ (l.attrValues labels.effort)
+  ;
 }

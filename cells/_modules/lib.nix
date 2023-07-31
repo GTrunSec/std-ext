@@ -1,11 +1,10 @@
-{
-  inputs,
-  cell,
-}: let
-  nixpkgs = inputs.nixpkgs.appendOverlays [];
+{ inputs, cell }:
+let
+  nixpkgs = inputs.nixpkgs.appendOverlays [ ];
   inherit (inputs.cells.writers.lib) writeShellApplication;
   eval = (import ./modules) nixpkgs;
-in {
+in
+{
   # configuration = templates:
   #   (eval {
   #     configuration = {inherit templates;};

@@ -1,19 +1,18 @@
+{ __nixpkgs__, makeTemplate }:
 {
-  __nixpkgs__,
-  makeTemplate,
-}: {
   name ? "makeSubstitution",
   env,
   source,
-}: let
+}:
+let
   template = makeTemplate {
     inherit name;
     replace = env;
     template = source;
   };
 in
-  __nixpkgs__.writeTextFile {
-    inherit name;
-    executable = false;
-    text = builtins.readFile "${template}/template";
-  }
+__nixpkgs__.writeTextFile {
+  inherit name;
+  executable = false;
+  text = builtins.readFile "${template}/template";
+}

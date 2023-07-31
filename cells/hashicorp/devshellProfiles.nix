@@ -1,17 +1,14 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
   inherit (cell) packages;
-in {
+in
+{
   default = {
-    env = [
-      {
-        name = "VAULT_ADDR";
-        value = "http://127.0.0.1:8200";
-      }
-    ];
+    env = [ {
+      name = "VAULT_ADDR";
+      value = "http://127.0.0.1:8200";
+    } ];
     commands = [
       {
         package = packages.nomad;
@@ -34,14 +31,17 @@ in {
         category = "hashicorp";
       }
       {
-        package = packages.terraform // {name = "terraform";};
+        package = packages.terraform // {
+          name = "terraform";
+        };
         category = "hashicorp";
         help = "Terraform is an open-source infrastructure as code software tool that provides a consistent CLI workflow to manage hundreds of cloud services.";
       }
     ];
-    packages = [
-      # hashicorp.libvirtd required
-      nixpkgs.cdrkit
-    ];
+    packages =
+      [
+        # hashicorp.libvirtd required
+        nixpkgs.cdrkit
+      ];
   };
 }

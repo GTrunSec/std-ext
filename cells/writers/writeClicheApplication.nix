@@ -1,50 +1,47 @@
+{ inputs, cell }:
 {
-  inputs,
-  cell,
-}: {
   name,
   path,
-  env ? {},
-  runtimeInputs ? [],
-  libraries ? (_: []),
+  env ? { },
+  runtimeInputs ? [ ],
+  libraries ? (_: [ ]),
   checkPhase ? null,
   nixpkgs ? inputs.nixpkgs,
-  passthru ? {},
-}: let
+  passthru ? { },
+}:
+let
   l = nixpkgs.lib // builtins;
-  cliche = (nixpkgs.extend inputs.cells.common.lib.__inputs__.nixpkgs-hardenedlinux.overlays.python).python3Packages.cliche;
-  python = nixpkgs.python3.withPackages (
-    ps:
-      [
-        cliche
-      ]
-      ++ (libraries ps)
-  );
+  cliche =
+    (nixpkgs.extend
+      inputs.cells.common.lib.__inputs__.nixpkgs-hardenedlinux.overlays.python
+    ).python3Packages.cliche;
+  python = nixpkgs.python3.withPackages (ps: [ cliche ] ++ (libraries ps));
 in
-  nixpkgs.stdenvNoCC.mkDerivation {
-    inherit name;
-    buildInputs = runtimeInputs ++ [python];
-    src = path;
-    installPhase = ''
-      runHook preInstall
+nixpkgs.stdenvNoCC.mkDerivation {
+  inherit name;
+  buildInputs = runtimeInputs ++ [ python ];
+  src = path;
+  installPhase = ''
+    runHook preInstall
 
-      mkdir -p $out/bin
-      cliche install --module_dir ${path} $out/bin/${name}
-      sed -i 's|#! /nix/store/.*.|#! ${l.getExe python}|' $out/bin/${name}
-      sed -i 's|{{runtimeInputs}}|${l.makeBinPath runtimeInputs}|' $out/bin/${name}
-      sed -i "14 i time.sleep(os.environ.get('DEBUG_SLEEP', 0))\n\
-      ${
-        builtins.concatStringsSep "\n" (
-          l.attrsets.mapAttrsToList (n: v: "os.environ['${n}'] = os.environ.get('${n}', '${v}')")
+    mkdir -p $out/bin
+    cliche install --module_dir ${path} $out/bin/${name}
+    sed -i 's|#! /nix/store/.*.|#! ${l.getExe python}|' $out/bin/${name}
+    sed -i 's|{{runtimeInputs}}|${l.makeBinPath runtimeInputs}|' $out/bin/${name}
+    sed -i "14 i time.sleep(os.environ.get('DEBUG_SLEEP', 0))\n\
+    ${
+      builtins.concatStringsSep "\n" (
+        l.attrsets.mapAttrsToList
+          (n: v: "os.environ['${n}'] = os.environ.get('${n}', '${v}')")
           env
-        )
-      }" $out/bin/${name}
+      )
+    }" $out/bin/${name}
 
-      runHook postInstall
-    '';
-    checkPhase =
-      if checkPhase == null
-      then ''
+    runHook postInstall
+  '';
+  checkPhase =
+    if checkPhase == null then
+      ''
         runHook preCheck
         for path in $(find "${path}" -name '*.py')
         do
@@ -54,7 +51,11 @@ in
         $out/bin/${name} --help
         runHook postCheck
       ''
-      else checkPhase;
-    passthru = passthru // {inherit python;};
-    meta.mainProgram = name;
-  }
+    else
+      checkPhase
+  ;
+  passthru = passthru // {
+    inherit python;
+  };
+  meta.mainProgram = name;
+}

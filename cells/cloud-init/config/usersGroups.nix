@@ -1,9 +1,10 @@
+{ inputs, cell }:
 {
-  inputs,
-  cell,
-}: {
   groups = {
-    admingroup = ["root" "root"];
-    cloud-users = [];
+    admingroup = [
+      "root"
+      "root"
+    ];
+    cloud-users = [ ];
   };
 }
