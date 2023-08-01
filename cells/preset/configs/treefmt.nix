@@ -57,6 +57,14 @@ with dmerge; {
     };
   };
   rust = {
+    data.formatter.rust = {
+      command = "rustfmt";
+      includes = [ "*.rs" ];
+      options = [
+        "--edition"
+        "2021"
+      ];
+    };
     data.formatter.prettier = {
       includes = prepend [ ".rustfmt.toml" ];
     };
