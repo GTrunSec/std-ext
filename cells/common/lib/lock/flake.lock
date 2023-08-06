@@ -1392,11 +1392,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1688933605,
-        "narHash": "sha256-eux5CjKmO+6GFoovtckoVo0es1FZ2mzupehDyHuCaCk=",
+        "lastModified": 1691066861,
+        "narHash": "sha256-CyPiw/ehAW7Dz2REaHrKSOf90XCiUMmWzVzMYw6wbGM=",
         "owner": "astro",
         "repo": "microvm.nix",
-        "rev": "018691bf86a70b7e5d24eb37d6aad05ce1c1b12e",
+        "rev": "3e0a8e2485b87477d02e4fd8a47596b610829776",
         "type": "github"
       },
       "original": {
@@ -3430,11 +3430,11 @@
         "rust-overlay": "rust-overlay_5"
       },
       "locked": {
-        "lastModified": 1690536118,
-        "narHash": "sha256-Hzk9FKf0YkEPbaLGxqrNxaBeSHvJb4c6V3q7hX8wOss=",
+        "lastModified": 1690785895,
+        "narHash": "sha256-xigE+pgdUXyz3x6TMUMnJqEUtnl73HMLC6qC4Aff5XM=",
         "owner": "tweag",
         "repo": "topiary",
-        "rev": "a483aa6a0b812860ffce239ed71a5b4c92579288",
+        "rev": "e30432a29b6d3bb606cbb09b022a5ad0598810dc",
         "type": "github"
       },
       "original": {
