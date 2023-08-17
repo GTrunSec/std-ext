@@ -803,11 +803,11 @@
         "yants": "yants_2"
       },
       "locked": {
-        "lastModified": 1692106841,
-        "narHash": "sha256-oqckUKYnTIvfSQVTiV/fBHUNp1wtgcJMPSs0BArl42w=",
+        "lastModified": 1692277768,
+        "narHash": "sha256-Y7zxhNuAXF8bjHh57vxirx7jZlKC50xgQcDwDzukA3A=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "9827bd9b8141333086c4a402be3b0643f06b5292",
+        "rev": "f6e09ec263882498891690adb070db6fb7926c21",
         "type": "github"
       },
       "original": {
