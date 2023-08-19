@@ -17,10 +17,10 @@ in
 {
   treefmt =
     let
-      preset = inputs.cells.preset.configs.treefmt;
+      presets = inputs.cells.presets.configs.treefmt;
     in
-    (inputs.cells.preset.nixago.treefmt preset.julia
+    (inputs.cells.presets.nixago.treefmt presets.julia
       # preset.rust
-      preset.nvfetcher
+      presets.nvfetcher
     );
 }

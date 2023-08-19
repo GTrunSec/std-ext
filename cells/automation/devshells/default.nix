@@ -16,7 +16,7 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
       ] ++ [ inputs.cells.hashicorp.devshellProfiles.default ];
       nixago = [
         cell.configs.treefmt
-        inputs.cells.preset.nixago.conform
+        inputs.cells.presets.nixago.conform
       ];
     };
 
