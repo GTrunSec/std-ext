@@ -89,11 +89,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1688380630,
-        "narHash": "sha256-8ilApWVb1mAi4439zS3iFeIT0ODlbrifm/fegWwgHjA=",
+        "lastModified": 1692793255,
+        "narHash": "sha256-yVyj0AE280JkccDHuG1XO9oGxN6bW8ksr/xttXcXzK0=",
         "owner": "numtide",
         "repo": "devshell",
-        "rev": "f9238ec3d75cefbb2b42a44948c4e8fb1ae9a205",
+        "rev": "2aa26972b951bc05c3632d4e5ae683cb6771a7c6",
         "type": "github"
       },
       "original": {
@@ -319,11 +319,11 @@
         "yants": "yants"
       },
       "locked": {
-        "lastModified": 1693026975,
-        "narHash": "sha256-Pg4Z2IUWkn3rOJgOOe/eLxx/YoUWEZqQC1jNEhBmCqQ=",
+        "lastModified": 1693044856,
+        "narHash": "sha256-hb1rnTQ59YQfcAGooCHfO8Aj+q38FsaywFCQDNpuMMc=",
         "owner": "gtrunsec",
         "repo": "flops",
-        "rev": "34bce0d0d9b11af0d538c75a0b26279e1fa0c6bd",
+        "rev": "64575b00a6b40080bf8f64fdb34eb18aad79224e",
         "type": "github"
       },
       "original": {

@@ -15,7 +15,7 @@ in
           # nixpkgs = callInputs.sysInputs.nixpkgs;
         }
       )
-    )).outputsForInputs;
+    )).outputs;
 
   mergeDevShell = import ./mergeDevShell.nix nixpkgs;
 }
