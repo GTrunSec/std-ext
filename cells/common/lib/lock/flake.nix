@@ -1,8 +1,7 @@
 {
   # nix linters
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/d0f2758381caca8b4fb4a6cac61721cc9de06bd9";
-    nixpkgs-release.url = "github:nixos/nixpkgs/release-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/9b2aa98db6b10503666a50f4eb93b2fc0d57bde5";
 
     std.url = "github:divnix/std";
     std.inputs.n2c.follows = "n2c";
