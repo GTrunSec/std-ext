@@ -85,10 +85,7 @@ with dmerge; {
   topiary = {
     data.formatter.topiary = {
       command = "topiary";
-      options = [
-        "--in-place"
-        "--input-files"
-      ];
+      options = [ "fmt" ];
       includes = [ "*.ncl" ];
     };
     packages = [ topiary.packages.default ];
