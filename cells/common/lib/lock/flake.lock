@@ -3349,11 +3349,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1689642713,
-        "narHash": "sha256-14u+VM6S0JV8hJ7u7DT3jngIsLGZs4aYVMPpfnJ2Zrw=",
+        "lastModified": 1694651895,
+        "narHash": "sha256-/AhCDo8IBY+WRNH6rE8f1rZ+gBlsJU+CuomxUVdz9mQ=",
         "owner": "numtide",
         "repo": "nixpkgs-terraform-providers-bin",
-        "rev": "73985710875ea7ac2c0a0188c30ce45c65ff5036",
+        "rev": "1b0c2efc5b2f10bfb56fc946b7edec1bf22d808e",
         "type": "github"
       },
       "original": {
