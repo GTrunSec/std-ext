@@ -23,7 +23,7 @@ in
 
   lefthook = (mkNixago cfg.lefthook) cell.configs.lefthook.default;
 
-  conform = mkNixago cfg.conform cell.configs.conform.default;
+  conform = (mkNixago cfg.conform) cell.configs.conform.default;
 
   editorconfig = mkNixago cfg.editorconfig (
     cell.configs.editorconfig.default // { hook.mode = "copy"; }
